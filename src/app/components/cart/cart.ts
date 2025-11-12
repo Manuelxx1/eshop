@@ -7,12 +7,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
-export class CartList {
-  items = this.cartService.getItems();
-  total = this.cartService.getTotal();
+export class CartList implements OnInit{
+  items: any[] = [];
+  total: number = 0;
 
   constructor(private cartService: Cart) {}
 
+  ngOnInit() {
+    this.items = this.cartService.getItems();
+    this.total = this.cartService.getTotal();
+}
   clearCart() {
     this.items = this.cartService.clearCart();
     this.total = 0;
