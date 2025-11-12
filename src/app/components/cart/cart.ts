@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Cart } from '../../services/cart';
 import { CommonModule } from '@angular/common';
 @Component({
