@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../services/product';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-product-list',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
