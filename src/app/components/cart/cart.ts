@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
-export class Cart {
+export class CartList {
   items = this.cartService.getItems();
   total = this.cartService.getTotal();
 
