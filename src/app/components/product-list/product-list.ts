@@ -8,9 +8,9 @@ import { Product } from '../../services/product';
   styleUrl: './product-list.css',
 })
 export class ProductList implements OnInit {
-  products: Product[] = [];
+  products: any[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: Product) {}
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(data => {
