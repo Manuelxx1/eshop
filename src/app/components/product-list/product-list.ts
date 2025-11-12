@@ -11,17 +11,27 @@ import { Cart} from '../../services/cart';
 })
 export class ProductList implements OnInit {
   products: any[] = [];
+  loading = true;
+  error = false;
 
   constructor(private productService: Product, private cartService: Cart) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;
-    });
+    this.productService.getProducts().subscribe({
+      next: data => {
+        this.products = data;
+        this.loading = false;
+      },
+      error: err => {
+        console.error('Error al cargar productos', err);
+        this.error = true;
+        this.loading = false;
       }
-
-  addToCart(product: any) {
-  this.cartService.addToCart(product);
+    });
   }
 
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+  }
 }
+
