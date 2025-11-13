@@ -7,13 +7,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Product {
-  private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/products';
+  private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/products/search';
 
   constructor(private http: HttpClient) {}
 
   // Método para buscar productos por término
   searchProducts(term: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?search=${term}`);
-  }
+  return this.http.get<any[]>(`${this.apiUrl}?name=${term}`);
+}
+
 
 }
