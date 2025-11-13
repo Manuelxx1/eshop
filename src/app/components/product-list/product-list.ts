@@ -21,17 +21,24 @@ export class ProductList implements OnInit {
   constructor(private productService: Product, private cartService: Cart) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe({
-      next: data => {
-        this.products = data;
-        this.loading = false;
-      },
-      error: err => {
-        console.error('Error al cargar productos', err);
-        this.error = true;
-        this.loading = false;
-      }
-    });
+    this.searchControl.valueChanges.subscribe(term => {
+    const query = term?.trim();
+    if (query && query.length >= 2) {
+      this.productService.searchProducts(query).subscribe({
+        next: data => {
+          this.products = data;
+          this.error = false;
+        },
+        error: err => {
+          console.error('Error al buscar productos', err);
+          this.products = [];
+          this.error = true;
+        }
+      });
+    } else {
+      this.products = []; // Limpiar si el término es vacío o muy corto
+    }
+  });
   }
 
   addToCart(product: any) {
@@ -40,14 +47,7 @@ export class ProductList implements OnInit {
 //recibir datos del formulario buscador
   searchControl = new FormControl('');
 
-  //método para filtrar resultados 
-  get filteredProducts() {
-  const term = this.searchControl.value?.toLowerCase() || '';
-  return this.products.filter(product =>
-    product.name.toLowerCase().includes(term)
-  );
-}
-
+  
 
 }
 
