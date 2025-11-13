@@ -12,10 +12,11 @@ export class Cart {
     }
   }
 
-  addToCart(product: any) {
-    this.items.push(product);
-    this.saveCart()
-  }
+  addToCart(product: any): void {
+  this.items.push(product);
+  this.saveCart();
+}
+
 
   getItems() {
     return this.items;
@@ -31,9 +32,10 @@ export class Cart {
     
   }
 
-  private saveCart() {
-    localStorage.setItem('cart', JSON.stringify(this.items));
-  }
+  private saveCart(): void {
+  localStorage.setItem('cart', JSON.stringify(this.items));
+}
+
 
   getTotal() {
     return this.items.reduce((sum, item) => sum + item.price, 0);
