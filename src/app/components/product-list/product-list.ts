@@ -54,6 +54,12 @@ export class ProductList implements OnInit {
   this.cartService.addToCart(product);
 }
 
+//compra directa sin carrito 
+  buyNow(product: any): void {
+  localStorage.setItem('selectedProduct', JSON.stringify(product));
+  // Redirigir a la página de pago
+  window.location.href = '/checkout'; // o usá Router si tenés rutas configuradas
+}
 
 }
 
