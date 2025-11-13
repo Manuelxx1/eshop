@@ -25,4 +25,12 @@ total: number = 0;
     this.total = this.selectedProduct.price;
   }
 
+    finalizePurchase(): void {
+  console.log('Comprando producto:', this.selectedProduct);
+  // Acá iría la lógica para enviar el pedido
+  alert('¡Compra realizada con éxito!');
+  localStorage.removeItem('selectedProduct');
+}
+
+
 }
