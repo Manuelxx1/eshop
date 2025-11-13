@@ -4,8 +4,11 @@ import { CommonModule } from '@angular/common';
 
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
+import { Router } from '@angular/router';
 
 import { Cart} from '../../services/cart';
+
+
 @Component({
   selector: 'app-product-list',
   standalone: true,
@@ -21,7 +24,7 @@ export class ProductList implements OnInit {
   loading = true;
   error = false;
 
-  constructor(private productService: Product, private cartService: Cart) {}
+  constructor(private productService: Product, private cartService: Cart,private router: Router ) {}
 
   
     ngOnInit(): void {
@@ -58,6 +61,7 @@ export class ProductList implements OnInit {
   buyNow(product: any): void {
   localStorage.setItem('selectedProduct', JSON.stringify(product));
   // Redirigir a la página de pago
+    //this.router.navigate(['/checkout'])
   window.location.href = '/checkout'; // o usá Router si tenés rutas configuradas
 }
 
