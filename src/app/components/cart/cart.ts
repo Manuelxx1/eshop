@@ -18,8 +18,10 @@ export class CartList implements OnInit{
   console.log('Carrito cargado:', items);
 }
   clearCart() {
-    this.items = this.cartService.clearCart();
-    this.total = 0;
-  }
+  this.cartService.clearCart();
+  this.items = [];
+  this.total = 0;
+}
+
 
 }
