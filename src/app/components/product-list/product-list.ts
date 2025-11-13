@@ -61,8 +61,8 @@ export class ProductList implements OnInit {
   buyNow(product: any): void {
   localStorage.setItem('selectedProduct', JSON.stringify(product));
   // Redirigir a la página de pago
-    //this.router.navigate(['/checkout'])
-  window.location.href = '/checkout'; // o usá Router si tenés rutas configuradas
+    this.router.navigate(['/checkout']);
+  //window.location.href = '/checkout'; // o usá Router si tenés rutas configuradas
 }
 
 }
