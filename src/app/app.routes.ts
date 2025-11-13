@@ -4,4 +4,5 @@ import { CartList} from './components/cart/cart';
 import { Checkout} from './components/checkout/checkout';
 export const routes: Routes = [{ path: '', component: ProductList},
   { path: 'cart', component: CartList},
-{ path: 'checkout', component: Checkout}];
+{ path: 'checkout', component: Checkout }
+];
