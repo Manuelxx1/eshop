@@ -54,5 +54,29 @@ export class Cart {
   private saveCart(): void {
     localStorage.setItem('cart', JSON.stringify(this.items));
   }
+
+
+  //agregar cantidad 
+ // desde el component del carrito directo
+  increaseQuantity(productId: number): void {
+  const item = this.items.find(i => i.product.id === productId);
+  if (item) {
+    item.quantity += 1;
+    this.saveCart();
+  }
+}
+
+  //quitar cantidad 
+ // desde el component del carrito directo
+decreaseQuantity(productId: number): void {
+  const item = this.items.find(i => i.product.id === productId);
+  if (item && item.quantity > 1) {
+    item.quantity -= 1;
+    this.saveCart();
+  } else if (item) {
+    this.removeFromCart(productId); // elimina si llega a 0
+  }
+}
+
   
 }
