@@ -25,6 +25,19 @@ export class CartList implements OnInit{
   this.items = [];
   this.total = 0;
 }
+//métodos para agregar o quitar items 
+  //directamente desde el carrito
+  increase(productId: number) {
+  this.cartService.increaseQuantity(productId);
+  this.items = this.cartService.getItems();
+  this.total = this.cartService.getTotal();
+}
+
+decrease(productId: number) {
+  this.cartService.decreaseQuantity(productId);
+  this.items = this.cartService.getItems();
+  this.total = this.cartService.getTotal();
+}
 
 
 }
