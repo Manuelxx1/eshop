@@ -31,7 +31,7 @@ export class Cart {
     
   }
 
-  private saveCart(): void {
+  private saveCart() {
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
