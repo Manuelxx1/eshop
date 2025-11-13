@@ -32,7 +32,7 @@ export class Cart {
   }
 
   private saveCart() {
-    localStorage.setItem('cart', JSON.stringify(this.cart));
+    localStorage.setItem('cart', JSON.stringify(this.items));
   }
 
   getTotal() {
