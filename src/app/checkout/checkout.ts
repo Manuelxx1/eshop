@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-checkout',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './checkout.html',
   styleUrl: './checkout.css',
@@ -13,12 +14,6 @@ import { CommonModule } from '@angular/common';
 
   
 export class Checkout implements OnInit {
-
-
-  selectedProduct: any;
-total: number = 0;
-  
-  
   selectedProduct: any;
   total: number = 0;
 
@@ -34,5 +29,5 @@ total: number = 0;
     alert('¡Compra realizada con éxito!');
     localStorage.removeItem('selectedProduct');
   }
-
 }
+
