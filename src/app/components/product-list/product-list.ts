@@ -20,26 +20,27 @@ export class ProductList implements OnInit {
 
   constructor(private productService: Product, private cartService: Cart) {}
 
-  ngOnInit(): void {
-    this.searchControl.valueChanges.subscribe(term => {
+  
+    ngOnInit(): void {
+  this.searchControl.valueChanges.subscribe(term => {
     const query = term?.trim();
     if (query && query.length >= 2) {
       this.productService.searchProducts(query).subscribe({
         next: data => {
           this.products = data;
-          this.error = false;
         },
         error: err => {
           console.error('Error al buscar productos', err);
           this.products = [];
-          this.error = true;
         }
       });
     } else {
-      this.products = []; // Limpiar si el término es vacío o muy corto
+      this.products = [];
     }
   });
-  }
+}
+
+  
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
