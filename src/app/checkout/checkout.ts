@@ -10,10 +10,14 @@ import { Component } from '@angular/core';
 })
 
 
-  selectedProduct: any;
-total: number = 0;
+  
 export class Checkout implements OnInit {
 
+
+  selectedProduct: any;
+total: number = 0;
+  
+  
   ngOnInit(): void {
   const stored = localStorage.getItem('selectedProduct');
   if (stored) {
