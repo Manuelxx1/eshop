@@ -12,7 +12,7 @@
 <div *ngIf="error">Ocurrió un error al cargar los productos.</div>
 
 <ul *ngIf="!loading && !error">
-  <li *ngFor="let product of filteredProducts">
+  <li *ngFor="let product of products">
     {{ product.name }} - {{ product.price }}
     <button (click)="addToCart(product)">Agregar al carrito</button>
   </li>
