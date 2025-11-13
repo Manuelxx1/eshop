@@ -1,6 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import { Cart } from '../../services/cart';
 import { CommonModule } from '@angular/common';
+import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
+
+
 @Component({
   selector: 'app-cart',
   imports: [CommonModule],
@@ -8,7 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './cart.css',
 })
 export class CartList implements OnInit{
-  items: any[] = [];
+  items: CartItem[] = [];
+
   total: number = 0;
 
   constructor(private cartService: Cart) {}
