@@ -49,9 +49,11 @@ export class ProductList implements OnInit {
     });
   }
 
-  addToCart(product: any) {
+  addToCart(product: any): void {
+  console.log('Agregando al carrito:', product);
   this.cartService.addToCart(product);
 }
+
 
 }
 
