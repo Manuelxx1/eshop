@@ -14,7 +14,7 @@ export class CartList implements OnInit{
   constructor(private cartService: Cart) {}
 
   ngOnInit() {
-    const items = this.cartService.getCart();
+    const items = this.cartService.getItems();
   console.log('Carrito cargado:', items);
 }
   clearCart() {
