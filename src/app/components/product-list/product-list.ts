@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../services/product';
 import { CommonModule } from '@angular/common';
+
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+
+
 import { Cart} from '../../services/cart';
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
@@ -33,5 +37,17 @@ export class ProductList implements OnInit {
   addToCart(product: any) {
     this.cartService.addToCart(product);
   }
+//recibir datos del formulario buscador
+  searchControl = new FormControl('');
+
+  //método para filtrar resultados 
+  get filteredProducts() {
+  const term = this.searchControl.value?.toLowerCase() || '';
+  return this.products.filter(product =>
+    product.name.toLowerCase().includes(term)
+  );
+}
+
+
 }
 
