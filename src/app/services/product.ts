@@ -11,8 +11,9 @@ export class Product {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<any[]> {
-  return this.http.get<any[]>(this.apiUrl);
-}
+  // Método para buscar productos por término
+  searchProducts(term: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}?search=${term}`);
+  }
 
 }
