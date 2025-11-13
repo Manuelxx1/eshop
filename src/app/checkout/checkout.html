@@ -1,1 +1,5 @@
-<p>checkout works!</p>
+<h2>Compra directa</h2>
+<p>{{ selectedProduct.name }} - ${{ selectedProduct.price }}</p>
+<p>Total: ${{ total }}</p>
+<button (click)="finalizePurchase()">Finalizar compra</button>
+
