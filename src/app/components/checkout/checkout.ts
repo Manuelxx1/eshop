@@ -26,7 +26,12 @@ export class Checkout implements OnInit {
   }
 
   finalizePurchase(): void {
-    alert('¡Compra realizada con éxito!');
-    localStorage.removeItem('selectedProduct');
+    this.http.post('https://portfoliowebbackendkoyeb-1.onrender.com/api/payments/create', this.selectedProduct, { responseType: 'text' })
+    .subscribe({
+      next: (url: string) => {
+        window.location.href = url; // redirige al sandbox de MercadoPago
+      },
+      error: err => console.error('Error al crear pago', err)
+    });
   }
 }
