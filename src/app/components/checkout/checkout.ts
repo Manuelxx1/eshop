@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -24,6 +24,7 @@ export class Checkout implements OnInit {
       this.total = this.selectedProduct.price;
     }
   }
+  constructor(private http: HttpClient) {}
 
   finalizePurchase(): void {
     this.http.post('https://portfoliowebbackendkoyeb-1.onrender.com/api/payments/create', this.selectedProduct, { responseType: 'text' })
