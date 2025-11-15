@@ -88,8 +88,9 @@ this.productService.comprar(product).subscribe(orderId => {
   // Redirigir a la página de pago
     this.router.navigate(['/comprar']);
   //window.location.href = '/checkout'; // o usá Router si tenés rutas configuradas
-}
+});
 
+}
 }
 
 
