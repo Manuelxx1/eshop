@@ -24,8 +24,9 @@ private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/paym
 
   // Método para crear la preferencia y devolver el orderId
   comprar(product: any): Observable<string> {
-    return this.http.post<string>(`${this.apiUrlOrders}/create`, product);
-  }
+  return this.http.post<string>('https://portfoliowebbackendkoyeb-1.onrender.com/api/payments/create', product);
+}
+
 
   //para consultar el estado del pedido orders
   //que se registro en tabla orders
