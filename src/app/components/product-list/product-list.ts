@@ -24,6 +24,8 @@ export class ProductList implements OnInit {
   loading = true;
   error = false;
   order: Order | null = null;
+  
+  lastOrderId: number | null = null; // acá guardamos el ID dinámico
 
   constructor(private productService: Product, private cartService: Cart,private router: Router ) {}
 
@@ -52,10 +54,14 @@ export class ProductList implements OnInit {
       }
     });
 
-    //  consultar el pedido con id=1
-    this.productService.getOrder(1).subscribe(data => {
-      this.order = data;
-    });
+    
+    // Supongamos que ya obtuviste el orderId desde el backend
+  // Si ya tenemos un pedido creado, lo consultamos
+    if (this.lastOrderId) {
+      this.productService.getOrder(this.lastOrderId).subscribe(data => {
+        this.order = data;
+      });
+      }
     
     }
 
@@ -71,7 +77,14 @@ export class ProductList implements OnInit {
 
 //compra directa sin carrito 
   buyNow(product: any): void {
-  localStorage.setItem('selectedProduct', JSON.stringify(product));
+this.productService.comprar(product).subscribe(orderId => {
+      this.lastOrderId = orderId;
+    
+
+    
+    
+    
+    localStorage.setItem('selectedProduct', JSON.stringify(product));
   // Redirigir a la página de pago
     this.router.navigate(['/comprar']);
   //window.location.href = '/checkout'; // o usá Router si tenés rutas configuradas
