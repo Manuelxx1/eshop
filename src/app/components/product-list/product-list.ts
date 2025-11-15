@@ -80,7 +80,7 @@ initPointUrl: string | null = null;
 buyNow(product: any): void {
   alert("Botón comprar clickeado: " + product.name);
 
-  this.paymentService.comprar(product).subscribe(initPoint => {
+  this.productService.comprar(product).subscribe(initPoint => {
     alert("initPoint recibido: " + initPoint); // 👀 popup en Android
     localStorage.setItem('selectedProduct', JSON.stringify(product));
 
