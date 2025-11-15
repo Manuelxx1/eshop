@@ -78,14 +78,17 @@ initPointUrl: string | null = null;
 
 // ✅ Compra directa → redirige al checkout
 buyNow(product: any): void {
-  this.productService.comprar(product).subscribe(initPoint => {
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
-    this.initPointUrl = initPoint;
-    alert("initPoint recibido: " + initPoint);
+  alert("Botón comprar clickeado: " + product.name);
 
-    window.location.href = initPoint; // ahora initPoint es string
+  this.paymentService.comprar(product).subscribe(initPoint => {
+    alert("initPoint recibido: " + initPoint); // 👀 popup en Android
+    localStorage.setItem('selectedProduct', JSON.stringify(product));
+
+    // ✅ redirige al checkout de Mercado Pago
+    window.location.href = initPoint;
   });
-            }
+}
+
 }
 
 
