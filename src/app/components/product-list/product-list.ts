@@ -75,22 +75,13 @@ export class ProductList implements OnInit {
   this.cartService.addToCart(product);
 }
 
-//compra directa sin carrito 
+// ✅ Compra directa → redirige al checkout
   buyNow(product: any): void {
-this.productService.comprar(product).subscribe(orderId => {
-      this.lastOrderId = orderId;
-    
-
-    
-    
-    
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
-  // Redirigir a la página de pago
-    this.router.navigate(['/comprar']);
-  //window.location.href = '/checkout'; // o usá Router si tenés rutas configuradas
-});
-
-}
+    this.productService.comprar(product).subscribe(initPoint => {
+      localStorage.setItem('selectedProduct', JSON.stringify(product));
+      window.location.href = initPoint; // redirige a Mercado Pago
+    });
+        }
 }
 
 
