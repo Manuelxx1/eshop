@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../services/product';
+import { Product,Order} from '../../services/product';
 import { CommonModule } from '@angular/common';
 
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +23,7 @@ export class ProductList implements OnInit {
   products: any[] = [];
   loading = true;
   error = false;
+  order: Order | null = null;
 
   constructor(private productService: Product, private cartService: Cart,private router: Router ) {}
 
@@ -50,7 +51,18 @@ export class ProductList implements OnInit {
         this.products = [];
       }
     });
-  }
+
+    //  consultar el pedido con id=1
+    this.productService.getOrder(1).subscribe(data => {
+      this.order = data;
+    });
+    
+    }
+
+
+  
+
+  
 
   addToCart(product: any): void {
   console.log('Agregando al carrito:', product);
