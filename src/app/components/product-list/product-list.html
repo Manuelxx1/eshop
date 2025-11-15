@@ -15,8 +15,10 @@
   <li *ngFor="let product of products">
     {{ product.name }} - {{ product.price }}
     <button (click)="addToCart(product)">Agregar al carrito</button>
-<button (click)="buyNow(product)">Comprar ahora</button>
+<button (click)="buyNow(product)">Comprar</button>
 
+
+<p *ngIf="initPointUrl">URL recibida: {{ initPointUrl }}</p>
 
   </li>
 </ul>
