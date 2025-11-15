@@ -76,16 +76,17 @@ export class ProductList implements OnInit {
 }
 
 // ✅ Compra directa → redirige al checkout
-  buyNow(product: any): void {
-    this.productService.comprar(product).subscribe(initPoint => {
-      localStorage.setItem('selectedProduct', JSON.stringify(product));
-      window.location.href = initPoint; // redirige a Mercado Pago
-    });
-        }
+buyNow(product: any): void {
+  this.paymentService.comprar(product).subscribe(initPoint => {
+    localStorage.setItem('selectedProduct', JSON.stringify(product));
+    window.location.href = initPoint; // ahora initPoint es string
+  });
+            }
 }
 
 
   
+
 
 
 
