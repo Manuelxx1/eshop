@@ -26,6 +26,7 @@ export class ProductList implements OnInit {
   order: Order | null = null;
   
   lastOrderId: number | null = null; // acá guardamos el ID dinámico
+initPointUrl: string | null = null;
 
   constructor(private productService: Product, private cartService: Cart,private router: Router ) {}
 
@@ -79,6 +80,9 @@ export class ProductList implements OnInit {
 buyNow(product: any): void {
   this.productService.comprar(product).subscribe(initPoint => {
     localStorage.setItem('selectedProduct', JSON.stringify(product));
+    this.initPointUrl = initPoint;
+    alert("initPoint recibido: " + initPoint);
+
     window.location.href = initPoint; // ahora initPoint es string
   });
             }
