@@ -27,7 +27,7 @@ export class ProductList implements OnInit {
   
   lastOrderId: number | null = null; // acá guardamos el ID dinámico
 initPointUrl: string | null = null;
-  errorredir:string;
+  errorredir: string | null = null;
 
   constructor(private productService: Product, private cartService: Cart,private router: Router ) {}
 
