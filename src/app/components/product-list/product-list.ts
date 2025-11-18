@@ -80,15 +80,16 @@ initPointUrl: string | null = null;
 buyNow(product: any): void {
   alert("Botón comprar clickeado: " + product.name);
 
-  this.productService.comprar(product).subscribe(initPoint => {
-    alert("initPoint recibido: " + initPoint); // popup en Android
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
+  this.productService.comprar(product).subscribe({
+  next: initPoint => {
+    alert("initPoint recibido: " + initPoint);
+    window.location.href = initPoint;
+  },
+  error: err => {
+    alert("Error al llamar al backend: " + JSON.stringify(err));
+  }
+});
 
-    // ✅ redirige al checkout de Mercado Pago
-  //window.location.href = initPoint;
-    window.open(initPoint, "_blank");
-
-  });
 }
 
 }
