@@ -27,6 +27,7 @@ export class ProductList implements OnInit {
   
   lastOrderId: number | null = null; // acá guardamos el ID dinámico
 initPointUrl: string | null = null;
+  errorredir:string;
 
   constructor(private productService: Product, private cartService: Cart,private router: Router ) {}
 
@@ -87,6 +88,7 @@ buyNow(product: any): void {
   },
   error: err => {
     alert("Error al llamar al backend: " + JSON.stringify(err));
+    this.errorredir=JSON.stringify(err);
   }
 });
 
