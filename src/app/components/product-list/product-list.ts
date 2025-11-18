@@ -81,11 +81,13 @@ buyNow(product: any): void {
   alert("Botón comprar clickeado: " + product.name);
 
   this.productService.comprar(product).subscribe(initPoint => {
-    alert("initPoint recibido: " + initPoint); // 👀 popup en Android
+    alert("initPoint recibido: " + initPoint); // popup en Android
     localStorage.setItem('selectedProduct', JSON.stringify(product));
 
     // ✅ redirige al checkout de Mercado Pago
-    window.location.href = initPoint;
+  //window.location.href = initPoint;
+    window.open(initPoint, "_blank");
+
   });
 }
 
