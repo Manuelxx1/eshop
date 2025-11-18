@@ -82,17 +82,21 @@ buyNow(product: any): void {
   alert("Botón comprar clickeado: " + product.name);
 
   this.productService.comprar(product).subscribe({
-  next: initPoint => {
-    alert("initPoint recibido: " + initPoint);
-    window.location.href = initPoint;
-  },
-  error: err => {
-    alert("Error al llamar al backend: " + JSON.stringify(err));
-    this.errorredir=JSON.stringify(err);
-  }
-});
+    next: initPoint => {
+      alert("initPoint recibido: " + initPoint);
+      localStorage.setItem('selectedProduct', JSON.stringify(product));
 
+      // ✅ redirige al checkout de Mercado Pago
+      window.location.href = initPoint;
+      // Si en Android no abre, probá con:
+      // window.open(initPoint, "_blank");
+    },
+    error: err => {
+      alert("Error al llamar al backend: " + JSON.stringify(err));
+    }
+  });
 }
+
 
 }
 
