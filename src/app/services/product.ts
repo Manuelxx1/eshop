@@ -42,7 +42,7 @@ private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/paym
   
 
 getOrders(): Observable<Order[]> {
-  return this.http.get<Order[]>(`${apiUrlOrders}/orders`);
+  return this.http.get<Order[]>(`${this.apiUrlOrders}/orders`);
 }
 
 }
