@@ -24,9 +24,9 @@
 </ul>
 
 <!-- Estado del pedido -->
-    <div *ngIf="order">
-      <h3>Pedido #{{ order.id }}</h3>
-      <p>Producto: {{ order.productName }}</p>
-      <p>Monto: {{ order.amount }}</p>
-      <p>Estado: {{ order.status }}</p>
+    <div *ngIf="orders">
+      <h3>Pedido #{{ orders.id }}</h3>
+      <p>Producto: {{ orders.productName }}</p>
+      <p>Monto: {{ orders.amount }}</p>
+      <p>Estado: {{ orders.status }}</p>
     </div>
