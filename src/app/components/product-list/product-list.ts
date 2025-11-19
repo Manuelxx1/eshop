@@ -66,7 +66,7 @@ initPointUrl: string | null = null;
       }
       */
     this.productService.getOrders().subscribe(data => {
-        this.order = data;
+        this.orders = data;
       });
     }
 
