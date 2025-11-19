@@ -93,6 +93,7 @@ buyNow(product: any): void {
     },
     error: err => {
       alert("Error al llamar al backend: " + JSON.stringify(err));
+      this.errorredir=JSON.stringify(err);
     }
   });
 }
