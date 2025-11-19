@@ -23,7 +23,7 @@ export class ProductList implements OnInit {
   products: any[] = [];
   loading = true;
   error = false;
-  order: Order | null = null;
+  orders: Order[] = [];
   
   lastOrderId: number | null = null; // acá guardamos el ID dinámico
 initPointUrl: string | null = null;
