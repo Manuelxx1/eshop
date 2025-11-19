@@ -59,12 +59,15 @@ initPointUrl: string | null = null;
     
     // Supongamos que ya obtuviste el orderId desde el backend
   // Si ya tenemos un pedido creado, lo consultamos
-    if (this.lastOrderId) {
+   /* if (this.lastOrderId) {
       this.productService.getOrder(this.lastOrderId).subscribe(data => {
         this.order = data;
       });
       }
-    
+      */
+    this.productService.getOrder().subscribe(data => {
+        this.order = data;
+      });
     }
 
 
