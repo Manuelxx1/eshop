@@ -42,7 +42,7 @@ private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/paym
   
 
 @GetMapping("/orders")
-public List<Orders> getOrders() {
+public List<Order> getOrders() {
     return orderRepository.findAll();
 }
 
