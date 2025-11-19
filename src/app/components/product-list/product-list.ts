@@ -65,7 +65,7 @@ initPointUrl: string | null = null;
       });
       }
       */
-    this.productService.getOrder().subscribe(data => {
+    this.productService.getOrders().subscribe(data => {
         this.order = data;
       });
     }
