@@ -33,11 +33,17 @@ private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/paym
 
 
 
-  //para consultar el estado del pedido orders
+  //para consultar el estado del pedido orders por id
   //que se registro en tabla orders
-  getOrder(id: number): Observable<Order> {
-    return this.http.get<Order>(`${this.apiUrlOrders}/orders/${id}`);
-  }
+  //getOrder(id: number): Observable<Order> {
+    //return this.http.get<Order>(`${this.apiUrlOrders}/orders/${id}`);
+ // }
 
+  
+
+@GetMapping("/orders")
+public List<Orders> getOrders() {
+    return orderRepository.findAll();
+}
 
 }
