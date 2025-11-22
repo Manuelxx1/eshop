@@ -24,9 +24,17 @@
 </ul>
 
 <!-- Estado del pedido -->
-<div *ngFor="let order of orders">
-  <p>Producto: {{ order.productName }}</p>
-  <p>Monto: {{ order.amount }}</p>
-  <p>Estado: {{ order.status }}</p>
+<div *ngFor="let order of orders" class="order-card">
+  <h3>Orden #{{ order.id }} - Estado: {{ order.status }}</h3>
+  <p>Usuario: {{ order.user.username }} ({{ order.user.email }})</p>
+  <p>Fecha: {{ order.createdAt | date:'short' }}</p>
+  <p>Total: {{ order.total | currency:'ARS' }}</p>
+
+  <h4>Items:</h4>
+  <ul>
+    <li *ngFor="let item of order.items">
+      {{ item.productName }} - Cantidad: {{ item.quantity }} - Precio: {{ item.price | currency:'ARS' }}
+    </li>
+  </ul>
 </div>
 
