@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+/*
+Como Order ya incluye dentro los items, 
+y cada item incluye el product,
+no hace falta importar User, 
+Product ni OrderItem en el componente. 
+Angular ya sabe la estructura 
+porque está anidada dentro de Order
+
+*/
 import { Product,Order} from '../../services/product';
 import { CommonModule } from '@angular/common';
 
