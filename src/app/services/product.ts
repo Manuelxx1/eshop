@@ -2,11 +2,40 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  name: string;
+}
+
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  createdAt: string;
+}
+
+export interface OrderItem {
+  id: number;
+  product: Product;
+  quantity: number;
+  price: number;
+  amount: number;
+  productName: string;
+}
+
 export interface Order {
   id: number;
-  productName: string;
+  user: User;
+  items: OrderItem[];
+  total: number;
   amount: number;
   status: string;
+  productName: string;
+  createdAt: string;
 }
 
 @Injectable({
