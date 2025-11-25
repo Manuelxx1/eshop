@@ -52,13 +52,15 @@ private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/paym
 }
 
   // Método para crear la preferencia y devolver el orderId
-  comprar(product: any): Observable<string> {
+// Método para crear la preferencia y devolver el initPoint
+comprar(product: any): Observable<string> {
   return this.http.post(
-    'https://portfoliowebbackendkoyeb-1.onrender.com/api/payments/create',
-    product,
-    { responseType: 'text' } //  esto evita el error de parsing
+    `https://portfoliowebbackendkoyeb-1.onrender.com/api/payments/create/${product.id}`,
+    {}, // cuerpo vacío, porque el backend solo necesita el productId
+    { responseType: 'text' }
   );
 }
+
 
 
 
