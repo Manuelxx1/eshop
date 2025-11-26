@@ -88,28 +88,28 @@ decreaseQuantity(productId: number): void {
   
   private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com';
 
-  constructor(private http: HttpClient) {}
+constructor(private http: HttpClient) {}
 
-  // Obtener carrito desde backend
-  getItems() {
-    return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart`);
-  }
+// Obtener carrito desde backend
+getItems() {
+  return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart`);
+}
 
-  
-  // Agregar producto (o aumentar cantidad)
-  addToCart(productId: number, quantity: number = 1) {
-    return this.http.post(`${this.apiUrl}/add`, { productId, quantity });
-  }
+// Agregar producto (o aumentar cantidad)
+addToCart(productId: number, quantity: number = 1) {
+  return this.http.post(`${this.apiUrl}/add`, { productId, quantity });
+}
 
-  // Eliminar producto
-  removeFromCart(cartItemId: number) {
-    return this.http.delete(`${this.apiUrl}/remove/${cartItemId}`);
-  }
+// Eliminar producto
+removeFromCart(cartItemId: number) {
+  return this.http.delete(`${this.apiUrl}/remove/${cartItemId}`);
+}
 
-  // Vaciar carrito
-  clearCart() {
-    return this.http.delete(`${this.apiUrl}/clear`);
-  }
+// Vaciar carrito
+clearCart() {
+  return this.http.delete(`${this.apiUrl}/clear`);
+}
+
 }
 
   
