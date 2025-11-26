@@ -110,6 +110,13 @@ clearCart() {
   return this.http.delete(`${this.apiUrl}/clear`);
 }
 
+  //para quitar items del carrito 
+  
+  decreaseFromCart(productId: number) {
+  return this.http.post(`${this.apiUrl}/decrease`, { productId });
+}
+
+
 }
 
   
