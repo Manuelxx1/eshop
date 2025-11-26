@@ -22,10 +22,7 @@ export class CartList implements OnInit{
   this.items = this.cartService.getItems();
   this.total = this.cartService.getTotal();
   */
-    this.cartService.getItems().subscribe(items => {
-      this.items = items;
-      this.total = this.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
-    });
+    this.loadCart();
 }
 
 
@@ -46,33 +43,42 @@ decrease(productId: number) {
 */
 
   //version backend 
+
+loadCart() {
+  this.cartService.getItems().subscribe(items => {
+    this.items = items;
+    this.total = this.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
+  });
+}
+
+  
 add(productId: number) {
     this.cartService.addToCart(productId, 1).subscribe(() => {
-      
+      this.loadCart();
     });
   }
 
   increase(productId: number) {
     this.cartService.increaseFromCart(productId).subscribe(() => {
-      
+      this.loadCart();
     });
   }
 
   decrease(productId: number) {
     this.cartService.decreaseFromCart(productId).subscribe(() => {
-      
+      this.loadCart();
     });
   }
 
   remove(cartItemId: number) {
     this.cartService.removeFromCart(cartItemId).subscribe(() => {
-      
+      this.loadCart();
     });
   }
 
   clear() {
     this.cartService.clearCart().subscribe(() => {
-      
+      this.loadCart();
     });
   }
 
