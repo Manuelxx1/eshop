@@ -1,13 +1,16 @@
 <h2>Carrito</h2>
+
+<!-- Botón para probar agregar producto con id=1 -->
+<button (click)="add(1)">Agregar Notebook Lenovo</button>
+
 <ul>
   <li *ngFor="let item of items">
     {{ item.product.name }} - ${{ item.product.price }} x {{ item.quantity }}
     <button (click)="decrease(item.product.id)">−</button>
     <button (click)="increase(item.product.id)">+</button>
+    <button (click)="remove(item.id)">Eliminar</button>
   </li>
 </ul>
 
-
 <p><strong>Total: ${{ total }}</strong></p>
 <button (click)="clear()">Vaciar carrito</button>
-
