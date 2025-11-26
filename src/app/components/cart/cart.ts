@@ -35,7 +35,8 @@ export class CartList implements OnInit{
   this.total = 0;
 }
 //métodos para agregar o quitar items 
-  //directamente desde el carrito
+  //directamente desde el carrito localStorage 
+/*
   increase(productId: number) {
   this.cartService.increaseQuantity(productId);
   this.items = this.cartService.getItems();
@@ -46,6 +47,28 @@ decrease(productId: number) {
   this.cartService.decreaseQuantity(productId);
   this.items = this.cartService.getItems();
   this.total = this.cartService.getTotal();
+}
+*/
+
+  //version backend 
+  increase(productId: number) {
+  this.cartService.addToCart(productId, 1).subscribe(() => {
+    this.cartService.getItems().subscribe(items => {
+      this.items = items;
+      this.total = this.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
+    });
+  });
+}
+
+decrease(productId: number) {
+  // acá podés implementar un endpoint /decrease en backend
+  // o usar remove si la cantidad es 1
+  this.cartService.removeFromCart(productId).subscribe(() => {
+    this.cartService.getItems().subscribe(items => {
+      this.items = items;
+      this.total = this.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
+    });
+  });
 }
 
 
