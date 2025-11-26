@@ -62,16 +62,16 @@ increase(productId: number) {
   });
 }
 
+  //para quitar items del carrito 
 decrease(productId: number) {
-  // Si querés implementar decrease en backend, podés crear un endpoint /decrease
-  // Por ahora usamos remove directamente
-  this.cartService.removeFromCart(productId).subscribe(() => {
+  this.cartService.decreaseFromCart(productId).subscribe(() => {
     this.cartService.getItems().subscribe(items => {
       this.items = items;
       this.total = this.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
     });
   });
 }
+
 
 
 }
