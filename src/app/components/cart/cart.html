@@ -1,6 +1,10 @@
-<button (click)="add(1)">Agregar Notebook Lenovo</button>
-<button (click)="add(2)">Agregar Monitor Samsung</button>
-<button (click)="add(3)">Agregar Mouse Logitech</button>
+<h2>Resultados de la búsqueda</h2>
+<ul>
+  <li *ngFor="let product of products">
+    {{ product.name }} - ${{ product.price }}
+    <button (click)="add(product.id)">Agregar al carrito</button>
+  </li>
+</ul>
 
 
 <ul>
