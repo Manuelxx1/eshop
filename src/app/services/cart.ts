@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 //para agregar por cantidad sin repetir
 //el dato de la base solo la cantidad 
 export interface CartItem {
+    id?: number; // id del item en DB
   product: any;
   quantity: number;
 }
@@ -94,7 +95,8 @@ decreaseQuantity(productId: number): void {
     return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart`);
   }
 
-  // Agregar producto
+  
+  // Agregar producto (o aumentar cantidad)
   addToCart(productId: number, quantity: number = 1) {
     return this.http.post(`${this.apiUrl}/add`, { productId, quantity });
   }
