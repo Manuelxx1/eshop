@@ -52,8 +52,9 @@ decrease(productId: number) {
 */
 
   //version backend 
-  increase(productId: number) {
+increase(productId: number) {
   this.cartService.addToCart(productId, 1).subscribe(() => {
+    // Una vez que el backend confirma, recargamos el carrito
     this.cartService.getItems().subscribe(items => {
       this.items = items;
       this.total = this.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
@@ -62,8 +63,8 @@ decrease(productId: number) {
 }
 
 decrease(productId: number) {
-  // acá podés implementar un endpoint /decrease en backend
-  // o usar remove si la cantidad es 1
+  // Si querés implementar decrease en backend, podés crear un endpoint /decrease
+  // Por ahora usamos remove directamente
   this.cartService.removeFromCart(productId).subscribe(() => {
     this.cartService.getItems().subscribe(items => {
       this.items = items;
