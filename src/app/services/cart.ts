@@ -110,6 +110,13 @@ clearCart() {
   return this.http.delete(`${this.apiUrl}/clear`);
 }
 
+  // para agregar items al carrito
+
+
+  
+increaseFromCart(productId: number) {
+  return this.http.post(`${this.apiUrl}/increase`, { productId });
+}
   //para quitar items del carrito 
   
   decreaseFromCart(productId: number) {
