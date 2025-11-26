@@ -14,7 +14,8 @@ export interface CartItem {
 export class Cart {
   
   private items: CartItem[] = [];
-  
+ 
+  /*versión frontend con localStorage 
   constructor() {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
@@ -54,7 +55,7 @@ export class Cart {
   private saveCart(): void {
     localStorage.setItem('cart', JSON.stringify(this.items));
   }
-
+*/
 
   //agregar cantidad 
  // desde el component del carrito directo
