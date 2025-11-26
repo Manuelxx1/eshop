@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 
 //para agregar por cantidad sin repetir
 //el dato de la base solo la cantidad 
@@ -55,7 +55,7 @@ export class Cart {
   private saveCart(): void {
     localStorage.setItem('cart', JSON.stringify(this.items));
   }
-*/
+
 
   //agregar cantidad 
  // desde el component del carrito directo
@@ -78,6 +78,37 @@ decreaseQuantity(productId: number): void {
     this.removeFromCart(productId); // elimina si llega a 0
   }
 }
+*/
+
+
+  //version backend base de datos 
+
 
   
+  private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/';
+
+  constructor(private http: HttpClient) {}
+
+  // Obtener carrito desde backend
+  getItems() {
+    return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart`);
+  }
+
+  // Agregar producto
+  addToCart(productId: number, quantity: number = 1) {
+    return this.http.post(`${this.apiUrl}/add`, { productId, quantity });
+  }
+
+  // Eliminar producto
+  removeFromCart(cartItemId: number) {
+    return this.http.delete(`${this.apiUrl}/remove/${cartItemId}`);
+  }
+
+  // Vaciar carrito
+  clearCart() {
+    return this.http.delete(`${this.apiUrl}/clear`);
+  }
 }
+
+  
+
