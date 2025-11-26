@@ -28,12 +28,13 @@ export class CartList implements OnInit{
   });
 }
 
-
-  clearCart() {
-  this.cartService.clearCart();
-  this.items = [];
-  this.total = 0;
+clearCart() {
+  this.cartService.clearCart().subscribe(() => {
+    this.items = [];
+    this.total = 0;
+  });
 }
+
 //métodos para agregar o quitar items 
   //directamente desde el carrito localStorage 
 /*
