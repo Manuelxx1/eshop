@@ -16,6 +16,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Cart} from '../../services/cart';
+//se importa la interfaz CartItem que representa al modelo
+import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 
 
 @Component({
