@@ -86,7 +86,8 @@ decreaseQuantity(productId: number): void {
 
 
   
-  private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com';
+ // private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com';
+  private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
 
 constructor(private http: HttpClient) {}
 
