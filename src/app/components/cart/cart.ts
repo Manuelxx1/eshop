@@ -44,10 +44,18 @@ decrease(productId: number) {
 
   //version backend 
 
-loadCart() {
-  this.cartService.getItems().subscribe(items => {
-    this.items = items;
-    this.total = this.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
+loadCart(): void {
+  this.cartService.getItems().subscribe({
+    next: (data) => {
+      this.items = data;
+      this.total = this.items.reduce(
+        (sum, item) => sum + item.product.price * item.quantity,
+        0
+      );
+    },
+    error: (err) => {
+      console.error('Error al cargar el carrito', err);
+    }
   });
 }
 
