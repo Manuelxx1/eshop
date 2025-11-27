@@ -94,7 +94,11 @@ constructor(private http: HttpClient) {}
 getItems() {
   return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart`);
 }
-
+//para agregar items al carrito es usado 
+  //por ProductList component 
+addToCart(productId: number, quantity: number = 1) {
+  return this.http.post(`${this.apiUrl}/add`, { productId, quantity });
+}
 
 
 // Eliminar producto
