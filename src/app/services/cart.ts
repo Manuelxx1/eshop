@@ -96,6 +96,8 @@ getItems() {
 }
 //para agregar items al carrito es usado 
   //por ProductList component 
+  //se usa este service que es de cart porque esta conectado
+  //a la tabla cart_items y el de productlist no lo esta
 addToCart(productId: number, quantity: number = 1) {
   return this.http.post(`${this.apiUrl}/add`, { productId, quantity });
 }
