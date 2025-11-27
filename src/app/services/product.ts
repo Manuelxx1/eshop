@@ -42,8 +42,16 @@ export interface Order {
   providedIn: 'root',
 })
 export class Product {
-  private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/products/search';
-private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/payments';
+ 
+  
+//private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/products/search';
+
+private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/products/search';
+
+
+//private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/payments';
+  
+  private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
   constructor(private http: HttpClient) {}
 
   // Método para buscar productos por término
