@@ -86,8 +86,10 @@ initPointUrl: string | null = null;
 
   addToCart(product: any): void {
   console.log('Agregando al carrito:', product);
-  this.cartService.addToCart(product);
-}
+  this.cartService.addToCart(product.id).subscribe(() => {
+  this.loadCart();
+});
+
 
 // ✅ Compra directa → redirige al checkout
 buyNow(product: any): void {
