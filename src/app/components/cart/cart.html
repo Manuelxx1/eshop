@@ -1,7 +1,8 @@
-
-
+<h2>Carrito</h2>
 <ul>
   <li *ngFor="let item of items">
-    {{ item.product.name }} - {{ item.quantity }}
+    {{ item.product.name }} - ${{ item.product.price }} x {{ item.quantity }}
   </li>
 </ul>
+
+<p>Total: {{ total | currency:'ARS' }}</p>
