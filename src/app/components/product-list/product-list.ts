@@ -33,6 +33,8 @@ export class ProductList implements OnInit {
   loading = true;
   error = false;
   orders: Order[] = [];
+  items: CartItem[] = [];
+total: number = 0;
   
   lastOrderId: number | null = null; // acá guardamos el ID dinámico
 initPointUrl: string | null = null;
@@ -77,18 +79,34 @@ initPointUrl: string | null = null;
     this.productService.getOrders().subscribe(data => {
         this.orders = data;
       });
+    }//ngOnInit 
+
+
+  loadCart(): void {
+  this.cartService.getItems().subscribe({
+    next: (data) => {
+      this.items = data;
+      this.total = this.items.reduce(
+        (sum, item) => sum + item.product.price * item.quantity,
+        0
+      );
+    },
+    error: (err) => {
+      console.error('Error al cargar el carrito', err);
     }
-
-
-  
+  });
+      }
 
   
 
   addToCart(product: any): void {
-  console.log('Agregando al carrito:', product);
-  this.cartService.addToCart(product.id).subscribe(() => {
-  this.loadCart();
-});
+  this.cartService.addToCart(product.id, 1).subscribe({
+    next: () => this.loadCart(),
+    error: err => console.error('Error al agregar al carrito', err)
+  });
+}
+
+
 
 
 // ✅ Compra directa → redirige al checkout
