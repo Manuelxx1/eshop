@@ -83,7 +83,13 @@ initPointUrl: string | null = null;
       });
     }//ngOnInit 
 
-
+//esto en realidad no es necesario aquí porque el carrito se muestra
+  //en el component cart y este metodo loadCart ya esta alli 
+  //y se muestra en la  vista cart html
+  //se deveria ajustar el suscribe del método 
+//addToCart a un console.log y nada más 
+  //Asi se puede eliminar este metodo
+  //sin se que produzca un error
   loadCart(): void {
   this.cartService.getItems().subscribe({
     next: (data) => {
