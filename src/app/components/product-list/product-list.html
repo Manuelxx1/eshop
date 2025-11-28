@@ -17,7 +17,7 @@
     <button (click)="addToCart(product)">Agregar al carrito</button>
 
     <label for="quantity">Cantidad:</label>
-<select [(ngModel)]="selectedQuantity" id="quantity">
+<select [formControl]="quantityControl" id="quantity">
   <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
 </select>
 
