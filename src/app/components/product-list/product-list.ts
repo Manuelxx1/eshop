@@ -37,6 +37,11 @@ export class ProductList implements OnInit {
   orders: Order[] = [];
   items: CartItem[] = [];
 total: number = 0;
+
+
+  //para el dropdawn de compra directa 
+  selectedQuantity: number = 1;
+quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
   
   lastOrderId: number | null = null; // acá guardamos el ID dinámico
 initPointUrl: string | null = null;
@@ -118,10 +123,10 @@ initPointUrl: string | null = null;
 
 
 // ✅ Compra directa → redirige al checkout
-buyNow(product: any): void {
-  alert("Botón comprar clickeado: " + product.name);
+buyNow(productId: number): void {
+  alert("Botón comprar clickeado: " + productId.name);
 
-  this.productService.comprar(product).subscribe({
+  this.productService.comprar(productId, this.selectedQuantity).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
       localStorage.setItem('selectedProduct', JSON.stringify(product));
