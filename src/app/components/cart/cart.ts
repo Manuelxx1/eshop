@@ -64,18 +64,19 @@ loadCart(): void {
 //método para compra por carrito 
   
 comprarCarrito() {
-    const cartItems = this.cart.map(item => ({
-      productId: item.id,
-      quantity: item.quantity
-    }));
-alert("Botón comprar clickeado ");
-    this.cartService.comprarCarrito(cartItems).subscribe({
-      next: (initPoint: string) => window.location.href = initPoint,
+  const cartItems = this.items.map(item => ({
+    productId: item.product.id,   // usar el id del producto
+    quantity: item.quantity
+  }));
 
-      error: (err: any) => console.error('Error en compra carrito', err)
+  alert("Botón comprar clickeado");
 
-    });
-  }
+  this.cartService.comprarCarrito(cartItems).subscribe({
+    next: (initPoint: string) => window.location.href = initPoint,
+    error: (err: any) => console.error('Error en compra carrito', err)
+  });
+}
+
  
   
   increase(productId: number): void {
