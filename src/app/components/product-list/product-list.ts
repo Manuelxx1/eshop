@@ -40,7 +40,8 @@ total: number = 0;
 
 
   //para el dropdawn de compra directa 
-  selectedQuantity: number = 1;
+  // Control reactivo para la cantidad
+  quantityControl = new FormControl(1);
 quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
   
   lastOrderId: number | null = null; // acá guardamos el ID dinámico
@@ -125,6 +126,8 @@ initPointUrl: string | null = null;
 // Compra directa → redirige al checkout
 buyNow(productId: number): void {
   alert("Botón comprar clickeado ");
+  const selectedQuantity = this.quantityControl.value ?? 1;
+    console.log('Cantidad seleccionada:', selectedQuantity);
 
   this.productService.comprar(productId, this.selectedQuantity).subscribe({
     next: initPoint => {
