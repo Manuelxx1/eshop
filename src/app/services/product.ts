@@ -63,7 +63,7 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 // Método para crear la preferencia y devolver el initPoint
 comprar(product: any): Observable<string> {
   return this.http.post(
-    `https://portfoliowebbackendkoyeb-1.onrender.com/api/payments/create/${product.id}`,
+    `https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create/${product.id}`,
     {}, // cuerpo vacío, porque el backend solo necesita el productId
     { responseType: 'text' }
   );
