@@ -122,9 +122,9 @@ initPointUrl: string | null = null;
 
 
 
-// ✅ Compra directa → redirige al checkout
+// Compra directa → redirige al checkout
 buyNow(productId: number): void {
-  alert("Botón comprar clickeado: " + productId.name);
+  alert("Botón comprar clickeado ");
 
   this.productService.comprar(productId, this.selectedQuantity).subscribe({
     next: initPoint => {
