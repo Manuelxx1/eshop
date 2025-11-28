@@ -68,7 +68,7 @@ comprarCarrito() {
       productId: item.id,
       quantity: item.quantity
     }));
-
+alert("Botón comprar clickeado ");
     this.cartService.comprarCarrito(cartItems).subscribe({
       next: (initPoint: string) => window.location.href = initPoint,
 
