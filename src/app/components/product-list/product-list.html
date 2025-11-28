@@ -21,7 +21,20 @@
   <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
 </select>
 
-<button (click)="buyNow(product)">Comprar ahora</button>
+<!-- Botón para mostrar resumen -->
+<button (click)="mostrarResumen()">Comprar ahora</button>
+
+<!-- Resumen de compra -->
+<div *ngIf="showSummary" class="resumen">
+  <h3>Resumen de compra</h3>
+  <p>Producto: {{ product.name }}</p>
+  <p>Cantidad: {{ quantityControl.value }}</p>
+  <p>Total: {{ product.price * quantityControl.value | currency:'ARS' }}</p>
+
+  <button (click)="buyNow(product)">Comprar ahora</button>
+
+</div>
+
 
 
 
