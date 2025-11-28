@@ -1,0 +1,7 @@
+.resumen {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #fafafa;
+  max-width: 300px;
+}
