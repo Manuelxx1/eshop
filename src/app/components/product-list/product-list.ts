@@ -129,9 +129,9 @@ buyNow(productId: number): void {
   this.productService.comprar(productId, this.selectedQuantity).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
-      localStorage.setItem('selectedProduct', JSON.stringify(product));
+      localStorage.setItem('selectedProduct', JSON.stringify(productId));
 
-      // ✅ redirige al checkout de Mercado Pago
+      // redirige al checkout de Mercado Pago
       window.location.href = initPoint;
       // Si en Android no abre, probá con:
       // window.open(initPoint, "_blank");
