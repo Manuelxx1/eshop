@@ -64,18 +64,18 @@ loadCart(): void {
 //método para compra por carrito 
   
 comprarCarrito() {
-  const cartItems = this.cart.map(item => ({
-    productId: item.id,
-    quantity: item.quantity
-  }));
+    const cartItems = this.cart.map(item => ({
+      productId: item.id,
+      quantity: item.quantity
+    }));
 
-  this.http.post<string>('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create-cart', cartItems)
-    .subscribe({
+    this.cartService.comprarCarrito(cartItems).subscribe({
       next: (initPoint) => window.location.href = initPoint,
       error: (err) => console.error('Error en compra carrito', err)
     });
-}
-
+  }
+ 
+  
   increase(productId: number): void {
   this.cartService.increaseFromCart(productId).subscribe({
     next: () => this.loadCart(),
