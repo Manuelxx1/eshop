@@ -129,7 +129,7 @@ buyNow(productId: number): void {
   const selectedQuantity = this.quantityControl.value ?? 1;
     console.log('Cantidad seleccionada:', selectedQuantity);
 
-  this.productService.comprar(productId, this.selectedQuantity).subscribe({
+  this.productService.comprar(productId,selectedQuantity).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
       localStorage.setItem('selectedProduct', JSON.stringify(productId));
