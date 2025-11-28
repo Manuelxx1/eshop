@@ -70,8 +70,10 @@ comprarCarrito() {
     }));
 
     this.cartService.comprarCarrito(cartItems).subscribe({
-      next: (initPoint) => window.location.href = initPoint,
-      error: (err) => console.error('Error en compra carrito', err)
+      next: (initPoint: string) => window.location.href = initPoint,
+
+      error: (err: any) => console.error('Error en compra carrito', err)
+
     });
   }
  
