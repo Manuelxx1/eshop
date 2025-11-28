@@ -12,7 +12,8 @@ import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 })
 export class CartList implements OnInit{
   items: CartItem[] = [];
-
+//items o productos del carrito para comprar 
+  cart: any[] = [];
   total: number = 0;
 
   constructor(private cartService: Cart) {}
@@ -60,7 +61,20 @@ loadCart(): void {
 }
 
   
+//método para compra por carrito 
+  
+comprarCarrito() {
+  const cartItems = this.cart.map(item => ({
+    productId: item.id,
+    quantity: item.quantity
+  }));
 
+  this.http.post<string>('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create-cart', cartItems)
+    .subscribe({
+      next: (initPoint) => window.location.href = initPoint,
+      error: (err) => console.error('Error en compra carrito', err)
+    });
+}
 
   increase(productId: number): void {
   this.cartService.increaseFromCart(productId).subscribe({
