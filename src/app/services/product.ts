@@ -61,13 +61,14 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 
   // Método para crear la preferencia y devolver el orderId
 // Método para crear la preferencia y devolver el initPoint
-comprar(product: any): Observable<string> {
+comprar(product: any, quantity: number): Observable<string> {
   return this.http.post(
     `https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create/${product.id}`,
-    {}, // cuerpo vacío, porque el backend solo necesita el productId
+    { quantity }, // ahora sí enviamos la cantidad seleccionada
     { responseType: 'text' }
   );
 }
+
 
 
 
