@@ -15,12 +15,14 @@
   <li *ngFor="let product of products">
     {{ product.name }} - {{ product.price }}
     <button (click)="addToCart(product)">Agregar al carrito</button>
-<label for="quantity">Cantidad:</label>
+
+    <label for="quantity">Cantidad:</label>
 <select [(ngModel)]="selectedQuantity" id="quantity">
   <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
 </select>
 
-<button (click)="buyNow(product.id)">Comprar ahora</button>
+<button (click)="comprar(product)">Comprar ahora</button>
+
 
 
 <p *ngIf="initPointUrl">URL recibida: {{ initPointUrl }}</p>
