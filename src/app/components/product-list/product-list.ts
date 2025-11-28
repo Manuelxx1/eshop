@@ -43,6 +43,9 @@ total: number = 0;
   // Control reactivo para la cantidad
   quantityControl = new FormControl(1);
 quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
+
+
+  showSummary = false; //  flag para mostrar resumen
   
   lastOrderId: number | null = null; // acá guardamos el ID dinámico
 initPointUrl: string | null = null;
@@ -120,8 +123,10 @@ initPointUrl: string | null = null;
   });
 }
 
-
-
+//mostrar resumen de compra antes de confirmar compra 
+mostrarResumen(): void {
+    this.showSummary = true;
+}
 
 // Compra directa → redirige al checkout
 buyNow(productId: number): void {
