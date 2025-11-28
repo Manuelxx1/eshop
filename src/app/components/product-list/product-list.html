@@ -30,7 +30,7 @@
   <p>Producto: {{ product.name }}</p>
   <p>Cantidad: {{ quantityControl.value }}</p>
  <!--se usa el operador de acseso seguro || para evitar error 
- de objeto posible valor null-->
+ de objeto posible valor null o undefined-->
   <p>Total: {{ product.price * (quantityControl.value || 1) | currency:'ARS' }}</p>
 
 
