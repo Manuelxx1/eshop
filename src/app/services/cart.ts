@@ -91,10 +91,19 @@ decreaseQuantity(productId: number): void {
 
 constructor(private http: HttpClient) {}
 
+
+  
 // Obtener carrito desde backend
 getItems() {
   return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart`);
 }
+
+
+  // Método para comprar el carrito
+  comprarCarrito(cartItems: any[]): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/create-cart`, cartItems);
+  }
+  
 //para agregar items al carrito es usado 
   //por ProductList component 
   //se usa este service que es de cart porque esta conectado
