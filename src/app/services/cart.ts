@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 //para agregar por cantidad sin repetir
 //el dato de la base solo la cantidad 
