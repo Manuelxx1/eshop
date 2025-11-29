@@ -13,7 +13,9 @@
 
 <ul *ngIf="!loading && !error">
   <li *ngFor="let product of products">
-    {{ product.name }} - {{ product.price }}
+   
+  <img [src]="product.imageUrl" alt="{{ product.name }}" width="80">
+    {{ product.name }} - {{ product.description }} - {{ product.price }}
     <button (click)="addToCart(product)">Agregar al carrito</button>
 
     <label for="quantity">Cantidad:</label>
