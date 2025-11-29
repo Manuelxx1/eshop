@@ -39,9 +39,14 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+tr:hover {
+  background-color: #e6f2ff;
+}
+
 
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
 
