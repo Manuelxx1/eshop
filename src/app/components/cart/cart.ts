@@ -76,7 +76,7 @@ comprarCarrito() {
   this.cartService.comprarCarrito(cartItems).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
-      localStorage.setItem('selectedProduct', JSON.stringify(productId));
+     // localStorage.setItem('selectedProduct', JSON.stringify(productId));
 
       // redirige al checkout de Mercado Pago
       window.location.href = initPoint;
