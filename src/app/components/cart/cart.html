@@ -17,6 +17,8 @@
       <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
       <td>{{ (item.product.price * item.quantity) | currency:'ARS':'symbol' }}</td>
       <td>
+        <td>{{ getSubtotal(item) | currency:'ARS':'symbol' }}</td>
+
         <button (click)="increase(item.product.id)">+</button>
         <button (click)="decrease(item.product.id)">−</button>
         <button (click)="remove(item.id)">Eliminar</button>
