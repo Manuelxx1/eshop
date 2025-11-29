@@ -91,7 +91,10 @@ comprarCarrito() {
   });
 }
 
- 
+ getSubtotal(item: CartItem): number {
+  return item.product.price * item.quantity;
+}
+
   
   increase(productId: number): void {
   this.cartService.increaseFromCart(productId).subscribe({
