@@ -102,9 +102,11 @@ getItems() {
 
   // Método para comprar el carrito
   comprarCarrito(cartItems: any[]): Observable<string> {
-    return this.http.post(`${this.apiUrl}/create-cart`, cartItems,{ responseType: 'text' });
+    return this.http.post(`${this.apiUrl}/api/payments/create-cart`, cartItems,{ responseType: 'text' });
   }
-  
+
+
+  //este método está en AbmlcontrollerApplication 
 //para agregar items al carrito es usado 
   //por ProductList component 
   //se usa este service que es de cart porque esta conectado
@@ -114,6 +116,10 @@ addToCart(productId: number, quantity: number = 1) {
 }
 
 
+  
+  
+  //Estos métodos usa el carrito
+    //estos métodos están en AbmlcontrollerApplication 
 // Eliminar producto
 removeFromCart(cartItemId: number) {
   return this.http.delete(`${this.apiUrl}/remove/${cartItemId}`);
