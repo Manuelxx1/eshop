@@ -1,9 +1,4 @@
-.cart-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 10px;
-  font-family: Arial, sans-serif;
-}
+
 
 table {
   width: 100%;
@@ -49,3 +44,4 @@ button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
