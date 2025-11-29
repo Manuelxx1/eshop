@@ -73,7 +73,7 @@ comprarCarrito() {
 
   
 
-  this.productService.comprarCarrito(cartItems).subscribe({
+  this.cartService.comprarCarrito(cartItems).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
       localStorage.setItem('selectedProduct', JSON.stringify(productId));
