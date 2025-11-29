@@ -13,7 +13,7 @@
 
 <ul *ngIf="!loading && !error">
   <li *ngFor="let product of products">
-   
+   <img src="https://laptopmedia.com/wp-content/uploads/2024/09/2-26-e1725801265855.jpg" 
   <img [src]="product.imageUrl" alt="{{ product.name }}" width="80">
     {{ product.name }} - {{ product.description }} - {{ product.price }}
     <button (click)="addToCart(product)">Agregar al carrito</button>
