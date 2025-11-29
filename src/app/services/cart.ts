@@ -102,7 +102,7 @@ getItems() {
 
   // Método para comprar el carrito
   comprarCarrito(cartItems: any[]): Observable<string> {
-    return this.http.post<string>(`${this.apiUrl}/api/payments/create-cart`, cartItems);
+    return this.http.post<string>(`${this.apiUrl}/api/payments/create-cart`, cartItems, { responseType: 'text' });
   }
 
 
