@@ -15,6 +15,7 @@ export class CartList implements OnInit{
 //items o productos del carrito para comprar 
   cart: any[] = [];
   total: number = 0;
+  errorredir: string | null = null;
 
   constructor(private cartService: Cart) {}
 
