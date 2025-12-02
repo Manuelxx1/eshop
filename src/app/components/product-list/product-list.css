@@ -47,3 +47,15 @@
   left:5px;
 }
 
+.product-card img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px; /* opcional: bordes redondeados */
+}
+
+.product-card img:hover {
+  transform: scale(1.1) rotate(2deg); /* agranda 10% y rota un poquito */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* sombra elegante */
+}
+
+
+
