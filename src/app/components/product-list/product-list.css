@@ -1,7 +1,19 @@
-.resumen {
+.search-result {
+  display: flex;
+  align-items: center;
   border: 1px solid #ddd;
-  padding: 1rem;
-  border-radius: 8px;
-  background: #fafafa;
-  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fafafa;
 }
+
+.search-result img {
+  margin-right: 15px;
+  border-radius: 4px;
+}
+
+.search-result .info {
+  flex: 1;
+}
+
+
