@@ -15,9 +15,18 @@
 .search-result .info {
   flex: 1;
 }
-
-.buynow{
-color:white;
-  background-color:blue;
+.buynow {
+  background-color: #007bff; /* azul */
+  color: white;              /* letra blanca */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }
+
+.buynow:hover {
+  background-color: #0056b3; /* azul más oscuro al pasar el mouse */
+}
+
 
