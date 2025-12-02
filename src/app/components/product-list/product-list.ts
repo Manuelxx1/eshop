@@ -59,14 +59,14 @@ quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de 
 initPointUrl: string | null = null;
   errorredir: string | null = null;
 
-  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {}
+  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
     this.formulariologin = this.fb.group({
     nombre: ['', Validators.required],
       password: ['', Validators.required]
     //email: ['', [Validators.required, Validators.email]]
   });
-
+  }
   
     ngOnInit(): void {
       
