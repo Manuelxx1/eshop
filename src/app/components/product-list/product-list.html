@@ -17,7 +17,7 @@
   
   <div class="info">
     {{ product.name }} - {{ product.description }} - {{ product.price }}
-    <button (click)="addToCart(product)">Agregar al carrito</button>
+    <button (click)="addToCart(product)"  class="addtocart" >Agregar al carrito</button>
 
     <label for="quantity">Cantidad:</label>
 <select [formControl]="quantityControl" id="quantity">
