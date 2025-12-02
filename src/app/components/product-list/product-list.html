@@ -13,9 +13,11 @@
 
 <div *ngIf="!loading && !error">
   <div *ngFor="let product of products" class="search-result">  
-   <img src="https://laptopmedia.com/wp-content/uploads/2024/09/2-26-e1725801265855.jpg" width="80" height="80">
+   
   
   <div class="info">
+       <img src="https://laptopmedia.com/wp-content/uploads/2024/09/2-26-e1725801265855.jpg" width="80" height="80">
+  
     {{ product.name }} - {{ product.description }} - {{ product.price }}
     <button (click)="addToCart(product)"  class="addtocart" >Agregar al carrito</button>
 
