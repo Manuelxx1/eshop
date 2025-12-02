@@ -15,6 +15,7 @@
   <div *ngFor="let product of products" class="search-result">  >
    <img src="https://laptopmedia.com/wp-content/uploads/2024/09/2-26-e1725801265855.jpg" width="80" height="80">
   <img [src]="product.imageUrl" alt="{{ product.name }}" width="80">
+  <div class="info">
     {{ product.name }} - {{ product.description }} - {{ product.price }}
     <button (click)="addToCart(product)">Agregar al carrito</button>
 
@@ -22,6 +23,7 @@
 <select [formControl]="quantityControl" id="quantity">
   <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
 </select>
+  </div>
   </div>
 </div>
 
