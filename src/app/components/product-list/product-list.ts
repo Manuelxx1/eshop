@@ -39,6 +39,14 @@ export class ProductList implements OnInit {
 total: number = 0;
 
 
+//para el login
+  formulariologin: FormGroup;
+  datosdesesion:any;
+  sesionActivaSinGoogle: boolean = false;
+  
+  datosDebug: string = '';
+
+  
   //para el dropdawn de compra directa 
   // Control reactivo para la cantidad
   quantityControl = new FormControl(1);
@@ -52,6 +60,12 @@ initPointUrl: string | null = null;
   errorredir: string | null = null;
 
   constructor(private productService: Product, private cartService: Cart,private router: Router ) {}
+//formulario login
+    this.formulariologin = this.fb.group({
+    nombre: ['', Validators.required],
+      password: ['', Validators.required]
+    //email: ['', [Validators.required, Validators.email]]
+  });
 
   
     ngOnInit(): void {
@@ -114,6 +128,71 @@ initPointUrl: string | null = null;
   });
       }
 
+
+
+      formulariologindatos() {
+if (this.formulariologin.valid) {
+
+  const nombre = this.formulariologin.value.nombre;
+    const password = this.formulariologin.value.password;
+
+    this.datosDebug = `Enviando: ${nombre} / ${password}`;
+      
+  
+  this.productService.iniciarSesion(this.formulariologin.value.nombre,this.formulariologin.value.password).subscribe({
+      next: res => {
+    // Login exitoso
+    console.log('Login OK:', res);
+//agregar los datos de la response a la property 
+        this.datosDebug += `\nRespuesta: ${JSON.stringify(res)}`;
+   
+        // ✅ Guardar sesión en localStorage
+        localStorage.setItem('usuario', JSON.stringify(res.usuario));
+
+this.session();
+        
+        alert(res.mensaje); //mensaje del.backend por ejemplo: "Login exitoso"
+    //this.router.navigate(['/']); // redirige al perfil
+  },
+  error: err => {
+    // Login fallido
+    console.error('Error de login:', err);
+
+    this.datosDebug += `\nError: ${JSON.stringify(err)}`;
+    alert('Nombre o contraseña incorrectos');
+  }
+});
+  } else {
+    alert('Por favor completá todos los campos');
+  }
+      
+    }
+
+    
+
+  session(){
+  const usuarioGuardado = localStorage.getItem('usuario');
+    this.sesionActivaSinGoogle = !!usuarioGuardado; // true si hay sesión
+  if (usuarioGuardado) {
+    const usuario = JSON.parse(usuarioGuardado);
+    console.log('Usuario en sesión:', usuario);
+    this.datosdesesion = 'Usuario en sesión<br>' + usuario;
+
+  }
+  }
+
+      //cerrar session
+  
+      cerrarSesion() {
+  localStorage.removeItem('usuario'); // Elimina la sesión
+      //si quiero borrar todos los datos
+        //de session
+        //incluido el usuario
+        //localStorage.clear();
+        this.sesionActivaSinGoogle = false;
+this.datosdesesion ="";
+  //this.router.navigate(['/']);   // Redirige al login o donde prefieras
+      }
   
 
   addToCart(product: any): void {
