@@ -16,8 +16,10 @@
    
   
   <div class="info">
-       <img src="https://laptopmedia.com/wp-content/uploads/2024/09/2-26-e1725801265855.jpg" width="80" height="80">
-  
+
+        <!-- Usar la propiedad imageUrl de la tabla del producto para evitar la repetición
+    de la imagen cuandose usa el img sin la base-->
+    <img [src]="product.imageUrl" alt="{{ product.name }}" width="80" height="80">
     {{ product.name }} - {{ product.description }} - {{ product.price }}
     <button (click)="addToCart(product)"  class="addtocart" >Agregar al carrito</button>
 
