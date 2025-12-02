@@ -12,7 +12,7 @@
 <div *ngIf="error">Ocurrió un error al cargar los productos.</div>
 
 <div *ngIf="!loading && !error">
-  <div *ngFor="let product of products" class="search-result">  >
+  <div *ngFor="let product of products" class="search-result">  
    <img src="https://laptopmedia.com/wp-content/uploads/2024/09/2-26-e1725801265855.jpg" width="80" height="80">
   <img [src]="product.imageUrl" alt="{{ product.name }}" width="80">
   <div class="info">
