@@ -10,8 +10,8 @@ porque está anidada dentro de Order
 */
 import { Product,Order} from '../../services/product';
 import { CommonModule } from '@angular/common';
-
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { RouterOutlet,RouterLink } from '@angular/router';
+import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 
@@ -23,7 +23,7 @@ import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
@@ -59,7 +59,7 @@ quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de 
 initPointUrl: string | null = null;
   errorredir: string | null = null;
 
-  constructor(private productService: Product, private cartService: Cart,private router: Router ) {}
+  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {}
 //formulario login
     this.formulariologin = this.fb.group({
     nombre: ['', Validators.required],
