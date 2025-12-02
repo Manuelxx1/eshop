@@ -1,4 +1,11 @@
 
+<input
+  type="text"
+  [formControl]="searchControl"
+  placeholder="Buscar productos..."
+/>
+
+
 <div class="formulariologin">
 
     <form [formGroup]="formulariologin" (ngSubmit)="formulariologindatos()">
@@ -25,11 +32,6 @@
 
   <pre>{{ datosDebug }}</pre
 
-<input
-  type="text"
-  [formControl]="searchControl"
-  placeholder="Buscar productos..."
-/>
 
 
 
