@@ -1,3 +1,30 @@
+
+<div class="formulariologin">
+
+    <form [formGroup]="formulariologin" (ngSubmit)="formulariologindatos()">
+      <label>
+          <h2>INICIAR SESIÓN</h2>
+        <input formControlName="nombre"  placeholder="Ingresar Nombre" class="search-box" />
+        <input formControlName="password"  placeholder="Ingresar password" class="search-box" />
+        <span *ngIf="formulariologin.get('nombre')?.invalid && formulariologin.get('nombre')?.touched">
+          Debería escribir algo es obligatorio.
+          </span>
+        <span *ngIf="formulariologin.get('password')?.invalid && formulariologin.get('password')?.touched">
+       Debería escribir una contraseña
+        
+        </span>
+        <a routerLink="/registrarse">REGISTRARSE</a>
+      </label>
+
+      <button type="submit" [style.display]="sesionActivaSinGoogle ? 'none' : 'block'" >Enviar</button>
+    </form>
+    <p class="datosdesesion" *ngIf="sesionActivaSinGoogle"  [innerHTML]="datosdesesion"></p>
+<!-- Botón de cerrar sesión -->
+<button *ngIf="sesionActivaSinGoogle" (click)="cerrarSesion()">Cerrar sesión</button>
+  </div>
+
+  <pre>{{ datosDebug }}</pre
+
 <input
   type="text"
   [formControl]="searchControl"
