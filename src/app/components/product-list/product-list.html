@@ -11,8 +11,8 @@
 <div *ngIf="loading">Cargando productos...</div>
 <div *ngIf="error">Ocurrió un error al cargar los productos.</div>
 
-<ul *ngIf="!loading && !error">
-  <li *ngFor="let product of products">
+<div *ngIf="!loading && !error">
+  <div *ngFor="let product of products" class="search-result">  >
    <img src="https://laptopmedia.com/wp-content/uploads/2024/09/2-26-e1725801265855.jpg" width="80" height="80">
   <img [src]="product.imageUrl" alt="{{ product.name }}" width="80">
     {{ product.name }} - {{ product.description }} - {{ product.price }}
@@ -22,6 +22,8 @@
 <select [formControl]="quantityControl" id="quantity">
   <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
 </select>
+  </div>
+</div>
 
 <!-- Botón para mostrar resumen -->
 <button (click)="mostrarResumen()">Comprar ahora</button>
