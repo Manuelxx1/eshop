@@ -29,4 +29,18 @@
   background-color: #0056b3; /* azul más oscuro al pasar el mouse */
 }
 
+.addtocart {
+  background-color: #28a745; /* verde */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.addtocart:hover {
+  background-color: #218838; /* verde más oscuro al pasar el mouse */
+}
+
 
