@@ -80,7 +80,7 @@ registrarDatos(nombre: string, password: string): Observable<any> {
 // Método para crear la preferencia y devolver el initPoint
 
 comprar(productId: number, quantity: number, usuario: string | null): Observable<any> {
-  return this.http.post<any>(`https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create/${product.id}`, {
+  return this.http.post<any>(`https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create/${productId}`, {
     quantity },
   { usuario},
 { responseType: 'text' }                   
