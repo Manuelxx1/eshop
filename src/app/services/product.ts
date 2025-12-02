@@ -59,6 +59,23 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
   return this.http.get<any[]>(`${this.apiUrl}?name=${term}`);
 }
 
+  //formulario login método
+  private apiURLogin = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/loginsinjwt';
+
+iniciarSesion(nombre: string, password: string): Observable<any> {
+  const datosdesesion = { nombre, password };
+  return this.http.post(this.apiURLogin, datosdesesion);
+}
+
+  //formulario registro método
+  private apiURLRegistro = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/register';
+
+registrarDatos(nombre: string, password: string): Observable<any> {
+  const datosderegistro = { nombre, password };
+  return this.http.post(this.apiURLRegistro, datosderegistro);
+}
+
+    
   // Método para crear la preferencia y devolver el orderId
 // Método para crear la preferencia y devolver el initPoint
 
