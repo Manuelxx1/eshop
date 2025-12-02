@@ -28,7 +28,7 @@
 
 
 <!-- Botón para mostrar resumen -->
-<button (click)="mostrarResumen()">Comprar ahora</button>
+<button (click)="mostrarResumen()"  *ngIf="!showSummary"  >Comprar ahora</button>
 
 <!-- Resumen de compra -->
 <div *ngIf="showSummary" class="resumen">
