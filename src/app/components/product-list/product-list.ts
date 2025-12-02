@@ -132,21 +132,22 @@ mostrarResumen(): void {
 buyNow(productId: number): void {
   alert("Botón comprar clickeado ");
   const selectedQuantity = this.quantityControl.value ?? 1;
-    console.log('Cantidad seleccionada:', selectedQuantity);
+  console.log('Cantidad seleccionada:', selectedQuantity);
 
-  this.productService.comprar(productId,selectedQuantity).subscribe({
+  // recuperar usuario de la sesión (guardado en login)
+  const usuario = localStorage.getItem('usuario');
+
+  this.productService.comprar(productId, selectedQuantity, usuario).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
       localStorage.setItem('selectedProduct', JSON.stringify(productId));
 
       // redirige al checkout de Mercado Pago
       window.location.href = initPoint;
-      // Si en Android no abre, probá con:
-      // window.open(initPoint, "_blank");
     },
     error: err => {
       alert("Error al llamar al backend: " + JSON.stringify(err));
-      this.errorredir=JSON.stringify(err);
+      this.errorredir = JSON.stringify(err);
     }
   });
 }
