@@ -70,9 +70,9 @@ iniciarSesion(nombre: string, password: string): Observable<any> {
   //formulario registro método
   private apiURLRegistro = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/registereshop';
 
-registrarDatos(nombre: string, password: string): Observable<any> {
-  const datosderegistro = { nombre, password };
-  return this.http.post(this.apiURLRegistro, datosderegistro);
+registrarDatos(user: any): Observable<any> {
+  // user debería tener { username, email, name, password }
+  return this.http.post(this.apiURLRegistro, user);
 }
 
     
