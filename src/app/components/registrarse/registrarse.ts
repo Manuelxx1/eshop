@@ -69,40 +69,28 @@ constructor(private miServicio: Product,private fb: FormBuilder,private cdRef: C
     //this.mensaje = this.miServicio.getData();
   //formulario registro
     this.formularioregistro = this.fb.group({
-    username: ['', Validators.required],
-      password: ['',
-    [
-      Validators.required,this.passwordValidator]
-  ]
-      //Validators.pattern no dinámico
-// Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+=\\-{}\\[\\]:;"\'<>,.?/]).{8,}$')
-
-    //email: ['', [Validators.required, Validators.email]]
-  });
+  username: ['', Validators.required],
+  email: ['', [Validators.required, Validators.email]],
+  name: [''],
+  password: ['', [Validators.required, this.passwordValidator]]
+});
     
 
 }//constructor
 
   formularioregistrodatos() {
-if (this.formularioregistro.valid) {
-      this.miServicio.registrarDatos(this.formularioregistro.value.username,this.formularioregistro.value.password).subscribe({
+  if (this.formularioregistro.valid) {
+    console.log('Payload:', this.formularioregistro.value); // para depurar
+    this.miServicio.registrarDatos(this.formularioregistro.value).subscribe({
       next: res => {
-    // Login exitoso
-    console.log('Login OK:', res);
-   this.datosdesesion = res;
-        alert("datos registrados"); //mensaje del.backend por ejemplo: "Login exitoso"
-    this.router.navigate(['/']); // redirige al perfil
-  },
-  error: err => {
-    // Login fallido
-    console.error('Error de login:', err);
-    alert('Nombre o contraseña ya existen');
+        alert("Usuario registrado correctamente");
+        this.router.navigate(['/']);
+      },
+      error: err => {
+        alert('Usuario o correo ya existen');
+      }
+    });
   }
-});
-  } else {
-    alert('Por favor completá todos los campos');
-  }
-      
     }
 
   //modal
