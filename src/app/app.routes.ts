@@ -6,5 +6,6 @@ export const routes: Routes = [{ path: '', component: ProductList},
   { path: 'cart', component: CartList},
      { path: 'test-checkout', component: Checkout },
                           
-{ path: 'comprar', component: Checkout }
+{ path: 'comprar', component: Checkout },
+{ path: 'registrarse, component: ProductList }
 ];
