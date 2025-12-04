@@ -10,9 +10,24 @@
     <form [formGroup]="formularioregistro" (ngSubmit)="formularioregistrodatos()">
       <label>
           <h2>REGISTRARSE</h2>
-        <input formControlName="username"  placeholder="Ingresar Nombre" class="search-box" />
-        <input formControlName="password"  placeholder="Ingresar password" class="search-box" />
+            
+        <input formControlName="username" placeholder="Usuario" class="search-box" />
+    <span *ngIf="formularioregistro.get('username')?.invalid && formularioregistro.get('username')?.touched">
+      El usuario es obligatorio.
+    </span>
 
+    <input formControlName="email" placeholder="Correo electrónico" class="search-box" />
+    <span *ngIf="formularioregistro.get('email')?.invalid && formularioregistro.get('email')?.touched">
+      El correo es obligatorio y debe ser válido.
+    </span>
+
+    <input formControlName="name" placeholder="Nombre completo" class="search-box" />
+
+    <input formControlName="password" placeholder="Contraseña" class="search-box" type="password" />
+    <span *ngIf="formularioregistro.get('password')?.invalid && formularioregistro.get('password')?.touched">
+      La contraseña no cumple los requisitos.
+    </span>
+        
 <div class="barra-fuerza">
   <div class="nivel" [style.width.%]="passwordStrength * 20" [ngClass]="{
     'debil': passwordStrength <= 2,
