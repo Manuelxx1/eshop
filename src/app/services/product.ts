@@ -62,8 +62,10 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
   //formulario login método
   private apiURLogin = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/loginsinjwteshop';
 
-iniciarSesion(nombre: string, password: string): Observable<any> {
-  const datosdesesion = { nombre, password };
+// Service de Angular (CORREGIDO)
+// Usa el nombre de la propiedad que espera el backend para buscar al usuario.
+iniciarSesion(username: string, password: string): Observable<any> {
+  const datosdesesion = { username, password }; // Usando 'username'
   return this.http.post(this.apiURLogin, datosdesesion);
 }
 
