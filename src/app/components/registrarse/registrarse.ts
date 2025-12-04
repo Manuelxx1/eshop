@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet,RouterLink } from '@angular/router';
-import { Busquedaservice } from '../busquedaservice';
+import { Product} from '../../services/product';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -65,7 +65,7 @@ get passwordStrength(): number {
 
   
   
-constructor(private miServicio: Busquedaservice,private fb: FormBuilder,private cdRef: ChangeDetectorRef,private router: Router) {
+constructor(private miServicio: Product,private fb: FormBuilder,private cdRef: ChangeDetectorRef,private router: Router) {
     //this.mensaje = this.miServicio.getData();
   //formulario registro
     this.formularioregistro = this.fb.group({
