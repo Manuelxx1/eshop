@@ -69,9 +69,8 @@ constructor(private miServicio: Product,private fb: FormBuilder,private cdRef: C
     //this.mensaje = this.miServicio.getData();
   //formulario registro
     this.formularioregistro = this.fb.group({
-    nombre: ['', Validators.required],
-      password: [
-    '',
+    username: ['', Validators.required],
+      password: ['',
     [
       Validators.required,this.passwordValidator]
   ]
@@ -86,7 +85,7 @@ constructor(private miServicio: Product,private fb: FormBuilder,private cdRef: C
 
   formularioregistrodatos() {
 if (this.formularioregistro.valid) {
-      this.miServicio.registrarDatos(this.formularioregistro.value.nombre,this.formularioregistro.value.password).subscribe({
+      this.miServicio.registrarDatos(this.formularioregistro.value.username,this.formularioregistro.value.password).subscribe({
       next: res => {
     // Login exitoso
     console.log('Login OK:', res);
