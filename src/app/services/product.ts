@@ -73,6 +73,7 @@ iniciarSesion(username: string, password: string): Observable<any> {
   private apiURLRegistro = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/registereshop';
 
 registrarDatos(user: any): Observable<any> {
+  alert(" del service " + JSON.stringify(user));
   // user debería tener { username, email, name, password }
   return this.http.post(this.apiURLRegistro, user);
 }
