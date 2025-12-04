@@ -60,7 +60,7 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 }
 
   //formulario login método
-  private apiURLogin = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/loginsinjwt';
+  private apiURLogin = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/loginsinjwteshop';
 
 iniciarSesion(nombre: string, password: string): Observable<any> {
   const datosdesesion = { nombre, password };
@@ -68,7 +68,7 @@ iniciarSesion(nombre: string, password: string): Observable<any> {
 }
 
   //formulario registro método
-  private apiURLRegistro = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/register';
+  private apiURLRegistro = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/registereshop';
 
 registrarDatos(nombre: string, password: string): Observable<any> {
   const datosderegistro = { nombre, password };
