@@ -1,0 +1,67 @@
+
+<div class="modal" *ngIf="modalAbierto">
+  <div class="modal-contenido">
+    <span class="cerrar" (click)="cerrarModal()">×</span>
+    <!-- Tu formulario aquí -->
+
+    
+<div class="formularioregistro">
+
+    <form [formGroup]="formularioregistro" (ngSubmit)="formularioregistrodatos()">
+      <label>
+          <h2>REGISTRARSE</h2>
+        <input formControlName="nombre"  placeholder="Ingresar Nombre" class="search-box" />
+        <input formControlName="password"  placeholder="Ingresar password" class="search-box" />
+
+<div class="barra-fuerza">
+  <div class="nivel" [style.width.%]="passwordStrength * 20" [ngClass]="{
+    'debil': passwordStrength <= 2,
+    'media': passwordStrength === 3,
+    'fuerte': passwordStrength >= 4
+  }"></div>
+</div>
+<p class="texto-fuerza">
+  {{ passwordStrength <= 2 ? 'Débil' : passwordStrength === 3 ? 'Media' : 'Fuerte' }}
+</p>
+
+        
+        <span *ngIf="formularioregistro.get('nombre')?.invalid && formularioregistro.get('nombre')?.touched">
+  Debería escribir algo es obligatorio.
+          </span>
+          
+
+        
+            <ul class="requisitos">
+    <li [class.ok]="!formularioregistro.get('password')?.errors?.['minLength']">
+       Mínimo 8 caracteres
+    </li>
+    <li [class.ok]="!formularioregistro.get('password')?.errors?.['uppercase']">
+      Al menos una letra mayúscula
+    </li>
+    <li [class.ok]="!formularioregistro.get('password')?.errors?.['lowercase']">
+      Al menos una letra minúscula
+    </li>
+    <li [class.ok]="!formularioregistro.get('password')?.errors?.['number']">
+     Al menos un número
+    </li>
+    <li [class.ok]="!formularioregistro.get('password')?.errors?.['symbol']">
+       Al menos un símbolo
+    </li>
+  </ul>
+        
+        
+        
+      </label>
+
+      <div class="icono-verificado" *ngIf="formularioregistro.get('password')?.valid">
+  ✔️ Contraseña válida
+</div>
+
+
+      <button type="submit"  [disabled]="formularioregistro.invalid">Enviar</button>
+    </form>
+    {{datosdesesion}}
+  </div>
+    
+  </div>
+</div>
