@@ -81,7 +81,7 @@ constructor(private miServicio: Product,private fb: FormBuilder,private cdRef: C
   formularioregistrodatos() {
   if (this.formularioregistro.valid) {
     console.log('Payload:', this.formularioregistro.value); // para depurar
-    alert(this.formularioregistro.value);
+    alert(this.formularioregistro.value.username);
     //this.formularioregistro.value envía todo el objeto ocsea tidos los campos 
     //a registrarDatos(user: any): Observable<any>
     this.miServicio.registrarDatos(this.formularioregistro.value).subscribe({
