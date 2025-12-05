@@ -91,6 +91,7 @@ comprar(productId: number, quantity: number, usuario: string | null): Observable
 }
 
 
+
   //para consultar el estado del pedido orders por id
   //que se registro en tabla orders
   //getOrder(id: number): Observable<Order> {
