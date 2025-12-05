@@ -103,4 +103,9 @@ getOrders(): Observable<Order[]> {
   return this.http.get<Order[]>(`${this.apiUrlOrders}/orders`);
 }
 
+  private apiUrlHistorial = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/orders';
+  
+  getOrdersByLogin(loginUsername: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrlHistorial}/byLogin/${loginUsername}`);
+}
 }
