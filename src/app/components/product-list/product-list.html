@@ -74,7 +74,7 @@
   <p>Total: {{ product.price * (quantityControl.value || 1) | currency:'ARS' }}</p>
 
 
-  <button (click)="buyNow(product)" class="buynow">Comprar ahora</button>
+  <button (click)="buyNow(product.id)" class="buynow">Comprar ahora</button>
 
 </div>
 
