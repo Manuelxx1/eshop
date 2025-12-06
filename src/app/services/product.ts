@@ -36,6 +36,7 @@ export interface Order {
   status: string;
   productName: string;
   createdAt: string;
+  loginUsername:String;
 }
 
 @Injectable({
