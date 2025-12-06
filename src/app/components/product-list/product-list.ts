@@ -113,6 +113,11 @@ initPointUrl: string | null = null;
     this.productService.getOrdersByLogin(loginUsername).subscribe(data => {
       this.orders = data;
     });
+
+      //llama a la sesión session en localStorage 
+      //cuando se recargue la página por algún motivo
+      this.session();
+
       
     }//ngOnInit 
 
