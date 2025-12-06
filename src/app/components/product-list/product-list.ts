@@ -109,7 +109,7 @@ initPointUrl: string | null = null;
 */
       //traer orders o pedidos usando datos de login
 const loginUsername = 'Pruebacheckout'; // el usuario logueado
-    this.ordersService.getOrdersByLogin(loginUsername).subscribe(data => {
+    this.productService.getOrdersByLogin(loginUsername).subscribe(data => {
       this.orders = data;
     });
       
