@@ -101,9 +101,18 @@ initPointUrl: string | null = null;
       });
       }
       */
-    this.productService.getOrders().subscribe(data => {
+      //sin login
+   /* this.productService.getOrders().subscribe(data => {
         this.orders = data;
       });
+
+*/
+      //traer orders o pedidos usando datos de login
+const loginUsername = 'Pruebacheckout'; // el usuario logueado
+    this.ordersService.getOrdersByLogin(loginUsername).subscribe(data => {
+      this.orders = data;
+    });
+      
     }//ngOnInit 
 
 //esto en realidad no es necesario aquí porque el carrito se muestra
