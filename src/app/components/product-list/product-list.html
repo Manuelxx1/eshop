@@ -25,7 +25,7 @@
 
       <button type="submit" [style.display]="sesionActivaSinGoogle ? 'none' : 'block'" >Enviar</button>
     </form>
-    <p class="datosdesesion" *ngIf="sesionActivaSinGoogle"  [innerHTML]="datosdesesion"></p>
+    <p class="datosdesesion" *ngIf="sesionActivaSinGoogle" >USUARIO {{datosdesesion}}</p>
 <!-- Botón de cerrar sesión -->
 <button *ngIf="sesionActivaSinGoogle" (click)="cerrarSesion()">Cerrar sesión</button>
   </div>
