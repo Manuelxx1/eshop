@@ -157,7 +157,7 @@ if (this.formulariologin.valid) {
         this.datosDebug += `\nRespuesta: ${JSON.stringify(res)}`;
    
         //  Guardar sesión en localStorage
-        localStorage.setItem('usuario', username);
+        localStorage.setItem('usuario', res);
 
 this.session();
         
