@@ -108,7 +108,8 @@ initPointUrl: string | null = null;
 
 */
       //traer orders o pedidos usando datos de login
-const loginUsername = 'Pruebacheckout'; // el usuario logueado
+      //para que sea dinámico usar localStorage en vez de Pruebacheckout 
+      const loginUsername = 'Pruebacheckout'; // el usuario logueado
     this.productService.getOrdersByLogin(loginUsername).subscribe(data => {
       this.orders = data;
     });
@@ -155,8 +156,8 @@ if (this.formulariologin.valid) {
 //agregar los datos de la response a la property 
         this.datosDebug += `\nRespuesta: ${JSON.stringify(res)}`;
    
-        // ✅ Guardar sesión en localStorage
-        localStorage.setItem('usuario', JSON.stringify(res.usuario));
+        //  Guardar sesión en localStorage
+        localStorage.setItem('usuario', username);
 
 this.session();
         
