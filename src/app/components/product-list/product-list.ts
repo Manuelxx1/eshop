@@ -116,8 +116,17 @@ initPointUrl: string | null = null;
 
       //llama a la sesión session en localStorage 
       //cuando se recargue la página por algún motivo
-      this.session();
+      //this.session();
 
+      
+const usuarioGuardado = localStorage.getItem('usuario');
+    this.sesionActivaSinGoogle = true; // true si hay sesión
+  if (usuarioGuardado) {
+    const usuario = JSON.parse(usuarioGuardado);
+    console.log('Usuario en sesión:', usuario);
+    this.datosdesesion = 'Usuario en sesión<br>' + usuario;
+
+  }
       
     }//ngOnInit 
 
