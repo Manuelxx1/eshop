@@ -91,10 +91,11 @@
 <!-- Estado del pedido -->
 <div *ngFor="let order of orders" class="order-card">
   <h3>Orden #{{ order.id }} - Estado: {{ order.status }}</h3>
-  <p>Usuario: {{ order.user.username }} ({{ order.user.email }})</p>
-  <p>Fecha: {{ order.createdAt | date:'short' }}</p>
+<p>Fecha: {{ order.createdAt | date:'short' }}</p>
+  <p>Producto: {{ order.productName }}</p>
   <p>Usuario login: {{ order.loginUsername }}</p>
-  <p>Usuario MP: {{ order.user.username }}</p>
+  <p>Usuario MP: {{ order.user.username }} ({{ order.user.email }})</p>
+  
   <p>Total: {{ order.total | currency:'ARS' }}</p>
 
   <h4>Items:</h4>
