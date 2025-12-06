@@ -182,7 +182,7 @@ this.session();
 
   session(){
   const usuarioGuardado = localStorage.getItem('usuario');
-    this.sesionActivaSinGoogle = !!usuarioGuardado; // true si hay sesión
+    this.sesionActivaSinGoogle = true; // true si hay sesión
   if (usuarioGuardado) {
     const usuario = JSON.parse(usuarioGuardado);
     console.log('Usuario en sesión:', usuario);
