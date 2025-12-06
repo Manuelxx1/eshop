@@ -188,13 +188,14 @@ this.session();
     
 
   session(){
-  const usuarioGuardado = localStorage.getItem('usuario');
-this.sesionActivaSinGoogle = true;
-if (usuarioGuardado) {
-  console.log('Usuario en sesión:', usuarioGuardado);
-  this.datosdesesion = usuarioGuardado;
-}
-
+const usuarioGuardado = localStorage.getItem('usuario');
+  if (usuarioGuardado) {
+    this.sesionActivaSinGoogle = true;
+    this.datosdesesion = usuarioGuardado;
+  } else {
+    this.sesionActivaSinGoogle = false;
+    this.datosdesesion = "";
+  }
   }
 
       //cerrar session
