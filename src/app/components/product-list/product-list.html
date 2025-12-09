@@ -63,7 +63,7 @@
 
         <h4>Items:</h4>
         <ul>
-          <li *ngFor="let item of orders.items">
+          <li *ngFor="let item of order.items">
             {{ item.productName }} - Cantidad: {{ item.quantity }} - Precio: {{ item.price | currency:'ARS' }}
           </li>
         </ul>
