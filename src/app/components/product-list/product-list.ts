@@ -215,7 +215,7 @@ const usuarioGuardado = localStorage.getItem('usuario');
         this.mostrarAdvertencia = false;
         this.sesionActivaSinGoogle = false;
 this.datosdesesion ="";
-        alert ("Sesión cerrada por inactividad");
+        
   //this.router.navigate(['/']);   // Redirige al login o donde prefieras
       }
 
@@ -240,7 +240,7 @@ Si el usuario mueve el mouse, hace click o escribe → se reinicia el temporizad
     // Programar advertencia
     this.warningId = setTimeout(() => {
       this.mostrarAdvertencia = true;
-      alert ("Advertencia: la sesión expirará en 1 minuto por inactividad");
+      
     }, this.tiempoInactividad - this.tiempoAdvertencia);
 
     // Programar cierre
