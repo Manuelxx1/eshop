@@ -107,6 +107,20 @@
   background-color: #f44336;
   color: white;
 }
+  
+  .dashboard {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.dashboard section {
+  margin-bottom: 15px;
+}
+
 
 }
+
 
