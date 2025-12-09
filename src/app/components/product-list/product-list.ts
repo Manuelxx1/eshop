@@ -220,6 +220,14 @@ this.datosdesesion ="";
       }
 
 
+  
+  //mantener la session al dar ok en el modal de advertencia 
+mantenerSesion(): void {
+    this.mostrarAdvertencia = false;
+    this.resetTimer(); // reinicia temporizador
+    console.log("Sesión mantenida por el usuario");
+}
+  
 
 /*Resultado
 Si el usuario está inactivo 4 minutos → aparece el mensaje de advertencia.
@@ -248,6 +256,9 @@ Si el usuario mueve el mouse, hace click o escribe → se reinicia el temporizad
   }
   
 
+
+  
+  
   addToCart(product: any): void {
   this.cartService.addToCart(product.id, 1).subscribe({
     next: () => this.loadCart(),
