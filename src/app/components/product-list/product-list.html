@@ -38,16 +38,12 @@
     <div class="dashboard" *ngIf="sesionActivaSinGoogle && orders.length > 0">
       <h2>Bienvenido, {{ datosdesesion }}</h2>
 
-      <section id="perfil">
-        <h3>Perfil</h3>
-        
-          
-            <p>Nombre: {{ datosdesesion }}</p>
-            <p>Email: {{ datosdesesion.email }}</p>
-          
-            
-        
-      </section>
+      <section id="perfil" *ngIf="orders.length > 0">
+  <h3>Perfil</h3>
+  <p>Nombre: {{ datosdesesion }}</p>
+  <p>Email: {{ orders[0].user.email }}</p>
+</section>
+
 
       <section id="ordenes">
         <h3>Órdenes recientes</h3>
