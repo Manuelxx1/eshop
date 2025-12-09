@@ -114,7 +114,7 @@ initPointUrl: string | null = null;
 */
       //traer orders o pedidos usando datos de login
       //para que sea dinámico usar localStorage en vez de Pruebacheckout 
-      const loginUsername = localStorage.getItem('usuario'); // el usuario logueado
+      const loginUsername = localStorage.getItem('usuario');// el usuario logueado
     this.productService.getOrdersByLogin(loginUsername).subscribe(data => {
       this.orders = data;
     });
