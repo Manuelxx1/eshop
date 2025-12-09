@@ -25,9 +25,10 @@
 
   <section>
   <h3>Perfil</h3>
+    <div *ngFor="let order of orders" class="order-card">
   <p>Nombre: {{ datosdesesion }}</p>
-  <p>Email: {{datosdesesion.email }}</p>
-  <p>Fecha de registro: {{ datosdesesion.createdAt | date }}</p>
+  <p>Email: {{order.user.email }}</p>
+  <p>Fecha de registro: {{ order.user.createdAt | date }}</p>
 </section>
 
   <section>
