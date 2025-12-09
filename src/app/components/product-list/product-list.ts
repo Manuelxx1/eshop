@@ -43,6 +43,11 @@ total: number = 0;
   formulariologin: FormGroup;
   datosdesesion:any;
   sesionActivaSinGoogle: boolean = false;
+  private timeoutId: any;
+  private warningId: any;
+  private tiempoInactividad = 5 * 60 * 1000; // 5 minutos
+  private tiempoAdvertencia = 1 * 60 * 1000; // 1 minuto antes
+ mostrarAdvertencia = false;
   
   datosDebug: string = '';
 
@@ -118,8 +123,8 @@ initPointUrl: string | null = null;
       //cuando se recargue la página por algún motivo
       this.session();
 
-      
-
+     //reset timer de cerrar sesión por inactividad 
+this.resetTimer();
       
     }//ngOnInit 
 
@@ -202,14 +207,36 @@ const usuarioGuardado = localStorage.getItem('usuario');
   
       cerrarSesion() {
   localStorage.removeItem('usuario'); // Elimina la sesión
-      //si quiero borrar todos los datos
+     //si quiero borrar todos los datos
         //de session
         //incluido el usuario
         //localStorage.clear();
+        localStorage.clear();
+        this.mostrarAdvertencia = false;
         this.sesionActivaSinGoogle = false;
 this.datosdesesion ="";
+        alert ("Sesión cerrada por inactividad");
   //this.router.navigate(['/']);   // Redirige al login o donde prefieras
       }
+
+  //  Escuchar actividad del usuario
+  @HostListener('window:mousemove')
+  @HostListener('window:keydown')
+  @HostListener('window:click')
+  resetTimer(): void {
+    clearTimeout(this.timeoutId);
+    clearTimeout(this.warningId);
+    this.mostrarAdvertencia = false;
+
+    // Programar advertencia
+    this.warningId = setTimeout(() => {
+      this.mostrarAdvertencia = true;
+      alert ("Advertencia: la sesión expirará en 1 minuto por inactividad");
+    }, this.tiempoInactividad - this.tiempoAdvertencia);
+
+    // Programar cierre
+    this.timeoutId = setTimeout(() => this.cerrarSesion(), this.tiempoInactividad);
+  }
   
 
   addToCart(product: any): void {
