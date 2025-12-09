@@ -219,6 +219,15 @@ this.datosdesesion ="";
   //this.router.navigate(['/']);   // Redirige al login o donde prefieras
       }
 
+
+
+/*Resultado
+Si el usuario está inactivo 4 minutos → aparece el mensaje de advertencia.
+
+Si pasa 1 minuto más sin actividad → se ejecuta cerrarSesion().
+
+Si el usuario mueve el mouse, hace click o escribe → se reinicia el temporizador y desaparece la advertencia.
+  */
   //  Escuchar actividad del usuario
   @HostListener('window:mousemove')
   @HostListener('window:keydown')
