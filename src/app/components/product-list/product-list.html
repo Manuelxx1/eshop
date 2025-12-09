@@ -19,14 +19,15 @@
 
 
 <!--dashboard de usuario-->
-<div class="dashboard">
+<!--dashboard de usuario-->
+<div class="dashboard" *ngIf="sesionActivaSinGoogle && orders.length > 0">
   <h2>Bienvenido, {{ datosdesesion }}</h2>
 
   <section>
     <h3>Órdenes recientes</h3>
     <ul>
       <li *ngFor="let order of orders">
-        #{{ order.id }} - {{ order.estado }} - {{ order.total | currency }}
+        #{{ order.id }} - {{ order.status }} - {{ order.total | currency }}
       </li>
     </ul>
   </section>
