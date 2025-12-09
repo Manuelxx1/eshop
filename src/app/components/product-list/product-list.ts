@@ -114,6 +114,11 @@ initPointUrl: string | null = null;
 */
       //traer orders o pedidos usando datos de login
       //para que sea dinámico usar localStorage en vez de Pruebacheckout 
+     
+      //Así solo llamás al servicio si existe un usuario en sesión
+      //y se evita llamar al service con undato null
+      //para que no surga error de datos ya que el método 
+      //en el service espera solamente un string y no un null
       const loginUsername = localStorage.getItem('usuario');
 if (loginUsername) {
   this.productService.getOrdersByLogin(loginUsername).subscribe(data => {
