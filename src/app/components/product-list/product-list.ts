@@ -64,6 +64,11 @@ quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de 
 initPointUrl: string | null = null;
   errorredir: string | null = null;
 
+
+//dashboard de usuario 
+  estadisticas: any = {};
+
+
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
     this.formulariologin = this.fb.group({
@@ -123,6 +128,10 @@ initPointUrl: string | null = null;
 if (loginUsername) {
   this.productService.getOrdersByLogin(loginUsername).subscribe(data => {
     this.orders = data;
+    this.estadisticas = {
+        totalGastado: data.reduce((acc, o) => acc + o.total, 0),
+        compras: data.length
+      };
   });
 }
 
