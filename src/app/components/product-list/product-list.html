@@ -35,7 +35,7 @@
   </aside>
 <div class="dashboard" *ngIf="sesionActivaSinGoogle && orders.length > 0">
   <h2>Bienvenido, {{ datosdesesion }}</h2>
-
+  <main class="main-content">
   <section id="perfil">
   <h3>Perfil</h3>
     <ul>
@@ -78,6 +78,7 @@
     <p>Total gastado: {{ estadisticas.totalGastado | currency }}</p>
     <p>Compras realizadas: {{ estadisticas.compras }}</p>
   </section>
+  </main>
 </div>
 
 
