@@ -166,7 +166,7 @@ if (this.formulariologin.valid) {
     // Login exitoso
     console.log('Login OK:', res);
 //agregar los datos de la response a la property 
-        this.datosDebug += `\nRespuesta: ${JSON.stringify(res)}`;
+       // this.datosDebug += `\nRespuesta: ${JSON.stringify(res)}`;
    
         //  Guardar sesión en localStorage
         localStorage.setItem('usuario', res.usuario);
@@ -180,7 +180,7 @@ this.session();
     // Login fallido
     console.error('Error de login:', err);
 
-    this.datosDebug += `\nError: ${JSON.stringify(err)}`;
+    //this.datosDebug += `\nError: ${JSON.stringify(err)}`;
     alert('Nombre o contraseña incorrectos');
   }
 });
