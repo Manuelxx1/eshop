@@ -38,16 +38,18 @@
 
   <section id="perfil">
   <h3>Perfil</h3>
-    <div *ngFor="let order of orders" class="order-card">
+    <ul>
+    <li *ngFor="let order of orders" class="order-card">
   <p>Nombre: {{ datosdesesion }}</p>
   <p>Email: {{order.user.email }}</p>
-  <p>Fecha de registro: {{ order.user.createdAt | date }}</p>
-</section>
-
+  <p>Fecha de registro: {{ order.user.createdAt | date }}</p></section>
+</li>
+</ul>
   <section id="ordenes">
     <h3>Órdenes recientes</h3>
     <!-- Estado del pedido -->
-<div *ngFor="let order of orders" class="order-card">
+    <ul>
+<li *ngFor="let order of orders" class="order-card">
   <h3>Orden #{{ order.id }} - Estado: {{ order.status }}</h3>
 <p>Fecha: {{ order.createdAt | date:'short' }}</p>
   <p>Producto: {{ order.productName }}</p>
@@ -56,13 +58,17 @@
   
   <p>Total: {{ order.total | currency:'ARS' }}</p>
 
+ 
+</li>
+    </ul>
+  
   <h4>Items:</h4>
   <ul>
     <li *ngFor="let item of order.items">
       {{ item.productName }} - Cantidad: {{ item.quantity }} - Precio: {{ item.price | currency:'ARS' }}
     </li>
   </ul>
-</div>
+
        
     
   </section>
