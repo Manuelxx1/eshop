@@ -18,6 +18,27 @@
 
 
 
+<!--dashboard de usuario-->
+<div class="dashboard">
+  <h2>Bienvenido, {{ usuario }}</h2>
+
+  <section>
+    <h3>Órdenes recientes</h3>
+    <ul>
+      <li *ngFor="let order of orders">
+        #{{ order.id }} - {{ order.estado }} - {{ order.total | currency }}
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Estadísticas</h3>
+    <p>Total gastado: {{ estadisticas.totalGastado | currency }}</p>
+    <p>Compras realizadas: {{ estadisticas.compras }}</p>
+  </section>
+</div>
+
+
 <div class="formulariologin">
 
     <form [formGroup]="formulariologin" (ngSubmit)="formulariologindatos()">
