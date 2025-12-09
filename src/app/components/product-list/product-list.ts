@@ -114,7 +114,7 @@ initPointUrl: string | null = null;
 */
       //traer orders o pedidos usando datos de login
       //para que sea dinámico usar localStorage en vez de Pruebacheckout 
-      const loginUsername = 'Pruebacheckout'; // el usuario logueado
+      const loginUsername = localStorage.getItem('usuario'); // el usuario logueado
     this.productService.getOrdersByLogin(loginUsername).subscribe(data => {
       this.orders = data;
     });
@@ -158,7 +158,7 @@ if (this.formulariologin.valid) {
   const nombre = this.formulariologin.value.nombre;
     const password = this.formulariologin.value.password;
 
-    this.datosDebug = `Enviando: ${nombre} / ${password}`;
+    //this.datosDebug = `Enviando: ${nombre} / ${password}`;
       
   
   this.productService.iniciarSesion(this.formulariologin.value.nombre,this.formulariologin.value.password).subscribe({
