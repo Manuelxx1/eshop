@@ -58,13 +58,16 @@
             <p>Usuario login: {{ order.loginUsername }}</p>
             <p>Usuario MP: {{ order.user.username }} ({{ order.user.email }})</p>
             <p>Total: {{ order.total | currency:'ARS' }}</p>
-          </li>
-        </ul>
+          
+        
+        
 
         <h4>Items:</h4>
         <ul>
           <li *ngFor="let item of order.items">
             {{ item.productName }} - Cantidad: {{ item.quantity }} - Precio: {{ item.price | currency:'ARS' }}
+          </li>
+        </ul>
           </li>
         </ul>
       </section>
