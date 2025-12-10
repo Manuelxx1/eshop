@@ -240,14 +240,13 @@ section {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Cuando Angular renderiza la sección activa */
-section.ng-animating,
-section.ng-star-inserted {
+section.active {
   opacity: 1;
   transform: translateY(0);
-                             }
-  
 }
+
+}
+
 
 
 
