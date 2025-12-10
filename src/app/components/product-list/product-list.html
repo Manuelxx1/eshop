@@ -35,10 +35,10 @@
 
   <!-- Contenido principal -->
   <main class="main-content">
-    <div class="dashboard" *ngIf="sesionActivaSinGoogle && orders.length > 0">
+    <div class="dashboard" *ngIf="sesionActivaSinGoogle ">
       <h2>Bienvenido, {{ datosdesesion }}</h2>
 
-      <section id="perfil" *ngIf="orders.length > 0">
+      <section id="perfil" >
   <h3>Perfil</h3>
   <p>Usuario: {{ datosdesesion}}</p>
   <p>Nombre: {{nombre}}</p>
