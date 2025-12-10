@@ -210,7 +210,7 @@ this.metododatosdeuser(res.email);
 
     
 
-  metododatosdeuser(datos){
+  metododatosdeuser(datos:any){
     this.datosdeuser=datos;
   }
   session(){
