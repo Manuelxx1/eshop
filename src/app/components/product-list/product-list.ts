@@ -143,7 +143,7 @@ if (loginUsername) {
      //reset timer de cerrar sesión por inactividad 
 this.resetTimer();
 
-      this.metododatosdeuser();
+      
       
     }//ngOnInit 
 
@@ -212,9 +212,7 @@ this.metododatosdeuser(res.email);
 
     
 
-  metododatosdeuser(datos:any){
-    this.datosdeuser=datos;
-  }
+
   session(){
 const usuarioGuardado = localStorage.getItem('usuario');
   if (usuarioGuardado) {
