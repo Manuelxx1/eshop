@@ -69,6 +69,9 @@ initPointUrl: string | null = null;
   estadisticas: any = {};
   email: string | null = null;
 nombre: string | null = null;
+seccionActiva: string = 'perfil'; // por defecto
+
+// Podés cambiar la sección desde el menú con (click)
 
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
