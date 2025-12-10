@@ -25,11 +25,12 @@
   <aside class="sidebar">
     <h3>Menú</h3>
     <ul>
-      <li><button (click)="seccionActiva='perfil'">👤 Perfil</button></li>
-      <li><button (click)="seccionActiva='ordenes'">🛒 Órdenes</button></li>
-      <li><button (click)="seccionActiva='estadisticas'">📊 Estadísticas</button></li>
-      <li><button (click)="seccionActiva='actividad'">📅 Actividad</button></li>
-      <li><button (click)="seccionActiva='configuracion'">⚙️ Configuración</button></li>
+      <li><button (click)="seccionActiva='perfil'" [class.active]="seccionActiva==='perfil'">👤 Perfil</button></li>
+<li><button (click)="seccionActiva='ordenes'" [class.active]="seccionActiva==='ordenes'">🛒 Órdenes</button></li>
+<li><button (click)="seccionActiva='estadisticas'" [class.active]="seccionActiva==='estadisticas'">📊 Estadísticas</button></li>
+<li><button (click)="seccionActiva='actividad'" [class.active]="seccionActiva==='actividad'">📅 Actividad</button></li>
+<li><button (click)="seccionActiva='configuracion'" [class.active]="seccionActiva==='configuracion'">⚙️ Configuración</button></li>
+
     </ul>
   </aside>
 
