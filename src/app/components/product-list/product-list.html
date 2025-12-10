@@ -25,28 +25,29 @@
   <aside class="sidebar">
     <h3>Menú</h3>
     <ul>
-      <li><a href="#perfil">👤 Perfil</a></li>
-      <li><a href="#ordenes">🛒 Órdenes</a></li>
-      <li><a href="#estadisticas">📊 Estadísticas</a></li>
-      <li><a href="#actividad">📅 Actividad</a></li>
-      <li><a href="#configuracion">⚙️ Configuración</a></li>
+      <li><button (click)="seccionActiva='perfil'">👤 Perfil</button></li>
+      <li><button (click)="seccionActiva='ordenes'">🛒 Órdenes</button></li>
+      <li><button (click)="seccionActiva='estadisticas'">📊 Estadísticas</button></li>
+      <li><button (click)="seccionActiva='actividad'">📅 Actividad</button></li>
+      <li><button (click)="seccionActiva='configuracion'">⚙️ Configuración</button></li>
     </ul>
   </aside>
 
   <!-- Contenido principal -->
   <main class="main-content">
-    <div class="dashboard" *ngIf="sesionActivaSinGoogle ">
+    <div class="dashboard" *ngIf="sesionActivaSinGoogle">
       <h2>Bienvenido, {{ datosdesesion }}</h2>
 
-      <section id="perfil" >
-  <h3>Perfil</h3>
-  <p>Usuario: {{ datosdesesion}}</p>
-  <p>Nombre: {{nombre}}</p>
-  <p>Email: {{ email }}</p>
-</section>
+      <!-- Perfil -->
+      <section *ngIf="seccionActiva==='perfil'">
+        <h3>Perfil</h3>
+        <p>Usuario: {{ datosdesesion }}</p>
+        <p>Nombre: {{ nombre }}</p>
+        <p>Email: {{ email }}</p>
+      </section>
 
-
-      <section id="ordenes">
+      <!-- Órdenes -->
+      <section *ngIf="seccionActiva==='ordenes'">
         <h3>Órdenes recientes</h3>
         <ul>
           <li *ngFor="let order of orders" class="order-card">
@@ -56,28 +57,39 @@
             <p>Usuario login: {{ order.loginUsername }}</p>
             <p>Usuario MP: {{ order.user.username }} ({{ order.user.email }})</p>
             <p>Total: {{ order.total | currency:'ARS' }}</p>
-          
-        
-        
 
-        <h4>Items:</h4>
-        <ul>
-          <li *ngFor="let item of order.items">
-            {{ item.productName }} - Cantidad: {{ item.quantity }} - Precio: {{ item.price | currency:'ARS' }}
-          </li>
-        </ul>
+            <h4>Items:</h4>
+            <ul>
+              <li *ngFor="let item of order.items">
+                {{ item.productName }} - Cantidad: {{ item.quantity }} - Precio: {{ item.price | currency:'ARS' }}
+              </li>
+            </ul>
           </li>
         </ul>
       </section>
 
-      <section id="estadisticas">
+      <!-- Estadísticas -->
+      <section *ngIf="seccionActiva==='estadisticas'">
         <h3>Estadísticas</h3>
         <p>Total gastado: {{ estadisticas.totalGastado | currency }}</p>
         <p>Compras realizadas: {{ estadisticas.compras }}</p>
       </section>
+
+      <!-- Actividad -->
+      <section *ngIf="seccionActiva==='actividad'">
+        <h3>Actividad</h3>
+        <p>Aquí iría la actividad del usuario...</p>
+      </section>
+
+      <!-- Configuración -->
+      <section *ngIf="seccionActiva==='configuracion'">
+        <h3>Configuración</h3>
+        <p>Aquí iría la configuración del perfil...</p>
+      </section>
     </div>
   </main>
 </div>
+
 
 
 <div class="formulariologin">
