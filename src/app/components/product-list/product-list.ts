@@ -147,7 +147,9 @@ this.resetTimer();
 
 //para el perfil del dashboard 
       
-    
+  //usamos localstorage para persistir datos por navegador 
+      
+      // y si se recarga el navegador no se borren los datos de la vista
   this.email = localStorage.getItem('email');
   this.nombre = localStorage.getItem('name');
       
@@ -199,7 +201,8 @@ if (this.formulariologin.valid) {
           localStorage.setItem('name', res.name);
          
 
-
+this.nombre= res.name;
+    this.email = res.email;
         
    this.session();
         
