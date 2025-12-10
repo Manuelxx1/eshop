@@ -223,6 +223,12 @@
   background-color: #ecf0f1;
 }
 
+  /*
+  Cómo funciona
+Cada section arranca invisible (opacity:0) y un poquito desplazada.
+Cuando Angular la inserta en el DOM (*ngIf la activa), se aplica la transición y aparece suavemente.
+El efecto es un fade + slide muy ligero, elegante y sin complicaciones
+  */
 section {
   background: #fff;
   padding: 15px;
@@ -242,6 +248,7 @@ section.ng-star-inserted {
                              }
   
 }
+
 
 
 
