@@ -67,7 +67,7 @@ initPointUrl: string | null = null;
 
 //dashboard de usuario 
   estadisticas: any = {};
-datoemail:any;
+datosdeuser:any;
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
@@ -187,7 +187,8 @@ if (this.formulariologin.valid) {
    
         //  Guardar sesión en localStorage
         localStorage.setItem('usuario', res.usuario);
-this.datoemail=res.email;
+this.metododatosdeuser(res.email);
+        
    this.session();
         
         alert(res.mensaje); //mensaje del.backend por ejemplo: "Login exitoso"
@@ -209,6 +210,9 @@ this.datoemail=res.email;
 
     
 
+  metododatosdeuser(string datos){
+    this.datosdeuser=datos;
+  }
   session(){
 const usuarioGuardado = localStorage.getItem('usuario');
   if (usuarioGuardado) {
