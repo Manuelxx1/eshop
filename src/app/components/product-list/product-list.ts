@@ -204,7 +204,7 @@ if (this.formulariologin.valid) {
    this.session();
         
         alert(res.mensaje); //mensaje del.backend por ejemplo: "Login exitoso"
-    //this.router.navigate(['/']); // redirige al perfil
+    this.router.navigate(['/']); // redirige al perfil
   },
   error: err => {
     // Login fallido
