@@ -195,7 +195,7 @@ if (this.formulariologin.valid) {
    
         //  Guardar sesión en localStorage
         localStorage.setItem('usuario', res.usuario);
-        localStorage.setItem('email, res.email);
+        localStorage.setItem('email', res.email);
           localStorage.setItem('name', res.name);
          
 
