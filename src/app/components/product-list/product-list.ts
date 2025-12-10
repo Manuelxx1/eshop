@@ -67,7 +67,9 @@ initPointUrl: string | null = null;
 
 //dashboard de usuario 
   estadisticas: any = {};
-datosdeuser:any;
+  email: string | null = null;
+nombre: string | null = null;
+
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
@@ -143,7 +145,11 @@ if (loginUsername) {
      //reset timer de cerrar sesión por inactividad 
 this.resetTimer();
 
+//para el perfil del dashboard 
       
+    
+  this.email = localStorage.getItem('email');
+  this.nombre = localStorage.getItem('name');
       
     }//ngOnInit 
 
@@ -189,6 +195,10 @@ if (this.formulariologin.valid) {
    
         //  Guardar sesión en localStorage
         localStorage.setItem('usuario', res.usuario);
+        localStorage.setItem('email, res.email);
+          localStorage.setItem('name', res.name);
+         
+
 
         
    this.session();
