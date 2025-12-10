@@ -142,6 +142,8 @@ if (loginUsername) {
 
      //reset timer de cerrar sesión por inactividad 
 this.resetTimer();
+
+      this.metododatosdeuser();
       
     }//ngOnInit 
 
