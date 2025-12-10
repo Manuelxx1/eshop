@@ -69,6 +69,7 @@ initPointUrl: string | null = null;
   estadisticas: any = {};
   email: string | null = null;
 nombre: string | null = null;
+  fechaderegistro:any;
 seccionActiva: string = 'perfil'; // por defecto
 
 // Podés cambiar la sección desde el menú con (click)
@@ -155,6 +156,7 @@ this.resetTimer();
       // y si se recarga el navegador no se borren los datos de la vista
   this.email = localStorage.getItem('email');
   this.nombre = localStorage.getItem('name');
+this.fechaderegistro = localStorage.getItem('createdAt');
       
     }//ngOnInit 
 
@@ -202,12 +204,15 @@ if (this.formulariologin.valid) {
         localStorage.setItem('usuario', res.usuario);
         localStorage.setItem('email', res.email);
           localStorage.setItem('name', res.name);
+        localStorage.setItem('createdAt', res.createdAt);
          
 
 this.nombre= res.name;
     this.email = res.email;
         
-   this.session();
+    this.fechaderegistro = res.createdAt;
+  
+        this.session();
         
         alert(res.mensaje); //mensaje del.backend por ejemplo: "Login exitoso"
     this.router.navigate(['/']); // redirige al perfil
