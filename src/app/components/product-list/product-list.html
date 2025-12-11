@@ -77,7 +77,9 @@
         <p>Total gastado: {{ estadisticas.totalGastado | currency }}</p>
         <p>Compras realizadas: {{ estadisticas.compras }}</p>
             <p><strong>Última compra:</strong> {{ estadisticas.ultimaCompra | date:'short' }}</p>
-      
+        
+        <p><strong>Monto:</strong> {{ estadisticas.ultimoMonto | currency:'ARS' }}</p>
+  <p><strong>Estado:</strong> {{ estadisticas.ultimoEstado }}</p>
       </section>
 
       <!-- Actividad -->
