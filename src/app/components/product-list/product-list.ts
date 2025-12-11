@@ -66,7 +66,8 @@ initPointUrl: string | null = null;
 
 
 //dashboard de usuario 
-  estadisticas: {};
+  estadisticas: any = {};
+
   email: string | null = null;
 nombre: string | null = null;
   fechaderegistro:any;
