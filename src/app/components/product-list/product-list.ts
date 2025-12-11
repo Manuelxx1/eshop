@@ -67,7 +67,7 @@ initPointUrl: string | null = null;
 
 //dashboard de usuario 
   estadisticas: any = {};
-
+actividad: { fecha: Date; tipo: string; descripcion: string }[] = [];
   email: string | null = null;
 nombre: string | null = null;
   fechaderegistro:any;
@@ -166,6 +166,11 @@ this.fechaderegistro = localStorage.getItem('createdAt');
       ultimoMonto: ultimaOrden ? ultimaOrden.total : 0,
   ultimoEstado: ultimaOrden ? ultimaOrden.status : ''
     }
+    this.actividad = data.map(o => ({
+        fecha: o.createdAt,
+        tipo: 'Compra',
+        descripcion: `Orden #${o.id} por ${o.total} ARS`
+      }));
   });
   }
 //esto en realidad no es necesario aquí porque el carrito se muestra
