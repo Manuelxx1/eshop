@@ -66,7 +66,7 @@ initPointUrl: string | null = null;
 
 
 //dashboard de usuario 
-  estadisticas: { totalGastado: number; compras: number,ultimaCompra:Timestamp};
+  estadisticas: {};
   email: string | null = null;
 nombre: string | null = null;
   fechaderegistro:any;
