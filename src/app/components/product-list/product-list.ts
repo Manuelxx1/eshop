@@ -72,7 +72,7 @@ actividad: { fecha: Date; tipo: string; descripcion: string }[] = [];
 nombre: string | null = null;
   fechaderegistro:any;
 seccionActiva: string = 'perfil'; // por defecto
-
+passwordForm: FormGroup;
 // Podés cambiar la sección desde el menú con (click)
 
 
@@ -83,6 +83,12 @@ seccionActiva: string = 'perfil'; // por defecto
       password: ['', Validators.required]
     //email: ['', [Validators.required, Validators.email]]
   });
+
+//para cambiar contraseña dashboard 
+this.passwordForm = this.fb.group({
+      nuevaPassword: ['', [Validators.required, Validators.minLength(6)]]
+    });
+    
   }
   
     ngOnInit(): void {
@@ -155,6 +161,32 @@ this.fechaderegistro = localStorage.getItem('createdAt');
       
     }//ngOnInit 
 
+//método para cambiar contraseña dashboard 
+updatePassword() {
+    if (this.passwordForm.valid) {
+      const usuario = localStorage.getItem('usuario');
+      const nuevaPassword = this.passwordForm.value.nuevaPassword;
+
+      this.productService.updatePassword(usuario!, nuevaPassword).subscribe(res => {
+        if (res.success) {
+          // Registrar actividad
+          this.actividad.push({
+            fecha: new Date(),
+            tipo: 'Configuración',
+            descripcion: `Contraseña actualizada para ${usuario}`
+          });
+
+          // Ordenar cronológicamente
+          this.actividad.sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
+
+          // Resetear formulario
+          this.passwordForm.reset();
+        }
+      });
+    }
+}
+
+  
   private cargarDatosDashboard(usuario: string) {
   this.productService.getOrdersByLogin(usuario).subscribe(data => {
     this.orders = data;
