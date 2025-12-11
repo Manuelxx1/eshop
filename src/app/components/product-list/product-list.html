@@ -97,25 +97,19 @@
       <!-- Configuración -->
       <section *ngIf="seccionActiva==='configuracion'">
         <h3>Configuración</h3>
-        
-      <div class="formulariocontraseña">
+          <h3>🔐 Actualizar contraseña</h3>
+  <form [formGroup]="passwordForm" (ngSubmit)="updatePassword()">
+    <label for="password">Nueva contraseña:</label>
+    <input id="password" type="password" formControlName="nuevaPassword">
+    
+    <div *ngIf="passwordForm.get('nuevaPassword')?.invalid && passwordForm.get('nuevaPassword')?.touched">
+      <small>La contraseña debe tener al menos 6 caracteres</small>
+    </div>
 
-    <form [formGroup]="formulariocontraseña" (ngSubmit)="formulariocambiarcontraseña()">
-      <label>
-          <h2>CAMBIAR CONTRASEÑA</h2>
-        
-        <input formControlName="password"  placeholder="Ingresar password" class="search-box" />
-        
-        <span *ngIf="formulariologin.get('password')?.invalid && formulariologin.get('password')?.touched">
-       Debería escribir una contraseña
-        
-        </span>
-        
-      </label>
-
-      <button type="submit" [style.display]="sesionActivaSinGoogle ? 'none' : 'block'" >Enviar</button>
-    </form>
-    <p class="datosdesesion" *ngIf="sesionActivaSinGoogle" >USUARIO {{datosdesesion}}</p>
+    <button type="submit" [disabled]="passwordForm.invalid">Actualizar</button>
+  </form>
+      
+    
       </section>
     </div>
   </main>
