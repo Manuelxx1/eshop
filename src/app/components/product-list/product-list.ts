@@ -157,11 +157,12 @@ this.fechaderegistro = localStorage.getItem('createdAt');
   private cargarDatosDashboard(usuario: string) {
   this.productService.getOrdersByLogin(usuario).subscribe(data => {
     this.orders = data;
+    const ultimaOrden = data.length > 0 ? data[data.length - 1] : null;
     this.estadisticas = {
       totalGastado: data.reduce((acc, o) => acc + o.total, 0),
       compras: data.length,
-      ultimaCompra: data.length > 0 ? data[data.length - 1].createdAt : null
-    };
+      ultimaCompra: ultimaOrden ? ultimaOrden.createdAt : null
+    }
   });
   }
 //esto en realidad no es necesario aquí porque el carrito se muestra
