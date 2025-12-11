@@ -171,6 +171,13 @@ this.fechaderegistro = localStorage.getItem('createdAt');
         tipo: 'Compra',
         descripcion: `Orden #${o.id} por ${o.total} ARS`
       }));
+    // Luego agregás el login como otro evento
+    //al array de objetos actividad 
+this.actividad.push({
+  fecha: new Date(), // momento actual del login
+  tipo: 'Login',
+  descripcion: `Inicio de sesión exitoso para ${res.usuario}`
+});
   });
   }
 //esto en realidad no es necesario aquí porque el carrito se muestra
