@@ -211,7 +211,15 @@ this.nombre= res.name;
     this.email = res.email;
         
     this.fechaderegistro = res.createdAt;
-  
+
+this.productService.getOrdersByLogin(res.usuario).subscribe(data => {
+    this.orders = data;
+    this.estadisticas = {
+        totalGastado: data.reduce((acc, o) => acc + o.total, 0),
+        compras: data.length
+      };
+  });
+        
         this.session();
         
         alert(res.mensaje); //mensaje del.backend por ejemplo: "Login exitoso"
