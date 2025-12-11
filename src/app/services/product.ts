@@ -109,4 +109,14 @@ getOrders(): Observable<Order[]> {
   getOrdersByLogin(loginUsername: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrlHistorial}/byLogin/${loginUsername}`);
 }
+
+private apiUrlPassword = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/';
+  
+  updatePassword(usuario: string, nuevaPassword: string): Observable<any> {
+  return this.http.put(`${this.apiUrlPassword}/update-password`, {
+    usuario,
+    nuevaPassword
+  });
+}
+
 }
