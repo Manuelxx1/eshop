@@ -85,7 +85,13 @@
       <!-- Actividad -->
       <section *ngIf="seccionActiva==='actividad'">
         <h3>Actividad</h3>
-        <p>Aquí iría la actividad del usuario...</p>
+        <ul>
+    <li *ngFor="let evento of actividad">
+      <strong>{{ evento.tipo }}</strong> - {{ evento.descripcion }}
+      <br>
+      <small>{{ evento.fecha | date:'short' }}</small>
+    </li>
+        </ul>
       </section>
 
       <!-- Configuración -->
