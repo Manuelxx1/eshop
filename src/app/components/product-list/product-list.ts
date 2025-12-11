@@ -162,7 +162,9 @@ this.fechaderegistro = localStorage.getItem('createdAt');
     this.estadisticas = {
       totalGastado: data.reduce((acc, o) => acc + o.total, 0),
       compras: data.length,
-      ultimaCompra: ultimaOrden ? ultimaOrden.createdAt : null
+      ultimaCompra: ultimaOrden ? ultimaOrden.createdAt : null,
+      ultimoMonto: ultimaOrden ? ultimaOrden.total : 0,
+  ultimoEstado: ultimaOrden ? ultimaOrden.status : ''
     }
   });
   }
