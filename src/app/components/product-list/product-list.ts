@@ -132,13 +132,7 @@ seccionActiva: string = 'perfil'; // por defecto
       //en el service espera solamente un string y no un null
       const loginUsername = localStorage.getItem('usuario');
 if (loginUsername) {
-  this.productService.getOrdersByLogin(loginUsername).subscribe(data => {
-    this.orders = data;
-    this.estadisticas = {
-        totalGastado: data.reduce((acc, o) => acc + o.total, 0),
-        compras: data.length
-      };
-  });
+  this.cargarDatosDashboard(loginUsername);
 }
 
 
@@ -160,6 +154,15 @@ this.fechaderegistro = localStorage.getItem('createdAt');
       
     }//ngOnInit 
 
+  private cargarDatosDashboard(usuario: string) {
+  this.productService.getOrdersByLogin(usuario).subscribe(data => {
+    this.orders = data;
+    this.estadisticas = {
+      totalGastado: data.reduce((acc, o) => acc + o.total, 0),
+      compras: data.length
+    };
+  });
+  }
 //esto en realidad no es necesario aquí porque el carrito se muestra
   //en el component cart y este metodo loadCart ya esta alli 
   //y se muestra en la  vista cart html
@@ -212,13 +215,7 @@ this.nombre= res.name;
         
     this.fechaderegistro = res.createdAt;
 
-this.productService.getOrdersByLogin(res.usuario).subscribe(data => {
-    this.orders = data;
-    this.estadisticas = {
-        totalGastado: data.reduce((acc, o) => acc + o.total, 0),
-        compras: data.length
-      };
-  });
+this.cargarDatosDashboard(res.usuario);
         
         this.session();
         
