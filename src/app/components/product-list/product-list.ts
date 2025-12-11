@@ -176,7 +176,7 @@ this.fechaderegistro = localStorage.getItem('createdAt');
 this.actividad.push({
   fecha: new Date(), // momento actual del login
   tipo: 'Login',
-  descripcion: `Inicio de sesión exitoso para ${res.usuario}`
+  descripcion: `Inicio de sesión exitoso para ${usuario}`
 });
   });
   }
