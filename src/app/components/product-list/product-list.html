@@ -97,7 +97,25 @@
       <!-- Configuración -->
       <section *ngIf="seccionActiva==='configuracion'">
         <h3>Configuración</h3>
-        <p>Aquí iría la configuración del perfil...</p>
+        
+      <div class="formulariocontraseña">
+
+    <form [formGroup]="formulariocontraseña" (ngSubmit)="formulariocambiarcontraseña()">
+      <label>
+          <h2>CAMBIAR CONTRASEÑA</h2>
+        
+        <input formControlName="password"  placeholder="Ingresar password" class="search-box" />
+        
+        <span *ngIf="formulariologin.get('password')?.invalid && formulariologin.get('password')?.touched">
+       Debería escribir una contraseña
+        
+        </span>
+        
+      </label>
+
+      <button type="submit" [style.display]="sesionActivaSinGoogle ? 'none' : 'block'" >Enviar</button>
+    </form>
+    <p class="datosdesesion" *ngIf="sesionActivaSinGoogle" >USUARIO {{datosdesesion}}</p>
       </section>
     </div>
   </main>
