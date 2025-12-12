@@ -27,6 +27,17 @@ import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
+
+
+  interface Actividad {
+  id?: string;              // opcional, sirve para evitar duplicados
+  fecha: Date | string;     // puede venir como Date o string del backend
+  tipo: string;
+  descripcion: string;
+}
+
+
+
 export class ProductList implements OnInit {
   //recibir datos del formulario buscador
   searchControl = new FormControl('');
@@ -65,9 +76,12 @@ initPointUrl: string | null = null;
   errorredir: string | null = null;
 
 
+
+
+  
 //dashboard de usuario 
   estadisticas: any = {};
-actividad: { fecha: Date; tipo: string; descripcion: string }[] = [];
+actividad: Actividad[] = [];
   email: string | null = null;
 nombre: string | null = null;
   fechaderegistro:any;
@@ -211,19 +225,19 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
     // Recuperar lo que ya estaba en localStorage
     const prevActividad = localStorage.getItem('actividad');
-    let actividadGuardada = prevActividad ? JSON.parse(prevActividad) : [];
+    let actividadGuardada: Actividad[] = prevActividad ? JSON.parse(prevActividad) : [];
 
     // Construir actividad nueva desde pedidos
-    const actividadPedidos = data.map(o => ({
+    const actividadPedidos: Actividad[] = data.map(o => ({
       id: `order-${o.id}`, // identificador único
       fecha: o.createdAt,
       tipo: 'Compra',
       descripcion: `Orden #${o.id} por ${o.total} ARS`
     }));
 
-    // Agregar login (un identificador único por sesión)
+    // Agregar login con id único
     actividadPedidos.push({
-      id: `login-${usuario}-${new Date().toISOString()}`, 
+      id: `login-${usuario}-${new Date().toISOString()}`,
       fecha: new Date(),
       tipo: 'Login',
       descripcion: `Inicio de sesión exitoso para ${usuario}`
@@ -238,7 +252,8 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
     // Ordenar cronológicamente
     this.actividad.sort(
-      (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
+      (a: Actividad, b: Actividad) =>
+        new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
     );
 
     // Guardar en localStorage
