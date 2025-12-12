@@ -196,6 +196,7 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
   
   private cargarDatosDashboard(usuario: string) {
+  private cargarDatosDashboard(usuario: string) {
   this.productService.getOrdersByLogin(usuario).subscribe(data => {
     this.orders = data;
     const ultimaOrden = data.length > 0 ? data[data.length - 1] : null;
@@ -210,31 +211,37 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
     // Recuperar lo que ya estaba en localStorage
     const prevActividad = localStorage.getItem('actividad');
-    const actividadGuardada = prevActividad ? JSON.parse(prevActividad) : [];
+    let actividadGuardada = prevActividad ? JSON.parse(prevActividad) : [];
 
     // Construir actividad nueva desde pedidos
     const actividadPedidos = data.map(o => ({
+      id: `order-${o.id}`, // identificador único
       fecha: o.createdAt,
       tipo: 'Compra',
       descripcion: `Orden #${o.id} por ${o.total} ARS`
     }));
 
-    // Agregar login
+    // Agregar login (un identificador único por sesión)
     actividadPedidos.push({
+      id: `login-${usuario}-${new Date().toISOString()}`, 
       fecha: new Date(),
       tipo: 'Login',
       descripcion: `Inicio de sesión exitoso para ${usuario}`
     });
 
-    // Fusionar ambas listas
-    this.actividad = [...actividadGuardada, ...actividadPedidos];
+    // Filtrar duplicados: solo agregar si no existe el id
+    const idsExistentes = new Set(actividadGuardada.map(a => a.id));
+    const nuevosEventos = actividadPedidos.filter(a => !idsExistentes.has(a.id));
 
-    // Ordenar cronológicamente (más reciente primero)
+    // Fusionar
+    this.actividad = [...actividadGuardada, ...nuevosEventos];
+
+    // Ordenar cronológicamente
     this.actividad.sort(
       (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
     );
 
-    // Guardar de nuevo en localStorage
+    // Guardar en localStorage
     localStorage.setItem('actividad', JSON.stringify(this.actividad));
   });
 }
