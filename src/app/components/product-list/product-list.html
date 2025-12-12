@@ -108,8 +108,20 @@
 <p *ngIf="mensajedecambio"><strong>Contraseña cambiada:</strong> {{ mensajedecambio }}</p>
     <button type="submit" [disabled]="passwordForm.invalid">Actualizar</button>
       
-  </form>
+  </form></br></br>
+        
+      <h3>🔐 Actualizar nombre de usuario</h3>
+  <form [formGroup]="usernameForm" (ngSubmit)="updateUsername()">
+    <label for="username">Nuevo nombre de usuario:</label>
+    <input id="username" type="text" formControlName="nuevoUsername >
+    
+    <div *ngIf="usernameForm.get('nuevoUsername')?.invalid && usernameForm.get('nuevoUsername')?.touched">
+      <small>Debe escribir un nombre de usuario </small>
+    </div>
+<p *ngIf="mensajedecambio"><strong>Contraseña cambiada:</strong> {{ mensajedecambio }}</p>
+    <button type="submit" [disabled]="usernameForm.invalid">Actualizar</button>
       
+  </form>
     
       </section>
     </div>
