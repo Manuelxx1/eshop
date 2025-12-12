@@ -157,7 +157,8 @@ this.passwordForm = this.fb.group({
       const loginUsername = localStorage.getItem('usuario');
 if (loginUsername) {
   this.cargarDatosDashboard(loginUsername);
-  
+
+  //para la sección actividad 
   const dataActividad = localStorage.getItem('actividad');
 this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
   
@@ -216,6 +217,10 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
     this.orders = data;
     const ultimaOrden = data.length > 0 ? data[data.length - 1] : null;
 
+
+    //en la sección estadísticas los datos vienen del backend y db
+    //en el suscribe data por eso no se usa localStorage 
+    //como en otra sección donde hay datos que no vienen del backend 
     this.estadisticas = {
       totalGastado: data.reduce((acc, o) => acc + o.total, 0),
       compras: data.length,
