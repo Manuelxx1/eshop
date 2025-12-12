@@ -209,7 +209,6 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 }
 
   
-  
   private cargarDatosDashboard(usuario: string) {
   this.productService.getOrdersByLogin(usuario).subscribe(data => {
     this.orders = data;
@@ -223,32 +222,29 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
       ultimoEstado: ultimaOrden ? ultimaOrden.status : ''
     };
 
-    // Recuperar lo que ya estaba en localStorage
-    const prevActividad = localStorage.getItem('actividad');
-    let actividadGuardada: Actividad[] = prevActividad ? JSON.parse(prevActividad) : [];
-
-    // Construir actividad nueva desde pedidos
-    const actividadPedidos: Actividad[] = data.map(o => ({
-      id: `order-${o.id}`, // identificador único
+    // Construir actividad desde cero
+    const actividadNueva: Actividad[] = data.map(o => ({
+      id: `order-${o.id}`,
       fecha: o.createdAt,
       tipo: 'Compra',
       descripcion: `Orden #${o.id} por ${o.total} ARS`
     }));
 
-    // Agregar login con id único
-    actividadPedidos.push({
-      id: `login-${usuario}-${new Date().toISOString()}`,
+    // Agregar login (solo uno por sesión)
+    actividadNueva.push({
+      id: `login-${usuario}`,
       fecha: new Date(),
       tipo: 'Login',
       descripcion: `Inicio de sesión exitoso para ${usuario}`
     });
 
-    // Filtrar duplicados: solo agregar si no existe el id
-    const idsExistentes = new Set(actividadGuardada.map(a => a.id));
-    const nuevosEventos = actividadPedidos.filter(a => !idsExistentes.has(a.id));
+    // Recuperar eventos especiales (ej. cambio de contraseña) que ya estaban guardados
+    const prevActividad = localStorage.getItem('actividad');
+    const actividadGuardada: Actividad[] = prevActividad ? JSON.parse(prevActividad) : [];
+    const eventosConfiguracion = actividadGuardada.filter(a => a.tipo === 'Configuración');
 
-    // Fusionar
-    this.actividad = [...actividadGuardada, ...nuevosEventos];
+    // Fusionar: compras + login + configuraciones
+    this.actividad = [...actividadNueva, ...eventosConfiguracion];
 
     // Ordenar cronológicamente
     this.actividad.sort(
