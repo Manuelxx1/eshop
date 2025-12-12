@@ -19,6 +19,14 @@ import { Cart} from '../../services/cart';
 //se importa la interfaz CartItem que representa al modelo
 import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 
+interface Actividad {
+  id?: string;              // opcional, sirve para evitar duplicados
+  fecha: Date | string;     // puede venir como Date o string del backend
+  tipo: string;
+  descripcion: string;
+}
+
+
 
 @Component({
   selector: 'app-product-list',
@@ -29,13 +37,7 @@ import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 })
 
 
-  interface Actividad {
-  id?: string;              // opcional, sirve para evitar duplicados
-  fecha: Date | string;     // puede venir como Date o string del backend
-  tipo: string;
-  descripcion: string;
-}
-
+  
 
 
 export class ProductList implements OnInit {
