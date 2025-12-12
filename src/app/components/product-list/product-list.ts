@@ -141,6 +141,10 @@ this.passwordForm = this.fb.group({
       const loginUsername = localStorage.getItem('usuario');
 if (loginUsername) {
   this.cargarDatosDashboard(loginUsername);
+  
+  
+  const datacontraseña = localStorage.getItem('contraseñanueva');
+  this.actividad = datacontraseña ? JSON.parse(datacontraseña) : [];
 }
 
 
@@ -214,8 +218,7 @@ this.actividad.push({
   descripcion: `Inicio de sesión exitoso para ${usuario}`
 });
 
-    const datacontraseña = localStorage.getItem('contraseñanueva');
-  this.actividad = datacontraseña ? JSON.parse(datacontraseña) : [];
+    
   });
   }
 //esto en realidad no es necesario aquí porque el carrito se muestra
