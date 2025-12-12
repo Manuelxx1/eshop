@@ -142,13 +142,13 @@ this.passwordForm = this.fb.group({
 if (loginUsername) {
   this.cargarDatosDashboard(loginUsername);
   
-  
+  const dataActividad = localStorage.getItem('actividad');
+this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
   
 }
 
 
-const dataActividad = localStorage.getItem('actividad');
-this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
+
       //llama a la sesión session en localStorage 
       //cuando se recargue la página por algún motivo
       this.session();
