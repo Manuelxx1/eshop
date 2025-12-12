@@ -205,24 +205,35 @@ localStorage.setItem('contraseñanueva', JSON.stringify(this.actividad));
       compras: data.length,
       ultimaCompra: ultimaOrden ? ultimaOrden.createdAt : null,
       ultimoMonto: ultimaOrden ? ultimaOrden.total : 0,
-  ultimoEstado: ultimaOrden ? ultimaOrden.status : ''
-    }
-    this.actividad = data.map(o => ({
-        fecha: o.createdAt,
-        tipo: 'Compra',
-        descripcion: `Orden #${o.id} por ${o.total} ARS`
-      }));
-    // Luego agregás el login como otro evento
-    //al array de objetos actividad 
-this.actividad.push({
-  fecha: new Date(), // momento actual del login
-  tipo: 'Login',
-  descripcion: `Inicio de sesión exitoso para ${usuario}`
-});
+      ultimoEstado: ultimaOrden ? ultimaOrden.status : ''
+    };
 
-    
+    // Recuperar lo que ya estaba en localStorage
+    const prevActividad = localStorage.getItem('contraseñanueva');
+    const actividadGuardada = prevActividad ? JSON.parse(prevActividad) : [];
+
+    // Construir actividad nueva desde pedidos
+    const actividadPedidos = data.map(o => ({
+      fecha: o.createdAt,
+      tipo: 'Compra',
+      descripcion: `Orden #${o.id} por ${o.total} ARS`
+    }));
+
+    // Agregar login
+    actividadPedidos.push({
+      fecha: new Date(),
+      tipo: 'Login',
+      descripcion: `Inicio de sesión exitoso para ${usuario}`
+    });
+
+    // Fusionar ambas listas
+    this.actividad = [...actividadGuardada, ...actividadPedidos];
+
+    // Guardar de nuevo en localStorage
+    localStorage.setItem('contraseñanueva', JSON.stringify(this.actividad));
   });
-  }
+}
+
 //esto en realidad no es necesario aquí porque el carrito se muestra
   //en el component cart y este metodo loadCart ya esta alli 
   //y se muestra en la  vista cart html
