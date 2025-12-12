@@ -214,8 +214,8 @@ this.actividad.push({
   descripcion: `Inicio de sesión exitoso para ${usuario}`
 });
 
-    const data = localStorage.getItem('contraseñanueva');
-  this.actividad = data ? JSON.parse(data) : [];
+    const datacontraseña = localStorage.getItem('contraseñanueva');
+  this.actividad = datacontraseña ? JSON.parse(datacontraseña) : [];
   });
   }
 //esto en realidad no es necesario aquí porque el carrito se muestra
