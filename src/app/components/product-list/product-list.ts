@@ -146,10 +146,9 @@ if (loginUsername) {
   
 }
 
-const datacontraseña = localStorage.getItem('contraseñanueva');
-  this.actividad = datacontraseña ? JSON.parse(datacontraseña) : [];
 
-      
+const dataActividad = localStorage.getItem('actividad');
+this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
       //llama a la sesión session en localStorage 
       //cuando se recargue la página por algún motivo
       this.session();
@@ -183,7 +182,7 @@ updatePassword() {
             descripcion: `Contraseña actualizada para ${usuario}`
           });
 // Guardar en localStorage
-localStorage.setItem('contraseñanueva', JSON.stringify(this.actividad));
+localStorage.setItem('actividad', JSON.stringify(this.actividad));
           // Ordenar cronológicamente
           this.actividad.sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
 
@@ -200,6 +199,7 @@ localStorage.setItem('contraseñanueva', JSON.stringify(this.actividad));
   this.productService.getOrdersByLogin(usuario).subscribe(data => {
     this.orders = data;
     const ultimaOrden = data.length > 0 ? data[data.length - 1] : null;
+
     this.estadisticas = {
       totalGastado: data.reduce((acc, o) => acc + o.total, 0),
       compras: data.length,
@@ -209,7 +209,7 @@ localStorage.setItem('contraseñanueva', JSON.stringify(this.actividad));
     };
 
     // Recuperar lo que ya estaba en localStorage
-    const prevActividad = localStorage.getItem('contraseñanueva');
+    const prevActividad = localStorage.getItem('actividad');
     const actividadGuardada = prevActividad ? JSON.parse(prevActividad) : [];
 
     // Construir actividad nueva desde pedidos
@@ -229,10 +229,16 @@ localStorage.setItem('contraseñanueva', JSON.stringify(this.actividad));
     // Fusionar ambas listas
     this.actividad = [...actividadGuardada, ...actividadPedidos];
 
+    // Ordenar cronológicamente (más reciente primero)
+    this.actividad.sort(
+      (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
+    );
+
     // Guardar de nuevo en localStorage
-    localStorage.setItem('contraseñanueva', JSON.stringify(this.actividad));
+    localStorage.setItem('actividad', JSON.stringify(this.actividad));
   });
 }
+
 
 //esto en realidad no es necesario aquí porque el carrito se muestra
   //en el component cart y este metodo loadCart ya esta alli 
