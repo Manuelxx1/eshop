@@ -195,7 +195,7 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 }
 
   
-  private cargarDatosDashboard(usuario: string) {
+  
   private cargarDatosDashboard(usuario: string) {
   this.productService.getOrdersByLogin(usuario).subscribe(data => {
     this.orders = data;
