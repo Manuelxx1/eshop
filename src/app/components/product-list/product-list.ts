@@ -176,7 +176,8 @@ updatePassword() {
             tipo: 'Configuración',
             descripcion: `Contraseña actualizada para ${usuario}`
           });
-
+// Guardar en localStorage
+localStorage.setItem('contraseñanueva', JSON.stringify(this.actividad));
           // Ordenar cronológicamente
           this.actividad.sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
 
@@ -212,6 +213,9 @@ this.actividad.push({
   tipo: 'Login',
   descripcion: `Inicio de sesión exitoso para ${usuario}`
 });
+
+    const data = localStorage.getItem('contraseñanueva');
+  this.actividad = data ? JSON.parse(data) : [];
   });
   }
 //esto en realidad no es necesario aquí porque el carrito se muestra
