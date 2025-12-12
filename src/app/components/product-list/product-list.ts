@@ -182,7 +182,7 @@ updatePassword() {
 
           // Resetear formulario
           this.passwordForm.reset();
-          this.mensajedecambio=res.success;
+          this.mensajedecambio=res.mensaje;
         }
       });
     }
