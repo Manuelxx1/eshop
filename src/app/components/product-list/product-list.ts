@@ -73,6 +73,7 @@ nombre: string | null = null;
   fechaderegistro:any;
 seccionActiva: string = 'perfil'; // por defecto
 passwordForm: FormGroup;
+  mensajedecambio:any;
 // Podés cambiar la sección desde el menú con (click)
 
 
@@ -181,6 +182,7 @@ updatePassword() {
 
           // Resetear formulario
           this.passwordForm.reset();
+          this.mensajedecambio=res.success;
         }
       });
     }
