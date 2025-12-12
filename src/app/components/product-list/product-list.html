@@ -105,9 +105,9 @@
     <div *ngIf="passwordForm.get('nuevaPassword')?.invalid && passwordForm.get('nuevaPassword')?.touched">
       <small>La contraseña debe tener al menos 6 caracteres</small>
     </div>
-
+<p><strong>Contraseña cambiada:</strong> {{ mensajedecambio }}</p>
     <button type="submit" [disabled]="passwordForm.invalid">Actualizar</button>
-      <p><strong>Contraseña cambiada:</strong> {{ mensajedecambio }}</p>
+      
   </form>
       
     
