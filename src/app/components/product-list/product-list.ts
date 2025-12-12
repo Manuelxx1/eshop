@@ -143,11 +143,13 @@ if (loginUsername) {
   this.cargarDatosDashboard(loginUsername);
   
   
-  const datacontraseña = localStorage.getItem('contraseñanueva');
-  this.actividad = datacontraseña ? JSON.parse(datacontraseña) : [];
+  
 }
 
+const datacontraseña = localStorage.getItem('contraseñanueva');
+  this.actividad = datacontraseña ? JSON.parse(datacontraseña) : [];
 
+      
       //llama a la sesión session en localStorage 
       //cuando se recargue la página por algún motivo
       this.session();
