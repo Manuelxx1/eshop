@@ -108,7 +108,10 @@
 <p *ngIf="mensajedecambio"><strong>Contraseña cambiada:</strong> {{ mensajedecambio }}</p>
     <button type="submit" [disabled]="passwordForm.invalid">Actualizar</button>
       
-  </form></br></br>
+  </form>
+
+
+           
         
       <h3>🔐 Actualizar nombre de usuario</h3>
   <form [formGroup]="usernameForm" (ngSubmit)="updateUsername()">
