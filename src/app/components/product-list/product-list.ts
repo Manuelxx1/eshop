@@ -89,6 +89,7 @@ nombre: string | null = null;
   fechaderegistro:any;
 seccionActiva: string = 'perfil'; // por defecto
 passwordForm: FormGroup;
+  usernameForm: FormGroup;
   mensajedecambio:any;
 // Podés cambiar la sección desde el menú con (click)
 
@@ -105,7 +106,9 @@ passwordForm: FormGroup;
 this.passwordForm = this.fb.group({
       nuevaPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
-    
+    this.usernameForm = this.fb.group({
+      nuevoUsername: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
   
     ngOnInit(): void {
@@ -210,6 +213,34 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
       });
     }
 }
+
+
+
+  updateUsername() {
+    if (this.usernameForm.valid) {
+      const usuario = localStorage.getItem('usuario');
+      const nuevoUsername = this.usernameForm.value.nuevoUsername;
+
+      this.productService.updateUsername(usuario!,nuevoUsername).subscribe(res => {
+        if (res.success) {
+          // Registrar actividad
+          this.actividad.push({
+            fecha: new Date(),
+            tipo: 'Configuración',
+            descripcion: `Nombre de usuario actualizada para ${usuario}`
+          });
+// Guardar en localStorage
+localStorage.setItem('actividad', JSON.stringify(this.actividad));
+          // Ordenar cronológicamente
+          this.actividad.sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
+
+          // Resetear formulario
+          this.passwordForm.reset();
+          this.mensajedecambio=res.mensaje;
+        }
+      });
+    }
+  }
 
   
   private cargarDatosDashboard(usuario: string) {
