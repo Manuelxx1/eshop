@@ -112,9 +112,9 @@ getOrders(): Observable<Order[]> {
 
 private apiUrlPassword = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   
-  updatePassword(usuario: string, password: string): Observable<any> {
+  updatePassword(username: string, password: string): Observable<any> {
   return this.http.put(`${this.apiUrlPassword}/change-password`, {
-    usuario,
+    username,
     password
   });
 }
