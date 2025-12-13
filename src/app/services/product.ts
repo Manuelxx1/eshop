@@ -112,19 +112,19 @@ getOrders(): Observable<Order[]> {
 
 private apiUrlPassword = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   
-  updatePassword(usuario: string, nuevaPassword: string): Observable<any> {
+  updatePassword(usuario: string, password: string): Observable<any> {
   return this.http.put(`${this.apiUrlPassword}/change-password`, {
     usuario,
-    nuevaPassword
+    password
   });
 }
 
   private apiUrlUsername = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   
-  updateUsername(usuario: string, nuevoUsername: string): Observable<any> {
+  updateUsername(usuario: string, username: string): Observable<any> {
   return this.http.put(`${this.apiUrlUsername}/update-Username`, {
     usuario,
-    nuevoUsername
+    username
   });
 }
 
