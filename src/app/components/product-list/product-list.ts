@@ -235,8 +235,7 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
         this.usernameForm.reset();
         this.mensajedecambio = res.mensaje;
 
-        // actualizar el localStorage con el nuevo username
-        localStorage.setItem('usuario', nuevoUsername);
+        
       }
     });
   }
