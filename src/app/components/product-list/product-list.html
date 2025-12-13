@@ -116,7 +116,7 @@
       <h3>🔐 Actualizar nombre de usuario</h3>
   <form [formGroup]="usernameForm" (ngSubmit)="updateUsername()">
     <label for="username">Nuevo nombre de usuario:</label>
-    <input id="username" type="text" formControlName="nuevoUsername >
+    <input id="username" type="text" formControlName="nuevoUsername" >
     
     <div *ngIf="usernameForm.get('nuevoUsername')?.invalid && usernameForm.get('nuevoUsername')?.touched">
       <small>Debe escribir un nombre de usuario </small>
