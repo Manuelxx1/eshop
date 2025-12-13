@@ -114,18 +114,17 @@ private apiUrlPassword = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   
   updatePassword(username: string, password: string): Observable<any> {
   return this.http.put(`${this.apiUrlPassword}/change-password`, {
-    username,
-    password
+    username: username,
+    password: password
   });
 }
 
   private apiUrlUsername = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   
-  updateUsername(usuario: string, username: string): Observable<any> {
-  return this.http.put(`${this.apiUrlUsername}/update-Username`, {
-    usuario,
-    username
-  });
-}
-
+    // Cambiar username
+  updateUsername(nuevoUsername: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update-username`, {
+      username: nuevoUsername   // este campo debe coincidir con el DTO backend
+    });
+  }
 }
