@@ -218,9 +218,10 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
   updateUsername() {
   if (this.usernameForm.valid) {
-    const nuevoUsername = this.usernameForm.value.nuevoUsername;
+    const usuarioActual = localStorage.getItem('usuario'); // referencia actual
+    const nuevoUsername = this.usernameForm.value.nuevoUsername; // valor nuevo
 
-    this.productService.updateUsername(nuevoUsername).subscribe(res => {
+    this.productService.updateUsername(usuarioActual!, nuevoUsername).subscribe(res => {
       if (res.success) {
         this.actividad.push({
           fecha: new Date(),
@@ -233,6 +234,9 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
         this.usernameForm.reset();
         this.mensajedecambio = res.mensaje;
+
+        // actualizar el localStorage con el nuevo username
+        localStorage.setItem('usuario', nuevoUsername);
       }
     });
   }
