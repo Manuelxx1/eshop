@@ -122,9 +122,18 @@ private apiUrlPassword = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   private apiUrlUsername = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   
     // Cambiar username
-  updateUsername(nuevoUsername: string): Observable<any> {
-    return this.http.put(`${this.apiUrl}/update-username`, {
-      username: nuevoUsername   // este campo debe coincidir con el DTO backend
-    });
-  }
+  updateUsername(String nuevoUsername) {
+        // Buscar el usuario por algún criterio (ej: id fijo, usuario logueado, etc.)
+        Users user = userRepository.findByUsername(nuevoUsername)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+       // Validar que el nuevo username no esté ya en uso
+        if (userRepository.findByUsername(nuevoUsername).isPresent()) {
+            throw new RuntimeException("El nuevo username ya está en uso");
+}
+    
+  // Actualizar el username
+        user.setUsername(nuevoUsername);
+        userRepository.save(user);
+                        }
 }
