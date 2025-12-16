@@ -157,7 +157,9 @@ this.passwordForm = this.fb.group({
       //y se evita llamar al service con undato null
       //para que no surga error de datos ya que el método 
       //en el service espera solamente un string y no un null
-      const dashboardid= localStorage.getItem('idUsuario');
+      //localStorage.getItem retorna siempre yn string 
+      //por eso lo Convertimos a number para enviarlo al método cargarDatosDashboard
+      const dashboardid = Number(localStorage.getItem('idUsuario'));
 if (dashboardid) {
   this.cargarDatosDashboard(dashboardid);
 
