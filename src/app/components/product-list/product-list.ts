@@ -157,7 +157,7 @@ this.passwordForm = this.fb.group({
       //y se evita llamar al service con undato null
       //para que no surga error de datos ya que el método 
       //en el service espera solamente un string y no un null
-      const loginUsername = localStorage.getItem('usuario');
+      const loginUsername = localStorage.getItem('idUsuario');
 if (loginUsername) {
   this.cargarDatosDashboard(loginUsername);
 
@@ -245,8 +245,8 @@ updateUsername() {
 
 
   
-  private cargarDatosDashboard(usuario: string) {
-  this.productService.getOrdersByLogin(usuario).subscribe(data => {
+  private cargarDatosDashboard(idUsuario: number) {
+  this.productService.getOrdersByLogin(idUsuario).subscribe(data => {
     this.orders = data;
     const ultimaOrden = data.length > 0 ? data[data.length - 1] : null;
 
@@ -351,7 +351,7 @@ this.nombre= res.name;
         
     this.fechaderegistro = res.createdAt;
 
-this.cargarDatosDashboard(res.usuario);
+//this.cargarDatosDashboard(res.usuario);
         
         this.session();
         
