@@ -157,7 +157,7 @@ this.passwordForm = this.fb.group({
       //y se evita llamar al service con undato null
       //para que no surga error de datos ya que el método 
       //en el service espera solamente un string y no un null
-      const loginUsername = localStorage.getItem('usuario');
+      const loginUsername = localStorage.getItem('usuario);
 if (loginUsername) {
   this.cargarDatosDashboard(loginUsername);
 
@@ -216,12 +216,12 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
 
 
-  updateUsername() {
+updateUsername() {
   if (this.usernameForm.valid) {
-    const usuarioActual = localStorage.getItem('usuario'); // referencia actual
-    const nuevoUsername = this.usernameForm.value.nuevoUsername; // valor nuevo
+    const idUsuario = Number(localStorage.getItem('idUsuario')); // guardás el id al loguear
+    const nuevoUsername = this.usernameForm.value.nuevoUsername;
 
-    this.productService.updateUsername(usuarioActual!, nuevoUsername).subscribe(res => {
+    this.productService.updateUsername(idUsuario, nuevoUsername).subscribe(res => {
       if (res.success) {
         this.actividad.push({
           fecha: new Date(),
@@ -235,11 +235,13 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
         this.usernameForm.reset();
         this.mensajedecambio = res.mensaje;
 
-        
+        // actualizar el localStorage con el nuevo username
+        localStorage.setItem('usuario', nuevoUsername);
       }
     });
   }
 }
+
 
 
   
@@ -337,6 +339,7 @@ if (this.formulariologin.valid) {
        // this.datosDebug += `\nRespuesta: ${JSON.stringify(res)}`;
    
         //  Guardar sesión en localStorage
+        localStorage.setItem('usuario', res.res.id);
         localStorage.setItem('usuario', res.usuario);
         localStorage.setItem('email', res.email);
           localStorage.setItem('name', res.name);
