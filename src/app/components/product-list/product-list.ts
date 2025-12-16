@@ -250,7 +250,7 @@ updateUsername() {
     this.orders = data;
     const ultimaOrden = data.length > 0 ? data[data.length - 1] : null;
 
-
+const username = localStorage.getItem('usuario');
     //en la sección estadísticas los datos vienen del backend y db
     //en el suscribe data por eso no se usa localStorage 
     //como en otra sección donde hay datos que no vienen del backend 
@@ -272,10 +272,10 @@ updateUsername() {
 
     // Agregar login (solo uno por sesión)
     actividadNueva.push({
-      id: `login-${usuario}`,
+      id: `login-${idUsuario}`,
       fecha: new Date(),
       tipo: 'Login',
-      descripcion: `Inicio de sesión exitoso para ${usuario}`
+      descripcion: `Inicio de sesión exitoso para ${username}`
     });
 
     // Recuperar eventos especiales (ej. cambio de contraseña) que ya estaban guardados
