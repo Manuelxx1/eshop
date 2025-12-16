@@ -122,12 +122,13 @@ private apiUrlPassword = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   private apiUrlUsername = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   
     // Cambiar username
-  updateUsername(usuarioActual: string, nuevoUsername: string): Observable<any> {
-  return this.http.put(`${this.apiUrlUsername}/update-username`, {
-    username: usuarioActual,     // referencia de búsqueda
-    newUsername: nuevoUsername   // valor nuevo
+  updateUsername(id: number, nuevoUsername: string): Observable<any> {
+  return this.http.put(`${apiUrlUsername}/update-username`, {
+    id: id,                 // referencia estable
+    newUsername: nuevoUsername // valor nuevo
   });
 }
+
 
 
 }
