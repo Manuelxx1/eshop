@@ -358,7 +358,7 @@ this.nombre= res.name;
         this.session();
         
         alert(res.mensaje);
-        alert(res.res.id); //mensaje del.backend por ejemplo: "Login exitoso"
+        alert(res.id); //mensaje del.backend por ejemplo: "Login exitoso"
     this.router.navigate(['/']); // redirige al perfil
   },
   error: err => {
