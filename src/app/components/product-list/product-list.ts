@@ -91,6 +91,7 @@ seccionActiva: string = 'perfil'; // por defecto
 passwordForm: FormGroup;
   usernameForm: FormGroup;
   mensajedecambio:any;
+  intervalId: any;//detener setInterval por si salimos del componente paea evitar llamadas innecesarios al backend
 // Podés cambiar la sección desde el menú con (click)
 
 
@@ -159,18 +160,24 @@ this.passwordForm = this.fb.group({
       //en el service espera solamente un string y no un null
       //localStorage.getItem retorna siempre yn string 
       //por eso lo Convertimos a number para enviarlo al método cargarDatosDashboard
+      
+      
+      //con setInterval llamamos cada 5 segundos al dashboard
+      //así se reflejam los cambios automáticamente 
       const dashboardid = Number(localStorage.getItem('idUsuario'));
-if (dashboardid) {
-  this.cargarDatosDashboard(dashboardid);
-
-  // refresca cada 5 segundos (5000 ms)
-  setInterval(() => {
+  if (dashboardid) {
     this.cargarDatosDashboard(dashboardid);
-  //para la sección actividad 
-  const dataActividad = localStorage.getItem('actividad');
-this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
+
+    this.intervalId = setInterval(() => {
+      this.cargarDatosDashboard(dashboardid);
+      const dataActividad = localStorage.getItem('actividad');
+      this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
+    }, 5000);
+  }
+
+
+
   
-}
 
 
 
@@ -191,6 +198,15 @@ this.resetTimer();
 this.fechaderegistro = localStorage.getItem('createdAt');
       
     }//ngOnInit 
+
+
+//detenenos a setInterval cuando salimos del componente 
+  //asi se evita llamar al backend innecesariamente
+ngOnDestroy() {
+  if (this.intervalId) {
+    clearInterval(this.intervalId);
+  }
+}
 
 //método para cambiar contraseña dashboard 
 updatePassword() {
