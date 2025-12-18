@@ -466,9 +466,10 @@ buyNow(productId: number): void {
   console.log('Cantidad seleccionada:', selectedQuantity);
 
   // recuperar usuario de la sesión (guardado en login)
-  const usuario = localStorage.getItem('usuario');
-alert("Usuario del login" +usuario);
-  this.productService.comprar(productId, selectedQuantity, usuario).subscribe({
+  const valorId = localStorage.getItem('idUsuario');
+  const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
+alert("Usuario del login" +idUsuario);
+  this.productService.comprar(productId, selectedQuantity, idUsuario).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
       localStorage.setItem('selectedProduct', JSON.stringify(productId));
