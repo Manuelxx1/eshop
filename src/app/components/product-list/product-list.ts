@@ -357,7 +357,8 @@ this.nombre= res.name;
         
         this.session();
         
-        alert(res.mensaje,res.id); //mensaje del.backend por ejemplo: "Login exitoso"
+        alert(res.mensaje);
+        alert(res.res.id); //mensaje del.backend por ejemplo: "Login exitoso"
     this.router.navigate(['/']); // redirige al perfil
   },
   error: err => {
@@ -381,7 +382,7 @@ this.nombre= res.name;
 const usuarioGuardado = localStorage.getItem('usuario');
   if (usuarioGuardado) {
     this.sesionActivaSinGoogle = true;
-    this.datosdesesion = usuarioGuardado;
+    this.datosdesesion = usuarioGuardado+res.id ;
   } else {
     this.sesionActivaSinGoogle = false;
     this.datosdesesion = "";
