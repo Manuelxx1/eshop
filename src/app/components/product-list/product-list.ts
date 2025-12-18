@@ -380,9 +380,10 @@ this.nombre= res.name;
 
   session(){
 const usuarioGuardado = localStorage.getItem('usuario');
+    const id = localStorage.getItem('idUsuario');
   if (usuarioGuardado) {
     this.sesionActivaSinGoogle = true;
-    this.datosdesesion = usuarioGuardado+res.id ;
+    this.datosdesesion = usuarioGuardado+id ;
   } else {
     this.sesionActivaSinGoogle = false;
     this.datosdesesion = "";
