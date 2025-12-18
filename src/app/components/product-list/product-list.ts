@@ -464,7 +464,7 @@ buyNow(productId: number): void {
 
   // recuperar usuario de la sesión (guardado en login)
   const usuario = localStorage.getItem('usuario');
-
+alert("Usuario del login" +usuario);
   this.productService.comprar(productId, selectedQuantity, usuario).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
