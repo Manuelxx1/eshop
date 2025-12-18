@@ -461,6 +461,7 @@ mostrarResumen(): void {
 // Compra directa → redirige al checkout
 buyNow(productId: number): void {
   alert("Botón comprar clickeado ");
+  alert("productId del frontend" + productId);
   const selectedQuantity = this.quantityControl.value ?? 1;
   console.log('Cantidad seleccionada:', selectedQuantity);
 
