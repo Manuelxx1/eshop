@@ -162,10 +162,10 @@ this.passwordForm = this.fb.group({
       const dashboardid = Number(localStorage.getItem('idUsuario'));
 if (dashboardid) {
   this.cargarDatosDashboard(dashboardid);
-// refresca cada 5 segundos
-    setInterval(() => {
-      this.cargarDatosDashboard();
-    }, 5000);
+
+  // refresca cada 5 segundos (5000 ms)
+  setInterval(() => {
+    this.cargarDatosDashboard(dashboardid);
   //para la sección actividad 
   const dataActividad = localStorage.getItem('actividad');
 this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
