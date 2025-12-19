@@ -229,7 +229,7 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
           // Resetear formulario
           this.passwordForm.reset();
-          this.mensajedecambio=res.mensaje;
+          this.mensajedecambio=res.mensajecontraseña;
         }
       });
     }
@@ -254,7 +254,7 @@ updateUsername() {
         this.actividad.sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
 
         this.usernameForm.reset();
-        this.mensajedecambio = res.mensaje;
+        this.mensajedecambio = res.mensajeusername;
 
         // actualizar el localStorage con el nuevo username
         localStorage.setItem('usuario', nuevoUsername);
