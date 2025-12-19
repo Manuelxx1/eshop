@@ -164,17 +164,17 @@ this.passwordForm = this.fb.group({
       
       //con setInterval llamamos cada 5 segundos al dashboard
       //así se reflejam los cambios automáticamente 
-      const dashboardid = Number(localStorage.getItem('idUsuario'));
-  if (dashboardid) {
-    this.cargarDatosDashboard(dashboardid);
+      this.cargarDatosDashboard(Number(localStorage.getItem('idUsuario')));
 
-    this.intervalId = setInterval(() => {
+  this.intervalId = setInterval(() => {
+    const dashboardid = Number(localStorage.getItem('idUsuario'));
+    if (dashboardid) {
       this.cargarDatosDashboard(dashboardid);
-      const dataActividad = localStorage.getItem('actividad');
-      this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
-    }, 5000);
-  }
+    }
 
+    const dataActividad = localStorage.getItem('actividad');
+    this.actividad = dataActividad ? JSON.parse(dataActividad) : [];
+  }, 5000);
 
 
   
