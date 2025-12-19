@@ -279,7 +279,7 @@ updateUsername() {
     const idUsuario = Number(localStorage.getItem('idUsuario')); // guardás el id al loguear
     const nuevoEmail = this.emailForm.value.nuevoEmail;
 
-    this.productService.updateUsername(idUsuario, nuevoEmail).subscribe(res => {
+    this.productService.updateEmail(idUsuario, nuevoEmail).subscribe(res => {
       if (res.success) {
         this.actividad.push({
           fecha: new Date(),
