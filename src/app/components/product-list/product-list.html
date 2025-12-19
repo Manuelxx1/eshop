@@ -125,6 +125,19 @@
     <button type="submit" [disabled]="usernameForm.invalid">Actualizar</button>
       
   </form>
+
+        <h3>@ Actualizar Email</h3>
+  <form [formGroup]="emailForm" (ngSubmit)="updateEmail()">
+    <label for="email">Nuevo Email:</label>
+    <input id="email" type="text" formControlName="nuevoEmail" >
+    
+    <div *ngIf="emailForm.get('nuevoEmail')?.invalid && emailForm.get('nuevoEmail')?.touched">
+      <small>Debe escribir un Email </small>
+    </div>
+<p *ngIf="mensajedecambioemail"><strong>{{ mensajedecambioemail }}</strong></p>
+    <button type="submit" [disabled]="emailForm.invalid">Actualizar</button>
+      
+  </form>
     
       </section>
     </div>
