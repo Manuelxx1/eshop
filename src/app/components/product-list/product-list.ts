@@ -409,6 +409,7 @@ const usuarioGuardado = localStorage.getItem('usuario');
   } else {
     this.sesionActivaSinGoogle = false;
     this.datosdesesion = "";
+    
   }
   }
 
@@ -424,7 +425,8 @@ const usuarioGuardado = localStorage.getItem('usuario');
         this.mostrarAdvertencia = false;
         this.sesionActivaSinGoogle = false;
 this.datosdesesion ="";
-        
+        this.mensajedecambiopassword=null;
+    this.mensajedecambiousername=null;
   //this.router.navigate(['/']);   // Redirige al login o donde prefieras
       }
 
