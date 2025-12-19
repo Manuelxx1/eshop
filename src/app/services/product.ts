@@ -135,7 +135,7 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   updateEmail(id: number, nuevoEmail: string): Observable<any> {
   return this.http.put(`${this.apiUrlEmail}/update-email`, {
     id: id,                 // referencia estable
-    nuevoEmail: nuevoEmail // valor nuevo
+    email: nuevoEmail // valor nuevo
   });
 }
 
