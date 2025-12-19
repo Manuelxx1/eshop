@@ -113,12 +113,14 @@ this.passwordForm = this.fb.group({
     this.usernameForm = this.fb.group({
       nuevoUsername: ['', [Validators.required, Validators.minLength(6)]]
     });
-  }
 
-this.emailForm = this.fb.group({
+    this.emailForm = this.fb.group({
       nuevoEmail: ['', [Validators.required, Validators.minLength(6)]]
     });
-      }
+  }
+
+
+      
   
     ngOnInit(): void {
       
