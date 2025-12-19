@@ -91,7 +91,7 @@ seccionActiva: string = 'perfil'; // por defecto
 passwordForm: FormGroup;
   usernameForm: FormGroup;
   mensajedecambiousername:any;
-  mensajedecambiocontraseña:any;
+  mensajedecambiopassword:any;
   intervalId: any;//detener setInterval por si salimos del componente paea evitar llamadas innecesarios al backend
 // Podés cambiar la sección desde el menú con (click)
 
@@ -230,7 +230,7 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
           // Resetear formulario
           this.passwordForm.reset();
-          this.mensajedecambiocontraseña=res.mensajecontraseña;
+          this.mensajedecambiopassword=res.mensajecontraseña;
         }
       });
     }
