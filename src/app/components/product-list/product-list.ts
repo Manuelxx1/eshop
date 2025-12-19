@@ -90,8 +90,10 @@ nombre: string | null = null;
 seccionActiva: string = 'perfil'; // por defecto
 passwordForm: FormGroup;
   usernameForm: FormGroup;
+  emailForm:FormGroup;
   mensajedecambiousername:any;
   mensajedecambiopassword:any;
+  mensajedecambioemail:any;
   intervalId: any;//detener setInterval por si salimos del componente paea evitar llamadas innecesarios al backend
 // Podés cambiar la sección desde el menú con (click)
 
@@ -112,6 +114,11 @@ this.passwordForm = this.fb.group({
       nuevoUsername: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
+
+this.emailForm = this.fb.group({
+      nuevoEmail: ['', [Validators.required, Validators.minLength(6)]]
+    });
+      }
   
     ngOnInit(): void {
       
@@ -260,7 +267,35 @@ updateUsername() {
         // actualizar el localStorage con el nuevo username
         localStorage.setItem('usuario', nuevoUsername);
         this.datosdesesion=res.usernameActualizado;
-        ///this.session();
+        
+      }
+    });
+  }
+}
+
+
+  updateEmail() {
+  if (this.emailForm.valid) {
+    const idUsuario = Number(localStorage.getItem('idUsuario')); // guardás el id al loguear
+    const nuevoEmail = this.emailForm.value.nuevoEmail;
+
+    this.productService.updateUsername(idUsuario, nuevoEmail).subscribe(res => {
+      if (res.success) {
+        this.actividad.push({
+          fecha: new Date(),
+          tipo: 'Configuración',
+          descripcion: `Email de usuario cambiado a ${nuevoEmail}`
+        });
+
+        localStorage.setItem('actividad', JSON.stringify(this.actividad));
+        this.actividad.sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
+
+        this.emailForm.reset();
+        this.mensajedecambioemail = res.mensajemail;
+
+        // actualizar el localStorage con el nuevo email 
+        localStorage.setItem('email, nuevoEmail);
+        
       }
     });
   }
