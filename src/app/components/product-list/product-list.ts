@@ -258,6 +258,7 @@ updateUsername() {
 
         // actualizar el localStorage con el nuevo username
         localStorage.setItem('usuario', nuevoUsername);
+        this.datosdesesion=nuevoUsername;
       }
     });
   }
