@@ -90,7 +90,8 @@ nombre: string | null = null;
 seccionActiva: string = 'perfil'; // por defecto
 passwordForm: FormGroup;
   usernameForm: FormGroup;
-  mensajedecambio:any;
+  mensajedecambiousername:any;
+  mensajedecambiocontraseña:any;
   intervalId: any;//detener setInterval por si salimos del componente paea evitar llamadas innecesarios al backend
 // Podés cambiar la sección desde el menú con (click)
 
@@ -229,7 +230,7 @@ localStorage.setItem('actividad', JSON.stringify(this.actividad));
 
           // Resetear formulario
           this.passwordForm.reset();
-          this.mensajedecambio=res.mensajecontraseña;
+          this.mensajedecambiocontraseña=res.mensajecontraseña;
         }
       });
     }
@@ -254,7 +255,7 @@ updateUsername() {
         this.actividad.sort((a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime());
 
         this.usernameForm.reset();
-        this.mensajedecambio = res.mensajeusername;
+        this.mensajedecambiousername = res.mensajeusername;
 
         // actualizar el localStorage con el nuevo username
         localStorage.setItem('usuario', nuevoUsername);
