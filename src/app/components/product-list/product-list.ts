@@ -299,9 +299,11 @@ updateUsername() {
        localStorage.setItem('email', res.emailactualizado);
         this.email = res.emailactualizado;
         
+      }
     });
   }
-}
+ }
+
 
 
 
