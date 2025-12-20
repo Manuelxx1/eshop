@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+//Notifications mediante websocket/stomp 
+import { Client } from '@stomp/stompjs';
+import * as SockJS from 'sockjs-client';
+
 export interface User {
   id: number;
   username: string;
@@ -43,7 +47,35 @@ export interface Order {
   providedIn: 'root',
 })
 export class Product {
- private socket: WebSocket;
+// private socket: WebSocket;
+  private client: Client;
+
+  //notificaciones mediante websocket/stomp 
+  constructor() {
+    this.client = new Client({
+      brokerURL: 'ws://localhost:8080/ws', // conexión directa
+      connectHeaders: {},
+      debug: (str) => console.log(str),
+      reconnectDelay: 5000,
+      webSocketFactory: () => new SockJS('http://localhost:8080/ws') // fallback SockJS
+    });
+  }
+  
+
+  connect(onMessage: (msg: string) => void) {
+    this.client.onConnect = () => {
+      console.log('Conectado a STOMP');
+      this.client.subscribe('/topic/notificaciones', (message) => {
+        onMessage(message.body);
+      });
+    };
+    this.client.activate();
+  }
+
+  disconnect() {
+    this.client.deactivate();
+  }
+
   
 //private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/products/search';
 
@@ -140,20 +172,8 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
 }
 
 
-//notificaciones mediante websocket 
-  connect() {
-    this.socket = new WebSocket('ws://https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws');
 
-    this.socket.onopen = () => console.log('Conectado al WebSocket');
-    this.socket.onmessage = (event) => {
-      console.log('Mensaje recibido:', event.data);
-      // acá podés emitir el mensaje a tus componentes
-    };
-    this.socket.onclose = () => console.log('WebSocket cerrado');
-  }
-
-  sendMessage(msg: string) {
-    this.socket.send(msg);
-  }
+  
+  
 
 }
