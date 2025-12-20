@@ -53,11 +53,11 @@ export class Product {
   //notificaciones mediante websocket/stomp 
   constructor() {
     this.client = new Client({
-      brokerURL: 'ws://localhost:8080/ws', // conexión directa
+      brokerURL: 'ws://https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws', // conexión directa
       connectHeaders: {},
       debug: (str) => console.log(str),
       reconnectDelay: 5000,
-      webSocketFactory: () => new SockJS('http://localhost:8080/ws') // fallback SockJS
+      webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws') // fallback SockJS
     });
   }
   
