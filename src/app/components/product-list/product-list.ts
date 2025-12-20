@@ -297,6 +297,17 @@ updateUsername() {
 
         // actualizar el localStorage con el nuevo email 
        localStorage.setItem('email', res.emailactualizado);
+     
+        
+        //se le asigna el valor de email actualizado de la db
+        //para que muestre el cambio al instante 
+        //y en ngOnInit se ke asigna el valor actualizado 
+        //a través de localStorage por si se recarga el navegador 
+        //para evitar perder el valor en this.email
+        //y se pueda seguir mostrndo en ka vista 
+        //de lo contrario habría qye crear un método 
+        //que llame a un endpoint que retorne
+        //el valor de email de la db y asignarlo a this.email 
         this.email = res.emailactualizado;
         
       }
