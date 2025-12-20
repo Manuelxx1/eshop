@@ -40,7 +40,7 @@ interface Actividad {
   
 
 
-export class ProductList implements OnInit {
+export class ProductList implements OnInit,OnDestroy {
   //recibir datos del formulario buscador
   searchControl = new FormControl('');
 
@@ -210,13 +210,10 @@ this.resetTimer();
       this.nombre = localStorage.getItem('name');
 this.fechaderegistro = localStorage.getItem('createdAt');
 
-//Notifications mediante websocket 
-this.productService.connect();
-
-    // interceptar mensajes
-    this.productService['socket'].onmessage = (event) => {
-      this.notificaciones.push(event.data);
-    };
+//Notifications mediante websocket/stomp 
+this.productService.connect((msg) => {
+      this.notificaciones.push(msg);
+    });
 
 
       
@@ -229,6 +226,7 @@ ngOnDestroy() {
   if (this.intervalId) {
     clearInterval(this.intervalId);
   }
+  this.productService.disconnect();
 }
 
 //método para cambiar contraseña dashboard 
