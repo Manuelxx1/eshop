@@ -43,7 +43,7 @@ export interface Order {
   providedIn: 'root',
 })
 export class Product {
- 
+ private socket: WebSocket;
   
 //private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/products/search';
 
@@ -140,6 +140,20 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
 }
 
 
+//notificaciones mediante websocket 
+  connect() {
+    this.socket = new WebSocket('ws://https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws');
 
+    this.socket.onopen = () => console.log('Conectado al WebSocket');
+    this.socket.onmessage = (event) => {
+      console.log('Mensaje recibido:', event.data);
+      // acá podés emitir el mensaje a tus componentes
+    };
+    this.socket.onclose = () => console.log('WebSocket cerrado');
+  }
+
+  sendMessage(msg: string) {
+    this.socket.send(msg);
+  }
 
 }
