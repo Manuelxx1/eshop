@@ -50,17 +50,15 @@ export class Product {
 // private socket: WebSocket;
   private client: Client;
 
-  //notificaciones mediante websocket/stomp 
-  constructor() {
-    this.client = new Client({
-      brokerURL: 'ws://https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws', // conexión directa
-      connectHeaders: {},
-      debug: (str) => console.log(str),
-      reconnectDelay: 5000,
-      webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws') // fallback SockJS
-    });
-  }
   
+  
+
+
+
+  
+
+
+  //notificaciones mediante websocket/stomp 
 
   connect(onMessage: (msg: string) => void) {
     this.client.onConnect = () => {
@@ -85,7 +83,16 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 //private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/payments';
   
   private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+        //notificaciones mediante websocket/stomp 
+    this.client = new Client({
+      brokerURL: 'ws://https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws', // conexión directa
+      connectHeaders: {},
+      debug: (str) => console.log(str),
+      reconnectDelay: 5000,
+      webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws') // fallback SockJS
+    });
+  }
 
   // Método para buscar productos por término
   searchProducts(term: string): Observable<any[]> {
