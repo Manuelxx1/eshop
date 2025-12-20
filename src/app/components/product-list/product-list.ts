@@ -297,7 +297,7 @@ updateUsername() {
 
         // actualizar el localStorage con el nuevo email 
        localStorage.setItem('email', res.emailactualizado;);
-        this.email = localStorage.getItem('email');
+        this.email = res.emailactualizado;
         
     });
   }
