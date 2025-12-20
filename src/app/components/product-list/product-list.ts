@@ -97,6 +97,9 @@ passwordForm: FormGroup;
   intervalId: any;//detener setInterval por si salimos del componente paea evitar llamadas innecesarios al backend
 // Podés cambiar la sección desde el menú con (click)
 emaildedb:any;
+  //Notifications mediante websocket 
+  notificaciones: string[] = [];
+  
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
@@ -206,6 +209,16 @@ this.resetTimer();
   this.email = localStorage.getItem('email');
       this.nombre = localStorage.getItem('name');
 this.fechaderegistro = localStorage.getItem('createdAt');
+
+//Notifications mediante websocket 
+this.productService.connect();
+
+    // interceptar mensajes
+    this.productService['socket'].onmessage = (event) => {
+      this.notificaciones.push(event.data);
+    };
+
+
       
     }//ngOnInit 
 
