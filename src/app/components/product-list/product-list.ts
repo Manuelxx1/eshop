@@ -455,7 +455,7 @@ const usuarioGuardado = localStorage.getItem('usuario');
     const id = localStorage.getItem('idUsuario');
   if (usuarioGuardado) {
     this.sesionActivaSinGoogle = true;
-    this.datosdesesion = usuarioGuardado+id ;
+    this.datosdesesion = usuarioGuardado ;
   } else {
     this.sesionActivaSinGoogle = false;
     this.datosdesesion = "";
