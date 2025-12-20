@@ -96,7 +96,7 @@ passwordForm: FormGroup;
   mensajedecambioemail:any;
   intervalId: any;//detener setInterval por si salimos del componente paea evitar llamadas innecesarios al backend
 // Podés cambiar la sección desde el menú con (click)
-
+emaildedb:any;
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
@@ -203,8 +203,9 @@ this.resetTimer();
   //usamos localstorage para persistir datos por navegador 
       
       // y si se recarga el navegador no se borren los datos de la vista
-  this.email = localStorage.getItem('email');
-  this.nombre = localStorage.getItem('name');
+  //this.email = localStorage.getItem('email');
+  this.email=this.emaildedb;
+      this.nombre = localStorage.getItem('name');
 this.fechaderegistro = localStorage.getItem('createdAt');
       
     }//ngOnInit 
@@ -296,8 +297,10 @@ updateUsername() {
         this.mensajedecambioemail = res.mensajemail;
 
         // actualizar el localStorage con el nuevo email 
-        localStorage.setItem('email', res.emailactualizado;);
-        this.email= res.emailactualizado; 
+       //localStorage.setItem('email', res.emailactualizado;);
+        //this.email= res.emailactualizado; 
+
+        this.emaildedb=res.emailactualizado; 
       }
     });
   }
