@@ -81,29 +81,14 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
       webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws') // fallback SockJS
     });
 
-    // Acción cuando se conecta 
-    this.stompClient.onConnect = () => { console.log('✅ Conectado al servidor WebSocket'); 
-          // Suscripción al tópico de notificaciones 
-                      
-                                        
-                                        
-                                      
-
-
-                                                                   
-    // Activar la conexión
+    this.stompClient.onConnect = () => { 
+      console.log(' Conectado al servidor WebSocket'); 
+    };
     this.stompClient.activate();
-
+  }
   
   }//constructor
 
-//En lugar de exponer stompClient como public y generar riesgos 
-    //lo dejamos en private,y
-    //creamos  métodos en este servicio para suscribirte y enviar mensajes:
-  subscribeToNotifications(callback: (msg: string) => void) {
-    this.stompClient.subscribe('/topic/notificaciones', (message) => {
-      callback(message.body); }); 
-  }
 
   // Método para enviar mensajes al backend
   sendNotification(payload: string) { this.stompClient.publish({ destination: '/app/notify', body: payload, }); }
