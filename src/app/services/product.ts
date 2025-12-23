@@ -72,7 +72,9 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 
   
   constructor(private http: HttpClient) {
-        //notificaciones mediante websocket/stomp 
+      
+    //notificaciones mediante websocket/stomp 
+  /*
     this.stompClient= new Client({
       brokerURL: 'ws://https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws', // conexión directa
       connectHeaders: {},
@@ -85,14 +87,15 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
       console.log(' Conectado al servidor WebSocket'); 
     };
     this.stompClient.activate();
-  
+  */
   
   }//constructor
 
-
+/*
   // Método para enviar mensajes al backend
   sendNotification(payload: string) { this.stompClient.publish({ destination: '/app/notify', body: payload, }); }
-
+*/
+  
   // Método para buscar productos por término
   searchProducts(term: string): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}?name=${term}`);
