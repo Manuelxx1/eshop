@@ -48,7 +48,7 @@ export interface Order {
 })
 export class Product {
 // private socket: WebSocket;
-  public stompClient: Client;
+  private stompClient: Client;
 
   
   
@@ -87,13 +87,23 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
                       
                                         
                                         
-                                        this.stompClient.subscribe('/topic/notificaciones', (message) => { console.log('🔔 Notificación recibida:', message.body); }); }; 
+                                      
+
+
+                                                                   
     // Activar la conexión
     this.stompClient.activate();
 
   
   }//constructor
 
+//En lugar de exponer stompClient como public y generar riesgos 
+    //lo dejamos en private,y
+    //creamos  métodos en este servicio para suscribirte y enviar mensajes:
+  subscribeToNotifications(callback: (msg: string) => void) {
+    this.stompClient.subscribe('/topic/notificaciones', (message) => {
+      callback(message.body); }); 
+  }
 
   // Método para enviar mensajes al backend
   sendNotification(payload: string) { this.stompClient.publish({ destination: '/app/notify', body: payload, }); }
