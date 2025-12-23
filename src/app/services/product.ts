@@ -80,7 +80,7 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
       brokerURL: 'wss://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws', // ejemplo si tu backend corre en localhost
       reconnectDelay: 5000, 
       debug: (str) => console.log(str),
-      webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'), // fallback SockJS
+  //  webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'), // fallback SockJS
       });
       this.stompClient.onConnect = () => { console.log(' Conectado al servidor WebSocket');
    };
