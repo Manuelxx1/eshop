@@ -58,21 +58,7 @@ export class Product {
   
 
 
-  //notificaciones mediante websocket/stomp 
-
-  connect(onMessage: (msg: string) => void) {
-    this.stompClient.onConnect = () => {
-      console.log('Conectado a STOMP');
-      this.stompClient.subscribe('/topic/notificaciones', (message) => {
-        onMessage(message.body);
-      });
-    };
-    this.stompClient.activate();
-  }
-
-  disconnect() {
-    this.stompClient.deactivate();
-  }
+  
 
   
 //private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/products/search';
@@ -83,6 +69,8 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 //private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/payments';
   
   private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
+
+  
   constructor(private http: HttpClient) {
         //notificaciones mediante websocket/stomp 
     this.stompClient= new Client({
@@ -92,7 +80,23 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
       reconnectDelay: 5000,
       webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws') // fallback SockJS
     });
-  }
+
+    // Acción cuando se conecta 
+    this.stompClient.onConnect = () => { console.log('✅ Conectado al servidor WebSocket'); 
+          // Suscripción al tópico de notificaciones 
+                      
+                                        
+                                        
+                                        this.stompClient.subscribe('/topic/notificaciones', (message) => { console.log('🔔 Notificación recibida:', message.body); }); }; 
+    // Activar la conexión
+    this.stompClient.activate();
+
+  
+  }//constructor
+
+
+  // Método para enviar mensajes al backend
+  sendNotification(payload: string) { this.stompClient.publish({ destination: '/app/notify', body: payload, }); }
 
   // Método para buscar productos por término
   searchProducts(term: string): Observable<any[]> {
