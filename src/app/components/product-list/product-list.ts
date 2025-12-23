@@ -196,7 +196,7 @@ this.resetTimer();
       this.nombre = localStorage.getItem('name');
 this.fechaderegistro = localStorage.getItem('createdAt');
 
-
+/*
 this.productService.stompClient.onConnect = () => { 
   this.productService.stompClient.subscribe('/topic/notificaciones', (message) => {
     this.notifications.push(message.body); 
@@ -206,14 +206,15 @@ this.productService.stompClient.onConnect = () => {
         this.productService.stompClient.activate(); 
       }
 
-      
+      */
     }//ngOnInit 
 
 
 // Método para enviar una notificación de prueba
-      sendTestNotification() { 
+    /*  sendTestNotification() { 
         this.productService.sendNotification('Hola desde Angular '); 
       }
+      */
       
 //detenenos a setInterval cuando salimos del componente 
   //asi se evita llamar al backend innecesariamente
