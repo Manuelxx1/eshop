@@ -219,6 +219,7 @@ this.fechaderegistro = localStorage.getItem('createdAt');
         if (!this.productService.stompClient.active) {
           this.productService.stompClient.activate();
         }
+      }
 
       
     }//ngOnInit 
