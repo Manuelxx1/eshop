@@ -210,11 +210,10 @@ this.resetTimer();
 this.fechaderegistro = localStorage.getItem('createdAt');
 
 
-// Suscribirse a las notificaciones
-      this.productService.stompClient.onConnect = () => { 
-        this.productService.stompClient.subscribe('/topic/notificaciones', (message) => {
-          this.notifications.push(message.body); 
-        });
+// Usamos el método público del servicio
+      this.productService.subscribeToNotifications((msg) => {
+        this.notifications.push(msg);
+      });
         // Activar la conexión si aún no está activa
         if (!this.productService.stompClient.active) {
           this.productService.stompClient.activate();
