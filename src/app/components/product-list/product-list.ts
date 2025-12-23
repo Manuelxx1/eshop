@@ -149,20 +149,7 @@ this.passwordForm = this.fb.group({
     });
 
     
-    // Supongamos que ya obtuviste el orderId desde el backend
-  // Si ya tenemos un pedido creado, lo consultamos
-   /* if (this.lastOrderId) {
-      this.productService.getOrder(this.lastOrderId).subscribe(data => {
-        this.order = data;
-      });
-      }
-      */
-      //sin login
-   /* this.productService.getOrders().subscribe(data => {
-        this.orders = data;
-      });
-
-*/
+    
       //traer orders o pedidos usando datos de login
       //para que sea dinámico usar localStorage en vez de Pruebacheckout 
      
