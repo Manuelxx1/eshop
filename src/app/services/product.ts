@@ -47,8 +47,8 @@ export interface Order {
   providedIn: 'root',
 })
 export class Product {
-// private socket: WebSocket;
-  public stompClient: Client;
+
+ // public stompClient: Client;
 
   
   
