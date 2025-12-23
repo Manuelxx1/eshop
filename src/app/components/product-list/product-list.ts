@@ -238,7 +238,7 @@ this.fechaderegistro = localStorage.getItem('createdAt');
   if (this.intervalId) {
     clearInterval(this.intervalId);
   }
-  this.productService.disconnect();
+  
 }
 
 //método para cambiar contraseña dashboard 
