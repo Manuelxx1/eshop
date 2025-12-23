@@ -99,6 +99,7 @@ passwordForm: FormGroup;
 emaildedb:any;
   //Notifications mediante websocket 
   notifications: string[] = [];
+  conexionActiva = false;
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
@@ -199,9 +200,11 @@ this.fechaderegistro = localStorage.getItem('createdAt');
 
 //websocket 
       // Solo verificamos la conexión
-      if (!this.productService.stompClient.active) {
-        this.productService.stompClient.activate();
-      }
+      this.productService.stompClient.onConnect = () => { 
+        this.conexionActiva = true;
+      };
+      this.productService.stompClient.activate();
+    
     }//ngOnInit 
 
 
