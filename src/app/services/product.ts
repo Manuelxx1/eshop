@@ -85,7 +85,7 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
       console.log(' Conectado al servidor WebSocket'); 
     };
     this.stompClient.activate();
-  }
+  
   
   }//constructor
 
