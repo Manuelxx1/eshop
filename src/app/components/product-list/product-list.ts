@@ -98,8 +98,7 @@ passwordForm: FormGroup;
 // Podés cambiar la sección desde el menú con (click)
 emaildedb:any;
   //Notifications mediante websocket 
-  notificaciones: string[] = [];
-  
+  notifications: string[] = [];
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
@@ -210,19 +209,31 @@ this.resetTimer();
       this.nombre = localStorage.getItem('name');
 this.fechaderegistro = localStorage.getItem('createdAt');
 
-//Notifications mediante websocket/stomp 
-this.productService.connect((msg) => {
-      this.notificaciones.push(msg);
-    });
 
+// Suscribirse a las notificaciones
+      this.productService.stompClient.onConnect = () => { 
+        this.productService.stompClient.subscribe('/topic/notificaciones', (message) => {
+          this.notifications.push(message.body); 
+        });
+        // Activar la conexión si aún no está activa
+        if (!this.productService.stompClient.active) {
+          this.productService.stompClient.activate();
+        }
 
       
     }//ngOnInit 
 
 
+// Método para enviar una notificación de prueba
+      sendTestNotification() { 
+        this.productService.sendNotification('Hola desde Angular '); 
+      }
+      
 //detenenos a setInterval cuando salimos del componente 
   //asi se evita llamar al backend innecesariamente
-ngOnDestroy() {
+
+      
+      ngOnDestroy() {
   if (this.intervalId) {
     clearInterval(this.intervalId);
   }
