@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 //Notifications mediante websocket/stomp 
+import SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
-import * as SockJS from 'sockjs-client';
 
 export interface User {
   id: number;
@@ -48,7 +48,7 @@ export interface Order {
 })
 export class Product {
 // private socket: WebSocket;
-  private client: Client;
+  private stompClient: Client;
 
   
   
@@ -61,17 +61,17 @@ export class Product {
   //notificaciones mediante websocket/stomp 
 
   connect(onMessage: (msg: string) => void) {
-    this.client.onConnect = () => {
+    this.stompClient.onConnect = () => {
       console.log('Conectado a STOMP');
-      this.client.subscribe('/topic/notificaciones', (message) => {
+      this.stompClient.subscribe('/topic/notificaciones', (message) => {
         onMessage(message.body);
       });
     };
-    this.client.activate();
+    this.stompClient.activate();
   }
 
   disconnect() {
-    this.client.deactivate();
+    this.stompClient.deactivate();
   }
 
   
@@ -85,7 +85,7 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
   private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
   constructor(private http: HttpClient) {
         //notificaciones mediante websocket/stomp 
-    this.client = new Client({
+    this.stompClient= new Client({
       brokerURL: 'ws://https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws', // conexión directa
       connectHeaders: {},
       debug: (str) => console.log(str),
