@@ -196,17 +196,12 @@ this.resetTimer();
       this.nombre = localStorage.getItem('name');
 this.fechaderegistro = localStorage.getItem('createdAt');
 
-/*
-this.productService.stompClient.onConnect = () => { 
-  this.productService.stompClient.subscribe('/topic/notificaciones', (message) => {
-    this.notifications.push(message.body); 
-  }); 
-};
-      if (!this.productService.stompClient.active) { 
-        this.productService.stompClient.activate(); 
-      }
 
-      */
+//websocket 
+      // Solo verificamos la conexión
+      if (!this.productService.stompClient.active) {
+        this.productService.stompClient.activate();
+      }
     }//ngOnInit 
 
 
