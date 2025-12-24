@@ -78,7 +78,7 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 
 this.stompClient = new Client({ webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'),
                                reconnectDelay: 5000, 
-                               debug: (str) => console.log(str), 
+                              //debug: (str) => console.log(str), 
                               });
   
   }//constructor
