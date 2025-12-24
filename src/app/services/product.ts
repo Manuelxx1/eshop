@@ -76,15 +76,10 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
     //notificaciones mediante websocket/stomp 
 
 
-    this.stompClient = new Client({ //  corregí la URL: no puede ser "ws://https://..."
-     // brokerURL: 'wss://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws', // ejemplo si tu backend corre en localhost
-      reconnectDelay: 5000, 
-      debug: (str) => console.log(str),
- webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'), // fallback SockJS
-      });
-      this.stompClient.onConnect = () => { console.log(' Conectado al servidor WebSocket');
-   };
-    this.stompClient.activate();
+this.stompClient = new Client({ webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'),
+                               reconnectDelay: 5000, 
+                               debug: (str) => console.log(str), 
+                              });
   
   }//constructor
 
