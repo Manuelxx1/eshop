@@ -83,10 +83,10 @@ this.stompClient = new Client({ webSocketFactory: () => new SockJS('https://port
   
   }//constructor
 
-/*
+
   // Método para enviar mensajes al backend
   sendNotification(payload: string) { this.stompClient.publish({ destination: '/app/notify', body: payload, }); }
-*/
+
   
   // Método para buscar productos por término
   searchProducts(term: string): Observable<any[]> {
