@@ -48,7 +48,7 @@ export interface Order {
 })
 export class Product {
 
-  public stompClient: Client;
+ // public stompClient: Client;
 
   
   
@@ -85,7 +85,7 @@ this.stompClient = new Client({ webSocketFactory: () => new SockJS('https://port
 
 
   // Método para enviar mensajes al backend
-  sendNotification(payload: string) { this.stompClient.publish({ destination: '/app/notify', body: payload, }); }
+ // sendNotification(payload: string) { this.stompClient.publish({ destination: '/app/notify', body: payload, }); }
 
   
   // Método para buscar productos por término
