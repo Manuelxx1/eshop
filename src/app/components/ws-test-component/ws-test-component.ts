@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from './product.service';
+import { Product } from '../../services/product';
 
 @Component({
   selector: 'app-ws-test-component',
