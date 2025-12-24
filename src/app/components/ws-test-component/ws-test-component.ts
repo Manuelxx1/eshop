@@ -7,7 +7,7 @@ import { Product } from '../../services/product';
   templateUrl: './ws-test-component.html',
   styleUrl: './ws-test-component.css',
 })
-export class WsTestComponent implements OnInit {
+export class WsTestComponent {
  /* conexionActiva = false; 
   notifications: string[] = [];
   constructor(private productService: Product) {}
