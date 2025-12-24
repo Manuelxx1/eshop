@@ -8,7 +8,7 @@ import { Product } from '../../services/product';
   styleUrl: './ws-test-component.css',
 })
 export class WsTestComponent implements OnInit {
-  conexionActiva = false; 
+ /* conexionActiva = false; 
   notifications: string[] = [];
   constructor(private productService: Product) {}
   ngOnInit(): void { 
@@ -23,6 +23,7 @@ export class WsTestComponent implements OnInit {
   sendTestNotification(): void { 
     this.productService.sendNotification('Hola desde Angular 🚀');
   }
-
+*/
   
+  mensaje = 'Componente de prueba cargado ✅';
 }
