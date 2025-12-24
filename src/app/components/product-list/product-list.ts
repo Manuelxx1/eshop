@@ -213,10 +213,10 @@ this.fechaderegistro = localStorage.getItem('createdAt');
 
 
 // Método para enviar una notificación de prueba
-    /*  sendTestNotification() { 
+     sendTestNotification() { 
         this.productService.sendNotification('Hola desde Angular '); 
       }
-      */
+      
       
 //detenenos a setInterval cuando salimos del componente 
   //asi se evita llamar al backend innecesariamente
