@@ -2,11 +2,6 @@
   <p *ngIf="conexionActiva">✅ Conectado al servidor WebSocket</p>
   <p *ngIf="!conexionActiva">❌ No conectado</p>
 
-  <h3>Notificaciones</h3>
-  <ul>
-    <li *ngFor="let msg of notifications">{{ msg }}</li>
-  </ul>
-
-  <button (click)="sendTestNotification()">Enviar notificación de prueba</button>
+  
 </div>
 
