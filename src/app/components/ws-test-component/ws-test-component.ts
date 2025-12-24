@@ -11,7 +11,7 @@ export class WsTestComponent implements OnInit {
   conexionActiva = false; 
   notifications: string[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: Product) {}
   ngOnInit(): void {
     this.productService.stompClient.onConnect = () => {
       this.conexionActiva = true;
