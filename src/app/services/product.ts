@@ -75,12 +75,12 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
       
     //notificaciones mediante websocket/stomp 
 
-
+/*
 this.stompClient = new Client({ webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'),
                                reconnectDelay: 5000, 
                               //debug: (str) => console.log(str), 
                               });
-  
+  */
   }//constructor
 
 
