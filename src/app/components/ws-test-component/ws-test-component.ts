@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-ws-test-component',
@@ -6,6 +7,22 @@ import { Component } from '@angular/core';
   templateUrl: './ws-test-component.html',
   styleUrl: './ws-test-component.css',
 })
-export class WsTestComponent {
+export class WsTestComponent implements OnInit {
+  conexionActiva = false; 
+  notifications: string[] = [];
+
+  constructor(private productService: ProductService) {}
+  ngOnInit(): void {
+    this.productService.stompClient.onConnect = () => {
+      this.conexionActiva = true;
+      this.productService.stompClient.subscribe('/topic/notificaciones', (message) => {
+        this.notifications.push(message.body); 
+      });
+    }; 
+    this.productService.stompClient.activate(); 
+  } 
+  sendTestNotification(): void {
+    this.productService.sendNotification('Hola desde Angular ');
+  }                                                                                                                                                                                                                                                                                                                                                                 }
 
 }
