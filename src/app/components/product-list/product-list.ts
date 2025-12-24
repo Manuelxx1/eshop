@@ -200,14 +200,12 @@ this.fechaderegistro = localStorage.getItem('createdAt');
 
 //websocket 
       // Solo verificamos la conexión
-      this.productService.stompClient.onConnect = () => {
-    this.conexionActiva = true;
-    this.productService.stompClient.subscribe('/topic/notificaciones', (message) => {
-      this.notifications.push(message.body);
-    });
-  };
+      this.productService.stompClient.onConnect = () => { 
+        this.conexionActiva = true; 
+      }; 
+      this.productService.stompClient.activate();
 
-  this.productService.stompClient.activate();
+  
     
     }//ngOnInit 
 
