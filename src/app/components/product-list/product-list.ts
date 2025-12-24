@@ -1,4 +1,6 @@
 import { Component,HostListener,OnInit,OnDestroy } from '@angular/core';
+import { WsTestComponent } from '../ws-test-component/ws-test-component';
+
 /*
 Como Order ya incluye dentro los items, 
 y cada item incluye el product,
