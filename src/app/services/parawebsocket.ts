@@ -5,16 +5,16 @@ import { Client } from '@stomp/stompjs';
 @Injectable({
   providedIn: 'root',
 })
+  
 export class Parawebsocket {
   public stompClient: Client;
   constructor() { 
-    this.stompClient = new Client({ webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'), 
-                                   reconnectDelay: 5000,
-                                   debug: (str) => console.log(str),
-                                  }); 
-  }
-  sendNotification(payload: string) { 
-    this.stompClient.publish({ destination: '/app/notify', body: payload }); 
-  }
-  
+    this.stompClient = new Client({
+      webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'),
+      reconnectDelay: 5000, 
+      debug: (str) => console.log(str),
+    });
+  } 
 }
+  
+
