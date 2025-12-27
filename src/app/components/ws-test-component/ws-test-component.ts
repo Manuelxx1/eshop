@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Parawebsocket } from '../../services/parawebsocket';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-ws-test-component',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './ws-test-component.html',
   styleUrl: './ws-test-component.css',
 })
