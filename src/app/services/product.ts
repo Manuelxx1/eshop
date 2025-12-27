@@ -71,19 +71,10 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
   private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
 
   
-  constructor(private http: HttpClient) {
-      
-    //notificaciones mediante websocket/stomp 
+  constructor(private http: HttpClient) { }//constructor
 
 
-this.stompClient = new Client({ webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'), reconnectDelay: 5000, debug: (str) => console.log(str), });
   
-  }//constructor
-
-
-  // Método para enviar mensajes al backend
- // sendNotification(payload: string) { this.stompClient.publish({ destination: '/app/notify', body: payload, }); }
-
   
   // Método para buscar productos por término
   searchProducts(term: string): Observable<any[]> {
