@@ -11,6 +11,6 @@ import { WsTestComponent } from './components/ws-test-component/ws-test-componen
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('eshop');
-  title = 'Mi App Angular con WebSocket';
+  protected readonly title = signal('eshop con WebSocket');
+  
 }
