@@ -202,13 +202,12 @@ this.fechaderegistro = localStorage.getItem('createdAt');
 
 //websocket 
       // Solo verificamos la conexión
-    /*
+    
       this.productService.stompClient.onConnect = () => { 
         this.conexionActiva = true; 
       }; 
       this.productService.stompClient.activate();
-*/
-  
+
     
     }//ngOnInit 
 
