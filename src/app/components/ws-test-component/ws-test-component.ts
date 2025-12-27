@@ -35,3 +35,4 @@ export class WsTestComponent  implements OnInit  {
     // Intentar conectar
     this.parawebsocket.stompClient.activate();
 }
+}
