@@ -200,26 +200,12 @@ this.resetTimer();
 this.fechaderegistro = localStorage.getItem('createdAt');
 
 
-//websocket 
-      // Solo verificamos la conexión
-    
-      this.productService.stompClient.onConnect = () => { 
-        this.conexionActiva = true; 
-      }; 
-      try {
-        this.productService.stompClient.activate();
-      } catch (e) {
-        alert('Error al activar STOMP' + e);
-      }
+
     
     }//ngOnInit 
 
 
-// Método para enviar una notificación de prueba
-  /*   sendTestNotification() { 
-        this.productService.sendNotification('Hola desde Angular '); 
-      }
-     */ 
+
       
 //detenenos a setInterval cuando salimos del componente 
   //asi se evita llamar al backend innecesariamente
