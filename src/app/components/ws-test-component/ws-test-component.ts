@@ -11,6 +11,10 @@ import { CommonModule } from '@angular/common';
 export class WsTestComponent  implements OnInit  {
   conexionActiva = false; 
   notifications: string[] = [];
+ 
+  
+  errorMsg = '';
+  
   constructor(private parawebsocket: Parawebsocket) {}
   ngOnInit(): void {
     this.parawebsocket.stompClient.onConnect = () => { 
@@ -20,14 +24,14 @@ export class WsTestComponent  implements OnInit  {
       }); 
     };
     this.parawebsocket.stompClient.onStompError = (frame) => {
-      console.error('Broker error: ', frame.headers['message'], frame.body);
+      this.errorMsg = 'Error STOMP: ' + frame.headers['message']; 
     };
-    try { 
+    try {
       this.parawebsocket.stompClient.activate();
-    } catch (e) {
-      console.error('Error al activar STOMP', e);
-    } 
-  } 
+    } catch (e: any) { 
+      this.errorMsg = 'Error al activar STOMP: ' + e.message;
+    }
+  }
   sendTestNotification(): void {
     this.parawebsocket.sendNotification('Hola desde Angular 🚀');
   }
