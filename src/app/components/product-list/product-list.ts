@@ -209,7 +209,7 @@ this.fechaderegistro = localStorage.getItem('createdAt');
       try {
         this.productService.stompClient.activate();
       } catch (e) {
-        alert('Error al activar STOMP', e);
+        alert('Error al activar STOMP' + e);
       }
     
     }//ngOnInit 
