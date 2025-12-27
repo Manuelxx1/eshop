@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import SockJS from 'sockjs-client';
+//import SockJS from 'sockjs-client';
+import * as SockJS from 'sockjs-client'; // Cambia el import a este formato
+
 import { Client } from '@stomp/stompjs';
 
 @Injectable({
