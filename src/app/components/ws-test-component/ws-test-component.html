@@ -2,3 +2,8 @@
 <p *ngIf="!conexionActiva">❌ No conectado</p>
 
 <p *ngIf="errorMsg">⚠️ {{ errorMsg }}</p>
+
+<div style="background: black; color: lime; font-family: monospace; padding: 10px; margin-top: 20px; font-size: 10px;">
+  <strong>LOG DEL SISTEMA:</strong>
+  <p>{{ parawebsocket.últimosLogs }}</p>
+</div>
