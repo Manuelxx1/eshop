@@ -12,11 +12,12 @@ export class Parawebsocket {
   public stompClient: Client;
   constructor() { 
     this.stompClient = new Client({
-      webSocketFactory: () => new SockJS('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'),
+      // Aquí está el truco: usamos (SockJS as any) para saltar la restricción de tipo
+      webSocketFactory: () => new (SockJS as any)('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'),
       reconnectDelay: 5000, 
       debug: (str) => console.log(str),
     });
-  } 
+  }
 }
   
 
