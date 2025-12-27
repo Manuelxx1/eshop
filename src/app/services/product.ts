@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-//Notifications mediante websocket/stomp 
-import SockJS from 'sockjs-client';
-import { Client } from '@stomp/stompjs';
+
 
 export interface User {
   id: number;
