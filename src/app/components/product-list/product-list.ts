@@ -206,8 +206,11 @@ this.fechaderegistro = localStorage.getItem('createdAt');
       this.productService.stompClient.onConnect = () => { 
         this.conexionActiva = true; 
       }; 
-      this.productService.stompClient.activate();
-
+      try {
+        this.productService.stompClient.activate();
+      } catch (e) {
+        alert('Error al activar STOMP', e);
+      }
     
     }//ngOnInit 
 
