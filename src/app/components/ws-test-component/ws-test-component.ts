@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../services/product';
+import { Parawebsocket } from '../../services/parawebsocket';
 
 @Component({
   selector: 'app-ws-test-component',
@@ -7,23 +7,26 @@ import { Product } from '../../services/product';
   templateUrl: './ws-test-component.html',
   styleUrl: './ws-test-component.css',
 })
-export class WsTestComponent {
- /* conexionActiva = false; 
+export class WsTestComponent  implements OnInit  {
+  conexionActiva = false;
   notifications: string[] = [];
-  constructor(private productService: Product) {}
+
+  constructor(private parawebsocket: Parawebsocket) {} 
   ngOnInit(): void { 
-    this.productService.stompClient.onConnect = () => { 
-      this.conexionActiva = true; 
-      this.productService.stompClient.subscribe('/topic/notificaciones', (message) => { 
+    this.parawebsocket.stompClient.onConnect = () => {
+      this.conexionActiva = true;
+      this.parawebsocket.stompClient.subscribe('/topic/notificaciones', (message) => {
         this.notifications.push(message.body); 
       }); 
     };
-    this.productService.stompClient.activate();
+    try { 
+      this.parawebsocket.stompClient.activate();
+    } catch (e) { 
+      console.error('Error al activar STOMP', e);
+    } 
   } 
   sendTestNotification(): void { 
-    this.productService.sendNotification('Hola desde Angular 🚀');
+    this.parawebsocket.sendNotification('Hola desde Angular 🚀'); 
   }
-*/
-  
-  mensaje = 'Componente de prueba cargado ✅';
+
 }
