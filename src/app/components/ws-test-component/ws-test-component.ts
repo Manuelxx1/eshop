@@ -9,31 +9,23 @@ import { CommonModule } from '@angular/common';
   styleUrl: './ws-test-component.css',
 })
 export class WsTestComponent  implements OnInit  {
-  conexionActiva = false; 
-  notifications: string[] = [];
- 
-  
+  conexionActiva = false;
   errorMsg = '';
-  
   constructor(private parawebsocket: Parawebsocket) {}
-  ngOnInit(): void {
-    this.parawebsocket.stompClient.onConnect = () => { 
+  ngOnInit(): void { 
+    this.parawebsocket.stompClient.onConnect = () => {
       this.conexionActiva = true;
-      this.parawebsocket.stompClient.subscribe('/topic/notificaciones', (message) => {
-        this.notifications.push(message.body);
-      }); 
     };
     this.parawebsocket.stompClient.onStompError = (frame) => {
-      this.errorMsg = 'Error STOMP: ' + frame.headers['message']; 
-    };
+      this.errorMsg = 'Error STOMP: ' + frame.headers['message'] + ' ' + frame.body;
+    }; 
+    this.parawebsocket.stompClient.onWebSocketError = (event) => { 
+      this.errorMsg = 'Error WebSocket: ' + event;
+    }; 
     try {
       this.parawebsocket.stompClient.activate();
     } catch (e: any) { 
       this.errorMsg = 'Error al activar STOMP: ' + e.message;
-    }
+    } 
   }
-  sendTestNotification(): void {
-    this.parawebsocket.sendNotification('Hola desde Angular 🚀');
-  }
-
 }
