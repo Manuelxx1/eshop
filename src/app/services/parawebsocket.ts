@@ -10,14 +10,14 @@ import { Client } from '@stomp/stompjs';
   
 export class Parawebsocket {
   public stompClient: Client;
-  public últimosLogs: string = ""; // Añade esta variable
+  public ultimosLogs: string = ""; // Añade esta variable
   constructor() { 
     this.stompClient = new Client({
       // Aquí está el truco: usamos (SockJS as any) para saltar la restricción de tipo
       webSocketFactory: () => new (SockJS as any)('https://portfoliowebbackendkoyeb-1-ulka.onrender.com/ws'),
       reconnectDelay: 5000, 
       debug: (str) => {
-        this.últimosLogs = str; // Guardamos lo que pasa internamente
+        this.ultimosLogs = str; // Guardamos lo que pasa internamente
         console.log(str);
       },
     });
