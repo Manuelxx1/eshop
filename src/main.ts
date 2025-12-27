@@ -1,5 +1,8 @@
 
-(window as any).global = window;
+// Añade esto al principio de todo
+if (typeof (window as any).global === 'undefined') {
+  (window as any).global = window;
+}
 
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
