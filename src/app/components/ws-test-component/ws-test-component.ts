@@ -17,9 +17,14 @@ export class WsTestComponent  implements OnInit  {
     // Escuchar cuando se conecta
     this.parawebsocket.stompClient.onConnect = (frame) => {
       this.conexionActiva = true;
+      //  Aquí te suscribís al topic que envía el backend 
+      this.parawebsocket.stompClient.subscribe('/topic/notificaciones', (message) => { 
+        // Cada vez que llega un mensaje, lo agregamos a la lista 
+        this.notifications.push(message.body); 
+      });
       this.errorMsg = ''; // Limpiamos errores
       this.cd.detectChanges();
-    };
+    };//onConnect
 
     // Escuchar si hay errores de conexión (esto nos dirá por qué no conecta)
     this.parawebsocket.stompClient.onWebSocketError = (event) => {
