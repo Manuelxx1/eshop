@@ -30,6 +30,18 @@ export class Parawebsocket {
   });
 }
 
+  connect(onMessage: (msg: string) => void) { 
+    this.stompClient.onConnect = () => {
+      this.stompClient.subscribe('/topic/mensajes', (message) => {
+        onMessage(message.body);
+      }); 
+    };
+    this.stompClient.activate();
+  } 
+  sendMessage(msg: string) { 
+    this.stompClient.publish({ destination: '/app/chat', body: msg }); 
+  }
+
 }
   
 
