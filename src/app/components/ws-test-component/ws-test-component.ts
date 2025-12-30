@@ -17,6 +17,8 @@ export class WsTestComponent  implements OnInit  {
   notifications: string[] = [];
   //para el chat
   mensajes: string[] = [];
+  // FormControl en lugar de ngModel
+  mensajeControl = new FormControl('');
  
   constructor(public parawebsocket: Parawebsocket,private cd: ChangeDetectorRef  ) {}
   ngOnInit(): void { 
@@ -53,12 +55,13 @@ export class WsTestComponent  implements OnInit  {
   
         }
 //para el chat 
-  enviar() { 
-    if (this.mensaje.trim()) {
-      this.parawebsocket.sendMessage(this.mensaje);
-      this.mensaje = '';
-    } 
-  }
+ enviar() {
+   const texto = this.mensajeControl.value?.trim(); 
+   if (texto) { 
+     this.parawebsocket.sendMessage(texto); 
+     this.mensajeControl.reset(); // limpia el input
+   } 
+ }
 
   sendTestNotification(): void {
   this.parawebsocket.sendNotification('Hola desde Angular 🚀');
