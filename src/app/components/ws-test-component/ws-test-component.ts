@@ -12,6 +12,10 @@ import { CommonModule } from '@angular/common';
 export class WsTestComponent  implements OnInit  {
   conexionActiva = false;
   errorMsg = '';
+
+  //  Esta es la propiedad que faltaba
+  notifications: string[] = [];
+ 
   constructor(public parawebsocket: Parawebsocket,private cd: ChangeDetectorRef  ) {}
   ngOnInit(): void { 
     // Escuchar cuando se conecta
