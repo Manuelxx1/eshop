@@ -7,3 +7,11 @@
   <strong>LOG DEL SISTEMA:</strong>
   <p>{{parawebsocket.ultimosLogs }}</p>
 </div>
+
+<h3>Notificaciones</h3> 
+<ul> 
+  <li *ngFor="let msg of notifications">{{ msg }}
+  </li>
+</ul>
+<!-- Este es el botón que envía la notificación --> 
+<button (click)="sendTestNotification()">Enviar notificación de prueba</button>
