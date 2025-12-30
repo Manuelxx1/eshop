@@ -35,4 +35,9 @@ export class WsTestComponent  implements OnInit  {
     // Intentar conectar
     this.parawebsocket.stompClient.activate();
 }
+
+  sendTestNotification(): void {
+  this.parawebsocket.sendNotification('Hola desde Angular 🚀');
+}
+
 }
