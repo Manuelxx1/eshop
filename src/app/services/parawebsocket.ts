@@ -30,30 +30,8 @@ export class Parawebsocket {
   });
 }
 
-  connect(onNotify: (msg: string) => void, onChat: (msg: string) => void) {
-  this.stompClient.onConnect = () => {
-    // Suscripción a notificaciones
-    this.stompClient.subscribe('/topic/notificaciones', (message) => {
-      onNotify(message.body);
-    });
-
-    // Suscripción al chat
-    this.stompClient.subscribe('/topic/mensajes', (message) => {
-      onChat(message.body);
-    });
-  };
-
-  this.stompClient.onWebSocketError = () => {
-    console.error('Error de Red: No se pudo alcanzar el servidor');
-  };
-
-  this.stompClient.onStompError = (frame) => {
-    console.error('Error STOMP: ' + frame.headers['message']);
-  };
-
-  this.stompClient.activate();
-}
-
+  
+  
 
   //mensajes del chat
   sendMessage(msg: string) { 
