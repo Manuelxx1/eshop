@@ -23,16 +23,31 @@ export class WsTestComponent  implements OnInit  {
   constructor(public parawebsocket: Parawebsocket,private cd: ChangeDetectorRef  ) {}
   ngOnInit(): void { 
     // Escuchar cuando se conecta
-    this.parawebsocket.connect( (notifyMsg: string) => { 
-      this.conexionActiva = true; 
-      this.notifications.push(notifyMsg); 
-      this.errorMsg = ''; 
+    // Configurar qué pasa cuando se conecta 
+    this.parawebsocket.stompClient.onConnect = (frame) => { 
+      this.conexionActiva = true;
+      // Suscripción a notificaciones 
+      this.parawebsocket.stompClient.subscribe('/topic/notificaciones', (message) => { 
+        this.notifications.push(message.body); 
+        this.cd.detectChanges();
+      }); 
+      // Suscripción al chat
+      this.parawebsocket.stompClient.subscribe('/topic/mensajes', (message) => { 
+        this.mensajes.push(message.body); 
+        this.cd.detectChanges(); }); 
+      this.errorMsg = ''; // Limpiamos errores
+    }; 
+    // Manejo de errores 
+    this.parawebsocket.stompClient.onWebSocketError = () => { 
+      this.errorMsg = 'Error de Red: No se pudo alcanzar el servidor';
       this.cd.detectChanges(); 
-    }, (chatMsg: string) => { 
-      this.mensajes.push(chatMsg);
-      this.cd.detectChanges();
-    });
-
+    }; 
+    this.parawebsocket.stompClient.onStompError = (frame) => {
+      this.errorMsg = 'Error STOMP: ' + frame.headers['message']; 
+      this.cd.detectChanges(); 
+    }; 
+    // Activar la conexión (solo una vez)
+    this.parawebsocket.stompClient.activate();
   
         }
 //para el chat 
