@@ -1,11 +1,11 @@
 import { Component, OnInit,ChangeDetectorRef   } from '@angular/core';
 import { Parawebsocket } from '../../services/parawebsocket';
 import { CommonModule } from '@angular/common';
-
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-ws-test-component',
-  imports: [CommonModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './ws-test-component.html',
   styleUrl: './ws-test-component.css',
 })
