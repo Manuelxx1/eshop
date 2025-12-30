@@ -24,7 +24,8 @@
     <li *ngFor="let msgchat of mensajes">{{ msgchat }}</li>
   </ul>
 
-  <input [(ngModel)]="mensaje" placeholder="Escribe tu mensaje">
+  <!--  Input reactivo --> 
+  <input [formControl]="mensajeControl" placeholder="Escribe tu mensaje">
   <button (click)="enviar()">Enviar</button>
 </div>
 
