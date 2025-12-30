@@ -52,6 +52,13 @@ export class WsTestComponent  implements OnInit  {
     });
   
         }
+//para el chat 
+  enviar() { 
+    if (this.mensaje.trim()) {
+      this.parawebsocket.sendMessage(this.mensaje);
+      this.mensaje = '';
+    } 
+  }
 
   sendTestNotification(): void {
   this.parawebsocket.sendNotification('Hola desde Angular 🚀');
