@@ -15,3 +15,16 @@
 </ul>
 <!-- Este es el botón que envía la notificación --> 
 <button (click)="sendTestNotification()">Enviar notificación de prueba</button>
+
+
+<div class="chat">
+  <h3>Chat básico</h3>
+
+  <ul>
+    <li *ngFor="let msgchat of mensajes">{{ msgchat }}</li>
+  </ul>
+
+  <input [(ngModel)]="mensaje" placeholder="Escribe tu mensaje">
+  <button (click)="enviar()">Enviar</button>
+</div>
+
