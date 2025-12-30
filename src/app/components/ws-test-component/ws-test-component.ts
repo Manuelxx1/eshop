@@ -15,6 +15,8 @@ export class WsTestComponent  implements OnInit  {
 
   //  Esta es la propiedad que faltaba
   notifications: string[] = [];
+  //para el chat
+  mensajes: string[] = [];
  
   constructor(public parawebsocket: Parawebsocket,private cd: ChangeDetectorRef  ) {}
   ngOnInit(): void { 
@@ -43,7 +45,13 @@ export class WsTestComponent  implements OnInit  {
 
     // Intentar conectar
     this.parawebsocket.stompClient.activate();
-}
+
+    //para el chat 
+    this.parawebsocket.connect((msg: string) => {
+      this.mensajes.push(msg);
+    });
+  
+        }
 
   sendTestNotification(): void {
   this.parawebsocket.sendNotification('Hola desde Angular 🚀');
