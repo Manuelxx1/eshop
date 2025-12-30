@@ -43,6 +43,14 @@ export class Parawebsocket {
     });
   };
 
+  this.stompClient.onWebSocketError = () => {
+    console.error('Error de Red: No se pudo alcanzar el servidor');
+  };
+
+  this.stompClient.onStompError = (frame) => {
+    console.error('Error STOMP: ' + frame.headers['message']);
+  };
+
   this.stompClient.activate();
 }
 
