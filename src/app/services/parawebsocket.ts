@@ -30,14 +30,24 @@ export class Parawebsocket {
   });
 }
 
-  connect(onMessage: (msg: string) => void) { 
-    this.stompClient.onConnect = () => {
-      this.stompClient.subscribe('/topic/mensajes', (message) => {
-        onMessage(message.body);
-      }); 
-    };
-    this.stompClient.activate();
-  } 
+  connect(onNotify: (msg: string) => void, onChat: (msg: string) => void) {
+  this.stompClient.onConnect = () => {
+    // Suscripción a notificaciones
+    this.stompClient.subscribe('/topic/notificaciones', (message) => {
+      onNotify(message.body);
+    });
+
+    // Suscripción al chat
+    this.stompClient.subscribe('/topic/mensajes', (message) => {
+      onChat(message.body);
+    });
+  };
+
+  this.stompClient.activate();
+}
+
+
+  //mensajes del chat
   sendMessage(msg: string) { 
     this.stompClient.publish({ destination: '/app/chat', body: msg }); 
   }
