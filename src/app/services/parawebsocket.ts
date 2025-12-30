@@ -22,6 +22,14 @@ export class Parawebsocket {
       },
     });
   }
+
+  sendNotification(payload: string) {
+  this.stompClient.publish({
+    destination: '/app/notify',   //  coincide con @MessageMapping("/notify") en tu backend
+    body: payload                 //  el contenido del mensaje
+  });
+}
+
 }
   
 
