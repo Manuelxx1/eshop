@@ -37,6 +37,11 @@ export class WsTestComponent  implements OnInit  {
         this.cd.detectChanges(); }); 
       this.errorMsg = ''; // Limpiamos errores
     }; 
+
+    this.parawebsocket.stompClient.subscribe('/topic/carrito', (message) => { 
+        this.notifications.push(message.body); 
+        this.cd.detectChanges();
+      }); 
     // Manejo de errores 
     this.parawebsocket.stompClient.onWebSocketError = () => { 
       this.errorMsg = 'Error de Red: No se pudo alcanzar el servidor';
