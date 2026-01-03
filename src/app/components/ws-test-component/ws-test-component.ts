@@ -34,14 +34,12 @@ export class WsTestComponent  implements OnInit  {
       // Suscripción al chat
       this.parawebsocket.stompClient.subscribe('/topic/mensajes', (message) => { 
         this.mensajes.push(message.body); 
-        this.cd.detectChanges(); }); 
+        this.cd.detectChanges();
+      }); 
       this.errorMsg = ''; // Limpiamos errores
     }; 
 
-    this.parawebsocket.stompClient.subscribe('/topic/carrito', (message) => { 
-        this.notifications.push(message.body); 
-        this.cd.detectChanges();
-      }); 
+    
     // Manejo de errores 
     this.parawebsocket.stompClient.onWebSocketError = () => { 
       this.errorMsg = 'Error de Red: No se pudo alcanzar el servidor';
@@ -55,6 +53,7 @@ export class WsTestComponent  implements OnInit  {
     this.parawebsocket.stompClient.activate();
   
         }
+  
 //para el chat 
  enviar() {
    const texto = this.mensajeControl.value?.trim(); 
