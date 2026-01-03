@@ -35,7 +35,9 @@ export class Parawebsocket {
 
   //mensajes del chat
   sendMessage(msg: string) { 
-    this.stompClient.publish({ destination: '/app/chat', body: msg }); 
+    this.stompClient.publish({ destination: '/app/chat',
+     body: msg 
+   }); 
   }
 
 }
