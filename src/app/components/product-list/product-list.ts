@@ -69,7 +69,11 @@ total: number = 0;
   
   //para el dropdawn de compra directa 
   // Control reactivo para la cantidad
-  quantityControl = new FormControl(1);
+  //formato con declaración de tipado 
+  //se me asigna el valor por defecto 1
+  //y se define no nulo para que no surga error
+  quantityControl = new FormControl<number>(1, { nonNullable: true });
+
 quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
 
 
