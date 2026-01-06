@@ -111,8 +111,8 @@ getItems() {
   //por ProductList component 
   //se usa este service que es de cart porque esta conectado
   //a la tabla cart_items y el de productlist no lo esta
-addToCart(productId: number, quantity: number ): Observable<any> {
-  return this.http.post(`${this.apiUrl}/add`, { productId, quantity });
+addToCart(productId: number, quantity: number,idUsuario:number): Observable<any> {
+  return this.http.post(`${this.apiUrl}/add`, { productId, quantity,idUsuario });
 }
 
 
