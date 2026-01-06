@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet,RouterLink } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { Product} from '../../services/product';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
@@ -15,7 +15,7 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-registrarse',
-  imports: [ HttpClientModule,CommonModule,ReactiveFormsModule,RouterLink ],
+  imports: [ HttpClientModule,CommonModule,ReactiveFormsModule ],
   templateUrl: './registrarse.html',
   styleUrl: './registrarse.css'
 })
