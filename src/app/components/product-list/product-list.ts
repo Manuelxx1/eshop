@@ -526,7 +526,8 @@ Si el usuario mueve el mouse, hace click o escribe → se reinicia el temporizad
   
   addToCart(product: any): void {
   const quantity = this.quantityControl.value; //  acá tomás el valor del select
-  const idUsuario= localStorage.getItem('idUsuario');
+  const idUsuario = Number(localStorage.getItem('idUsuario'));
+
     this.cartService.addToCart(product.id, quantity,idUsuario ).subscribe({
     next: () => this.loadCart(),
     error: err => console.error('Error al agregar al carrito', err)
