@@ -521,11 +521,13 @@ Si el usuario mueve el mouse, hace click o escribe → se reinicia el temporizad
   
   
   addToCart(product: any): void {
-  this.cartService.addToCart(product.id, 1).subscribe({
+  const quantity = this.quantityControl.value; //  acá tomás el valor del select
+  this.cartService.addToCart(product.id, quantity).subscribe({
     next: () => this.loadCart(),
     error: err => console.error('Error al agregar al carrito', err)
   });
 }
+
 
 //mostrar resumen de compra antes de confirmar compra 
 mostrarResumen(): void {
