@@ -530,11 +530,10 @@ Si el usuario mueve el mouse, hace click o escribe → se reinicia el temporizad
 
     this.cartService.addToCart(product.id, quantity,idUsuario ).subscribe({
       
-    //next: () => this.loadCart(),
-        next: cart => {
-          alert(cart);
-        },
+    next: () => this.loadCart(),
+        
     error: err => console.error('Error al agregar al carrito', err)
+      alert(product.id,quantity,idUsuario);
   });
 }
 
