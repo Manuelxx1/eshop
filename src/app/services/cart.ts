@@ -95,8 +95,15 @@ constructor(private http: HttpClient) {}
 
   
 // Obtener carrito desde backend
-getItems() {
+/*getItems() {
   return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart`);
+}*/
+  
+getItems() {
+  const idUsuario = localStorage.getItem('idUsuario');
+  return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart`, {
+    params: { idUsuario: idUsuario! }
+  });
 }
 
 
