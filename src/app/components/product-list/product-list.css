@@ -187,6 +187,8 @@
 
 .sidebar a:hover {
   text-decoration: underline;
+  background-color: #34495e;
+  
 }
 
 .main-content {
@@ -265,6 +267,7 @@ section {
 
 
 }
+
 
 
 
