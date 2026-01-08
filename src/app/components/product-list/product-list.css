@@ -130,7 +130,7 @@
 
     .hamburger {
   position: fixed;   /* siempre visible arriba */
-  top: 10px;
+  top: 5px;
   left: 10px;
   z-index: 1000;     /* encima del sidebar */
   font-size: 28px;
@@ -265,6 +265,7 @@ section {
 
 
 }
+
 
 
 
