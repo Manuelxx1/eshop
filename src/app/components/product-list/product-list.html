@@ -20,11 +20,13 @@
 
 
 
-<!--dashboard de usuario-->
+
 <!--dashboard de usuario-->
 <div class="dashboard-layout">
+  <!-- Botón hamburger --> 
+  <button class="hamburger" (click)="menuOpen = !menuOpen">☰</button>
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" [class.open]="menuOpen">
     <h3>Menú</h3>
     <ul>
       <li><button (click)="seccionActiva='perfil'" [class.active]="seccionActiva==='perfil'">👤 Perfil</button></li>
