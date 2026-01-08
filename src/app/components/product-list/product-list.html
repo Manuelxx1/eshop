@@ -74,6 +74,10 @@
           </li>
         </ul>
       </section>
+      
+      <!-- carrito -->
+      <h3>Carrito</h3>
+      <a routerLink="/cart">Carrito</a>
 
       <!-- Estadísticas -->
       <section *ngIf="seccionActiva==='estadisticas'">
@@ -91,7 +95,7 @@
         <h3>Actividad</h3>
         <ul>
     <li *ngFor="let evento of actividad">
-      <strong>{{ evento.tipo }}</strong> - {{ evento.descripcion }}
+      <strong>{{ evento.tipo }}</strong> - {{ evento.desc<a routerLink="/cart">Carrito</a>ripcion }}
       <br>
       <small>{{ evento.fecha | date:'short' }}</small>
     </li>
