@@ -106,6 +106,8 @@ emaildedb:any;
   //Notifications mediante websocket 
   notifications: string[] = [];
   conexionActiva = false;
+  menuOpen = false;
+
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
