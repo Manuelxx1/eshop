@@ -129,12 +129,19 @@
 
 
     .hamburger {
-  font-size: 24px;
-  background: none;
+  position: fixed;   /* siempre visible arriba */
+  top: 10px;
+  left: 10px;
+  z-index: 1000;     /* encima del sidebar */
+  font-size: 28px;
+  background: #2c3e50;
+  color: white;
   border: none;
   cursor: pointer;
-  margin: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
 }
+
 
 .sidebar {
   position: fixed;
@@ -258,6 +265,7 @@ section {
 
 
 }
+
 
 
 
