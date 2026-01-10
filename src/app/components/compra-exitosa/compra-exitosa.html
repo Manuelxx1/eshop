@@ -1,4 +1,16 @@
 <h2>Resultado de la compra</h2>
-    <p>Status: {{ status }}</p>
-    <p>Payment ID: {{ paymentId }}</p>
-    <p>External Reference: {{ externalReference }}</p>
+<p>Status: {{ status }}</p>
+<p>Payment ID: {{ paymentId }}</p>
+<p>External Reference: {{ externalReference }}</p>
+
+<div *ngIf="orderDetails">
+  <h3>Detalles de la orden</h3>
+  <p>Comprador: {{ orderDetails.mpPayerName }} ({{ orderDetails.mpPayerEmail }})</p>
+  <p>Total: {{ orderDetails.total }}</p>
+
+  <ul>
+    <li *ngFor="let item of orderDetails.items">
+      {{ item.productName }} - Cantidad: {{ item.quantity }} - Precio: {{ item.amount }}
+    </li>
+  </ul>
+</div>
