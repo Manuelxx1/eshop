@@ -6,7 +6,8 @@
 <div *ngIf="orderDetails">
   <h3>Detalles de la orden</h3>
   <p>Comprador: {{ orderDetails.mpPayerName }} ({{ orderDetails.mpPayerEmail }})</p>
-  <p>Total: {{ orderDetails.total }}</p>
+<p>Total: {{ orderDetails.total | currency:'ARS':'symbol' }}</p>
+
 
   <ul>
     <li *ngFor="let item of orderDetails.items">
