@@ -1,10 +1,11 @@
 import { Component,OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { Product,Order} from '../../services/product';
 
 @Component({
   selector: 'app-compra-exitosa',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './compra-exitosa.html',
   styleUrl: './compra-exitosa.css',
 })
