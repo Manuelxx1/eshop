@@ -32,7 +32,8 @@ export interface OrderItem {
 export interface Order {
   id: number;
   user: User;
-  items: OrderItem[];
+  mpPayerName: string;
+  mpPayerEmail: string;
   total: number;
   amount: number;
   status: string;
