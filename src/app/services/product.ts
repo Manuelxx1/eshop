@@ -132,11 +132,12 @@ getOrders(): Observable<Order[]> {
 }
 
 
-  private apiOrderCompraExitosa = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/orders';
-  //para buscar orders por preferenceId y mostrarlo luego de la compra exitosa 
-  getOrderCompraExitosa(preferenceId: string): Observable<Order> { 
-    return this.http.get<Order>(`${this.apiOrderCompraExitosa}/${preferenceId}`); 
-  }
+  private apiOrderCompraExitosa = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/orders/compraexitosa';
+
+getOrderCompraExitosa(preferenceId: string): Observable<Order> { 
+  return this.http.get<Order>(`${this.apiOrderCompraExitosa}/${preferenceId}`); 
+}
+
 
 private apiUrlPassword = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   
