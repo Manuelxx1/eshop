@@ -9,7 +9,7 @@ import { Product,Order} from '../../services/product';
   templateUrl: './compra-exitosa.html',
   styleUrl: './compra-exitosa.css',
 })
-export class CompraExitosa implements OnInit {
+export class EstadoCompra implements OnInit {
   status: string | null = null; 
   paymentId: string | null = null;
   externalReference: string | null = null; 
