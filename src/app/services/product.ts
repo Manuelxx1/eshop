@@ -40,7 +40,7 @@ export interface Order {
   productName: string;
   createdAt: string;
   loginUsername:String;
-  items: OrderItem[];
+  externalReference: string; // <-- NUEVO campo compra exitosa   items: OrderItem[];
 }
 
 @Injectable({
@@ -134,8 +134,8 @@ getOrders(): Observable<Order[]> {
 
   private apiOrderCompraExitosa = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/orders/compraexitosa';
 
-getOrderCompraExitosa(preferenceId: string): Observable<Order> { 
-  return this.http.get<Order>(`${this.apiOrderCompraExitosa}/${preferenceId}`); 
+getOrderCompraExitosa(externalReference: string): Observable<Order> { 
+  return this.http.get<Order>(`${this.apiOrderCompraExitosa}/${externalReference}`); 
 }
 
 
