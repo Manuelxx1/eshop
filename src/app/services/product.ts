@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-
+//en la interface definimos el tipado de los datos
 export interface User {
   id: number;
   username: string;
