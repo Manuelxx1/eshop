@@ -16,7 +16,7 @@
   <ul>
     <li *ngFor="let item of orderDetails.items">
       {{ item.productName }} - Cantidad: {{ item.quantity }} -
-      Precio: {{ item.amount | currency:'ARS':'symbol':'1.0-0' }}
+      Precio: {{ item.amount }}
     </li>
   </ul>
 </div>
