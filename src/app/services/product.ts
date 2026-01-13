@@ -133,10 +133,10 @@ getOrders(): Observable<Order[]> {
 }
 
 
-  private apiOrderCompraExitosa = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/orders/compraexitosa';
+  private apiOrderEstadoDeCompra = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
 
-getOrderCompraExitosa(externalReference: string): Observable<Order> { 
-  return this.http.get<Order>(`${this.apiOrderCompraExitosa}/${externalReference}`); 
+getOrderEstadoDeCompra(externalReference: string): Observable<Order> {
+  return this.http.get<Order>(`${this.apiUrl}/orders/estado/${externalReference}`);
 }
 
 
