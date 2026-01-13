@@ -25,7 +25,7 @@ orderDetails: Order | null = null;
   
     
     if (this.externalReference) { 
-      this.productService.getOrderCompraExitosa(this.externalReference).subscribe(order => { 
+      this.productService.getOrderEstadoDeCompra(this.externalReference).subscribe(order => { 
         this.orderDetails = order;
       }); 
     }//if
