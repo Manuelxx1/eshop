@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { Product,Order} from '../../services/product';
 
 @Component({
-  selector: 'app-compra-exitosa',
+  selector: 'app-estado-compra',
   imports: [CommonModule],
-  templateUrl: './compra-exitosa.html',
-  styleUrl: './compra-exitosa.css',
+  templateUrl: './estado-compra.html',
+  styleUrl: './estado-compra.css',
 })
 export class EstadoCompra implements OnInit {
   status: string | null = null; 
