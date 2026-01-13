@@ -5,13 +5,8 @@
 
 <div *ngIf="orderDetails">
   <h3>Detalles de la orden</h3>
-  <p>
-    Comprador: {{ orderDetails.mpPayerName || 'N/A' }}
-    ({{ orderDetails.mpPayerEmail }})
-  </p>
-  <p class="total">
-    Total: {{ orderDetails.total | currency:'ARS':'symbol':'1.0-0' }}
-  </p>
+  <p>Comprador: {{ orderDetails.mpPayerName || 'N/A' }} ({{ orderDetails.mpPayerEmail }})</p>
+  <p>Total: {{ orderDetails.total | currency:'ARS':'symbol':'1.0-0' }}</p>
 
   <ul>
     <li *ngFor="let item of orderDetails.items">
@@ -19,4 +14,17 @@
       Precio: {{ item.amount | currency:'ARS':'symbol':'1.0-0' }}
     </li>
   </ul>
+</div>
+
+<!-- Mensajes según estado -->
+<div *ngIf="status === 'approved'" class="success">
+  ✅ ¡Tu pago fue aprobado!
+</div>
+
+<div *ngIf="status === 'failure'" class="failure">
+  ❌ El pago fue rechazado. Intenta nuevamente.
+</div>
+
+<div *ngIf="status === 'pending'" class="pending">
+  ⏳ El pago está pendiente, Mercado Pago lo está procesando.
 </div>
