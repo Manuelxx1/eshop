@@ -41,6 +41,7 @@ export interface Order {
   createdAt: string;
   loginUsername:String;
   externalReference: string; // <-- NUEVO campo compra exitosa   items: OrderItem[];
+items: OrderItem[];
 }
 
 @Injectable({
