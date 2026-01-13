@@ -136,7 +136,7 @@ getOrders(): Observable<Order[]> {
   private apiOrderEstadoDeCompra = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
 
 getOrderEstadoDeCompra(externalReference: string): Observable<Order> {
-  return this.http.get<Order>(`${this.apiUrl}/orders/estado/${externalReference}`);
+  return this.http.get<Order>(`${apiOrderEstadoDeCompra}/orders/estado/${externalReference}`);
 }
 
 
