@@ -17,14 +17,17 @@
 </div>
 
 <!-- Mensajes según estado -->
-<div *ngIf="status === 'approved'" class="success">
-  ✅ ¡Tu pago fue aprobado!
+<div *ngIf="status === 'approved'" class="alert success">
+  <span class="icon">✅</span>
+  ¡Tu pago fue aprobado!
 </div>
 
-<div *ngIf="status === 'failure'" class="failure">
-  ❌ El pago fue rechazado. Intenta nuevamente.
+<div *ngIf="status === 'failure'" class="alert failure">
+  <span class="icon">❌</span>
+  El pago fue rechazado. Intenta nuevamente.
 </div>
 
-<div *ngIf="status === 'pending'" class="pending">
-  ⏳ El pago está pendiente, Mercado Pago lo está procesando.
+<div *ngIf="status === 'pending'" class="alert pending">
+  <span class="icon">⏳</span>
+  El pago está pendiente, Mercado Pago lo está procesando.
 </div>
