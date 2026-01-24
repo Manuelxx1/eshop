@@ -106,7 +106,9 @@ registrarDatos(user: any): Observable<any> {
 // Método para crear la preferencia y devolver el initPoint
 comprar(productId: number, quantity: number, idUsuario: number | null, shippingOption: any): Observable<string> {
   const body = { quantity, idUsuario, shippingOption };
-  alert ("costo de envio" + body.shippingOption);
+//  muestra todo el objeto 
+    alert("shippingOption: " + JSON.stringify(body.shippingOption));
+
     return this.http.post(`https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create/${productId}`,
     body,
     { responseType: 'text' }
