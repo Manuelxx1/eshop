@@ -105,15 +105,23 @@ registrarDatos(user: any): Observable<any> {
   // Método para crear la preferencia y devolver el orderId
 // Método para crear la preferencia y devolver el initPoint
 comprar(productId: number, quantity: number, idUsuario: number | null, shippingOption: any): Observable<string> {
-  const body = { quantity, idUsuario, shippingOption };
-//  muestra todo el objeto 
-    alert("shippingOption: " + JSON.stringify(body.shippingOption));
+  const body = { 
+    quantity, 
+    idUsuario, 
+    shippingType: shippingOption.id,   //  extraer id del objeto
+    shippingCost: shippingOption.price, // extraer precio del objeto 
+ shippingName: shippingOption.name
+  };
 
-    return this.http.post(`https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create/${productId}`,
+  console.log("Body enviado:", body);
+
+  return this.http.post(
+    `https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/create/${productId}`,
     body,
     { responseType: 'text' }
   );
 }
+
 
 
 
