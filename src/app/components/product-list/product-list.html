@@ -220,6 +220,18 @@
  <!--se usa el operador de acseso seguro || para evitar error 
  de objeto posible valor null o undefined-->
   <p>Total: {{ product.price * (quantityControl.value || 1) | currency:'ARS' }}</p>
+<!-- Opciones de envío --> 
+<label for="shipping">Opción de envío:</label>
+<select id="shipping" [formControl]="shippingControl">
+  <option *ngFor="let option of shippingOptions" [ngValue]="option">
+    {{ option.name }} - {{ option.price | currency:'ARS' }}
+  </option>
+</select>
+
+<!-- Mostrar el total con envío -->
+<p>Total con envío: 
+  {{ (product.price * (quantityControl.value || 1) + (shippingControl.value?.price || 0)) | currency:'ARS' }}
+</p>
 
 
   <button (click)="buyNow(product.id)" class="buynow">Comprar ahora</button>
