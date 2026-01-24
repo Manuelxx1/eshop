@@ -116,8 +116,8 @@ emaildedb:any;
   { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
 ];
 
-// Control para la opción seleccionada
-selectedShipping = this.shippingOptions[0]; // por defecto estándar
+// Control reactivo para la opción seleccionada 
+  shippingControl = new FormControl(this.shippingOptions[0]);
 
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
