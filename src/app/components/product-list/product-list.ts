@@ -109,6 +109,17 @@ emaildedb:any;
   menuOpen = false;
 
 
+  //opciones de envío
+  shippingOptions = [
+  { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
+  { id: 'express', name: 'Envío exprés (1-2 días)', price: 12.99 },
+  { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
+];
+
+// Control para la opción seleccionada
+selectedShipping = this.shippingOptions[0]; // por defecto estándar
+
+
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
     this.formulariologin = this.fb.group({
@@ -543,6 +554,9 @@ mostrarResumen(): void {
     this.showSummary = true;
 }
 
+
+
+  
 // Compra directa → redirige al checkout
 buyNow(productId: number): void {
   alert("Botón comprar clickeado ");
