@@ -583,7 +583,7 @@ buyNow(productId: number): void {
   const valorId = localStorage.getItem('idUsuario');
   const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
 alert("Usuario del login" +idUsuario);
-  this.productService.comprar(productId, selectedQuantity, idUsuario,formData.shippingOption).subscribe({
+  this.productService.comprar(productId, selectedQuantity, idUsuario,formData).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
       localStorage.setItem('selectedProduct', JSON.stringify(productId));
