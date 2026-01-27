@@ -104,13 +104,23 @@ registrarDatos(user: any): Observable<any> {
     
   // Método para crear la preferencia y devolver el orderId
 // Método para crear la preferencia y devolver el initPoint
-comprar(productId: number, quantity: number, idUsuario: number | null, shippingOption: any): Observable<string> {
+comprar(productId: number, quantity: number, idUsuario: number | null, formData: any): Observable<string> {
   const body = { 
     quantity, 
     idUsuario, 
-    shippingType: shippingOption.id,   //  extraer id del objeto
+    /*shippingType: shippingOption.id,   //  extraer id del objeto
     shippingCost: shippingOption.price, // extraer precio del objeto 
- shippingName: shippingOption.name
+ shippingName: shippingOption.name*/
+name: formData.name, 
+    email: formData.email,
+    phone: formData.phone, 
+    address: formData.address, 
+    city: formData.city,
+    postalCode: formData.postalCode, 
+    shippingType: formData.shippingOption.id,
+    shippingCost: formData.shippingOption.price, 
+    shippingName: formData.shippingOption.name
+    
   };
 
   console.log("Body enviado:", body);
