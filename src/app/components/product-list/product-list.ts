@@ -21,7 +21,7 @@ import { Cart} from '../../services/cart';
 //se importa la interfaz CartItem que representa al modelo
 import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 
-import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 interface Actividad {
   id?: string;              // opcional, sirve para evitar duplicados
