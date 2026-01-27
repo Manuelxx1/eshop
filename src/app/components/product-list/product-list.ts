@@ -21,6 +21,8 @@ import { Cart} from '../../services/cart';
 //se importa la interfaz CartItem que representa al modelo
 import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 interface Actividad {
   id?: string;              // opcional, sirve para evitar duplicados
   fecha: Date | string;     // puede venir como Date o string del backend
@@ -108,7 +110,7 @@ emaildedb:any;
   conexionActiva = false;
   menuOpen = false;
 
-
+checkoutForm: FormGroup;
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
@@ -117,7 +119,7 @@ emaildedb:any;
 ];
 
 // Control reactivo para la opción seleccionada 
-  shippingControl = new FormControl(this.shippingOptions[0]);
+  //shippingControl = new FormControl(this.shippingOptions[0]);
 
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
@@ -139,7 +141,18 @@ this.passwordForm = this.fb.group({
     this.emailForm = this.fb.group({
       nuevoEmail: ['', [Validators.required, Validators.minLength(6)]]
     });
-  }
+
+this.checkoutForm = this.fb.group({
+  name: [''], 
+  email: [''], 
+  phone: [''], 
+  address: [''],
+  city: [''], 
+  postalCode: [''], 
+  shippingOption: [this.shippingOptions[0]] 
+});
+    
+  }// constructor 
 
 
       
@@ -563,12 +576,14 @@ buyNow(productId: number): void {
   alert("productId del frontend" + productId);
   const selectedQuantity = this.quantityControl.value ?? 1;
   console.log('Cantidad seleccionada:', selectedQuantity);
-const shippingOption = this.shippingControl.value;
+//const shippingOption = this.shippingControl.value;
+  const formData = this.checkoutForm.value;
+  console.log('Datos del comprador:', formData);
   // recuperar usuario de la sesión (guardado en login)
   const valorId = localStorage.getItem('idUsuario');
   const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
 alert("Usuario del login" +idUsuario);
-  this.productService.comprar(productId, selectedQuantity, idUsuario,shippingOption).subscribe({
+  this.productService.comprar(productId, selectedQuantity, idUsuario,formData.shippingOption).subscribe({
     next: initPoint => {
       alert("initPoint recibido: " + initPoint);
       localStorage.setItem('selectedProduct', JSON.stringify(productId));
