@@ -272,6 +272,11 @@
     </select>
   </div>
 
+  <!-- Mostrar el total con envío -->
+<p>Total con envío: 
+  {{ (product.price * (quantityControl.value || 1) + (checkoutForm.value?.shippingOption.price || 0)) | currency:'ARS' }}
+</p>
+
   <button type="submit">Finalizar compra</button>
 </form>
 
@@ -285,10 +290,7 @@
  -->
     
 
-<!-- Mostrar el total con envío -->
-<p>Total con envío: 
-  {{ (product.price * (quantityControl.value || 1) + (checkoutForm.value?.shippingOption.price || 0)) | currency:'ARS' }}
-</p>
+
 
 
 
