@@ -192,11 +192,7 @@ en product-list component
   <h2>Seleccionar producto</h2>
   <div *ngFor="let product of products" class="product-card">
     <img [src]="product.imageUrl" alt="{{ product.name }}" width="80" height="80">
-    <div>
-      <p><strong>{{ product.name }}</strong></p>
-      <p>{{ product.description }}</p>
-      <p>{{ product.price | currency:'ARS' }}</p>
-    </div>
+    <p>{{ product.name }} - {{ product.description }} - {{ product.price | currency:'ARS' }}</p>
 
     <label for="quantity">Cantidad:</label>
     <select [formControl]="quantityControl" id="quantity">
@@ -207,68 +203,54 @@ en product-list component
   </div>
 </div>
 
+
 <!-- Paso 2: Resumen y envío -->
 <div *ngIf="currentStep === 2" class="step-container step-active">
   <h2>Resumen de compra</h2>
-  <div class="resumen">
-    <p><strong>Producto:</strong> {{ selectedProduct?.name }}</p>
-    <p><strong>Cantidad:</strong> {{ quantityControl.value }}</p>
-    <p><strong>Subtotal:</strong> {{ selectedProduct?.price * (quantityControl.value || 1) | currency:'ARS' }}</p>
+  <p>Producto: {{ selectedProduct?.name }}</p>
+  <p>Cantidad: {{ quantityControl.value }}</p>
+  <p>Subtotal: {{ selectedProduct?.price * (quantityControl.value || 1) | currency:'ARS' }}</p>
 
-    <label for="shipping"><strong>Método de envío</strong></label>
-    <select id="shipping" [formControl]="shippingControl" required>
-      <option *ngFor="let option of shippingOptions" [ngValue]="option">
-        {{ option.name }} - {{ option.price | currency:'ARS' }}
-      </option>
-    </select>
+  <label for="shipping">Método de envío</label>
+  <select id="shipping" formControlName="shippingOption" required>
+    <option *ngFor="let option of shippingOptions" [ngValue]="option">
+      {{ option.name }} - {{ option.price | currency:'ARS' }}
+    </option>
+  </select>
 
-    <p><strong>Total con envío:</strong> 
-      {{ (selectedProduct?.price * (quantityControl.value || 1) + (shippingControl.value?.price || 0)) | currency:'ARS' }}
-    </p>
-  </div>
+  <p>Total con envío: 
+    {{ (selectedProduct?.price * (quantityControl.value || 1) + (checkoutForm.value?.shippingOption?.price || 0)) | currency:'ARS' }}
+  </p>
 
   <button class="secondary" (click)="goBack()">Volver</button>
   <button (click)="goNext()">Continuar</button>
 </div>
 
+
 <!-- Paso 3: Datos personales -->
 <div *ngIf="currentStep === 3" class="step-container step-active">
   <h2>Datos personales</h2>
   <form [formGroup]="checkoutForm" (ngSubmit)="buyNow(selectedProduct.id)">
-    <div class="form-group">
-      <label for="name">Nombre completo</label>
-      <input id="name" formControlName="name" type="text" required />
-    </div>
+    <label for="name">Nombre completo</label>
+    <input id="name" formControlName="name" type="text" required />
 
-    <div class="form-group">
-      <label for="email">Correo electrónico</label>
-      <input id="email" formControlName="email" type="email" required />
-    </div>
+    <label for="email">Correo electrónico</label>
+    <input id="email" formControlName="email" type="email" required />
 
-    <div class="form-group">
-      <label for="phone">Teléfono</label>
-      <input id="phone" formControlName="phone" type="text" />
-    </div>
+    <label for="phone">Teléfono</label>
+    <input id="phone" formControlName="phone" type="text" />
 
-    <div class="form-group">
-      <label for="address">Dirección</label>
-      <input id="address" formControlName="address" type="text" required />
-    </div>
+    <label for="address">Dirección</label>
+    <input id="address" formControlName="address" type="text" required />
 
-    <div class="form-group">
-      <label for="city">Ciudad</label>
-      <input id="city" formControlName="city" type="text" required />
-    </div>
+    <label for="city">Ciudad</label>
+    <input id="city" formControlName="city" type="text" required />
 
-    <div class="form-group">
-      <label for="postalCode">Código Postal</label>
-      <input id="postalCode" formControlName="postalCode" type="text" required />
-    </div>
+    <label for="postalCode">Código Postal</label>
+    <input id="postalCode" formControlName="postalCode" type="text" required />
 
-    <div class="form-actions">
-      <button class="secondary" (click)="goBack()">Volver</button>
-      <button type="submit">Finalizar compra</button>
-    </div>
+    <button class="secondary" (click)="goBack()">Volver</button>
+    <button type="submit">Finalizar compra</button>
   </form>
 </div>
 
