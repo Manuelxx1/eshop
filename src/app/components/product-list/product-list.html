@@ -219,8 +219,8 @@ en product-list component
   <!-- Método de envío -->
   <label for="shipping">Método de envío</label>
   <select id="shipping" formControlName="shippingOption" required>
-    <!-- opción vacía inicial -->
-    <option [ngValue]="">-- Selecciona un método de envío --</option>
+    
+    
     <option *ngFor="let option of shippingOptions" [ngValue]="option">
       {{ option.name }} - {{ option.price | currency:'ARS' }}
     </option>
