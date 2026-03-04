@@ -142,18 +142,22 @@ this.passwordForm = this.fb.group({
       nuevoEmail: ['', [Validators.required, Validators.minLength(6)]]
     });
 
+
+    //obtener datos personales para envío 
 this.checkoutForm = this.fb.group({
-  name: [''], 
-  email: [''], 
-  phone: [''], 
-  address: [''],
-  city: [''], 
-  postalCode: [''], 
-  shippingOption: [this.shippingOptions[0]] 
+  name: ['', Validators.required],
+  email: ['', [Validators.required, Validators.email]],
+  phone: [''],
+  address: ['', Validators.required],
+  city: ['', Validators.required], 
+  postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
+  shippingOption: [this.shippingOptions[0], Validators.required] 
 });
     
   }// constructor 
 
+
+  //para el stepper guía al usuario 
 currentStep = 1;
 selectedProduct: any;
 
