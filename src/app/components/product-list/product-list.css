@@ -354,8 +354,16 @@ button.secondary:hover {
   font-weight: bold;
   color: #007bff;
 }
+/*para los mensajes de error en los datos personales */
+  .error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
 
 }
+
 
 
 
