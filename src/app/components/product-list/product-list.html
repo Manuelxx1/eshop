@@ -259,7 +259,8 @@ en product-list component
 <div *ngIf="checkoutForm.get('postalCode')?.invalid && checkoutForm.get('postalCode')?.touched" class="error"> Ingresa un código postal válido (solo números). </div>
     
     <button class="secondary" (click)="goBack()">Volver</button>
-    <button type="submit">Finalizar compra</button>
+    <button type="submit" [disabled]="checkoutForm.invalid">Finalizar compra</button>
+
   </form>
 </div>
 
