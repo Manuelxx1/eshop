@@ -151,7 +151,7 @@ this.checkoutForm = this.fb.group({
   address: ['', Validators.required],
   city: ['', Validators.required],
   postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
-  shippingOption: ['', Validators.required]   //  arranca en null
+  shippingOption: [this.shippingOptions[0], Validators.required]   //  arranca en null
 });
 
     
