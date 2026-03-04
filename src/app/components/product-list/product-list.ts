@@ -167,8 +167,16 @@ selectProduct(product: any) {
 }
 
 goNext() {
+  if (this.currentStep === 2) {
+    // Validar que shippingOption esté seleccionado
+    if (this.checkoutForm.get('shippingOption')?.invalid) {
+      this.checkoutForm.get('shippingOption')?.markAsTouched();
+      return; // No avanza si no está seleccionado
+    }
+  }
   this.currentStep++;
 }
+
 
 goBack() {
   this.currentStep--;
