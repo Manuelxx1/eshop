@@ -149,10 +149,11 @@ this.checkoutForm = this.fb.group({
   email: ['', [Validators.required, Validators.email]],
   phone: [''],
   address: ['', Validators.required],
-  city: ['', Validators.required], 
+  city: ['', Validators.required],
   postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
-  shippingOption: [null, Validators.required] 
+  shippingOption: [null, Validators.required]   //  arranca en null
 });
+
     
   }// constructor 
 
