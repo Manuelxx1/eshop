@@ -216,21 +216,27 @@ en product-list component
   <p>Cantidad: {{ quantityControl.value }}</p>
   <p>Subtotal: {{ selectedProduct?.price * (quantityControl.value || 1) | currency:'ARS' }}</p>
 
+  <!-- Método de envío -->
   <label for="shipping">Método de envío</label>
   <select id="shipping" formControlName="shippingOption" required>
-   <option [ngValue]="null">-- Selecciona un método de envío --</option>
+    <!-- opción vacía inicial -->
+    <option [ngValue]="null">-- Selecciona un método de envío --</option>
     <option *ngFor="let option of shippingOptions" [ngValue]="option">
       {{ option.name }} - {{ option.price | currency:'ARS' }}
     </option>
   </select>
-  <div *ngIf="checkoutForm.get('shippingOption')?.invalid && checkoutForm.get('shippingOption')?.touched" class="error"> Debes seleccionar un método de envío antes de continuar. </div>
+
+  <!-- mensaje de error -->
+  <div *ngIf="checkoutForm.get('shippingOption')?.invalid && checkoutForm.get('shippingOption')?.touched" class="error">
+    Debes seleccionar un método de envío antes de continuar.
+  </div>
 
   <p>Total con envío: 
     {{ (selectedProduct?.price * (quantityControl.value || 1) + (checkoutForm.value?.shippingOption?.price || 0)) | currency:'ARS' }}
   </p>
 
   <button class="secondary" (click)="goBack()">Volver</button>
-  <!-- Botón deshabilitado si shippingOption es inválido -->
+  <!-- botón deshabilitado si shippingOption es inválido -->
   <button (click)="goNext()" [disabled]="checkoutForm.get('shippingOption')?.invalid">Continuar</button>
 </div>
 
