@@ -225,6 +225,8 @@ en product-list component
       {{ option.name }} - {{ option.price | currency:'ARS' }}
     </option>
   </select>
+  <p>Debug: {{ checkoutForm.value | json }}</p>
+
 
   <!-- mensaje de error -->
   <div *ngIf="checkoutForm.get('shippingOption')?.invalid && checkoutForm.get('shippingOption')?.touched" class="error">
