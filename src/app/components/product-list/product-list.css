@@ -264,9 +264,78 @@ section {
   
 }
 
+.step-container {
+  margin: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.step-active {
+  border-left: 4px solid #007bff;
+  background-color: #f0f8ff;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+/* Inputs y selects adaptados a mobile */
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 16px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Botones grandes y táctiles */
+button {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.secondary {
+  background-color: #6c757d;
+}
+
+button.secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Tarjeta de producto */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.product-card img {
+  border-radius: 6px;
+  max-width: 100%;
+}
 
 
 }
+
 
 
 
