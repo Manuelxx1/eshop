@@ -229,7 +229,8 @@ en product-list component
   </p>
 
   <button class="secondary" (click)="goBack()">Volver</button>
-  <button (click)="goNext()">Continuar</button>
+  <!-- Botón deshabilitado si shippingOption es inválido -->
+  <button (click)="goNext()" [disabled]="checkoutForm.get('shippingOption')?.invalid">Continuar</button>
 </div>
 
 
