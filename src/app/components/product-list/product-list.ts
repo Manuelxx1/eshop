@@ -154,6 +154,21 @@ this.checkoutForm = this.fb.group({
     
   }// constructor 
 
+currentStep = 1;
+selectedProduct: any;
+
+selectProduct(product: any) {
+  this.selectedProduct = product;
+  this.currentStep = 2;
+}
+
+goNext() {
+  this.currentStep++;
+}
+
+goBack() {
+  this.currentStep--;
+}
 
       
   
