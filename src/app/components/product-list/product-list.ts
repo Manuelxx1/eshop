@@ -113,7 +113,7 @@ emaildedb:any;
 checkoutForm: FormGroup;
   //opciones de envío
   shippingOptions = [
-    
+    null,
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
   { id: 'express', name: 'Envío exprés (1-2 días)', price: 12.99 },
   { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
