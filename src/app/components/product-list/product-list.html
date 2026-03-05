@@ -242,7 +242,7 @@ en product-list component
     {{ (selectedProduct?.price * (quantityControl.value || 1) + (checkoutForm.get('shippingOption')?.value?.price || 0)) | currency:'ARS' }}
   </p>
 
-  <<button type="button" class="secondary" (click)="goBack()">Volver</button>
+  <button type="button" class="secondary" (click)="goBack()">Volver</button>
 </div>
 
 
