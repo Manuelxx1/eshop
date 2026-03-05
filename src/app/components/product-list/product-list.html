@@ -221,7 +221,7 @@ en product-list component
   <select id="shipping" formControlName="shippingOption" required>
     
     
-    <option *ngFor="let option of shippingOptions" [ngValue]="option">
+    <option *ngFor="let option of shippingOptions" [ngValue]="option" *ngIf="option">
       {{ option.name }} - {{ option.price | currency:'ARS' }}
     </option>
   </select>
