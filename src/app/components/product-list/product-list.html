@@ -219,7 +219,7 @@ en product-list component
   <!-- Método de envío -->
   <label for="shipping">Método de envío</label>
   <select id="shipping" formControlName="shippingOption" required>
-  <option [ngValue]="null">-- Selecciona un método de envío --</option>
+  <option [ngValue]="">-- Selecciona un método de envío --</option>
   <ng-container *ngFor="let option of shippingOptions">
     <option *ngIf="option.price > 0" [ngValue]="option">
       {{ option.name }} - {{ option.price | currency:'ARS' }}
