@@ -113,6 +113,7 @@ emaildedb:any;
 checkoutForm: FormGroup;
   //opciones de envío
   shippingOptions = [
+    {id: null, name: 'boton deshabilitado', price: 0.00 },
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
   { id: 'express', name: 'Envío exprés (1-2 días)', price: 12.99 },
   { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
@@ -151,7 +152,7 @@ this.checkoutForm = this.fb.group({
   address: ['', Validators.required],
   city: ['', Validators.required],
   postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
-  shippingOption: ['', Validators.required]   //  arranca en null
+  shippingOption: [this.shippingOptions[0], Validators.required]   //  arranca en null
 });
 
     
