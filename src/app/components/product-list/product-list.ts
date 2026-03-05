@@ -184,6 +184,7 @@ goBack() {
       this.checkoutForm.get('shippingOption')?.reset(null);
     }
   }
+}
 
       
   
