@@ -176,8 +176,14 @@ selectProduct(product: any) {
 
 
 goBack() {
-  this.currentStep--;
-}
+  if (this.currentStep > 1) {
+    this.currentStep--;
+    // Si vuelve al primer paso,para cambiar de producto reseteamos el envío
+    //para qye el usuario pueda elegir la opcion que le conviene
+    if (this.currentStep === 1) {
+      this.checkoutForm.get('shippingOption')?.reset(null);
+    }
+  }
 
       
   
