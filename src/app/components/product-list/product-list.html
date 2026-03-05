@@ -219,12 +219,19 @@ en product-list component
   <!-- Método de envío -->
   <label for="shipping">Método de envío</label>
   <select id="shipping" formControlName="shippingOption" required>
-    <option [ngValue]="null">-- Selecciona un método de envío --</option>
-    
-    <option *ngFor="let option of shippingOptions" [ngValue]="option" *ngIf="option">
+  <option [ngValue]="null">-- Selecciona un método de envío --</option>
+  <ng-container *ngFor="let option of shippingOptions">
+    <option *ngIf="option.price > 0" [ngValue]="option">
       {{ option.name }} - {{ option.price | currency:'ARS' }}
     </option>
-  </select>
+  </ng-container>
+</select>
+
+
+<button (click)="goNext()" [disabled]="checkoutForm.get('shippingOption')?.invalid">
+  Continuar
+</button>
+
   <p>Debug: {{ checkoutForm.value | json }}</p>
 
 
