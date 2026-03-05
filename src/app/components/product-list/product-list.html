@@ -246,7 +246,9 @@ en product-list component
 
   <button class="secondary" (click)="goBack()">Volver</button>
   <!-- botón deshabilitado si shippingOption es inválido -->
-  <button (click)="goNext()" [disabled]="checkoutForm.get('shippingOption')?.invalid">Continuar</button>
+<button type="submit" [disabled]="checkoutForm.invalid">
+  Finalizar Compra
+</button>
 </div>
 
 
