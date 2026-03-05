@@ -216,39 +216,33 @@ en product-list component
   <p>Cantidad: {{ quantityControl.value }}</p>
   <p>Subtotal: {{ selectedProduct?.price * (quantityControl.value || 1) | currency:'ARS' }}</p>
 
-  <!-- Método de envío -->
-  <label for="shipping">Método de envío</label>
-<select id="shipping" formControlName="shippingOption">
-  <option [ngValue]="null" disabled>-- Selecciona un método de envío --</option>
-  
-  <ng-container *ngFor="let option of shippingOptions">
-    <option *ngIf="option" [ngValue]="option">
-      {{ option.name }} - {{ option.price | currency:'ARS' }}
-    </option>
-  </ng-container>
-</select>
+  <div [formGroup]="checkoutForm"> 
+    
+    <label for="shipping">Método de envío</label>
+    <select id="shipping" formControlName="shippingOption">
+      <option [ngValue]="null" disabled>-- Selecciona un método de envío --</option>
+      <ng-container *ngFor="let option of shippingOptions">
+        <option *ngIf="option" [ngValue]="option">
+          {{ option.name }} - {{ option.price | currency:'ARS' }}
+        </option>
+      </ng-container>
+    </select>
 
-<button (click)="goNext()" [disabled]="checkoutForm.get('shippingOption')?.invalid">
-  Continuar
-</button>
+    <button (click)="goNext()" [disabled]="checkoutForm.get('shippingOption')?.invalid">
+      Continuar
+    </button>
 
-  <p>Debug: {{ checkoutForm.value | json }}</p>
+  </div> <p>Debug: {{ checkoutForm.get('shippingOption')?.value | json }}</p>
 
-
-  <!-- mensaje de error -->
   <div *ngIf="checkoutForm.get('shippingOption')?.invalid && checkoutForm.get('shippingOption')?.touched" class="error">
     Debes seleccionar un método de envío antes de continuar.
   </div>
 
   <p>Total con envío: 
-    {{ (selectedProduct?.price * (quantityControl.value || 1) + (checkoutForm.value?.shippingOption?.price || 0)) | currency:'ARS' }}
+    {{ (selectedProduct?.price * (quantityControl.value || 1) + (checkoutForm.get('shippingOption')?.value?.price || 0)) | currency:'ARS' }}
   </p>
 
   <button class="secondary" (click)="goBack()">Volver</button>
-  <!-- botón deshabilitado si shippingOption es inválido -->
-<button type="submit" [disabled]="checkoutForm.invalid">
-  Finalizar Compra
-</button>
 </div>
 
 
