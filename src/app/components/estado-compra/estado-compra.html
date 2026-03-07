@@ -9,8 +9,9 @@
   <p>Total al contado: {{ orderDetails.total | currency:'ARS':'symbol':'1.0-0' }}</p>
     <h2>COMPRA EN CUOTAS </h2>
   <p>Cantidad de cuotas: {{ orderDetails.installments }}</p>
-  <p>Monto de la cuota: {{ orderDetails.installmentAmount }}</p>
-      <p>Precio final en cuotas interes incluido: {{ orderDetails.totalPaidAmount }}</p>
+<p>Monto de la cuota: {{ orderDetails.installmentAmount | currency:'ARS':'symbol':'1.0-0' }}</p>
+<p>Precio final en cuotas (interés incluido): {{ orderDetails.totalPaidAmount | currency:'ARS':'symbol':'1.0-0' }}</p>
+
   
 
 
