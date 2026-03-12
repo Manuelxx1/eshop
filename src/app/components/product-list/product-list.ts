@@ -526,7 +526,7 @@ this.message = 'Credenciales inválidas';
     onValidateCode() {
     const code = this.twofaForm.value.code;
     this.productService.validateCode(this.email, code).subscribe({
-      next: (res) => {
+      next: (res:string) => {
         this.message = res; // "Código válido, acceso permitido"
         // Aquí podés redirigir al dashboard o habilitar la sesión
       },
