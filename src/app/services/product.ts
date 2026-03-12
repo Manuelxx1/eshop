@@ -98,14 +98,10 @@ iniciarSesion(username: string, password: string): Observable<any> {
 //2FA validar codigo
   
   private baseUrl2FA = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/2fa';
-
- validateCode(email: string, code: string): Observable<string> {
-  return this.http.post(
-    `${this.baseUrl2FA}/validate?email=${email}&code=${code}`,
-    {},
-    { responseType: 'text' }
-  );
+validateCode(email: string, code: string): Observable<any> {
+  return this.http.post(`${this.baseUrl2FA}/validate?email=${email}&code=${code}`, {});
 }
+
 
   
   //formulario registro método
