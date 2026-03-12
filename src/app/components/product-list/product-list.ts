@@ -526,15 +526,15 @@ this.message = 'Credenciales inválidas';
     onValidateCode() {
   const code = this.twofaForm.value.code;
   this.productService.validateCode(this.email, code).subscribe({
-    next: (res: string) => {
-      this.message = res; // ahora sí guarda el texto plano
+    next: (res) => {
+      this.message = res.mensaje; // accede al campo del JSON
     },
     error: (err) => {
-      // err.error puede ser texto o un objeto, lo convertimos a string
-      this.message = typeof err.error === 'string' ? err.error : 'Error de red';
+      this.message = err.error.error; // accede al campo "error" del JSON
     }
   });
 }
+
 
 
 
