@@ -95,6 +95,18 @@ iniciarSesion(username: string, password: string): Observable<any> {
   return this.http.post(this.apiURLogin, datosdesesion);
 }
 
+//2FA validar codigo
+  
+  private baseUrl2FA = "https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/2fa';
+
+ validateCode(email: string, code: string): Observable<string> {
+    return this.http.post(
+      `${this.baseUrl2FA}/validate?email=${email}&code=${code}`,
+      {},
+      { responseType: 'text' }
+    );
+ }
+  
   //formulario registro método
   private apiURLRegistro = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/registereshop';
 
