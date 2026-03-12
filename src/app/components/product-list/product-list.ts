@@ -524,17 +524,18 @@ this.message = 'Credenciales inválidas';
 
   //Validar 2FA
     onValidateCode() {
-    const code = this.twofaForm.value.code;
-    this.productService.validateCode(this.email, code).subscribe({
-      next: (res:string) => {
-        this.message = res; // "Código válido, acceso permitido"
-        // Aquí podés redirigir al dashboard o habilitar la sesión
-      },
-      error: (err) => {
-        this.message = err.error; // "Código inválido o expirado"
-      }
-    });
-  }
+  const code = this.twofaForm.value.code;
+  this.productService.validateCode(this.email, code).subscribe({
+    next: (res: string) => {
+      this.message = res; // ahora sí guarda el texto plano
+    },
+    error: (err) => {
+      // err.error puede ser texto o un objeto, lo convertimos a string
+      this.message = typeof err.error === 'string' ? err.error : 'Error de red';
+    }
+  });
+}
+
 
 
 
