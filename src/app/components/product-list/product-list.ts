@@ -92,7 +92,7 @@ initPointUrl: string | null = null;
 //dashboard de usuario 
   estadisticas: any = {};
 actividad: Actividad[] = [];
-  email: string ;
+  email: any ;
 nombre: string | null = null;
   fechaderegistro:any;
 seccionActiva: string = 'perfil'; // por defecto
