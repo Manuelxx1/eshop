@@ -109,8 +109,13 @@ emaildedb:any;
   notifications: string[] = [];
   conexionActiva = false;
   menuOpen = false;
+//2FA validar 
+  
+  twofaForm: FormGroup;
+  step = 1;
+  message = '';
 
-checkoutForm: FormGroup;
+  checkoutForm: FormGroup;
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
@@ -154,6 +159,11 @@ this.checkoutForm = this.fb.group({
   shippingOption: [null, Validators.required]   //  arranca en null
 });
 
+
+    //Recibir Código 2FA
+    this.twofaForm = this.fb.group({
+      code: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]]
+    });
     
   }// constructor 
 
@@ -485,6 +495,9 @@ this.nombre= res.name;
     this.email = res.email;
         
     this.fechaderegistro = res.createdAt;
+        this.message = res.mensaje;
+          
+          this.step = 2;
 
 //this.cargarDatosDashboard(res.usuario);
         
@@ -497,7 +510,7 @@ this.nombre= res.name;
   error: err => {
     // Login fallido
     console.error('Error de login:', err);
-
+this.message = 'Credenciales inválidas';
     //this.datosDebug += `\nError: ${JSON.stringify(err)}`;
     alert('Nombre o contraseña incorrectos');
   }
@@ -506,9 +519,23 @@ this.nombre= res.name;
     alert('Por favor completá todos los campos');
   }
       
-    }
+    }//formulariologin 
 
-    
+
+  //Validar 2FA
+    onValidateCode() {
+    const code = this.twofaForm.value.code;
+    this.productService.validateCode(this.email, code).subscribe({
+      next: (res) => {
+        this.message = res; // "Código válido, acceso permitido"
+        // Aquí podés redirigir al dashboard o habilitar la sesión
+      },
+      error: (err) => {
+        this.message = err.error; // "Código inválido o expirado"
+      }
+    });
+  }
+}
 
 
   session(){
