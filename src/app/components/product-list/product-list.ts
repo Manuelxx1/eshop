@@ -130,7 +130,7 @@ emaildedb:any;
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
     this.formulariologin = this.fb.group({
-    nombre: ['', Validators.required],
+    username: ['', Validators.required],
       password: ['', Validators.required]
     //email: ['', [Validators.required, Validators.email]]
   });
@@ -470,13 +470,13 @@ const username = localStorage.getItem('usuario');
       formulariologindatos() {
 if (this.formulariologin.valid) {
 
-  const nombre = this.formulariologin.value.nombre;
+  const nombre = this.formulariologin.value.username;
     const password = this.formulariologin.value.password;
 
     //this.datosDebug = `Enviando: ${nombre} / ${password}`;
       
   
-  this.productService.iniciarSesion(this.formulariologin.value.nombre,this.formulariologin.value.password).subscribe({
+  this.productService.iniciarSesion(this.formulariologin.value.username,this.formulariologin.value.password).subscribe({
       next: res => {
     // Login exitoso
     console.log('Login OK:', res);
