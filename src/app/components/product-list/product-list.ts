@@ -478,11 +478,11 @@ if (this.formulariologin.valid) {
   
   this.productService.iniciarSesion(this.formulariologin.value.username,this.formulariologin.value.password).subscribe({
       next: res => {
-        if (resp.status === 202) {
+        if (res.status === 202) {
       // Mostrar formulario de ingreso de código 2FA
       console.log("Login pendiente de 2FA:", resp.body);
    this.step = 2;
-          } else if (resp.status === 200) {
+          } else if (res.status === 200) {
       // Login completo
       console.log("Login exitoso:", resp.body);
       this.router.navigate(['/dashboard']);
