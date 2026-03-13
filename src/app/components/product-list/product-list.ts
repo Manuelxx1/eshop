@@ -478,8 +478,16 @@ if (this.formulariologin.valid) {
   
   this.productService.iniciarSesion(this.formulariologin.value.username,this.formulariologin.value.password).subscribe({
       next: res => {
-    // Login exitoso
-    console.log('Login OK:', res);
+        if (resp.status === 202) {
+      // Mostrar formulario de ingreso de código 2FA
+      console.log("Login pendiente de 2FA:", resp.body);
+   this.step = 2;
+          } else if (resp.status === 200) {
+      // Login completo
+      console.log("Login exitoso:", resp.body);
+      this.router.navigate(['/dashboard']);
+    
+        
 //agregar los datos de la response a la property 
        // this.datosDebug += `\nRespuesta: ${JSON.stringify(res)}`;
    
@@ -497,7 +505,7 @@ this.nombre= res.name;
     this.fechaderegistro = res.createdAt;
         this.message = res.mensaje;
           
-          this.step = 2;
+          
 
 //this.cargarDatosDashboard(res.usuario);
         
@@ -505,14 +513,16 @@ this.nombre= res.name;
         
         alert(res.mensaje);
         alert(res.id); //mensaje del.backend por ejemplo: "Login exitoso"
-    this.router.navigate(['/']); // redirige al perfil
+        }//else if 
   },
   error: err => {
     // Login fallido
+    if (err.status === 401) {
     console.error('Error de login:', err);
 this.message = 'Credenciales inválidas';
     //this.datosDebug += `\nError: ${JSON.stringify(err)}`;
     alert('Nombre o contraseña incorrectos');
+  }
   }
 });
   } else {
