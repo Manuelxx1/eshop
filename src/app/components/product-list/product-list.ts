@@ -481,7 +481,7 @@ if (this.formulariologin.valid) {
         if (res.status === 202) {
       // Mostrar formulario de ingreso de código 2FA
       console.log("Login pendiente de 2FA:", res.body);
-          alert("Login pendiente de 2FA:" + res.body);
+          alert("Credenciales de sesion correctas Login pendiente de 2FA:" + res.mensaje );
    this.step = 2;
           } else if (res.status === 200) {
       // Login completo
