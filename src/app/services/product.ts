@@ -92,7 +92,7 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 // Usa el nombre de la propiedad que espera el backend para buscar al usuario.
 iniciarSesion(username: string, password: string): Observable<any> {
   const datosdesesion = { username, password }; // Usando 'username'
-  return this.http.post(this.apiURLogin, datosdesesion,{ observe: 'response' } );
+  return this.http.post(this.apiURLogin, datosdesesion,{ observe: 'response' } );//  Esto hace que Angular devuelva el objeto completo de la respuesta
 }
 
 //2FA validar codigo
