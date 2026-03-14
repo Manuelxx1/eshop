@@ -99,9 +99,10 @@ iniciarSesion(username: string, password: string): Observable<any> {
   
   private baseUrl2FA = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/2fa';
 validateCode(email: string, code: string): Observable<any> {
+ alert ("datos 2fa en el servicio"+email+code);
   return this.http.post(
     `${this.baseUrl2FA}/validate?email=${email}&code=${code}`,
-    null, // 👈 body vacío
+    null, // body vacío
     { observe: 'response' } //  opciones correctas
   );
 }
