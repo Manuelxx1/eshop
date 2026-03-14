@@ -548,21 +548,24 @@ this.message = 'Credenciales inválidas';
   //Validar 2FA
     onValidateCode() {
   const code = this.twofaForm.value.code;
+  alert("Validando con email:"+this.email+"y código:"+code);
+
   this.productService.validateCode(this.email, code).subscribe({
     next: (res) => {
+      alert("Respuesta backend:"+res);
       if (res.status === 200) {
-          
-          alert("Bienvenido " + res.body.name + res.body.mensaje );
-          this.router.navigate(['/dashboard']);
-      this.message = res.body.mensaje; // accede al campo del JSON
+        alert("Bienvenido " + res.body.name + " - " + res.body.mensaje);
+        this.router.navigate(['/dashboard']);
+        this.message = res.body.mensaje;
       }
-      
     },
     error: (err) => {
-      this.message = err.error.error; // accede al campo "error" del JSON
+      console.error("Error backend:", err);
+      this.message = err.error.error;
     }
   });
 }
+
 
 
 
