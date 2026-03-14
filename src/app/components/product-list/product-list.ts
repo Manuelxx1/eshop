@@ -562,6 +562,7 @@ this.message = 'Credenciales inválidas';
     error: (err) => {
       console.error("Error backend:", err);
       this.message = err.error.error;
+      alert ("Error en la validación"+err.error.error);
     }
   });
 }
