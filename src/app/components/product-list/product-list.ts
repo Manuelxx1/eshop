@@ -564,6 +564,9 @@ this.message = 'Credenciales inválidas';
       this.message = err.error.error;
       alert ("Error en la validación"+err);
       alert ("Error en la validación"+err.error);
+      alert ("Error en la validación"+err.error.error);
+    alert ("Error en la validación"+err.body.error);
+    }
     }
   });
 }
