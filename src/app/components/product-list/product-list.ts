@@ -480,9 +480,17 @@ if (this.formulariologin.valid) {
       next: res => {
         if (res.status === 202) {
       // Mostrar formulario de ingreso de código 2FA
-      console.log("Login pendiente de 2FA:", res.body);
-          alert("Credenciales de sesion correctas Login pendiente de 2FA:" + res.body);
-   this.step = 2;
+      console.log("Login pendiente de 2FA:", res.body.mensaje);
+         // Si usás observe: 'response'
+          // res.body es un objeto con varias propiedades (id, usuario, mensaje, etc.).
+//entonces se accede asi
+          alert("Credenciales de sesion correctas Login pendiente de 2FA:" + res.body.mensaje);
+   // Si NO usás observe: 'response'
+         // En ese caso, Angular te devuelve directamente el body (el JSON)
+          //Ahí deberías hacer simplemente:
+          alert("Credenciales de sesion correctas Login pendiente de 2FA:" + res.mensaje);
+          this.step = 2;
+          
           } else if (res.status === 200) {
       // Login completo
       console.log("Login exitoso:", res.body);
