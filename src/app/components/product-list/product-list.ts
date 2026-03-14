@@ -488,7 +488,7 @@ if (this.formulariologin.valid) {
    // Si NO usás observe: 'response'
          // En ese caso, Angular te devuelve directamente el body (el JSON)
           //Ahí deberías hacer simplemente:
-          alert("Credenciales de sesion correctas Login pendiente de 2FA:" + res.mensaje);
+         // alert("Credenciales de sesion correctas Login pendiente de 2FA:" + res.mensaje);
           this.step = 2;
           
           } else if (res.status === 200) {
