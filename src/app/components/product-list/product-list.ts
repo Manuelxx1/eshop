@@ -491,7 +491,8 @@ if (this.formulariologin.valid) {
          // alert("Credenciales de sesion correctas Login pendiente de 2FA:" + res.mensaje);
           this.step = 2;
           
-          } else if (res.status === 200) {
+          } 
+        /*else if (res.status === 200) {
       // Login completo
       console.log("Login exitoso:", res.body);
           alert("Login exitoso:" + res.body);
@@ -518,12 +519,13 @@ this.nombre= res.name;
           
 
 //this.cargarDatosDashboard(res.usuario);
-        
+     
         this.session();
         
         alert(res.mensaje);
         alert(res.id); //mensaje del.backend por ejemplo: "Login exitoso"
         }//else if 
+          */
   },
   error: err => {
     // Login fallido
