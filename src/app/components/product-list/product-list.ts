@@ -561,10 +561,10 @@ this.message = 'Credenciales inválidas';
     },
     error: (err) => {
       console.error("Error backend:", err);
-      this.message = err.error.error;
+      this.message = err.error?.error || "Error de seguridad";
       alert ("Error en la validación"+err);
       alert ("Error en la validación"+err.error);
-      alert ("Error en la validación"+err.error.error);
+      alert ("Error en la validación"+err.error?.error || "Error de seguridad");
     alert ("Error en la validación"+err.body.error);
     }
     
