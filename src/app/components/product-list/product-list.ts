@@ -547,7 +547,13 @@ this.message = 'Credenciales inválidas';
   const code = this.twofaForm.value.code;
   this.productService.validateCode(this.email, code).subscribe({
     next: (res) => {
-      this.message = res.mensaje; // accede al campo del JSON
+      if (res.status === 200) {
+          
+          alert("Bienvenido " + res.body.name + res.body.mensaje );
+          this.router.navigate(['/dashboard']);
+      this.message = res.body.mensaje; // accede al campo del JSON
+      }
+      
     },
     error: (err) => {
       this.message = err.error.error; // accede al campo "error" del JSON
