@@ -1,0 +1,322 @@
+
+
+
+<input
+  type="text"
+  [formControl]="searchControl"
+  placeholder="Buscar productos..."
+/>
+<!-- 
+este selector duplica la vista del componente ya es suficiente con declararlo en  el import 
+en product-list component
+<app-ws-test-component></app-ws-test-component>-->
+<!-- Modal de advertencia -->
+<div class="modal" *ngIf="mostrarAdvertencia">
+  <div class="modal-content">
+    <h2>⚠️ Advertencia de sesión</h2>
+    <p>Tu sesión expirará en 1 minuto por inactividad.</p>
+    <div class="modal-actions">
+      <button (click)="mantenerSesion()">Mantener sesión</button>
+      <button (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--dashboard de usuario-->
+<div class="dashboard-layout">
+  <!-- Botón hamburger --> 
+  <button class="hamburger" (click)="menuOpen = !menuOpen">☰</button>
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.open]="menuOpen">
+    <h3>Menú</h3>
+    <ul>
+      <li><button (click)="seccionActiva='perfil'" [class.active]="seccionActiva==='perfil'">👤 Perfil</button></li>
+<li><button (click)="seccionActiva='ordenes'" [class.active]="seccionActiva==='ordenes'">🛒 Órdenes</button></li>
+ <li><button routerLink="/cart" routerLinkActive="active">🛒 🛍️ Carrito</button>
+</li>
+
+<li><button (click)="seccionActiva='estadisticas'" [class.active]="seccionActiva==='estadisticas'">📊 Estadísticas</button></li>
+<li><button (click)="seccionActiva='actividad'" [class.active]="seccionActiva==='actividad'">📅 Actividad</button></li>
+<li><button (click)="seccionActiva='configuracion'" [class.active]="seccionActiva==='configuracion'">⚙️ Configuración</button></li>
+
+    </ul>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <div class="dashboard" *ngIf="sesionActivaSinGoogle">
+      <h2>Bienvenido, {{ datosdesesion }}</h2>
+
+      <!-- Perfil -->
+      <section *ngIf="seccionActiva==='perfil'">
+        <h3>Perfil</h3>
+        <p>Usuario: {{ datosdesesion }}</p>
+        <p>Nombre: {{ nombre }}</p>
+        <p>Email: {{ email }}</p>
+       
+        <p>Fechaderegistro: {{ fechaderegistro }}</p> 
+      </section>
+
+      <!-- Órdenes -->
+      <section *ngIf="seccionActiva==='ordenes'">
+        <h3>Órdenes recientes</h3>
+        <ul>
+          <li *ngFor="let order of orders" class="order-card">
+            <h3>Orden #{{ order.id }} - Estado: {{ order.status }}</h3>
+            <p>Fecha: {{ order.createdAt | date:'short' }}</p>
+            <p>Producto: {{ order.productName }}</p>
+            <p>Usuario login: {{ order.loginUsername }}</p>
+            <p>Usuario MP: {{ order.user.username }} ({{ order.user.email }})</p>
+            <p>Total: {{ order.total | currency:'ARS' }}</p>
+
+            <h4>Items:</h4>
+            <ul>
+              <li *ngFor="let item of order.items">
+                {{ item.productName }} - Cantidad: {{ item.quantity }} - Precio: {{ item.price | currency:'ARS' }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      
+
+      <!-- Estadísticas -->
+      <section *ngIf="seccionActiva==='estadisticas'">
+        <h3>Estadísticas</h3>
+        <p>Total gastado: {{ estadisticas.totalGastado | currency }}</p>
+        <p>Compras realizadas: {{ estadisticas.compras }}</p>
+            <p><strong>Última compra:</strong> {{ estadisticas.ultimaCompra | date:'short' }}</p>
+        
+        <p><strong>Monto:</strong> {{ estadisticas.ultimoMonto | currency:'ARS' }}</p>
+  <p><strong>Estado:</strong> {{ estadisticas.ultimoEstado }}</p>
+      </section>
+
+      <!-- Actividad -->
+      <section *ngIf="seccionActiva==='actividad'">
+        <h3>Actividad</h3>
+        <ul>
+    <li *ngFor="let evento of actividad">
+      <strong>{{ evento.tipo }}</strong> - {{ evento.descripcion }}
+      <br>
+      <small>{{ evento.fecha | date:'short' }}</small>
+    </li>
+        </ul>
+      </section>
+
+      <!-- Configuración -->
+      <section *ngIf="seccionActiva==='configuracion'">
+        <h3>Configuración</h3>
+          <h3>🔐 Actualizar contraseña</h3>
+  <form [formGroup]="passwordForm" (ngSubmit)="updatePassword()">
+    <label for="password">Nueva contraseña:</label>
+    <input id="password" type="password" formControlName="nuevaPassword">
+    
+    <div *ngIf="passwordForm.get('nuevaPassword')?.invalid && passwordForm.get('nuevaPassword')?.touched">
+      <small>La contraseña debe tener al menos 6 caracteres</small>
+    </div>
+<p *ngIf="mensajedecambiopassword"><strong> {{ mensajedecambiopassword }}</strong> </p>
+    <button type="submit" [disabled]="passwordForm.invalid">Actualizar</button>
+      
+  </form>
+
+
+           
+        
+      <h3>🔐 Actualizar nombre de usuario</h3>
+  <form [formGroup]="usernameForm" (ngSubmit)="updateUsername()">
+    <label for="username">Nuevo nombre de usuario:</label>
+    <input id="username" type="text" formControlName="nuevoUsername" >
+    
+    <div *ngIf="usernameForm.get('nuevoUsername')?.invalid && usernameForm.get('nuevoUsername')?.touched">
+      <small>Debe escribir un nombre de usuario </small>
+    </div>
+<p *ngIf="mensajedecambiousername"><strong>{{ mensajedecambiousername }}</strong></p>
+    <button type="submit" [disabled]="usernameForm.invalid">Actualizar</button>
+      
+  </form>
+
+        <h3>@ Actualizar Email</h3>
+  <form [formGroup]="emailForm" (ngSubmit)="updateEmail()">
+    <label for="email">Nuevo Email:</label>
+    <input id="email" type="text" formControlName="nuevoEmail" >
+    
+    <div *ngIf="emailForm.get('nuevoEmail')?.invalid && emailForm.get('nuevoEmail')?.touched">
+      <small>Debe escribir un Email </small>
+    </div>
+<p *ngIf="mensajedecambioemail"><strong>{{ mensajedecambioemail }}</strong></p>
+    <button type="submit" [disabled]="emailForm.invalid">Actualizar</button>
+      
+  </form>
+    
+      </section>
+    </div>
+  </main>
+</div>
+
+
+<div *ngIf="step === 1">
+<div class="formulariologin">
+
+    <form [formGroup]="formulariologin" (ngSubmit)="formulariologindatos()">
+      <label>
+          <h2>INICIAR SESIÓN</h2>
+        <input formControlName="username"  placeholder="Ingresar Nombre" class="search-box" />
+        <input formControlName="password"  placeholder="Ingresar password" class="search-box" />
+        <span *ngIf="formulariologin.get('nombre')?.invalid && formulariologin.get('nombre')?.touched">
+          Debería escribir algo es obligatorio.
+          </span>
+        <span *ngIf="formulariologin.get('password')?.invalid && formulariologin.get('password')?.touched">
+       Debería escribir una contraseña
+        
+        </span>
+        <a routerLink="/registrarse">REGISTRARSE</a>
+      </label>
+
+      <button type="submit" [style.display]="sesionActivaSinGoogle ? 'none' : 'block'" >Enviar</button>
+    </form>
+    <p class="datosdesesion" *ngIf="sesionActivaSinGoogle" >USUARIO {{datosdesesion}}</p>
+
+  </div>
+</div>
+
+
+<div *ngIf="step === 2">
+  <h2>Validación 2FA</h2>
+  <form [formGroup]="twofaForm" (ngSubmit)="onValidateCode()">
+    <input formControlName="code" placeholder="Código 2FA">
+    <button type="submit" [disabled]="twofaForm.invalid">Validar código</button>
+  </form>
+</div>
+
+<p>{{ message }}</p>
+<pre>{{ message }}</pre>
+
+
+<!-- Botón de cerrar sesión -->
+<button *ngIf="sesionActivaSinGoogle" (click)="cerrarSesion()">Cerrar sesión</button>
+
+  <pre>{{ datosDebug }}</pre>
+
+
+
+<div class="stepper">
+  <div [class.active]="currentStep === 1">1. Producto</div>
+  <div [class.active]="currentStep === 2">2. Resumen</div>
+  <div [class.active]="currentStep === 3">3. Datos</div>
+</div>
+
+<!-- Paso 1: Selección de producto -->
+<div *ngIf="currentStep === 1" class="step-container step-active">
+  <h2>Seleccionar producto</h2>
+  <div *ngFor="let product of products" class="product-card">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" width="80" height="80">
+    <p>{{ product.name }} - {{ product.description }} - {{ product.price | currency:'ARS' }}</p>
+
+    <label for="quantity">Cantidad:</label>
+    <select [formControl]="quantityControl" id="quantity">
+      <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
+    </select>
+
+    <button (click)="selectProduct(product)">Continuar</button>
+  </div>
+</div>
+
+
+<!-- Paso 2: Resumen y envío -->
+<div *ngIf="currentStep === 2" class="step-container step-active">
+  <h2>Resumen de compra</h2>
+  <p>Producto: {{ selectedProduct?.name }}</p>
+  <p>Cantidad: {{ quantityControl.value }}</p>
+  <p>Subtotal: {{ selectedProduct?.price * (quantityControl.value || 1) | currency:'ARS' }}</p>
+
+  <div [formGroup]="checkoutForm"> 
+    
+    <label for="shipping">Método de envío</label>
+    <select id="shipping" formControlName="shippingOption">
+      <option [ngValue]="null" disabled>-- Selecciona un método de envío --</option>
+      <ng-container *ngFor="let option of shippingOptions">
+        <option *ngIf="option" [ngValue]="option">
+          {{ option.name }} - {{ option.price | currency:'ARS' }}
+        </option>
+      </ng-container>
+    </select>
+
+    <button (click)="goNext()" [disabled]="checkoutForm.get('shippingOption')?.invalid">
+      Continuar
+    </button>
+
+  </div> <p>Debug: {{ checkoutForm.get('shippingOption')?.value | json }}</p>
+
+  <div *ngIf="checkoutForm.get('shippingOption')?.invalid && checkoutForm.get('shippingOption')?.touched" class="error">
+    Debes seleccionar un método de envío antes de continuar.
+  </div>
+
+  <p>Total con envío: 
+    {{ (selectedProduct?.price * (quantityControl.value || 1) + (checkoutForm.get('shippingOption')?.value?.price || 0)) | currency:'ARS' }}
+  </p>
+
+  <button type="button" class="secondary" (click)="goBack()">Volver</button>
+</div>
+
+
+<!-- Paso 3: Datos personales -->
+<div *ngIf="currentStep === 3" class="step-container step-active">
+  <h2>Datos personales</h2>
+  <form [formGroup]="checkoutForm" (ngSubmit)="buyNow(selectedProduct.id)">
+    <label for="name">Nombre completo</label>
+    <input id="name" formControlName="name" type="text" required />
+    <div *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched" class="error"> El nombre es obligatorio. </div>
+
+    <label for="email">Correo electrónico</label>
+    <input id="email" formControlName="email" type="email" required />
+<div *ngIf="checkoutForm.get('email')?.invalid && checkoutForm.get('email')?.touched" class="error"> Ingresa un correo válido. </div>
+  
+    <label for="phone">Teléfono</label>
+    <input id="phone" formControlName="phone" type="text" />
+
+    <label for="address">Dirección</label>
+    <input id="address" formControlName="address" type="text" required />
+<div *ngIf="checkoutForm.get('address')?.invalid && checkoutForm.get('address')?.touched" class="error"> Ingresa una dirección valida para el envio</div>
+    <label for="city">Ciudad</label>
+    <input id="city" formControlName="city" type="text" required />
+<div *ngIf="checkoutForm.get('city')?.invalid && checkoutForm.get('city')?.touched" class="error"> Ingresa una ciudad valida</div>
+    
+    <label for="postalCode">Código Postal</label>
+    <input id="postalCode" formControlName="postalCode" type="text" required />
+<div *ngIf="checkoutForm.get('postalCode')?.invalid && checkoutForm.get('postalCode')?.touched" class="error"> Ingresa un código postal válido (solo números). </div>
+    
+    <button type="button" class="secondary" (click)="goBack()">Volver</button>
+    <button type="submit" [disabled]="checkoutForm.invalid">Finalizar compra</button>
+
+  </form>
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>{{errorredir}}</p>
+  
+
+
+
+
