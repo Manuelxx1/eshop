@@ -564,27 +564,26 @@ this.message = 'Credenciales inválidas';
 //agregar los datos de la response a la property 
        // this.datosDebug += `\nRespuesta: ${JSON.stringify(res)}`;
    
-        //  Guardar sesión en localStorage
-        localStorage.setItem('idUsuario', res.id);
-        localStorage.setItem('usuario', res.usuario);
-        localStorage.setItem('email', res.email);
-          localStorage.setItem('name', res.name);
-        localStorage.setItem('createdAt', res.createdAt);
-         
+        // Guardar sesión en localStorage usando res.body
+    localStorage.setItem('idUsuario', res.body.id);
+    localStorage.setItem('usuario', res.body.usuario);
+    localStorage.setItem('email', res.body.email);
+    localStorage.setItem('name', res.body.name);
+    localStorage.setItem('createdAt', res.body.createdAt);
 
-this.nombre= res.body.name;
+    this.nombre = res.body.name;
     this.email = res.body.email;
-        
     this.fechaderegistro = res.body.createdAt;
-        this.message = res.body.mensaje;
-          
+    this.message = res.body.mensaje;
 
+    
+        
 //this.cargarDatosDashboard(res.usuario);
      
         this.session();
         
         
-        alert(res.id); //mensaje del.backend por ejemplo: "Login exitoso"
+        alert(res.body.id); //mensaje del.backend por ejemplo: "Login exitoso"
         
         this.router.navigate(['/dashboard']);
         
