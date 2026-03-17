@@ -1,1 +1,10 @@
-<p>dashboard works!</p>
+<div *ngIf="sesionActivaSinGoogle; else noSesion">
+  <h2>Bienvenido {{ datosdesesion }}</h2>
+  <p>ID de usuario: {{ idUsuario }}</p>
+  <button (click)="cerrarSesion()">Cerrar sesión</button>
+</div>
+
+<ng-template #noSesion>
+  <p>No hay sesión activa</p>
+</ng-template>
+
