@@ -7,7 +7,8 @@ import { Registrarse } from './components/registrarse/registrarse';
 export const routes: Routes = [{ path: '', component: ProductList},
   { path: 'cart', component: CartList},
      { path: 'test-checkout', component: Checkout },
-                          
+            { path: 'dashboard', component: Dashboard },
+              
 { path: 'comprar', component: Checkout },
  { path: 'estado-compra', component: EstadoCompra },
 { path: 'registrarse', component: Registrarse }
