@@ -296,7 +296,22 @@ const username = localStorage.getItem('usuario');
     }
   
 
+  //cerrar session
   
+      cerrarSesion() {
+  localStorage.removeItem('usuario'); // Elimina la sesión
+     //si quiero borrar todos los datos
+        //de session
+        //incluido el usuario
+        //localStorage.clear();
+        localStorage.clear();
+        
+        this.sesionActivaSinGoogle = false;
+this.datosdesesion ="";
+        this.mensajedecambiopassword=null;
+    this.mensajedecambiousername=null;
+  //this.router.navigate(['/']);   // Redirige al login o donde prefieras
+      }
   
 
 
