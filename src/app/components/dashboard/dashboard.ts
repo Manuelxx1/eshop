@@ -26,7 +26,7 @@ export class Dashboard {
     if (usuarioGuardado) {
       this.sesionActivaSinGoogle = true;
       this.datosdesesion = usuarioGuardado;
-      this.idUsuario = id;
+      
     } else {
       this.sesionActivaSinGoogle = false;
       this.datosdesesion = "";
