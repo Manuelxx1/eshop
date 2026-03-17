@@ -4,6 +4,15 @@ import { CommonModule } from '@angular/common';
 import { Product,Order} from '../../services/product';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 
+
+
+  interface Actividad {
+  id?: string;              // opcional, sirve para evitar duplicados
+  fecha: Date | string;     // puede venir como Date o string del backend
+  tipo: string;
+  descripcion: string;
+  }
+
 @Component({
   selector: 'app-dashboard',
   imports: [CommonModule,ReactiveFormsModule],
@@ -12,12 +21,6 @@ import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } fro
 })
 
 
-  interface Actividad {
-  id?: string;              // opcional, sirve para evitar duplicados
-  fecha: Date | string;     // puede venir como Date o string del backend
-  tipo: string;
-  descripcion: string;
-}
 
 export class Dashboard implements OnInit,OnDestroy {
 
