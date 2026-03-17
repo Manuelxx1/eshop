@@ -50,7 +50,9 @@ passwordForm: FormGroup;
 emaildedb:any;
   
   conexionActiva = false;
-  menuOpen = false;
+  
+    menuOpen: boolean = false;
+  seccionActiva: string = 'perfil';
 
   constructor(private productService: Product,private router: Router,private fb: FormBuilder) {
     //para cambiar contraseña dashboard 
@@ -67,7 +69,7 @@ this.passwordForm = this.fb.group({
   }
 
   ngOnInit(): void {
-    
+    this.session();
         //traer orders o pedidos usando datos de login
       //para que sea dinámico usar localStorage en vez de Pruebacheckout 
      
@@ -276,7 +278,18 @@ const username = localStorage.getItem('usuario');
 }
 
 
-
+session(){
+const usuarioGuardado = localStorage.getItem('usuario');
+    const id = localStorage.getItem('idUsuario');
+  if (usuarioGuardado) {
+    this.sesionActivaSinGoogle = true;
+    this.datosdesesion = usuarioGuardado ;
+  } else {
+    this.sesionActivaSinGoogle = false;
+    this.datosdesesion = "";
+    
+  }
+}
   
 
   //cerrar session
