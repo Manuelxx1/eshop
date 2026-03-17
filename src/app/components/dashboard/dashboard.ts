@@ -49,7 +49,7 @@ emaildedb:any;
   conexionActiva = false;
   menuOpen = false;
 
-  constructor(private router: Router ) {
+  constructor(private productService: Product,private router: Router,private fb: FormBuilder) {
     //para cambiar contraseña dashboard 
 this.passwordForm = this.fb.group({
       nuevaPassword: ['', [Validators.required, Validators.minLength(6)]]
