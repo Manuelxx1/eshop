@@ -24,11 +24,7 @@ export class Dashboard implements OnInit,OnDestroy {
   sesionActivaSinGoogle = false;
   datosdesesion: string = "";
 
-  private timeoutId: any;
-  private warningId: any;
-  private tiempoInactividad = 5 * 60 * 1000; // 5 minutos
-  private tiempoAdvertencia = 1 * 60 * 1000; // 1 minuto antes
- mostrarAdvertencia = false;
+  
   orders: Order[] = [];
   
 
@@ -49,8 +45,7 @@ passwordForm: FormGroup;
   intervalId: any;//detener setInterval por si salimos del componente paea evitar llamadas innecesarios al backend
 // Podés cambiar la sección desde el menú con (click)
 emaildedb:any;
-  //Notifications mediante websocket 
-  notifications: string[] = [];
+  
   conexionActiva = false;
   menuOpen = false;
 
@@ -100,12 +95,8 @@ this.passwordForm = this.fb.group({
 
 
 
-      //llama a la sesión session en localStorage 
-      //cuando se recargue la página por algún motivo
-      this.session();
 
-     //reset timer de cerrar sesión por inactividad 
-this.resetTimer();
+
 
 //para el perfil del dashboard 
       
@@ -305,61 +296,7 @@ const username = localStorage.getItem('usuario');
     }
   
 
-  session() {
-    const usuarioGuardado = localStorage.getItem('usuario');
-    const id = localStorage.getItem('idUsuario');
-    if (usuarioGuardado) {
-      this.sesionActivaSinGoogle = true;
-      this.datosdesesion = usuarioGuardado;
-      
-    } else {
-      this.sesionActivaSinGoogle = false;
-      this.datosdesesion = "";
-      
-    }
-  }
-
-  cerrarSesion() {
-    localStorage.clear();
-    this.sesionActivaSinGoogle = false;
-    this.datosdesesion = "";
-    
-    // Redirigir al inicio o login
-    this.router.navigate(['/']);
-  }
-    //mantener la session al dar ok en el modal de advertencia 
-mantenerSesion(): void {
-    this.mostrarAdvertencia = false;
-    this.resetTimer(); // reinicia temporizador
-    console.log("Sesión mantenida por el usuario");
-}
   
-
-/*Resultado
-Si el usuario está inactivo 4 minutos → aparece el mensaje de advertencia.
-
-Si pasa 1 minuto más sin actividad → se ejecuta cerrarSesion().
-
-Si el usuario mueve el mouse, hace click o escribe → se reinicia el temporizador y desaparece la advertencia.
-  */
-  //  Escuchar actividad del usuario
-  @HostListener('window:mousemove')
-  @HostListener('window:keydown')
-  @HostListener('window:click')
-  resetTimer(): void {
-    clearTimeout(this.timeoutId);
-    clearTimeout(this.warningId);
-    this.mostrarAdvertencia = false;
-
-    // Programar advertencia
-    this.warningId = setTimeout(() => {
-      this.mostrarAdvertencia = true;
-      
-    }, this.tiempoInactividad - this.tiempoAdvertencia);
-
-    // Programar cierre
-    this.timeoutId = setTimeout(() => this.cerrarSesion(), this.tiempoInactividad);
-  }
   
 
 
