@@ -58,7 +58,7 @@ total: number = 0;
 
 //para el login
   formulariologin: FormGroup;
-  
+  sesionActivaSinGoogle = false;
   datosDebug: string = '';
 
   
