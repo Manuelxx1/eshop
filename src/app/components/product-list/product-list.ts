@@ -60,8 +60,8 @@ total: number = 0;
   formulariologin: FormGroup;
   sesionActivaSinGoogle = false;
   datosDebug: string = '';
-
-  
+  email:string = '';   
+  fechaderegistro=any;
   //para el dropdawn de compra directa 
   // Control reactivo para la cantidad
   //formato con declaración de tipado 
@@ -283,7 +283,7 @@ this.message = 'Credenciales inválidas';
         
 //this.cargarDatosDashboard(res.usuario);
      
-        this.session();
+        
         
         
         alert(res.body.id); //mensaje del.backend por ejemplo: "Login exitoso"
@@ -322,7 +322,7 @@ this.message = 'Credenciales inválidas';
   const idUsuario = Number(localStorage.getItem('idUsuario'));
 
     this.cartService.addToCart(product.id, quantity,idUsuario ).subscribe({
-    next: () => this.loadCart(),
+    next: (res) =>console.log("Error backend:", res); ,
     error: err => console.error('Error al agregar al carrito', err)
       
   });
