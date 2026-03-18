@@ -26,7 +26,11 @@ export class Dashboard implements OnInit,OnDestroy {
 
   sesionActivaSinGoogle = false;
   datosdesesion: string = "";
-
+private timeoutId: any;
+  private warningId: any;
+  private tiempoInactividad = 5 * 60 * 1000; // 5 minutos
+  private tiempoAdvertencia = 1 * 60 * 1000; // 1 minuto antes
+ mostrarAdvertencia = false;
   
   orders: Order[] = [];
   
@@ -307,6 +311,40 @@ this.datosdesesion ="";
         this.mensajedecambiopassword=null;
     this.mensajedecambiousername=null;
   //this.router.navigate(['/']);   // Redirige al login o donde prefieras
+      }
+
+  //mantener la session al dar ok en el modal de advertencia 
+mantenerSesion(): void {
+    this.mostrarAdvertencia = false;
+    this.resetTimer(); // reinicia temporizador
+    console.log("Sesión mantenida por el usuario");
+}
+  
+
+/*Resultado
+Si el usuario está inactivo 4 minutos → aparece el mensaje de advertencia.
+
+Si pasa 1 minuto más sin actividad → se ejecuta cerrarSesion().
+
+Si el usuario mueve el mouse, hace click o escribe → se reinicia el temporizador y desaparece la advertencia.
+  */
+  //  Escuchar actividad del usuario
+  @HostListener('window:mousemove')
+  @HostListener('window:keydown')
+  @HostListener('window:click')
+  resetTimer(): void {
+    clearTimeout(this.timeoutId);
+    clearTimeout(this.warningId);
+    this.mostrarAdvertencia = false;
+
+    // Programar advertencia
+    this.warningId = setTimeout(() => {
+      this.mostrarAdvertencia = true;
+      
+    }, this.tiempoInactividad - this.tiempoAdvertencia);
+
+    // Programar cierre
+    this.timeoutId = setTimeout(() => this.cerrarSesion(), this.tiempoInactividad);
       }
   
 
