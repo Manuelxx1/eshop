@@ -42,7 +42,7 @@
     <div class="dashboard" *ngIf="sesionActivaSinGoogle">
       <h2>Bienvenido, {{ datosdesesion }}</h2>
       
-  <button (click)="cerrarSesion()">Cerrar sesión</button>
+  <button (click)="cerrarSesion()" class="cerrarSesion">Cerrar sesión</button>
 
       <!-- Perfil -->
       <section *ngIf="seccionActiva==='perfil'">
