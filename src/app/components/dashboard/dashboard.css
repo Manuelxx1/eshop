@@ -154,11 +154,8 @@ section {
   
   }
 
-/* Botones grandes y táctiles 
-esto se aplica a todos los button,si se quiere
-diferenciar de otros button hay que especificar los detalles 
-de donde esta el button con un class o el div donde esta*/
-button {
+
+.cerrarSesion {
   width: 100%;
   padding: 14px;
   margin: 8px 0;
@@ -166,13 +163,12 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-}
-
-button {
   background-color: #007bff;
   color: white;
 }
 
-button:hover {
+
+
+cerrarSesion:hover {
   background-color: #0056b3;
 }
