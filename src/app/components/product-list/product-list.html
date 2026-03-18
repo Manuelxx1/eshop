@@ -10,23 +10,13 @@
 este selector duplica la vista del componente ya es suficiente con declararlo en  el import 
 en product-list component
 <app-ws-test-component></app-ws-test-component>-->
-<!-- Modal de advertencia -->
-<div class="modal" *ngIf="mostrarAdvertencia">
-  <div class="modal-content">
-    <h2>⚠️ Advertencia de sesión</h2>
-    <p>Tu sesión expirará en 1 minuto por inactividad.</p>
-    <div class="modal-actions">
-      <button (click)="mantenerSesion()">Mantener sesión</button>
-      <button (click)="cerrarSesion()">Cerrar sesión</button>
-    </div>
-  </div>
-</div>
 
 
 
 
 
-      <!-- Configuración -->
+
+      
       
 
 
@@ -68,8 +58,7 @@ en product-list component
 <pre>{{ message }}</pre>
 
 
-<!-- Botón de cerrar sesión -->
-<button *ngIf="sesionActivaSinGoogle" (click)="cerrarSesion()">Cerrar sesión</button>
+
 
   <pre>{{ datosDebug }}</pre>
 
