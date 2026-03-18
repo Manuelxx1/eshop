@@ -52,7 +52,7 @@ emaildedb:any;
   conexionActiva = false;
   
     menuOpen: boolean = false;
-  seccionActiva: string = 'perfil';
+  
 
   constructor(private productService: Product,private router: Router,private fb: FormBuilder) {
     //para cambiar contraseña dashboard 
