@@ -28,6 +28,9 @@
   <aside class="sidebar" [class.open]="menuOpen">
     
     <!--Menu con secciones-->
+    <!--Las secciones como perfil, ordenes, estadisticas, actividad, configuracion
+    dependen de la variable seccionActiva en el ts
+    y se muestran con *ngIf="seccionActiva==='...'"-->
     <h3>Menú</h3>
     <ul>
       <li><button (click)="seccionActiva='perfil'" [class.active]="seccionActiva==='perfil'">👤 Perfil</button></li>
