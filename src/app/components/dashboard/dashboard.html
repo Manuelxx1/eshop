@@ -26,6 +26,8 @@
   <button class="hamburger" (click)="menuOpen = !menuOpen">☰</button>
   <!-- Sidebar -->
   <aside class="sidebar" [class.open]="menuOpen">
+    
+    <!--Menu con secciones-->
     <h3>Menú</h3>
     <ul>
       <li><button (click)="seccionActiva='perfil'" [class.active]="seccionActiva==='perfil'">👤 Perfil</button></li>
@@ -39,7 +41,7 @@
 
     </ul>
   </aside>
-
+<!---CONTENIDO DEL MENU-->
   <!-- Contenido principal -->
   <main class="main-content">
     <div class="dashboard" *ngIf="sesionActivaSinGoogle">
