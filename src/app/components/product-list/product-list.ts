@@ -62,7 +62,7 @@ total: number = 0;
   datosDebug: string = '';
   email:string = '';  
   fechaderegistro:any;
-  nombre:string;
+  nombre:string ='';
   //para el dropdawn de compra directa 
   // Control reactivo para la cantidad
   //formato con declaración de tipado 
