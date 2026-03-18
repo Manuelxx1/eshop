@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { Cart } from '../../services/cart';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
-import { Dashboard } from '../dashboard/dashboard ';
+import { Dashboard } from '../dashboard/dashboard';
 
 @Component({
   selector: 'app-cart',
