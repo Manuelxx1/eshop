@@ -8,6 +8,18 @@
   <p>No hay sesión activa</p>
 </ng-template>
 
+<!-- Modal de advertencia -->
+<div class="modal" *ngIf="mostrarAdvertencia">
+  <div class="modal-content">
+    <h2>⚠️ Advertencia de sesión</h2>
+    <p>Tu sesión expirará en 1 minuto por inactividad.</p>
+    <div class="modal-actions">
+      <button (click)="mantenerSesion()">Mantener sesión</button>
+      <button (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
+
 <!--dashboard de usuario-->
 <div class="dashboard-layout">
   <!-- Botón hamburger --> 
