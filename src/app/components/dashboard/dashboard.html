@@ -1,12 +1,4 @@
 <div *ngIf="sesionActivaSinGoogle; else noSesion">
-  
-  
-  <button (click)="cerrarSesion()">Cerrar sesión</button>
-</div>
-
-<ng-template #noSesion>
-  <p>No hay sesión activa</p>
-</ng-template>
 
 <!-- Modal de advertencia -->
 <div class="modal" *ngIf="mostrarAdvertencia">
@@ -49,6 +41,8 @@
   <main class="main-content">
     <div class="dashboard" *ngIf="sesionActivaSinGoogle">
       <h2>Bienvenido, {{ datosdesesion }}</h2>
+      
+  <button (click)="cerrarSesion()">Cerrar sesión</button>
 
       <!-- Perfil -->
       <section *ngIf="seccionActiva==='perfil'">
@@ -154,5 +148,12 @@
       </section>
     </div>
   </main>
+</div>
+</div>
+
+<ng-template #noSesion>
+  <p>No hay sesión activa</p>
+</ng-template>
+  
                  
 
