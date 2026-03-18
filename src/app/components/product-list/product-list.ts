@@ -44,7 +44,7 @@ interface Actividad {
   
 
 
-export class ProductList implements OnInit,OnDestroy {
+export class ProductList implements OnInit {
   //recibir datos del formulario buscador
   searchControl = new FormControl('');
 
