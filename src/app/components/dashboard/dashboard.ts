@@ -310,7 +310,7 @@ const usuarioGuardado = localStorage.getItem('usuario');
 this.datosdesesion ="";
         this.mensajedecambiopassword=null;
     this.mensajedecambiousername=null;
-  //this.router.navigate(['/']);   // Redirige al login o donde prefieras
+  this.router.navigate(['/']);   // Redirige al login o donde prefieras
       }
 
   //mantener la session al dar ok en el modal de advertencia 
