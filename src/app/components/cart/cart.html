@@ -1,37 +1,93 @@
 <app-dashboard></app-dashboard>
-<h2>Carrito</h2>
+<div class="stepper">
+  <div [class.active]="currentStep === 1">1. Carrito</div>
+  <div [class.active]="currentStep === 2">2. Resumen</div>
+  <div [class.active]="currentStep === 3">3. Datos</div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Producto</th>
-      <th>Cantidad</th>
-      <th>Precio unitario</th>
-      <th>Subtotal</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of items">
-      <td>{{ item.product.name }}</td>
-      <td>{{ item.quantity }}</td>
-      <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
-      <td>{{ (item.product.price * item.quantity) | currency:'ARS':'symbol' }}</td>
-      
+<!-- Paso 1: Carrito -->
+<div *ngIf="currentStep === 1" class="step-container step-active">
+  <h2>Carrito</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
         <td>{{ getSubtotal(item) | currency:'ARS':'symbol' }}</td>
+      </tr>
+    </tbody>
+  </table>
 
-        <button (click)="increase(item.product.id)">+</button>
-        <button (click)="decrease(item.product.id)">−</button>
-        <button (click)="remove(item.id)">Eliminar</button>
-      
-    </tr>
-  </tbody>
-</table>
+  <h3>Total: {{ total | currency:'ARS':'symbol' }}</h3>
 
-<button (click)="clear()">Vaciar Carrito</button>
+  <button (click)="goNext()">Continuar</button>
+</div>
 
-<h3>Total: {{ total | currency:'ARS':'symbol' }}</h3>
+<!-- Paso 2: Resumen y envío -->
+<div *ngIf="currentStep === 2" class="step-container step-active">
+  <h2>Resumen de compra</h2>
+  <ul>
+    <li *ngFor="let item of items">
+      {{ item.product.name }} - Cantidad: {{ item.quantity }} - 
+      Subtotal: {{ getSubtotal(item) | currency:'ARS':'symbol' }}
+    </li>
+  </ul>
 
-<button (click)="comprarCarrito()">Comprar ahora</button>
+  <p>Total: {{ total | currency:'ARS':'symbol' }}</p>
+
+  <div [formGroup]="checkoutForm"> 
+    <label for="shipping">Método de envío</label>
+    <select id="shipping" formControlName="shippingOption">
+      <option [ngValue]="null" disabled>-- Selecciona un método de envío --</option>
+      <ng-container *ngFor="let option of shippingOptions">
+        <option *ngIf="option" [ngValue]="option">
+          {{ option.name }} - {{ option.price | currency:'ARS' }}
+        </option>
+      </ng-container>
+    </select>
+    <button (click)="goNext()" [disabled]="checkoutForm.get('shippingOption')?.invalid">
+      Continuar
+    </button>
+  </div>
+
+  <button type="button" class="secondary" (click)="goBack()">Volver</button>
+</div>
+
+<!-- Paso 3: Datos personales -->
+<div *ngIf="currentStep === 3" class="step-container step-active">
+  <h2>Datos personales</h2>
+  <form [formGroup]="checkoutForm" (ngSubmit)="comprarCarrito()">
+    <label for="name">Nombre completo</label>
+    <input id="name" formControlName="name" type="text" required />
+
+    <label for="email">Correo electrónico</label>
+    <input id="email" formControlName="email" type="email" required />
+
+    <label for="phone">Teléfono</label>
+    <input id="phone" formControlName="phone" type="text" />
+
+    <label for="address">Dirección</label>
+    <input id="address" formControlName="address" type="text" required />
+
+    <label for="city">Ciudad</label>
+    <input id="city" formControlName="city" type="text" required />
+
+    <label for="postalCode">Código Postal</label>
+    <input id="postalCode" formControlName="postalCode" type="text" required />
+
+    <button type="button" class="secondary" (click)="goBack()">Volver</button>
+    <button type="submit" [disabled]="checkoutForm.invalid">Finalizar compra</button>
+  </form>
+</div>
+
 
 <p *ngIf="errorredir">Error: {{ errorredir }}</p>
