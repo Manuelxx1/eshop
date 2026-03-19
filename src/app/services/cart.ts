@@ -108,9 +108,30 @@ getItems() {
 
 
   // Método para comprar el carrito
-  comprarCarrito(cartItems: any[]): Observable<string> {
-    return this.http.post(`${this.apiUrl}/api/payments/create-cart`, cartItems, { responseType: 'text' });
-  }
+comprarCarrito(cartItems: any[], idUsuario: number, formData: any): Observable<string> {
+  const body = { 
+    items: cartItems,
+    idUsuario, 
+    name: formData.name, 
+    email: formData.email,
+    phone: formData.phone, 
+    address: formData.address, 
+    city: formData.city,
+    postalCode: formData.postalCode, 
+    shippingType: formData.shippingOption.id,
+    shippingCost: formData.shippingOption.price, 
+    shippingName: formData.shippingOption.name
+  };
+
+  console.log("Body enviado:", body);
+
+  return this.http.post(
+    `https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments/comprarCarrito`,
+    body,
+    { responseType: 'text' }
+  );
+}
+
 
 
   //este método está en AbmlcontrollerApplication 
