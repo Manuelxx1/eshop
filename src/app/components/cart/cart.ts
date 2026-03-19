@@ -26,7 +26,10 @@ export class CartList implements OnInit{
   { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
 ];
 
-      //obtener datos personales para envío 
+      
+
+  constructor(private cartService: Cart, private fb: FormBuilder) {
+    //obtener datos personales para envío 
 this.checkoutForm = this.fb.group({
   name: ['', Validators.required],
   email: ['', [Validators.required, Validators.email]],
@@ -36,8 +39,7 @@ this.checkoutForm = this.fb.group({
   postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
   shippingOption: [null, Validators.required]   //  arranca en null
 });
-
-  constructor(private cartService: Cart, private fb: FormBuilder) {}
+  }
 
   ngOnInit() {
 /*versión localStorage 
