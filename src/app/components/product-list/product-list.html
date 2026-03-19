@@ -81,6 +81,8 @@ en product-list component
     <select [formControl]="quantityControl" id="quantity">
       <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
     </select>
+      <!-- Botón para agregar al carrito -->
+  <button (click)="addToCart(product)">Agregar al carrito</button>
 
     <button (click)="selectProduct(product)">Continuar</button>
   </div>
