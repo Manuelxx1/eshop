@@ -86,14 +86,23 @@ goBack() {
 }
 
 comprarCarrito() {
+  const valorId = localStorage.getItem('idUsuario');
+
+  if (!valorId) {
+    // Si no hay usuario logueado, podés redirigir al login o mostrar un error
+    alert("Debes iniciar sesión para realizar la compra.");
+    return;
+  }
+
+  const idUsuario = Number(valorId);
+
   const cartItems = this.items.map(item => ({
     productId: item.product.id,
     quantity: item.quantity
   }));
 
   const formData = this.checkoutForm.value;
-  const valorId = localStorage.getItem('idUsuario');
-  const idUsuario = valorId ? Number(valorId) : null;
+
 
   this.cartService.comprarCarrito(cartItems, idUsuario, formData).subscribe({
     next: initPoint => {
