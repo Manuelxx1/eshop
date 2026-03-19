@@ -17,6 +17,25 @@ export class CartList implements OnInit{
   total: number = 0;
   errorredir: string | null = null;
 
+  checkoutForm: FormGroup;
+  //opciones de envío
+  shippingOptions = [
+  { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
+  { id: 'express', name: 'Envío exprés (1-2 días)', price: 12.99 },
+  { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
+];
+
+      //obtener datos personales para envío 
+this.checkoutForm = this.fb.group({
+  name: ['', Validators.required],
+  email: ['', [Validators.required, Validators.email]],
+  phone: [''],
+  address: ['', Validators.required],
+  city: ['', Validators.required],
+  postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
+  shippingOption: [null, Validators.required]   //  arranca en null
+});
+
   constructor(private cartService: Cart) {}
 
   ngOnInit() {
@@ -61,35 +80,44 @@ loadCart(): void {
   });
 }
 
-  
-//método para compra por carrito 
-  
+
+  currentStep = 1;
+
+goNext() {
+  this.currentStep++;
+}
+
+goBack() {
+  if (this.currentStep > 1) {
+    this.currentStep--;
+    if (this.currentStep === 1) {
+      this.checkoutForm.get('shippingOption')?.reset(null);
+    }
+  }
+}
+
 comprarCarrito() {
   const cartItems = this.items.map(item => ({
-    productId: item.product.id,   // usar el id del producto
+    productId: item.product.id,
     quantity: item.quantity
   }));
 
-  alert("Botón comprar clickeado");
+  const formData = this.checkoutForm.value;
+  const valorId = localStorage.getItem('idUsuario');
+  const idUsuario = valorId ? Number(valorId) : null;
 
-  
-
-  this.cartService.comprarCarrito(cartItems).subscribe({
+  this.cartService.comprarCarrito(cartItems, idUsuario, formData).subscribe({
     next: initPoint => {
-      alert("initPoint recibido: " + initPoint);
-     // localStorage.setItem('selectedProduct', JSON.stringify(productId));
-
-      // redirige al checkout de Mercado Pago
       window.location.href = initPoint;
-      // Si en Android no abre, probá con:
-      // window.open(initPoint, "_blank");
     },
     error: err => {
-      alert("Error al llamar al backend: " + JSON.stringify(err));
-      this.errorredir=JSON.stringify(err);
+      this.errorredir = JSON.stringify(err);
     }
   });
 }
+
+  
+
 
  getSubtotal(item: CartItem): number {
   return item.product.price * item.quantity;
