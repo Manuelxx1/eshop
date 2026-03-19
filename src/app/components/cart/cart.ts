@@ -47,21 +47,7 @@ this.checkoutForm = this.fb.group({
 }
 
 
-//métodos para agregar o quitar items 
-  //directamente desde el carrito localStorage 
-/*
-  increase(productId: number) {
-  this.cartService.increaseQuantity(productId);
-  this.items = this.cartService.getItems();
-  this.total = this.cartService.getTotal();
-}
 
-decrease(productId: number) {
-  this.cartService.decreaseQuantity(productId);
-  this.items = this.cartService.getItems();
-  this.total = this.cartService.getTotal();
-}
-*/
 
   //version backend 
 
