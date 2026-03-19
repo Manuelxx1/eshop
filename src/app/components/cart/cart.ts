@@ -3,10 +3,11 @@ import { Cart } from '../../services/cart';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 import { Dashboard } from '../dashboard/dashboard';
+import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule,Dashboard],
+  imports: [CommonModule,Dashboard,ReactiveFormsModule],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
@@ -36,7 +37,7 @@ this.checkoutForm = this.fb.group({
   shippingOption: [null, Validators.required]   //  arranca en null
 });
 
-  constructor(private cartService: Cart) {}
+  constructor(private cartService: Cart, private fb: FormBuilder) {}
 
   ngOnInit() {
 /*versión localStorage 
