@@ -47,6 +47,7 @@ tr:hover {
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
 
     /* stepper con indicador numerico para guiar al usuario */
 .stepper {
