@@ -1,4 +1,5 @@
-
+/* RESPONSIVE PARA MÓVIL */
+@media (max-width: 768px) {
 
 table {
   width: 100%;
@@ -89,5 +90,5 @@ button:disabled {
   margin-top: 4px;
   }
 
-
+}
 
