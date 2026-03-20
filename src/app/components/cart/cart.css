@@ -47,6 +47,33 @@ tr:hover {
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+
+    /* stepper con indicador numerico para guiar al usuario */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.stepper div {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border-bottom: 2px solid #ccc;
+  color: #666;
+}
+
+.stepper div.active {
+  border-bottom: 2px solid #007bff;
+  font-weight: bold;
+  color: #007bff;
+}
+/*para los mensajes de error en los datos personales */
+  .error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  }
 }
 
 
