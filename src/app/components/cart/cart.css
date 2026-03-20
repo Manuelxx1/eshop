@@ -1,6 +1,12 @@
 /* RESPONSIVE PARA MÓVIL */
-@media (max-width: 768px) {
-
+/*
+si se usa @media los estilos se aplican solo a móvil 768px*/
+/*entonces habría que hacer lo mismo para otros tamaños 
+escritorio,tablet,etc*/
+/*si no se usa @media quedan los mismos estilos para todos los tamaños 
+*/
+/*@media (max-width: 768px) {
+*/
 table {
   width: 100%;
   border-collapse: collapse;
@@ -90,5 +96,6 @@ button:disabled {
   margin-top: 4px;
   }
 
-}
+/*
+}*/
 
