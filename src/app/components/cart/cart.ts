@@ -136,8 +136,8 @@ decrease(productId: number): void {
   });
 }
 
-remove(productId: number): void {
-  this.cartService.removeFromCart(productId).subscribe({
+remove(cartItemId: number): void {
+  this.cartService.removeFromCart(cartItemId).subscribe({
     next: () => this.loadCart(),
     error: err => console.error('Error al eliminar producto', err)
   });
