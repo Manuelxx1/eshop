@@ -27,7 +27,7 @@
         </td>
         <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
        <td>
-        <button (click)="remove(item.product.id)">Eliminar</button>
+        <button (click)="remove(item.id)">Eliminar</button>
        </td>
         <td>{{ getSubtotal(item) | currency:'ARS':'symbol' }}</td>
       </tr>
