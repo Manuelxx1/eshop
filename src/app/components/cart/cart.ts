@@ -122,21 +122,21 @@ comprarCarrito() {
 }
 
   
-  increase(productId: number): void {
+  increase(item: CartItem): void {
   this.cartService.increaseFromCart(productId).subscribe({
     next: () => this.loadCart(),
     error: err => console.error('Error al aumentar cantidad', err)
   });
 }
 
-decrease(productId: number): void {
+decrease(item: CartItem): void {
   this.cartService.decreaseFromCart(productId).subscribe({
     next: () => this.loadCart(),
     error: err => console.error('Error al disminuir cantidad', err)
   });
 }
 
-remove(cartItemId: number): void {
+remove(item: CartItem): void {
   this.cartService.removeFromCart(cartItemId).subscribe({
     next: () => this.loadCart(),
     error: err => console.error('Error al eliminar producto', err)
