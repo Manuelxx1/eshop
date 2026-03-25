@@ -21,13 +21,13 @@
       <tr *ngFor="let item of items">
         <td>{{ item.product.name }}</td>
         <td>
-        <button (click)="decrease(item)">-</button>
+        <button (click)="decrease(item.product.id)">-</button>
         {{ item.quantity }}
-        <button (click)="increase(item)">+</button>
+        <button (click)="increase(item.product.id)">+</button>
         </td>
         <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
        <td>
-        <button (click)="remove(item)">Eliminar</button>
+        <button (click)="remove(item.product.id)">Eliminar</button>
        </td>
         <td>{{ getSubtotal(item) | currency:'ARS':'symbol' }}</td>
       </tr>
