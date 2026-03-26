@@ -1,11 +1,12 @@
 import { Component,OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RouterOutlet,RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Product,Order} from '../../services/product';
 
 @Component({
   selector: 'app-estado-compra',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './estado-compra.html',
   styleUrl: './estado-compra.css',
 })
@@ -31,6 +32,9 @@ orderDetails: Order | null = null;
     }//if
     }); //params 
  
+  }
+  imprimirComprobante() {
+  window.print(); // Esto abre el diálogo de impresión/PDF del navegador automáticamente
   }
 }
 
