@@ -1,7 +1,10 @@
 <h2>Resultado de la compra</h2>
-<p>Status: {{ status }}</p>
-<p>Payment ID: {{ paymentId }}</p>
-<p>External Reference: {{ externalReference }}</p>
+
+<div class="status-card">
+  <p><strong>Estado:</strong> {{ status }}</p>
+  <p><strong>ID de Pago:</strong> {{ paymentId }}</p>
+  <p><strong>Referencia:</strong> {{ externalReference }}</p>
+</div>
 
 <div *ngIf="orderDetails">
   <h3>Detalles de la orden</h3>
@@ -11,20 +14,26 @@
       Precio: {{ item.amount | currency:'ARS':'symbol':'1.0-0' }}
     </li>
   </ul>
-  <p>Comprador: {{ orderDetails.mpPayerName || 'N/A' }} ({{ orderDetails.mpPayerEmail }})</p>
-  <p>Total al contado: {{ orderDetails.total | currency:'ARS':'symbol':'1.0-0' }}</p>
-    <h2>COMPRA EN CUOTAS </h2>
-  <p>Cantidad de cuotas: {{ orderDetails.installments }}</p>
-<p>Monto de la cuota: {{ orderDetails.installmentAmount | currency:'ARS':'symbol':'1.0-0' }}</p>
-<p>Precio final en cuotas (interés incluido): {{ orderDetails.totalPaidAmount | currency:'ARS':'symbol':'1.0-0' }}</p>
-
   
-
-
+  <p><strong>Comprador:</strong> {{ orderDetails.mpPayerName || 'N/A' }} ({{ orderDetails.mpPayerEmail }})</p>
   
+  <div class="payment-summary">
+    <p><strong>Total pagado:</strong> {{ orderDetails.total | currency:'ARS':'symbol':'1.0-0' }}</p>
+    
+    <div *ngIf="orderDetails.installments > 1; else pagoUnico">
+      <hr>
+      <h2 style="color: #2980b9;">DETALLE DE FINANCIACIÓN</h2>
+      <p><strong>Plan:</strong> {{ orderDetails.installments }} cuotas</p>
+      <p><strong>Monto por cuota:</strong> {{ orderDetails.installmentAmount | currency:'ARS':'symbol':'1.0-0' }}</p>
+      <p><strong>Precio final financiado:</strong> {{ orderDetails.totalPaidAmount | currency:'ARS':'symbol':'1.0-0' }}</p>
+    </div>
+
+    <ng-template #pagoUnico>
+      <p class="text-success"><strong>Método:</strong> Pago en una sola cuota (Sin interés)</p>
+    </ng-template>
+  </div>
 </div>
 
-<!-- Mensajes según estado -->
 <div *ngIf="status === 'approved'" class="alert success">
   <span class="icon">✅</span>
   ¡Tu pago fue aprobado!
@@ -35,6 +44,10 @@
   El pago fue rechazado. Intenta nuevamente.
 </div>
 
+<div *ngIf="status === 'pending'" class="alert pending">
+  <span class="icon">⏳</span>
+  El pago está pendiente, Mercado Pago lo está procesando.
+</div>
 <div *ngIf="status === 'pending'" class="alert pending">
   <span class="icon">⏳</span>
   El pago está pendiente, Mercado Pago lo está procesando.
