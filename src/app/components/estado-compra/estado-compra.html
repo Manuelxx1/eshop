@@ -29,7 +29,7 @@
     </div>
 
     <ng-template #pagoUnico>
-      <p class="text-success"><strong>Método:</strong> Pago en una sola cuota (Sin interés)</p>
+      <p class="text-success"><strong>Método:</strong> Pago al contado (Sin interés)</p>
     </ng-template>
   </div>
 </div>
@@ -51,4 +51,17 @@
 <div *ngIf="status === 'pending'" class="alert pending">
   <span class="icon">⏳</span>
   El pago está pendiente, Mercado Pago lo está procesando.
+</div>
+
+
+<div class="actions-container" style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+  
+  <button (click)="imprimirComprobante()" class="btn-secondary" style="padding: 10px 20px; cursor: pointer; border-radius: 8px; border: 1px solid #2980b9; background: white; color: #2980b9;">
+    📷 Guardar / Imprimir
+  </button>
+
+  <button routerLink="/" class="btn-primary" style="padding: 10px 25px; cursor: pointer; border-radius: 8px; border: none; background: #27ae60; color: white; font-weight: bold;">
+    🏠 Volver al Inicio
+  </button>
+
 </div>
