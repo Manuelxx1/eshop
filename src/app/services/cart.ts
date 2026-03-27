@@ -149,13 +149,13 @@ addToCart(productId: number, quantity: number,idUsuario:number): Observable<any>
   //Estos métodos usa el carrito
     //estos métodos están en AbmlcontrollerApplication 
 // Eliminar producto
-removeFromCart(cartItemId: number) {
-  return this.http.delete(`${this.apiUrl}/remove/${cartItemId}`);
+removeFromCart(productId: number, userId: number) {
+  return this.http.post(`${this.apiUrl}/remove`, { productId, userId });
 }
 
 // Vaciar carrito
-clearCart() {
-  return this.http.delete(`${this.apiUrl}/clear`);
+clearCart(userId: number) {
+  return this.http.post(`${this.apiUrl}/clear`, { userId });
 }
 
   // para aumentar items al carrito
@@ -165,10 +165,9 @@ increaseFromCart(productId: number, userId: number) {
 
   //para disminuir items del carrito 
   
-  decreaseFromCart(productId: number) {
-  return this.http.post(`${this.apiUrl}/decrease`, { productId });
-}
-
+  decreaseFromCart(productId: number, userId: number) {
+  return this.http.post(`${this.apiUrl}/decrease`, { productId, userId });
+  }
 
 }
 
