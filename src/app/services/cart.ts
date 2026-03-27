@@ -159,9 +159,10 @@ clearCart() {
 }
 
   // para aumentar items al carrito
-increaseFromCart(productId: number) {
-  return this.http.post(`${this.apiUrl}/increase`, { productId });
+increaseFromCart(productId: number, userId: number) {
+  return this.http.post(`${this.apiUrl}/increase`, { productId, userId });
 }
+
   //para disminuir items del carrito 
   
   decreaseFromCart(productId: number) {
