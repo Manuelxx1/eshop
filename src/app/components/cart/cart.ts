@@ -132,25 +132,29 @@ comprarCarrito() {
 
 
 decrease(productId: number): void {
-  this.cartService.decreaseFromCart(productId).subscribe({
+  const userId = Number(localStorage.getItem('idUsuario'));
+  this.cartService.decreaseFromCart(productId, userId).subscribe({
     next: () => this.loadCart(),
     error: err => console.error('Error al disminuir cantidad', err)
   });
 }
 
-remove(cartItemId: number): void {
-  this.cartService.removeFromCart(cartItemId).subscribe({
+remove(productId: number): void {
+  const userId = Number(localStorage.getItem('idUsuario'));
+  this.cartService.removeFromCart(productId, userId).subscribe({
     next: () => this.loadCart(),
-    error: err => console.error('Error al eliminar producto', err)
+    error: err => console.error('Error al eliminar item', err)
+  });
+               }
+
+
+  clear(): void {
+  const userId = Number(localStorage.getItem('idUsuario'));
+  this.cartService.clearCart(userId).subscribe({
+    next: () => this.loadCart(),
+    error: err => console.error('Error al vaciar carrito', err)
   });
 }
-
-
-  clear() {
-    this.cartService.clearCart().subscribe(() => {
-      this.loadCart();
-    });
-  }
 
 
 
