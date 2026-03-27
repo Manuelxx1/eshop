@@ -123,11 +123,13 @@ comprarCarrito() {
 
   
   increase(productId: number): void {
-  this.cartService.increaseFromCart(productId).subscribe({
+  const userId = localStorage.getItem('idUsuario'); // recuperás el id guardado
+  this.cartService.increaseFromCart(productId, Number(userId)).subscribe({
     next: () => this.loadCart(),
     error: err => console.error('Error al aumentar cantidad', err)
   });
 }
+
 
 decrease(productId: number): void {
   this.cartService.decreaseFromCart(productId).subscribe({
