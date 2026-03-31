@@ -7,7 +7,7 @@ import { WsTestComponent } from './components/ws-test-component/ws-test-componen
 import { Product,Order} from './services/product';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent  ],
+  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
