@@ -87,6 +87,7 @@
   cursor: pointer;
   padding: 4px 8px;   
   color: #333;
+  width:10%;
   display: none; /* solo se muestra en móvil */
 }
 
@@ -450,7 +451,8 @@ button.secondary:hover {
 
 .menu-toggle {
     display: block; /* aparece el botón hamburguesa */
-  }
+ width:10%;
+}
 
   .nav-menu {
     display: none; /* oculto por defecto */
