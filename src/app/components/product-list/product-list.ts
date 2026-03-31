@@ -1,5 +1,5 @@
 import { Component,HostListener,OnInit,OnDestroy } from '@angular/core';
-import { WsTestComponent } from '../ws-test-component/ws-test-component';
+//import { WsTestComponent } from '../ws-test-component/ws-test-component';
 
 /*
 Como Order ya incluye dentro los items, 
@@ -35,7 +35,7 @@ interface Actividad {
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,RouterLink,WsTestComponent],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
