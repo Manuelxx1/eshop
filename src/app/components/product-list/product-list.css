@@ -57,6 +57,88 @@
   box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* sombra elegante */
 }
 
+
+/*header que tiene el logo,el menu,el buscador y carrito*/
+
+/* Header general */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #f8f8f8;
+  position: sticky; /* se queda arriba al hacer scroll */
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* solo se muestra en móvil */
+}
+
+/* Menú de navegación */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Buscador */
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box-for-products {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 40px 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat right 10px center;
+  background-size: 18px;
+}
+
+/* Carrito */
+.cart-icon {
+  font-size: 18px;
+  position: relative;
+}
+
+.cart-count {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
+
+
+
+
+
 /* RESPONSIVE PARA MÓVIL */
 @media (max-width: 768px) {
   .nav-links {
@@ -361,67 +443,37 @@ button.secondary:hover {
   margin-top: 4px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
-  background-color: #f8f8f8;
-  position: sticky; /* se queda arriba al hacer scroll */
-  top: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.search-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.search-box-for-products {
-  width: 100%;
-  max-width: 400px;
-  padding: 8px 40px 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat right 10px center;
-  background-size: 18px;
-}
-
-.cart-icon {
-  font-size: 18px;
-  position: relative;
-}
-
-.cart-count {
-  background-color: red;
-  color: white;
-  font-size: 12px;
-  border-radius: 50%;
-  padding: 2px 6px;
-  position: absolute;
-  top: -8px;
-  right: -10px;
-}
 
 
+
+  .menu-toggle {
+    display: block; /* aparece el botón hamburguesa */
+  }
+
+  .nav-menu {
+    display: none; /* oculto por defecto en móvil */
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 12px;
+  }
+
+  .nav-menu.open {
+    display: flex; /* se muestra cuando menuOpen = true */
+  }
+
+  .search-container {
+    margin-top: 10px;
+    justify-content: flex-start; /* buscador alineado en móvil */
+  }
+
+  .search-box-for-products {
+    max-width: 100%;
+  }
 
 }
 
