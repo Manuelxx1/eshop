@@ -47,6 +47,8 @@ interface Actividad {
 export class ProductList implements OnInit {
   //recibir datos del formulario buscador
   searchControl = new FormControl('');
+  menuOpen = false;
+
 
   products: any[] = [];
   loading = true;
@@ -162,7 +164,10 @@ goBack() {
   }
 }
 
-      
+      //para Mostrar el menú en movil
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
   
     ngOnInit(): void {
       
