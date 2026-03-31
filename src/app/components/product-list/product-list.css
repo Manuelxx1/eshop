@@ -363,6 +363,8 @@ button.secondary:hover {
 
 .search-container {
   display: flex;
+  position: absolute;   /* lo saca del flujo normal */
+  top: 0;               /* lo pega arriba */
   justify-content: center;
   align-items: center;
   padding: 16px;
