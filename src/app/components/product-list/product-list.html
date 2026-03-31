@@ -17,7 +17,22 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
     <button class="cta-button">Comprar ahora</button>
   </div>
   <div class="hero-image">
-    <img src="public/img/Gemini_Generated_Image_ki19uhki19uhki19.png" alt="Productos destacados">
+    <!-- en Angular json esta definido las rutas de los assetes así
+    "assets": [
+  {
+    "glob": "**/*",
+    "input": "public"
+  }
+]
+    por eso para mostrar las imagen hay que colocar el archivo 
+   de imagen dentro de public,puede ser directamente 
+    o asi public/img/archivoimagen.png
+    y para el src del html no hace falta usar public
+    es llamar al archivo directo o en la carpeta que lo contiene
+    -->
+
+
+    <img src="img/Gemini_Generated_Image_ki19uhki19uhki19.png" alt="Productos destacados">
   </div>
 </section>
 
