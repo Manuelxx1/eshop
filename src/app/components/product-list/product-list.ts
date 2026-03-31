@@ -50,7 +50,7 @@ export class ProductList implements OnInit {
  // menuOpen = false;
 
 
- // products: any[] = [];
+ products: any[] = [];
   loading = true;
   error = false;
   orders: Order[] = [];
