@@ -3,14 +3,19 @@
 
 <header class="header">
   <div class="logo">eShop</div>
-  
-  <nav class="nav-menu">
+
+  <!-- Botón hamburguesa -->
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+
+  <!-- Menú -->
+  <nav class="nav-menu" [ngClass]="{ 'open': menuOpen }">
     <a href="#">Inicio</a>
     <a href="#">Productos</a>
     <a href="#">Ofertas</a>
     <a href="#">Contacto</a>
   </nav>
-  
+
+  <!-- Buscador -->
   <div class="search-container">
     <input
       type="text"
@@ -19,11 +24,13 @@
       placeholder="Buscar productos..."
     />
   </div>
-  
+
+  <!-- Carrito -->
   <div class="cart-icon">
     🛒 <span class="cart-count">2</span>
   </div>
 </header>
+
 
 
 <!-- 
