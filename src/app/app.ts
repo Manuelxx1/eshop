@@ -20,6 +20,7 @@ export class App {
 
   products: any[] = [];
   loading = true;
+  error = false;
 
   
   constructor(private productService: Product ){}
