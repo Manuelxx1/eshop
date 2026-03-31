@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { WsTestComponent } from './components/ws-test-component/ws-test-component';
-import { Product,Order} from './../../services/product';
+import { Product,Order} from '../../../services/product';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent  ],
