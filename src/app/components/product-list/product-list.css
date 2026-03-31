@@ -448,6 +448,7 @@ button.secondary:hover {
 
   .menu-toggle {
     display: block; /* aparece el botón hamburguesa */
+ width:10px;
   }
 
   .nav-menu {
