@@ -361,25 +361,66 @@ button.secondary:hover {
   margin-top: 4px;
 }
 
-.search-container {
+.header {
   display: flex;
-  position: absolute;   /* lo saca del flujo normal */
-  top: 0;               /* lo pega arriba */
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 12px 24px;
+  background-color: #f8f8f8;
+  position: sticky; /* se queda arriba al hacer scroll */
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .search-box-for-products {
   width: 100%;
   max-width: 400px;
-  padding: 10px 40px 10px 16px; /* espacio extra a la derecha para el ícono */
-  font-size: 16px;
+  padding: 8px 40px 8px 12px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 6px;
   background: #fff url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat right 10px center;
-  background-size: 20px;
+  background-size: 18px;
 }
+
+.cart-icon {
+  font-size: 18px;
+  position: relative;
+}
+
+.cart-count {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
 
 
 }
