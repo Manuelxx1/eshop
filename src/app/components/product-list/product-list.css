@@ -437,12 +437,13 @@ button.secondary:hover {
     margin-top: 20px;
   }
   
-  .cta-button {
-    bottom: 20px;      /* más cerca del borde inferior */
-    width:50%;
-    height:50%;
-    padding: 10px 20px;   /* botón más compacto */
-    font-size: 16px;      /* texto más chico */
+    .cta-button {
+    top: 50%;                /* centrado vertical */
+    left: 50%;               /* centrado horizontal */
+    bottom: auto;            /* anulamos bottom */
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;      /* botón más compacto */
+    font-size: 16px;
   }
 }
 
