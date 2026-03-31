@@ -62,13 +62,13 @@
 
 /* Header general */
 .header {
-  position: fixed;   /* o sticky */
+  position: sticky; /* se queda arriba al hacer scroll */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
   background-color: #f8f8f8;
-  position: sticky; /* se queda arriba al hacer scroll */
+  
   top: 0;
   z-index: 1000;
 }
