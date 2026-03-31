@@ -1,14 +1,30 @@
 
 
 
-<div class="search-container">
-  <input
-    type="text"
-    [formControl]="searchControl"
-    class="search-box-for-products"
-    placeholder="Buscar productos..."
-  />
-</div>
+<header class="header">
+  <div class="logo">eShop</div>
+  
+  <nav class="nav-menu">
+    <a href="#">Inicio</a>
+    <a href="#">Productos</a>
+    <a href="#">Ofertas</a>
+    <a href="#">Contacto</a>
+  </nav>
+  
+  <div class="search-container">
+    <input
+      type="text"
+      [formControl]="searchControl"
+      class="search-box-for-products"
+      placeholder="Buscar productos..."
+    />
+  </div>
+  
+  <div class="cart-icon">
+    🛒 <span class="cart-count">2</span>
+  </div>
+</header>
+
 
 <!-- 
 este selector duplica la vista del componente ya es suficiente con declararlo en  el import 
