@@ -438,6 +438,7 @@ button.secondary:hover {
   }
   
     .cta-button {
+      width:30%;
     top: 50%;                /* centrado vertical */
     left: 50%;               /* centrado horizontal */
     bottom: auto;            /* anulamos bottom */
