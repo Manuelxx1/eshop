@@ -46,11 +46,11 @@ interface Actividad {
 
 export class ProductList implements OnInit {
   //recibir datos del formulario buscador
-  searchControl = new FormControl('');
-  menuOpen = false;
+  //searchControl = new FormControl('');
+ // menuOpen = false;
 
 
-  products: any[] = [];
+ // products: any[] = [];
   loading = true;
   error = false;
   orders: Order[] = [];
@@ -164,12 +164,15 @@ goBack() {
   }
 }
 
-      //para Mostrar el menú en movil
+     /*
+  //para Mostrar el menú en movil
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
+  */
   
-    ngOnInit(): void {
+  /*
+  ngOnInit(): void {
       
           this.searchControl.valueChanges.subscribe(term => {
       const query = term?.trim();
@@ -194,6 +197,7 @@ goBack() {
     });
 
     }//ngOnInit 
+    */
 
 
 
