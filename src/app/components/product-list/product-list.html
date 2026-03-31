@@ -1,41 +1,12 @@
 
 
 
-<header class="header">
-  <div class="logo">eShop</div>
 
-  <!-- Botón hamburguesa -->
-  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
-
-  <!-- Menú -->
-  <nav class="nav-menu" [ngClass]="{ 'open': menuOpen }">
-    <a href="#">Inicio</a>
-    <a href="#">Productos</a>
-    <a href="#">Ofertas</a>
-    <a href="#">Contacto</a>
-  </nav>
-
-  <!-- Buscador -->
-  <div class="search-container">
-    <input
-      type="text"
-      [formControl]="searchControl"
-      class="search-box-for-products"
-      placeholder="Buscar productos..."
-    />
-  </div>
-
-  <!-- Carrito -->
-  <div class="cart-icon">
-    🛒 <span class="cart-count">2</span>
-  </div>
-</header>
 
 
 
 <!-- 
-este selector duplica la vista del componente ya es suficiente con declararlo en  el import 
-en product-list component
+este selector duplica la vista del componente porque app.html ya lo esta llamando 
 <app-ws-test-component></app-ws-test-component>-->
 
 
