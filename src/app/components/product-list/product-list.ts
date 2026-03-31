@@ -44,7 +44,7 @@ interface Actividad {
   
 
 
-export class ProductList implements OnInit {
+export class ProductList  {
   //recibir datos del formulario buscador
   //searchControl = new FormControl('');
  // menuOpen = false;
