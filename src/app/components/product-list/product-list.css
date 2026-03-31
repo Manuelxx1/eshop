@@ -62,6 +62,7 @@
 
 /* Header general */
 .header {
+  position: fixed;   /* o sticky */
   display: flex;
   justify-content: space-between;
   align-items: center;
