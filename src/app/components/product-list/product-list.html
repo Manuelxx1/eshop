@@ -1,11 +1,15 @@
 
 
 
-<input
-  type="text"
-  [formControl]="searchControl" class="search-box-for-products"
-  placeholder="Buscar productos..."
-/>
+<div class="search-container">
+  <input
+    type="text"
+    [formControl]="searchControl"
+    class="search-box-for-products"
+    placeholder="Buscar productos..."
+  />
+</div>
+
 <!-- 
 este selector duplica la vista del componente ya es suficiente con declararlo en  el import 
 en product-list component
