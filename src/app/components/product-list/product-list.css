@@ -79,7 +79,14 @@
   color: #2c3e50;
 }
 
-
+/* Botón hamburguesa */
+.menu-toggle {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* solo se muestra en móvil */
+}
 
 /* Menú de navegación */
 .nav-menu {
@@ -439,17 +446,12 @@ button.secondary:hover {
 
 
 
-  .menu-toggle {
+.menu-toggle {
     display: block; /* aparece el botón hamburguesa */
- width:20px;
-    font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
   }
 
   .nav-menu {
-    display: none; /* oculto por defecto en móvil */
+    display: none; /* oculto por defecto */
     flex-direction: column;
     gap: 10px;
     background-color: #f8f8f8;
