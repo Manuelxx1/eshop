@@ -19,6 +19,7 @@ export class App {
   menuOpen = false;
 
   products: any[] = [];
+  loading = true;
 
   
   constructor(private productService: Product ){}
