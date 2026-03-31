@@ -438,7 +438,9 @@ button.secondary:hover {
   }
   
   .cta-button {
-    bottom: 20px;         /* más cerca del borde inferior */
+    bottom: 20px;      /* más cerca del borde inferior */
+    width:50%;
+    height:50%;
     padding: 10px 20px;   /* botón más compacto */
     font-size: 16px;      /* texto más chico */
   }
