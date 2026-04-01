@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
+import { Product} from '../../services/product';
 
 @Component({
   selector: 'app-categoria',
@@ -10,10 +11,13 @@ import { TitleCasePipe } from '@angular/common';
 })
 export class Categoria implements OnInit {
   categoriaNombre: string = '';
+    //productos por categoría 
+  productosporcategoria: any[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,private productService: Product) {}
 
   ngOnInit() {
     this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
+  this.productosporcategoria = this.productService.getProductsByCategory(this.categoriaNombre);
   }
 }
