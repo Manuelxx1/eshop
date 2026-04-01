@@ -213,8 +213,8 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
 
   getFeaturedProducts() {
     return [
-      { name: 'Notebook Gamer', price: 350000, imageUrl: 'public/img/n14p4020_7.jpg' },
-      { name: 'Smartphone 5G', price: 220000, imageUrl: '/img/images.jpg' },
+      { name: 'Notebook Gamer', price: 350000, imageUrl: '/img/n14p4020_7.jpg' },
+      { name: 'Smartphone 5G', price: 220000, imageUrl: '/img/images.jpeg' },
       { name: 'Auriculares Bluetooth', price: 45000, imageUrl: '/img/AURICULARES_NAU-Y100-BG.png' },
       { name: 'Smart TV 50"', price: 280000, imageUrl: '/img/8d3e2970952c5d19e40c1df29ec6.jpg' }
     ];
