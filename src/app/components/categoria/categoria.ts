@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './categoria.component.html',
   styleUrls: ['./categoria.component.css']
 })
-export class CategoriaComponent implements OnInit {
+export class Categoria implements OnInit {
   categoriaNombre: string = '';
 
   constructor(private route: ActivatedRoute) {}
