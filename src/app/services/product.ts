@@ -209,9 +209,16 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   });
 }
 
+//metodo section productos destacados de eshop mocking
 
-
-  
+  getFeaturedProducts() {
+    return [
+      { name: 'Notebook Gamer', price: 350000, imageUrl: 'assets/notebook.jpg' },
+      { name: 'Smartphone 5G', price: 220000, imageUrl: 'assets/smartphone.jpg' },
+      { name: 'Auriculares Bluetooth', price: 45000, imageUrl: 'assets/headphones.jpg' },
+      { name: 'Smart TV 50"', price: 280000, imageUrl: 'assets/tv.jpg' }
+    ];
+  }
   
 
 }
