@@ -219,6 +219,20 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
       { name: 'Smart TV 50"', price: 280000, imageUrl: '/img/8d3e2970952c5d19e40c1df29ec6.jpg' }
     ];
   }
+
+  //productos según categorías usando un mocking
   
+  private products = [
+    { name: 'iPhone 15', price: 1200000, imageUrl: 'img/celulares.jpg', category: 'celulares' },
+    { name: 'Samsung Galaxy S23', price: 950000, imageUrl: 'img/celulares.jpg', category: 'celulares' },
+    { name: 'Notebook Gamer', price: 1500000, imageUrl: 'img/computadoras.jpg', category: 'computadoras' },
+    { name: 'Smart TV 50"', price: 800000, imageUrl: 'img/tv.jpg', category: 'tv' },
+    { name: 'Auriculares Bluetooth', price: 45000, imageUrl: 'img/accesorios.jpg', category: 'accesorios' }
+  ];
+
+
+  getProductsByCategory(category: string) {
+    return this.products.filter(p => p.category === category);
+  }
 
 }
