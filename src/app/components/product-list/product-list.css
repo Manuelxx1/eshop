@@ -439,7 +439,7 @@ button.secondary:hover {
   }
   
     .cta-button {
-      position:relative;
+      position:absolute;
       width:100%;
     top: 50%;                /* centrado vertical */
     left: 50%;               /* centrado horizontal */
