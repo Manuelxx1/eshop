@@ -15,5 +15,5 @@ export const routes: Routes = [{ path: '', component: ProductList},
  { path: 'estado-compra', component: EstadoCompra },
 { path: 'registrarse', component: Registrarse },
 //path dinámico que espera un parámetro 
-{ path: 'categoria/:nombre', component: Categoria },                    
+{ path: 'categoria/:nombre', component: Categoria }                 
 ];
