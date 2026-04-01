@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
 import { Product} from '../../services/product';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-categoria',
-  imports: [TitleCasePipe],
+  imports: [TitleCasePipe,CommonModule],
   templateUrl: './categoria.html',
   styleUrls: ['./categoria.css']
 })
