@@ -442,10 +442,10 @@ button.secondary:hover {
       position:absolute;
       width:100%;
     top: 80%;                /* centrado vertical */
-    left: 50%;               /* centrado horizontal */
+                   /* centrado horizontal */
     bottom: auto;            /* anulamos bottom */
     transform: translate(-50%, -50%);
-    padding: 5px ;      /* botón más compacto */
+    padding: 10px 15px ;      /* botón más compacto */
     font-size: 16px;
   }
 }
