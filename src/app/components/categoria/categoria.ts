@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categoria',
-  templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.css']
+  templateUrl: './categoria.html',
+  styleUrls: ['./categoria.css']
 })
 export class Categoria implements OnInit {
   categoriaNombre: string = '';
