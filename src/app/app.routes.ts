@@ -5,6 +5,7 @@ import { Checkout} from './components/checkout/checkout';
 import { EstadoCompra } from './components/estado-compra/estado-compra';
 import { Registrarse } from './components/registrarse/registrarse';
 import { Dashboard } from './components/dashboard/dashboard';
+import { Categoria } from './components/categoria/categoria;
 
 export const routes: Routes = [{ path: '', component: ProductList},
   { path: 'cart', component: CartList},
