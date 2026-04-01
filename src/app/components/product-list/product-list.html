@@ -42,7 +42,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
       
       
 
-
+<!--
 <div *ngIf="step === 1">
 <div class="formulariologin">
 
@@ -84,7 +84,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 
 
   <pre>{{ datosDebug }}</pre>
-
+-->
 
 
 <div class="stepper">
@@ -92,6 +92,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
   <div [class.active]="currentStep === 2">2. Resumen</div>
   <div [class.active]="currentStep === 3">3. Datos</div>
 </div>
+
 
 <!-- Paso 1: Selección de producto -->
 <div *ngIf="currentStep === 1" class="step-container step-active">
