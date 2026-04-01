@@ -51,6 +51,8 @@ export class ProductList  {
 
 
  products: any[] = [];
+  //productos destacados 
+  featuredProducts: any[] = [];
   loading = true;
   error = false;
   orders: Order[] = [];
@@ -199,6 +201,9 @@ goBack() {
     }//ngOnInit 
     */
 
+  ngOnInit() {
+    this.featuredProducts = this.productService.getFeaturedProducts();
+  }
 
 
       
@@ -378,6 +383,7 @@ alert("Usuario del login" +idUsuario);
   });
 }
 
+  
 
 }
 
