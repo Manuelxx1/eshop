@@ -1,6 +1,11 @@
 <section class="categoria">
   <h2>{{ categoriaNombre | titlecase }}</h2>
   <div class="product-grid">
-    <p>Mostrando productos de la categoría {{ categoriaNombre }}</p>
+    <div class="product-card" *ngFor="let product of productosporcategoria">
+      <img [src]="product.imageUrl" alt="{{ product.name }}">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price | currency:'ARS' }}</p>
+      <button (click)="addToCart(product)">Agregar al carrito</button>
+    </div>
   </div>
 </section>
