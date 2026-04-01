@@ -84,7 +84,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 
 
   <pre>{{ datosDebug }}</pre>
--->
+
 
 
 <div class="stepper">
@@ -95,7 +95,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 
 
 <!-- Paso 1: Selección de producto -->
-<div *ngIf="currentStep === 1" class="step-container step-active">
+<!--<div *ngIf="currentStep === 1" class="step-container step-active">
   <h2>Seleccionar producto</h2>
   <div *ngFor="let product of products" class="product-card">
     <img [src]="product.imageUrl" alt="{{ product.name }}" width="80" height="80">
@@ -104,17 +104,17 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
     <label for="quantity">Cantidad:</label>
     <select [formControl]="quantityControl" id="quantity">
       <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
-    </select>
+    </select>-->
       <!-- Botón para agregar al carrito -->
-  <button (click)="addToCart(product)">Agregar al carrito</button>
+ <!-- <button (click)="addToCart(product)">Agregar al carrito</button>
 
     <button (click)="selectProduct(product)">Continuar</button>
   </div>
 </div>
-
+-->
 
 <!-- Paso 2: Resumen y envío -->
-<div *ngIf="currentStep === 2" class="step-container step-active">
+<!--<div *ngIf="currentStep === 2" class="step-container step-active">
   <h2>Resumen de compra</h2>
   <p>Producto: {{ selectedProduct?.name }}</p>
   <p>Cantidad: {{ quantityControl.value }}</p>
@@ -149,9 +149,9 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
   <button type="button" class="secondary" (click)="goBack()">Volver</button>
 </div>
 
-
+-->
 <!-- Paso 3: Datos personales -->
-<div *ngIf="currentStep === 3" class="step-container step-active">
+<!--<div *ngIf="currentStep === 3" class="step-container step-active">
   <h2>Datos personales</h2>
   <form [formGroup]="checkoutForm" (ngSubmit)="buyNow(selectedProduct.id)">
     <label for="name">Nombre completo</label>
@@ -204,7 +204,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 
 <p>{{errorredir}}</p>
   
-
+-->
 
 
 
