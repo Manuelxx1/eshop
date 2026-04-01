@@ -441,7 +441,7 @@ button.secondary:hover {
     .cta-button {
       position:relative;
       width:100%;
-    top: 50%;                /* centrado vertical */
+    top: 80%;                /* centrado vertical */
     left: 50%;               /* centrado horizontal */
     bottom: auto;            /* anulamos bottom */
     transform: translate(-50%, -50%);
