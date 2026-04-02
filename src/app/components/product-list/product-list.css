@@ -698,24 +698,18 @@ button.secondary:hover {
   .footer-section h3 {
     font-size: 1rem;
   }
-  .footer-section input {
-    position:relative;
-    padding: 8px;
-  border-radius: 4px;
-  border: none;
-    width:100%;
+  .footer-section form {
+    flex-direction: column; /*  apila input y botón */
   }
-      
-.footer-section button {
-position:absolute;
-  background-color: #ff4d4d;
-  top:150px;
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
+
+  .footer-section input,
+  .footer-section button {
+    width: 100%; /* ocupan todo el ancho de la columna */
+  }
+
+  .footer-section button {
+    margin-top: 8px; /* separa el botón del input */
+  }
 
 .footer-section button:hover {
   background-color: #e63939;
