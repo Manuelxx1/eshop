@@ -718,15 +718,10 @@ button.secondary:hover {
   background-color: #e63939;
 
   /*social-icons*/
-  .social-icons img {
-  width: 48px;
-  margin-right: 10px;
-  filter: brightness(0) invert(1); /* para que se vean blancos */
+  
+svg:hover {
+  transform: scale(1.1); /* Un pequeño efecto de aumento al pasar el mouse */
 }
-  .social-icons:hover {
-  filter: none; /* vuelve al color original del SVG */
-  }
-
 }
 
 
