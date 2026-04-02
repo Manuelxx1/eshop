@@ -719,12 +719,14 @@ button.secondary:hover {
   }
 
   /*social-icons*/
-  /*
+  
 .social-icons a img {
-  width: 48px;
+  width: 48px;  /* Ajusta el tamaño que prefieras */
   height: 48px;
+  display: block;
+  transition: all 0.3s ease;
 }
-  */
+  
 
   /*con svg inline en el html */
 /*.social-icons svg {
@@ -739,8 +741,10 @@ button.secondary:hover {
  /* }
 
 */
-.social-icons a:hover{
+.social-icons a:hover img {
   content: url("/img/facebookblue.svg");
+  width: 48px;  /* DEBE ser el mismo que el original */
+  height: 48px;
 }
 
 
