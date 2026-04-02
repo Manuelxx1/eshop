@@ -738,7 +738,7 @@ button.secondary:hover {
 
 */
 .social-icons a:hover{
-  content: url("img/facebookblue.svg");
+  content: url("/img/facebookblue.svg");
 }
 
 
