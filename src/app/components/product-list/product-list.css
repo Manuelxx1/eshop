@@ -716,6 +716,7 @@ button.secondary:hover {
 
 .footer-section button:hover {
   background-color: #e63939;
+  }
 
   /*social-icons*/
   
@@ -723,19 +724,22 @@ button.secondary:hover {
   width: 48px;
   height: 48px;
 }
-
-.social-icons svg {
-  fill: white; /* Color inicial */
+/*con svg inline en el html */
+/*.social-icons svg {
+  fill: white;
   width: 30px;
 
 }
+*/
 
- .social-icons svg:hover {
+/* .social-icons svg:hover {
   fill: #1877F2; /* Cambia al azul de Facebook al pasar el mouse */
-  }
+ /* }
 
-
-
+*/
+.social-icons a:hover{
+  content: url("img/facebookblue.svg");
+}
 
 
 
