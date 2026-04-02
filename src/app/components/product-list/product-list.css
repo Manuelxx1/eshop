@@ -719,9 +719,15 @@ button.secondary:hover {
 
   /*social-icons*/
   
-svg:hover {
-  transform: scale(1.1); /* Un pequeño efecto de aumento al pasar el mouse */
+.social-icons a img {
+  width: 48px;
+  height: 48px;
 }
+
+.social-icons a:hover img {
+  content: url("img/facebookblue.svg");
+}
+
 }
 
 
