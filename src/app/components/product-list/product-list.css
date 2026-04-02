@@ -741,7 +741,7 @@ button.secondary:hover {
  /* }
 
 */
-.social-icons a:hover img {
+.social-icons a:hover  {
   content: url("/img/facebookblue.svg");
   width: 48px;  /* DEBE ser el mismo que el original */
   height: 48px;
