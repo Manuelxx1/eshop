@@ -747,7 +747,7 @@ button.secondary:hover {
   que buscan si el enlace contiene "facebook.com,instagram.com y x.com"
   así no necesitas añadir clases extra para diferenciar a cada enlace en tu HTML.
   */
-./* Hover para Facebook  */
+/* Hover para Facebook  */
 .social-icons a[href*="facebook.com"]:hover  {
   content: url("/img/facebookblue.svg");
   width: 48px; /* Importante repetir el tamaño */
