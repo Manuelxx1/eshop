@@ -723,7 +723,7 @@ button.secondary:hover {
   margin-right: 10px;
   filter: brightness(0) invert(1); /* para que se vean blancos */
 }
-  .social-icon:hover {
+  .social-icons:hover {
   filter: none; /* vuelve al color original del SVG */
   }
 
