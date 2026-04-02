@@ -698,6 +698,12 @@ button.secondary:hover {
   .footer-section h3 {
     font-size: 1rem;
   }
+  .footer-section input {
+    padding: 8px;
+  border-radius: 4px;
+  border: none;
+    width:100%;
+  }
       
 
 
