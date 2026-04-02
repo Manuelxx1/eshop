@@ -706,8 +706,9 @@ button.secondary:hover {
   }
       
 .footer-section button {
+position:absolute;
   background-color: #ff4d4d;
-  top:15px;
+  top:50px;
   border: none;
   color: white;
   padding: 8px 16px;
