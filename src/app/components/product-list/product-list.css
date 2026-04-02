@@ -706,6 +706,9 @@ button.secondary:hover {
   .footer-section button {
     width: 100%; /* ocupan todo el ancho de la columna */
   }
+  .footer-section input{
+    left:0px;
+  }
 
   .footer-section button {
     margin-top: 8px; /* separa el botón del input */
