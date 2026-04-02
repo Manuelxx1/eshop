@@ -705,7 +705,18 @@ button.secondary:hover {
     width:100%;
   }
       
+.footer-section button {
+  background-color: #ff4d4d;
+  top:15px;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
+.footer-section button:hover {
+  background-color: #e63939;
 
 }
 
