@@ -741,11 +741,34 @@ button.secondary:hover {
  /* }
 
 */
-.social-icons a:hover  {
-  content: url("/img/facebookblue.svg");
-  width: 48px;  /* DEBE ser el mismo que el original */
+
+  /*
+  Nota: He usado selectores como a[href*="facebook.com"]
+  que buscan si el enlace contiene "facebook.com,instagram.com y x.com"
+  así no necesitas añadir clases extra para diferenciar a cada enlace en tu HTML.
+  */
+./* Hover para Facebook  */
+.social-icons a[href*="facebook.com"]:hover  {
+  content: url("img/facebookblue.svg");
+  width: 48px; /* Importante repetir el tamaño */
   height: 48px;
 }
+
+/* Hover para Instagram */
+.social-icons a[href*="instagram.com"]:hover  {
+  content: url("img/instagramcolor.svg");
+  width: 48px;
+  height: 48px;
+}
+
+/* Hover para Twitter/X */
+.social-icons a[href*="twitter.com"]:hover ,
+.social-icons a[href*="x.com"]:hover {
+  content: url("img/xcolor.svg");
+  width: 48px;
+  height: 48px;
+  }
+  
 
 
   }
