@@ -719,12 +719,14 @@ button.secondary:hover {
   }
 
   /*social-icons*/
-  
+  /*
 .social-icons a img {
   width: 48px;
   height: 48px;
 }
-/*con svg inline en el html */
+  */
+
+  /*con svg inline en el html */
 /*.social-icons svg {
   fill: white;
   width: 30px;
