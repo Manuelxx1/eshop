@@ -702,12 +702,12 @@ button.secondary:hover {
     flex-direction: column; /*  apila input y botón */
   }
 
-  .footer-section input,
+  
   .footer-section button {
     width: 100%; /* ocupan todo el ancho de la columna */
   }
   .footer-section input{
-    left:0px;
+    width:80%;
   }
 
   .footer-section button {
