@@ -717,6 +717,13 @@ button.secondary:hover {
 .footer-section button:hover {
   background-color: #e63939;
 
+  /*social-icons*/
+  .social-icons img {
+  width: 48px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1); /* para que se vean blancos */
+}
+
 }
 
 
