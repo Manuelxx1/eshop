@@ -749,14 +749,14 @@ button.secondary:hover {
   */
 ./* Hover para Facebook  */
 .social-icons a[href*="facebook.com"]:hover  {
-  content: url("img/facebookblue.svg");
+  content: url("/img/facebookblue.svg");
   width: 48px; /* Importante repetir el tamaño */
   height: 48px;
 }
 
 /* Hover para Instagram */
 .social-icons a[href*="instagram.com"]:hover  {
-  content: url("img/instagramcolor.svg");
+  content: url("/img/instagramcolor.svg");
   width: 48px;
   height: 48px;
 }
@@ -764,7 +764,7 @@ button.secondary:hover {
 /* Hover para Twitter/X */
 .social-icons a[href*="twitter.com"]:hover ,
 .social-icons a[href*="x.com"]:hover {
-  content: url("img/xcolor.svg");
+  content: url("/img/xcolor.svg");
   width: 48px;
   height: 48px;
   }
