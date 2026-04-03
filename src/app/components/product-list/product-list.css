@@ -724,6 +724,7 @@ button.secondary:hover {
   width: 30px;  /* Ajusta el tamaño que prefieras */
   height: 30px;
   display: block;
+  top:2px;
   transition: all 0.3s ease;
 }
   
@@ -760,7 +761,7 @@ button.secondary:hover {
   content: url("/img/instagramcolor.svg");
   width: 30px;
   height: 30px;
-  top:2px;
+  
 }
 
 /* Hover para Twitter/X */
@@ -769,14 +770,14 @@ button.secondary:hover {
   content: url("/img/xcolor.svg");
   width: 30px;
   height: 30px;
-  top:2px;
+  
   }
 
   .social-icons a[href*="youtube.com"]:hover  {
   content: url("/img/youtubecolor.svg");
   width: 30px;
   height: 30px;
-    top:2px;
+    
   }
   
 
