@@ -50,7 +50,7 @@
   </div>
 </header>
 <!-- Resultados fuera del header se muestra solo si hay búsqueda activa por el usuario-->
-<div *ngIf="loading || error || products.length > 0" class="search-results">
+<div *ngIf="searchActive" class="search-results">
   <div *ngIf="loading" class="loading">Buscando productos...</div>
   <div *ngIf="error" class="error">Ocurrió un error al buscar productos.</div>
 
