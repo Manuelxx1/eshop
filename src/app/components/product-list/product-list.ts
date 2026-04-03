@@ -60,7 +60,7 @@ export class ProductList  {
   items: CartItem[] = [];
 total: number = 0;
 
-
+searchControl = new FormControl;
 
   datosDebug: string = '';
   email:string = '';  
@@ -103,12 +103,6 @@ initPointUrl: string | null = null;
 
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
-//formulario login
-    this.formulariologin = this.fb.group({
-    username: ['', Validators.required],
-      password: ['', Validators.required]
-    //email: ['', [Validators.required, Validators.email]]
-  });
 
 
 
