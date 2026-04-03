@@ -1,6 +1,4 @@
-/* Contenedor general */
-.formulariologin,
-.Validación2FA {
+.formulariologin {
   max-width: 400px;
   margin: 60px auto;
   padding: 30px;
@@ -9,19 +7,18 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   color: #fff;
   text-align: center;
+  box-sizing: border-box;
 }
 
-/* Título */
-.formulariologin h2,
-.Validación2FA h2 {
-  margin-bottom: 20px;
-  font-size: 1.6rem;
-  color: #f0c040;
+/* Evita que el label afecte el layout */
+.formulariologin label {
+  display: block;
+  width: 100%;
 }
 
 /* Inputs */
-.formulariologin input,
-.Validación2FA input {
+.formulariologin input {
+  display: block;
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -30,10 +27,10 @@
   background-color: #2c2c2c;
   color: #fff;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
-.formulariologin input::placeholder,
-.Validación2FA input::placeholder {
+.formulariologin input::placeholder {
   color: #aaa;
 }
 
@@ -58,8 +55,48 @@
   text-decoration: underline;
 }
 
-/* Botones */
-.formulariologin button,
+/* Botón */
+.formulariologin button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #f0c040;
+  color: #1e1e1e;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulariologin button:hover {
+  background-color: #ffdd70;
+}
+
+/* 2FA */
+.Validación2FA {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.Validación2FA input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 1rem;
+}
+
 .Validación2FA button {
   width: 100%;
   padding: 12px;
@@ -74,7 +111,6 @@
   transition: background-color 0.3s ease;
 }
 
-.formulariologin button:hover,
 .Validación2FA button:hover {
   background-color: #ffdd70;
 }
