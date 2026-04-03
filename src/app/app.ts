@@ -21,6 +21,7 @@ export class App {
   products: any[] = [];
   loading = true;
   error = false;
+  searchActive=false;
 
   
   constructor(private productService: Product ){}
