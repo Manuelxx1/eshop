@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   selector: 'app-product-list',
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule,RouterLink],
-  templateUrl: './product-list.html',
-  styleUrl: './product-list.css',
+  templateUrl: './login.html',
+  styleUrl: './login.css',
 })
 
 
