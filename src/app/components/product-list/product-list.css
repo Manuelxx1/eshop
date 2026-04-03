@@ -752,6 +752,7 @@ button.secondary:hover {
   content: url("/img/facebookblue.svg");
   width: 30px; /* Importante repetir el tamaño */
   height: 30px;
+  
 }
 
 /* Hover para Instagram */
@@ -759,6 +760,7 @@ button.secondary:hover {
   content: url("/img/instagramcolor.svg");
   width: 30px;
   height: 30px;
+  top:2px;
 }
 
 /* Hover para Twitter/X */
@@ -767,12 +769,14 @@ button.secondary:hover {
   content: url("/img/xcolor.svg");
   width: 30px;
   height: 30px;
+  top:2px;
   }
 
   .social-icons a[href*="youtube.com"]:hover  {
   content: url("/img/youtubecolor.svg");
   width: 30px;
   height: 30px;
+    top:2px;
   }
   
 
