@@ -6,12 +6,13 @@ import { EstadoCompra } from './components/estado-compra/estado-compra';
 import { Registrarse } from './components/registrarse/registrarse';
 import { Dashboard } from './components/dashboard/dashboard';
 import { Categoria } from './components/categoria/categoria';
+import { Login } from './components/login/login';
 
 export const routes: Routes = [{ path: '', component: ProductList},
   { path: 'cart', component: CartList},
      { path: 'test-checkout', component: Checkout },
             { path: 'dashboard', component: Dashboard },
-              
+{path: 'login', component: Login },
 { path: 'comprar', component: Checkout },
  { path: 'estado-compra', component: EstadoCompra },
 { path: 'registrarse', component: Registrarse },
