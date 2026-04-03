@@ -107,6 +107,41 @@
   display: none;
 }
 
+/* Resultados en desktop: lista */
+.results-list {
+  margin-top: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.result-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 6px;
+}
+
+.product-info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.product-info p {
+  margin: 2px 0 0;
+  color: #555;
+}
+
+
+
+
 
 
 
@@ -163,5 +198,40 @@
   .auth-links-mobile a:hover {
     color: #f0c040; /* color destacado en hover */
   }
+
+/* Responsive: tarjetas en móvil */
+
+  .results-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .result-item {
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fafafa;
+  }
+
+  .result-item img {
+    width: 100px;
+    height: 100px;
+    margin: 0 0 10px 0;
+  }
+
+  .product-info h4 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .product-info p {
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+  }
+  
   
 }
