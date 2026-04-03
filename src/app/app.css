@@ -89,7 +89,7 @@
 
 .auth-links-desktop a {
   text-decoration: none;
-  color: #fff; /* o el color que uses en tu header */
+  color: #000; /* o el color que uses en tu header */
   font-weight: 500;
 }
 
@@ -156,7 +156,7 @@
   .auth-links-mobile a {
     display: inline-block;
     margin: 0 5px;
-    color: #fff;
+    color:#000;
     text-decoration: none;
   }
 
