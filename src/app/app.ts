@@ -25,30 +25,31 @@ export class App {
   
   constructor(private productService: Product ){}
   ngOnInit(): void {
-      
-          this.searchControl.valueChanges.subscribe(term => {
-      const query = term?.trim();
-      if (query && query.length >= 2) {
-        this.loading = true;
-        this.productService.searchProducts(query).subscribe({
-          next: data => {
-            this.products = data;
-            this.loading = false;
-            this.error = false;
-          },
-          error: err => {
-            console.error('Error al buscar productos', err);
-            this.products = [];
-            this.loading = false;
-            this.error = true;
-          }
-        });
-      } else {
-        this.products = [];
-      }
-    });
-
-    }//ngOnInit 
+  this.searchControl.valueChanges.subscribe(term => {
+    const query = term?.trim();
+    if (query && query.length >= 2) {
+      this.loading = true;
+      this.error = false;
+      this.products = [];
+      this.searchActive = true; // nueva bandera
+      this.productService.searchProducts(query).subscribe({
+        next: data => {
+          this.products = data;
+          this.loading = false;
+        },
+        error: err => {
+          console.error('Error al buscar productos', err);
+          this.products = [];
+          this.loading = false;
+          this.error = true;
+        }
+      });
+    } else {
+      this.products = [];
+      this.searchActive = false; // no hay búsqueda activa
+    }
+  });
+}//ngOnInit 
 
   //para Mostrar el menú en movil
   toggleMenu() {
