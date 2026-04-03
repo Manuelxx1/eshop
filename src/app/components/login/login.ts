@@ -19,6 +19,9 @@ import { Router } from '@angular/router';
   //para el login
   formulariologin: FormGroup;
   sesionActivaSinGoogle = false;
+  email:string = '';  
+  fechaderegistro:any;
+  nombre:string ='';
 
   //2FA validar 
   
