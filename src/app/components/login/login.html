@@ -26,11 +26,13 @@
 
 
 <div *ngIf="step === 2">
+  <div class="Validación2FA">
   <h2>Validación 2FA</h2>
   <form [formGroup]="twofaForm" (ngSubmit)="onValidateCode()">
     <input formControlName="code" placeholder="Código 2FA">
     <button type="submit" [disabled]="twofaForm.invalid">Validar código</button>
   </form>
+</div>
 </div>
 
 <p>{{ message }}</p>
