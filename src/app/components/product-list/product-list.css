@@ -770,7 +770,7 @@ button.secondary:hover {
   }
 
   .social-icons a[href*="youtube.com"]:hover  {
-  content: url("img/youtubecolor.svg");
+  content: url("/img/youtubecolor.svg");
   width: 30px;
   height: 30px;
   }
