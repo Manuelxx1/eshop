@@ -297,33 +297,6 @@
 }
 
 
-/*login/register*/
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.auth-links-desktop a {
-  text-decoration: none;
-  color: #fff; /* o el color que uses en tu header */
-  font-weight: 500;
-}
-
-.auth-links-desktop a:hover {
-  color: #f0c040; /* ejemplo: color destacado en hover */
-}
-
-/* Desktop: Login/Register al lado del carrito */
-.auth-links-desktop {
-  display: flex;
-  gap: 10px;
-}
-
-.auth-links-mobile {
-  display: none;
-}
 
 
 
@@ -804,31 +777,6 @@ button.secondary:hover {
   height: 30px;
     
   }
-
-
-  /* Mobile: Login/Register dentro del menú hamburguesa */
-  .auth-links-desktop {
-    display: none; /* ocultar el desktop  en móvil */
-  }
-
-  .auth-links-mobile {
-    display: block; /* mostrar dentro del menú */
-    margin-top: 15px;
-    text-align: center;
-  }
-
-  .auth-links-mobile a {
-    display: inline-block;
-    margin: 0 5px;
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .auth-links-mobile a:hover {
-    color: #f0c040; /* color destacado en hover */
-  }
-  
-
 
   }
 
