@@ -1,0 +1,37 @@
+
+<div *ngIf="step === 1">
+<div class="formulariologin">
+
+    <form [formGroup]="formulariologin" (ngSubmit)="formulariologindatos()">
+      <label>
+          <h2>INICIAR SESIÓN</h2>
+        <input formControlName="username"  placeholder="Ingresar Nombre" class="search-box" />
+        <input formControlName="password"  placeholder="Ingresar password" class="search-box" />
+        <span *ngIf="formulariologin.get('nombre')?.invalid && formulariologin.get('nombre')?.touched">
+          Debería escribir algo es obligatorio.
+          </span>
+        <span *ngIf="formulariologin.get('password')?.invalid && formulariologin.get('password')?.touched">
+       Debería escribir una contraseña
+        
+        </span>
+        <a routerLink="/registrarse">REGISTRARSE</a>
+      </label>
+
+      <button type="submit" [style.display]="sesionActivaSinGoogle ? 'none' : 'block'" >Enviar</button>
+    </form>
+    
+
+  </div>
+</div>
+
+
+<div *ngIf="step === 2">
+  <h2>Validación 2FA</h2>
+  <form [formGroup]="twofaForm" (ngSubmit)="onValidateCode()">
+    <input formControlName="code" placeholder="Código 2FA">
+    <button type="submit" [disabled]="twofaForm.invalid">Validar código</button>
+  </form>
+</div>
+
+<p>{{ message }}</p>
+<pre>{{ message }}</pre>
