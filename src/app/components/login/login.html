@@ -5,8 +5,8 @@
     <form [formGroup]="formulariologin" (ngSubmit)="formulariologindatos()">
       <label>
           <h2>INICIAR SESIÓN</h2>
-        <input formControlName="username"  placeholder="Ingresar Nombre" class="search-box" />
-        <input formControlName="password"  placeholder="Ingresar password" class="search-box" />
+        <input formControlName="username"  placeholder="Ingresar Nombre" class="IngresarNombre" />
+        <input formControlName="password"  placeholder="Ingresar password" class="IngresarPassword  />
         <span *ngIf="formulariologin.get('nombre')?.invalid && formulariologin.get('nombre')?.touched">
           Debería escribir algo es obligatorio.
           </span>
