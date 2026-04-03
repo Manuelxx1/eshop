@@ -724,7 +724,6 @@ button.secondary:hover {
   width: 30px;  /* Ajusta el tamaño que prefieras */
   height: 30px;
   display: block;
-  top:2px;
   transition: all 0.3s ease;
 }
   
