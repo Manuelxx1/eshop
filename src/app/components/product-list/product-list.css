@@ -721,8 +721,8 @@ button.secondary:hover {
   /*social-icons*/
   
 .social-icons a img {
-  width: 48px;  /* Ajusta el tamaño que prefieras */
-  height: 48px;
+  width: 30px;  /* Ajusta el tamaño que prefieras */
+  height: 30px;
   display: block;
   transition: all 0.3s ease;
 }
@@ -750,23 +750,29 @@ button.secondary:hover {
 /* Hover para Facebook  */
 .social-icons a[href*="facebook.com"]:hover  {
   content: url("/img/facebookblue.svg");
-  width: 48px; /* Importante repetir el tamaño */
-  height: 48px;
+  width: 30px; /* Importante repetir el tamaño */
+  height: 30px;
 }
 
 /* Hover para Instagram */
 .social-icons a[href*="instagram.com"]:hover  {
   content: url("/img/instagramcolor.svg");
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
 }
 
 /* Hover para Twitter/X */
 .social-icons a[href*="twitter.com"]:hover ,
 .social-icons a[href*="x.com"]:hover {
   content: url("/img/xcolor.svg");
-  width: 48px;
-  height: 48px;
+  width: 30px;
+  height: 30px;
+  }
+
+  .social-icons a[href*="youtube.com"]:hover  {
+  content: url("img/youtube-color.svg");
+  width: 30px;
+  height: 30px;
   }
   
 
