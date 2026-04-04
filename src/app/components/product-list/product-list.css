@@ -788,6 +788,15 @@ button.secondary:hover {
   100% { background-color: transparent; }
 }
 
+  .blink-title {
+  animation: blink 1s ease-in-out 3; /* 3 parpadeos */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+  }
+
 
   }
 
