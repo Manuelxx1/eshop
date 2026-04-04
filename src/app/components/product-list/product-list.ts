@@ -185,16 +185,24 @@ goBack() {
     ngAfterViewInit(): void{
 //para el scroll a secciones desde lo que retorna el link productos en menu
           this.route.fragment.subscribe(fragment => {
-      if (fragment) {
-        // Esperar un tick para que el DOM esté listo
+  if (fragment) {
+    setTimeout(() => {
+      const element = document.getElementById(fragment);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+
+        // Agregar clase de resaltado
+        element.classList.add('highlighted');
+
+        // Removerla después de 2 segundos
         setTimeout(() => {
-          const element = document.getElementById(fragment);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 0);
+          element.classList.remove('highlighted');
+        }, 2000);
       }
-    });
+    }, 0);
+  }
+});
+
     }
     
     
