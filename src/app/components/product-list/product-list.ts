@@ -14,7 +14,7 @@ import { Product,Order} from '../../services/product';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet,RouterLink } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 import { Cart} from '../../services/cart';
@@ -102,7 +102,7 @@ initPointUrl: string | null = null;
   //shippingControl = new FormControl(this.shippingOptions[0]);
 
 
-  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder ) {
+  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder private route: ActivatedRoute) {
 
 
 
@@ -181,6 +181,18 @@ goBack() {
 
     this.featuredProducts = this.productService.getFeaturedProducts();
 
+//para el scroll a secciones desde lo que retorna el link productos en menu
+          this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        // Esperar un tick para que el DOM esté listo
+        setTimeout(() => {
+          const element = document.getElementById(fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 0);
+      }
+    });
     }//ngOnInit 
     
 
