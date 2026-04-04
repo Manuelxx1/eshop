@@ -1,4 +1,4 @@
-import { Component,HostListener,OnInit,OnDestroy } from '@angular/core';
+import { Component,HostListener,OnInit,OnDestroy,AfterViewInit} from '@angular/core';
 //import { WsTestComponent } from '../ws-test-component/ws-test-component';
 
 /*
@@ -180,7 +180,9 @@ goBack() {
     });
 
     this.featuredProducts = this.productService.getFeaturedProducts();
+}//ngOnInit 
 
+    ngAfterViewInit(): void{
 //para el scroll a secciones desde lo que retorna el link productos en menu
           this.route.fragment.subscribe(fragment => {
       if (fragment) {
@@ -193,7 +195,8 @@ goBack() {
         }, 0);
       }
     });
-    }//ngOnInit 
+    }
+    
     
 
   
