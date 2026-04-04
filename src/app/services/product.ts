@@ -235,4 +235,11 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
     return this.products.filter(p => p.category === category);
   }
 
+
+  private apiUrlTodosLosProductos = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/todoslosproductos;
+  // Trae todos los productos
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrlTodosLosProductos);
+  }
+
 }
