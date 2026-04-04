@@ -9,9 +9,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
    provideHttpClient(),
     provideRouter(
-      routes,
-      withAnchorScrolling(),
-      withScrollPositionRestoration()
+      routes
     )
   ]
 };
