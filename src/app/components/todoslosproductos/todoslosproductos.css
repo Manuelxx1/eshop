@@ -1,1 +1,37 @@
 
+/* Resultados separados del header */
+/* Bloque de resultados con overlay */
+.todoslosproductos {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.05); /* fondo gris claro translúcido */
+  border-top: 1px solid #ddd;
+  min-height: 200px;
+}
+
+/* Lista en desktop */
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff; /* cada resultado sobre fondo blanco */
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.result-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 6px;
+}
