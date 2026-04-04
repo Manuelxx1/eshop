@@ -10,10 +10,9 @@ export const appConfig: ApplicationConfig = {
    provideHttpClient(),
     provideRouter(
       routes,
-      {
-        anchorScrolling: 'enabled',
-        scrollPositionRestoration: 'enabled'
-      }
+      withEnabledBlockingInitialNavigation(),
+      withAnchorScrolling(),
+      withScrollPositionRestoration()
     )
   ]
 };
