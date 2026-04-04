@@ -236,7 +236,7 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   }
 
 
-  private apiUrlTodosLosProductos = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/todoslosproductos;
+  private apiUrlTodosLosProductos = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/todoslosproductos';
   // Trae todos los productos
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrlTodosLosProductos);
