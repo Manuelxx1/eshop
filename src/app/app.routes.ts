@@ -8,6 +8,8 @@ import { Dashboard } from './components/dashboard/dashboard';
 import { Categoria } from './components/categoria/categoria';
 import { Login } from './components/login/login';
 import { Todoslosproductos } from './components/todoslosproductos/todoslosproductos';
+import { App } from './app';
+
 
 export const routes: Routes = [{ path: '', component: ProductList},
   { path: 'cart', component: CartList},
@@ -20,4 +22,5 @@ export const routes: Routes = [{ path: '', component: ProductList},
 //path dinámico que espera un parámetro 
 { path: 'categoria/:nombre', component: Categoria },
 {path: 'productos', component: Todoslosproductos },
+{path: 'productosdestacados', component: App }               
 ];
