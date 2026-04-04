@@ -154,14 +154,26 @@ button:hover:enabled {
 }
 
 
-.logindesderegistro{
-  left:80%;
-  
+.logindesderegistro {
+  display: inline-block;
+        text-align: right;
+  margin-top: 15px;
+  padding: 10px 18px;
+  border: 2px solid #f0c040; /* borde amarillo */
+  border-radius: 6px;
+  background-color: transparent;
+  color: #f0c040;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-.logindesderegistro hover{
-  color:green;
-  
+
+.logindesderegistro:hover {
+  background-color: #f0c040;
+  color: #1e1e1e;            /* texto oscuro al pasar el mouse */
 }
+
 
 
 
