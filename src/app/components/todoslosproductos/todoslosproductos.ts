@@ -11,7 +11,7 @@ import { Product,Order} from './services/product';
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
-export class App implements OnInit {
+export class Todoslosproductos implements OnInit {
   
 
   products: any[] = [];
