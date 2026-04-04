@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
@@ -11,7 +11,7 @@ import { Product,Order} from './services/product';
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
-export class App {
+export class App implements OnInit {
   
 
   products: any[] = [];
@@ -21,23 +21,25 @@ export class App {
 
   
   constructor(private productService: Product ){}
+
+ngOnInit(): void {
+    this.loadProducts();
+}
   
-      this.productService.searchProducts().subscribe({
-        next: data => {
-          this.products = data;
-          this.loading = false;
-        },
-        error: err => {
-          console.error('Error al buscar productos', err);
-          this.products = [];
-          this.loading = false;
-          this.error = true;
-        }
-      });
-    } else {
-      this.products = [];
-      
-    }
+      loadProducts(): void {
+    this.productService.getAllProducts().subscribe({
+      next: data => {
+        this.products = data;
+        this.loading = false;
+      },
+      error: err => {
+        console.error('Error al cargar productos', err);
+        this.products = [];
+        this.loading = false;
+        this.error = true;
+      }
+    });
+      }
   
 
 
