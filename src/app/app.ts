@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet,RouterLink } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -7,7 +7,7 @@ import { WsTestComponent } from './components/ws-test-component/ws-test-componen
 import { Product,Order} from './services/product';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule ],
+  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule,RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
