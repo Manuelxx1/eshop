@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Product,Order} from './services/product';
+import { Product,Order} from '../../services/product';
 
 @Component({
   selector: 'app-todoslosproductos',
