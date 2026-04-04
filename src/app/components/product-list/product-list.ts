@@ -182,28 +182,35 @@ goBack() {
     this.featuredProducts = this.productService.getFeaturedProducts();
 }//ngOnInit 
 
-    ngAfterViewInit(): void{
+    
 //para el scroll a secciones desde lo que retorna el link productos en menu
-          this.route.fragment.subscribe(fragment => {
-  if (fragment) {
-    setTimeout(() => {
-      const element = document.getElementById(fragment);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-
-        // Agregar clase de resaltado
-        element.classList.add('highlighted');
-
-        // Removerla después de 2 segundos
+          ngAfterViewInit(): void {
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
         setTimeout(() => {
-          element.classList.remove('highlighted');
-        }, 2000);
-      }
-    }, 0);
-  }
-});
+          const element = document.getElementById(fragment);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
 
-    }
+            // 🔹 Efecto de resaltado en la sección
+            element.classList.add('highlighted');
+            setTimeout(() => {
+              element.classList.remove('highlighted');
+            }, 2000);
+
+            // 🔹 Efecto de parpadeo en el título
+            const title = element.querySelector('h2');
+            if (title) {
+              title.classList.add('blink-title');
+              setTimeout(() => {
+                title.classList.remove('blink-title');
+              }, 3000);
+            }
+          }
+        }, 0);
+      }
+    });
+  }
     
     
 
