@@ -154,8 +154,14 @@ button:hover:enabled {
 }
 
 
-
-
+.logindesderegistro{
+  left:80%;
+  
+}
+.logindesderegistro hover{
+  color:green;
+  
+}
 
 
 
