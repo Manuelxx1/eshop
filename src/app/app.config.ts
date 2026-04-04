@@ -10,7 +10,6 @@ export const appConfig: ApplicationConfig = {
    provideHttpClient(),
     provideRouter(
       routes,
-      withEnabledBlockingInitialNavigation(),
       withAnchorScrolling(),
       withScrollPositionRestoration()
     )
