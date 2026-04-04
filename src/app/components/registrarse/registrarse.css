@@ -155,12 +155,12 @@ button:hover:enabled {
 
 
 .logindesderegistro {
-  /*display: block;*/
+  /display: block;
         text-align: right;
   margin-top: 15px;
   padding: 10px 18px;
-  border: 2px solid #f0c040; /* borde amarillo */
-  border-radius: 6px;
+  /*border: 2px solid #f0c040; /* borde amarillo */
+ /* border-radius: 6px;*/
   background-color: transparent;
   color: #f0c040;
   font-weight: 600;
