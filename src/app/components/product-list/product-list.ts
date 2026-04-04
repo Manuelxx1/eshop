@@ -102,7 +102,7 @@ initPointUrl: string | null = null;
   //shippingControl = new FormControl(this.shippingOptions[0]);
 
 
-  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder private route: ActivatedRoute) {
+  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
 
 
 
