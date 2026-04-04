@@ -107,6 +107,8 @@ button:hover:enabled {
 
 
 .modal-contenido {
+  display: flex;          /* activa flexbox */
+  flex-direction: column; /* organiza los hijos en columna */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -155,12 +157,11 @@ button:hover:enabled {
 
 
 .logindesderegistro {
-  display: block;
-        text-align: right;
+  align-self: flex-end;   /* este hijo se pega a la derecha */
   margin-top: 15px;
   padding: 10px 18px;
-  /*border: 2px solid #f0c040; /* borde amarillo */
- /* border-radius: 6px;*/
+  border: 2px solid #f0c040;
+  border-radius: 6px;
   background-color: transparent;
   color: #f0c040;
   font-weight: 600;
