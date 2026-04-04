@@ -778,6 +778,17 @@ button.secondary:hover {
     
   }
 
+  /*para resaltar la section que usa fragment */
+  .highlighted {
+  animation: highlightFade 2s ease-out;
+}
+
+@keyframes highlightFade {
+  0%   { background-color: yellow; }
+  100% { background-color: transparent; }
+}
+
+
   }
 
 
