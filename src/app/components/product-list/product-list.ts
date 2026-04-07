@@ -54,9 +54,7 @@ export class ProductList  {
   //productos destacados 
   featuredProducts: any[] = [];
 
-  //productos por categoría 
   
-  productsByCategory: any[] = [];
   
   loading = true;
   error = false;
@@ -189,9 +187,7 @@ this.productService.getFeaturedProducts().subscribe(products => {
   });
 
 
-    this.productService.getProductsByCategory('Notebooks').subscribe(products => {
-    this.productsByCategory = products;
-    });
+    
   
   }//ngOnInit 
 
