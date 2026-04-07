@@ -54,6 +54,10 @@ export class ProductList  {
   //productos destacados 
   featuredProducts: any[] = [];
 
+  //productos por categoría 
+  
+  productsByCategory: any[] = [];
+  
   loading = true;
   error = false;
   orders: Order[] = [];
@@ -183,6 +187,10 @@ goBack() {
 this.productService.getFeaturedProducts().subscribe(products => {
     this.featuredProducts = products; // acá sí es un array
   });
+
+
+    this.productService.getProductsByCategory('Celulares').subscribe(products => {
+    this.productsByCategory = products;
   
   }//ngOnInit 
 
