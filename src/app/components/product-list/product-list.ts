@@ -52,7 +52,7 @@ export class ProductList  {
 
  products: any[] = [];
   //productos destacados 
-  featuredProducts: Product[] = [];
+  featuredProducts: any[] = [];
 
   loading = true;
   error = false;
