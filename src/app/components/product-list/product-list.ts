@@ -191,6 +191,7 @@ this.productService.getFeaturedProducts().subscribe(products => {
 
     this.productService.getProductsByCategory('Notebooks').subscribe(products => {
     this.productsByCategory = products;
+    }
   
   }//ngOnInit 
 
