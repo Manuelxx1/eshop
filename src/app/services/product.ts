@@ -228,7 +228,7 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   }
 
   //productos según categorías usando un mocking
-  
+ /* 
   private products = [
     { name: 'iPhone 15', price: 1200000, imageUrl: 'img/celulares.jpg', category: 'celulares' },
     { name: 'Samsung Galaxy S23', price: 950000, imageUrl: 'img/celulares.jpg', category: 'celulares' },
@@ -242,7 +242,17 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
     return this.products.filter(p => p.category === category);
   }
 
+*/
 
+  //productos por categoría 
+
+private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/category';
+  
+  getProductsByCategory(category: string): Observable<Product[]> {
+  return this.http.get<Product[]>(`${this.apiUrlProductsByCategory}/${category}`);
+}
+
+  
   private apiUrlTodosLosProductos = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/todoslosproductos';
   // Trae todos los productos
   getAllProducts(): Observable<Product[]> {
