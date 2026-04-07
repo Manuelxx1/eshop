@@ -210,7 +210,7 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
 }
 
 //metodo section productos destacados de eshop mocking
-
+/*
   getFeaturedProducts() {
     return [
       { name: 'Notebook Gamer', price: 350000, imageUrl: '/img/n14p4020_7.jpg' },
@@ -218,6 +218,13 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
       { name: 'Auriculares Bluetooth', price: 45000, imageUrl: '/img/AURICULARES_NAU-Y100-BG.png' },
       { name: 'Smart TV 50"', price: 280000, imageUrl: '/img/8d3e2970952c5d19e40c1df29ec6.jpg' }
     ];
+  }
+  */
+  private apiUrlFeaturedProducts= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/destacados';
+  
+  getFeaturedProducts():Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrlFeaturedProducts);
+    
   }
 
   //productos según categorías usando un mocking
