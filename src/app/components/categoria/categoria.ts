@@ -19,7 +19,13 @@ export class Categoria implements OnInit {
 
   ngOnInit() {
     this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
-  this.productosporcategoria = this.productService.getProductsByCategory(this.categoriaNombre);
+  /* para el mocking de categoría 
+    this.productosporcategoria = this.productService.getProductsByCategory(this.categoriaNombre);
+ */
+
+    this.productService.getProductsByCategory('Notebooks').subscribe(products => {
+    this.productosporcategoria = products;
+    });
   }
 
   //este método es solo de ejemplo
