@@ -23,7 +23,7 @@ export class Categoria implements OnInit {
     this.productosporcategoria = this.productService.getProductsByCategory(this.categoriaNombre);
  */
 
-    this.productService.getProductsByCategory('Notebooks').subscribe(products => {
+    this.productService.getProductsByCategory(this.categoriaNombre).subscribe(products => {
     this.productosporcategoria = products;
     });
   }
