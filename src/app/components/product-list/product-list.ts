@@ -52,7 +52,7 @@ export class ProductList  {
 
  products: any[] = [];
   //productos destacados 
-  featuredProducts: any[] = [];
+  featuredProducts: Product[] = [];
 
   loading = true;
   error = false;
@@ -178,9 +178,13 @@ goBack() {
         this.products = [];
       }
     });
-
-    this.featuredProducts = this.productService.getFeaturedProducts();
-}//ngOnInit 
+//para el mocking
+    //this.featuredProducts = this.productService.getFeaturedProducts();
+this.productService.getFeaturedProducts().subscribe(products => {
+    this.featuredProducts = products; // acá sí es un array
+  });
+  
+  }//ngOnInit 
 
     
 //para el scroll a secciones desde lo que retorna el link productos en menu
