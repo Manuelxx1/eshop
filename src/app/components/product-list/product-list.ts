@@ -198,10 +198,16 @@ this.productService.getFeaturedProducts().subscribe(products => {
 
 
         // Getter para acceder al valor seleccionado de las categorías 
-  get selectedCategory(): string {
-    return this.destacadoporcategories.get('category')?.value;
-      }
-  
+  get filteredProducts(): Product[] {
+  const selectedCategory = this.destacadoporcategories.get('category')?.value;
+  if (!selectedCategory) {
+    return []; // no devolver todos, sino vacío 
+    //para no duplicar la vista con el susbribe 
+    //que llama a productosdestacados 
+  }
+  return this.featuredProducts.filter(p => p.category === selectedCategory);
+}
+
     
 //para el scroll a secciones desde lo que retorna el link productos en menu
           ngAfterViewInit(): void {
