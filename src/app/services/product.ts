@@ -82,7 +82,7 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
 
   
   
-  // Método para buscar productos por término
+  // Método para buscar productos por término en el buscador principal 
   searchProducts(term: string): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}?name=${term}`);
 }
