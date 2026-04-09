@@ -53,6 +53,8 @@ export class ProductList  {
  products: any[] = [];
   //productos destacados 
   featuredProducts: any[] = [];
+  destacadoporcategories: FormGroup;
+  categories: string[] = [];
 
   
   
@@ -121,7 +123,9 @@ this.checkoutForm = this.fb.group({
 });
 
 
-    
+    this.destacadoporcategories = this.fb.group({
+      category: ['']   // valor inicial vacío = todas las categorías
+    });
     
   }// constructor 
 
@@ -184,6 +188,7 @@ goBack() {
     //this.featuredProducts = this.productService.getFeaturedProducts();
 this.productService.getFeaturedProducts().subscribe(products => {
     this.featuredProducts = products; // acá sí es un array
+  this.categories = [...new Set(products.map(p => p.category))];
   });
 
 
@@ -191,6 +196,12 @@ this.productService.getFeaturedProducts().subscribe(products => {
   
   }//ngOnInit 
 
+
+        // Getter para acceder al valor seleccionado de las categorías 
+  get selectedCategory(): string {
+    return this.destacadoporcategories.get('category')?.value;
+      }
+  
     
 //para el scroll a secciones desde lo que retorna el link productos en menu
           ngAfterViewInit(): void {
