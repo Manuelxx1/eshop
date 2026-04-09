@@ -58,7 +58,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 </form>
 
 <div class="product-grid">
-  <div class="product-card" *ngFor="let product of filteredProducts">
+  <div class="product-card" *ngFor="let product of featuredProducts">
     <img [src]="product.imageUrl" alt="{{ product.name }}">
     <h3>{{ product.name }} - {{ product.category }}</h3>
     <p>{{ product.price | currency:'ARS' }}</p>
