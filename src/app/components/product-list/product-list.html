@@ -48,6 +48,21 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
       <button (click)="addToCart(product)">Agregar al carrito</button>
     </div>
   </div>
+  <form [formGroup]="destacadoporcategories">
+  <select formControlName="category">
+    <option value="">Todas las categorías</option>
+    <option *ngFor="let cat of categories" [value]="cat">
+      {{ cat }}
+    </option>
+  </select>
+</form>
+
+<div *ngFor="let product of featuredProducts">
+  <div *ngIf="!selectedCategory || product.category === selectedCategory">
+    {{ product.name }} - {{ product.category }}
+  </div>
+</div>
+
 </section>
 
       
