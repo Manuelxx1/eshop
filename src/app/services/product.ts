@@ -17,6 +17,7 @@ export interface Product {
   description: string;
   price: number;
   stock: number;
+  category: string;
   createdAt: string;
 }
 
