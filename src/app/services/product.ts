@@ -18,6 +18,7 @@ export interface Product {
   price: number;
   stock: number;
   category: string;
+  image_url: string; 
   createdAt: string;
 }
 
