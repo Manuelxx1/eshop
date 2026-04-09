@@ -58,6 +58,9 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 </form>
 
 <div class="product-grid">
+  <!--aquí se usa el getter getfilteredProducts y (no una property que tiene los datos del array 
+para iterar sobre el como en otros casos)
+el getter getfilteredProducts retorna el featuredProducts filtrado según la categoría seleccionada -->
   <div class="product-card" *ngFor="let product of filteredProducts">
     <img [src]="product.imageUrl" alt="{{ product.name }}">
     <h3>{{ product.name }} - {{ product.category }}</h3>
