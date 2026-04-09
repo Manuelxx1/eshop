@@ -56,13 +56,16 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
     </option>
   </select>
 </form>
-
-<div *ngFor="let product of featuredProducts">
+  <div class="product-grid">
+<div class="product-card" *ngFor="let product of featuredProducts">
+      <img [src]="product.imageUrl" alt="{{ product.name }}">
   <div *ngIf="!selectedCategory || product.category === selectedCategory">
-    {{ product.name }} - {{ product.category }}
+    <h3>{{ product.name }} - {{ product.category }}</h3>
+    <p>{{ product.price | currency:'ARS' }}</p>
+      <button (click)="addToCart(product)">Agregar al carrito</button>
   </div>
 </div>
-
+  </div>
 </section>
 
       
