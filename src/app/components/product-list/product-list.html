@@ -118,14 +118,14 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
           donde las ofertas de esa ocasión finalizan en un par de dias
       en días normales las ofertas no tienen contador
           -->
-          
+          <div class="countdown">{{ countdown }}</div>
             <img [src]="product.imageUrl" alt="{{ product.name }}">
             <h3>{{ product.name }}</h3>
             <p class="old-price">$759.999</p>
             <p class="new-price">{{ product.price | currency:'ARS' }}</p>
         </div>
-      <div class="countdown">{{ countdown }}</div>
-        <!-- Repetir más “product-card” para otros productos -->
+      
+        
     </div>
   
 </div>
