@@ -256,10 +256,10 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
 
   //para Mostrar la section ofertas 
   
-    private apiUrlProductsenoferta= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/destacados';
+    private apiUrlProductsEnOferta= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/productsenoferta';
   
   getProductsenoferta():Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrlProductsenoferta);
+    return this.http.get<Product[]>(this.apiUrlProductsEnOferta);
     
   }
   private apiUrlTodosLosProductos = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/todoslosproductos';
