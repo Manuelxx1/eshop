@@ -112,40 +112,17 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
     </div>
 
     <div class="product-grid">
-        <!-- Ejemplo de producto -->
-        <div class="product-card">
+        <div class="product-card" *ngFor="let product of productosenoferta" >
             <span class="offer-label">OFERTA</span>
-            <img src="notebook-dell.jpg" alt="Notebook Dell Inspiron 14">
-            <h3>Notebook Dell Inspiron 14</h3>
+            <img [src]="product.imageUrl" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
             <p class="old-price">$759.999</p>
-            <p class="new-price">$659.999</p>
+            <p class="new-price">{{ product.price | currency:'ARS' }}</p>
         </div>
-      <div class="product-card">
-            <span class="offer-label">OFERTA</span>
-            <img src="notebook-dell.jpg" alt="Notebook Dell Inspiron 14">
-            <h3>Notebook Dell Inspiron 14</h3>
-            <p class="old-price">$759.999</p>
-            <p class="new-price">$659.999</p>
-      </div>
-      <div class="product-card">
-            <span class="offer-label">OFERTA</span>
-            <img src="notebook-dell.jpg" alt="Notebook Dell Inspiron 14">
-            <h3>Notebook Dell Inspiron 14</h3>
-            <p class="old-price">$759.999</p>
-            <p class="new-price">$659.999</p>
-        </div>
-      <div class="product-card">
-            <span class="offer-label">OFERTA</span>
-            <img src="notebook-dell.jpg" alt="Notebook Dell Inspiron 14">
-            <h3>Notebook Dell Inspiron 14</h3>
-            <p class="old-price">$759.999</p>
-            <p class="new-price">$659.999</p>
-        </div>
-
+      
         <!-- Repetir más “product-card” para otros productos -->
     </div>
 </div>
-
       </section>
 
 <footer class="footer">
