@@ -55,6 +55,7 @@ export class ProductList  {
   featuredProducts: any[] = [];
   destacadoporcategories: FormGroup;
   categories: string[] = [];
+  productosenoferta:any[] = [];
 
   
   
@@ -191,6 +192,10 @@ this.productService.getFeaturedProducts().subscribe(products => {
   this.categories = [...new Set(products.map(p => p.category))];
   });
 
+this.productService.getProductsenoferta().subscribe(products => {
+    this.productosenoferta = products; // acá sí es un array
+  
+  });
 
     
   
