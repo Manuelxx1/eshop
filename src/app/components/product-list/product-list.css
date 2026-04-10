@@ -297,7 +297,70 @@
 }
 
 
+/*section ofertas */
 
+.offers-section {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.offers-header {
+  background-color: #cc0000;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.offers-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.offers-header p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  width: 220px;
+  position: relative;
+}
+
+.offer-label {
+  background-color: #cc0000;
+  color: white;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.old-price {
+  color: #777;
+  text-decoration: line-through;
+  margin: 5px 0;
+}
+
+.new-price {
+  color: #cc0000;
+  font-size: 22px;
+  font-weight: bold;
+}
 
 
 
