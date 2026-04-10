@@ -254,9 +254,16 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
   return this.http.get<Product[]>(`${this.apiUrlProductsByCategory}/${category}`);
 }
 
+  //para Mostrar la section ofertas 
   
+    private apiUrlProductsenoferta= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/destacados';
+  
+  getProductsenoferta():Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrlProductsenoferta);
+    
+  }
   private apiUrlTodosLosProductos = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/todoslosproductos';
-  // Trae todos los productos
+  // Trae todos los productos para el menú productos 
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrlTodosLosProductos);
   }
