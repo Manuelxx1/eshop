@@ -111,8 +111,8 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
         <p>¡Aprovecha nuestras grandes ofertas y descuentos!</p>
     </div>
 
-    <div class="product-grid">
-        <div class="product-card" *ngFor="let product of productosenoferta" >
+    <div class="offers-grid">
+        <div class="offers-card" *ngFor="let product of productosenoferta" >
             <span class="offer-label">OFERTA 20% DESCUENTO</span>
             <img [src]="product.imageUrl" alt="{{ product.name }}">
             <h3>{{ product.name }}</h3>
