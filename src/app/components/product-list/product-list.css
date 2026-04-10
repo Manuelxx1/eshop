@@ -355,9 +355,13 @@
   border: 1px solid #ddd;
   padding: 15px;
   text-align: center;
-  width: 220px;
 }
 
+.offers-card img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
 
 .old-price {
   color: #777;
