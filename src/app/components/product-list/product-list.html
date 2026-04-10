@@ -117,8 +117,10 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
             <!--El contador se usa en ocasiones especiales como un blackfriday o cybermonday 
           donde las ofertas de esa ocasión finalizan en un par de dias
       en días normales las ofertas no tienen contador
-          -->
+          se debería armar una section especial para esa ocasión así el código 
+          no se mezcla con las ofertas normales diarias          
           <div class="countdown">{{ countdown }}</div>
+          -->
             <img [src]="product.imageUrl" alt="{{ product.name }}">
             <h3>{{ product.name }}</h3>
             <p class="old-price">$759.999</p>
