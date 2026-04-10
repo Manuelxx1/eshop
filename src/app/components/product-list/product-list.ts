@@ -56,7 +56,7 @@ export class ProductList  {
   destacadoporcategories: FormGroup;
   categories: string[] = [];
   productosenoferta:any[] = [];
-
+countdown: string = '';
   
   
   loading = true;
@@ -197,11 +197,32 @@ this.productService.getProductsenoferta().subscribe(products => {
   
   });
 
-    
+    this.startCountdown(120); // duración en minutos
   
   }//ngOnInit 
 
 
+startCountdown(durationMinutes: number) {
+    const endTime = new Date().getTime() + durationMinutes * 60000;
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = endTime - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        this.countdown = 'Finalizado';
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+      this.countdown = `${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  }
+  
         // Getter para acceder al valor seleccionado de las categorías 
   get filteredProducts(): Product[] {
   const selectedCategory = this.destacadoporcategories.get('category')?.value;
