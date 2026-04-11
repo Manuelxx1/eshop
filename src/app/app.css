@@ -152,11 +152,17 @@
 
 /*RESPONSIVE para movil*/
 @media (max-width: 768px) {
+  /*cuando el tamaño pase a 768px se activa .menu-toggle y 
+  muestra el boton hamburguesa*/
 .menu-toggle {
     display: block; /* aparece el botón hamburguesa */
  width:10%;
 }
-
+/*los elementos del menu estan ocultos hasta que se
+  toque el boton hamburguesa y se ejecutael método
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }*/
   .nav-menu {
     display: none; /* oculto por defecto */
     flex-direction: column;
@@ -168,7 +174,7 @@
     width: 100%;
     padding: 12px;
   }
-
+/* si menuOpen es true los elementos se muestran en display flex*/
   .nav-menu.open {
     display: flex; /* se muestra cuando menuOpen = true */
   }
