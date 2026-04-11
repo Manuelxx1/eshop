@@ -306,7 +306,7 @@
 .google-form {
   width: 100%;
   height: 500px; /* ajustá según el largo del form */
-  
+  padding:3px;
 }
 
 
