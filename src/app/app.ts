@@ -57,4 +57,9 @@ export class App {
     this.menuOpen = !this.menuOpen;
   }
 
+//ocultar el nav-menu con sus elementos 
+  closeMenu() {
+  this.menuOpen = false;
+  }
+
 }
