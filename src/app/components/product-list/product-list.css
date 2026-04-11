@@ -296,6 +296,19 @@
   padding-top: 12px;
 }
 
+/*form de google */
+.form-wrapper {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* sombra suave */
+}
+
+.google-form {
+  width: 100%;
+  height: 500px; /* ajustá según el largo del form */
+  
+}
+
 
 /*section ofertas */
 
