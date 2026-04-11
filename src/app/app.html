@@ -16,16 +16,16 @@
 
   <!-- Menú -->
   <nav class="nav-menu" [ngClass]="{ 'open': menuOpen }">
-    <a href="ghh">Inicio</a>
-    <a routerLink="/productos">Productos</a> 
-    <a href="#destacados" >Productos Destacados</a>
+    <a href="ghh" (click)="closeMenu()">Inicio</a>
+    <a routerLink="/productos" (click)="closeMenu()">Productos</a> 
+    <a href="#destacados" (click)="closeMenu()">Productos Destacados</a>
 
-    <a href="#ofertas">Ofertas</a>
-    <a href="#">Contacto</a>
+    <a href="#ofertas" (click)="closeMenu()">Ofertas</a>
+    <a href="#" (click)="closeMenu()">Contacto</a>
     <!-- Login/Register dentro del menú en móvil -->
     <div class="auth-links-mobile">
       <p>Iniciar sesion</p>
-      <a routerLink="/login">Login</a>  <p>No tienes una cuenta?</p><a routerLink="/register">Register</a>
+      <a routerLink="/login" (click)="closeMenu()" >Login</a>  <p>No tienes una cuenta?</p><a routerLink="/register"  (click)="closeMenu()">Register</a>
     </div>
   </nav>
 
