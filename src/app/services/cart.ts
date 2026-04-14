@@ -118,10 +118,12 @@ getItems() {
 }
  
   // Método para visitantes sin sesión
-  addItem(item: { id: number; quantity: number }) {
-    this.items.push(item);
-    this.updateStorage();
-  }
+  addItem(product: any, quantity: number) {
+  const cartItem: CartItem = { product, quantity };
+  this.items.push(cartItem);
+  this.updateStorage();
+}
+
 
   getItemsSinSession() {
     return this.items;
