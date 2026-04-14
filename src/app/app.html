@@ -42,7 +42,7 @@
 
   <!-- Carrito + Login/Register desktop -->
   <div class="header-actions">
-    <div class="cart-icon">
+    <div class="cart-icon" (click)="toggleDropdown()"> 
       🛒 <span class="cart-count">{{ cartCount }}</span>
     </div>
       <!-- Dropdown del carrito -->
