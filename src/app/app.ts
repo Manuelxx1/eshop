@@ -97,4 +97,9 @@ cartCount = 0;
     this.items = this.cartService.getItemsSinSession(); // refrescamos lista
   }
 
+  clearCartSinSession() {
+    this.cartService.clearCartSinSession();
+    
+  }
+
 }
