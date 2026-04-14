@@ -159,6 +159,14 @@ getItems() {
     this.cartCount.next(this.items.length);
                         }
 
+    // ver el total del carrito sin session 
+getTotal(): number {
+  return this.items.reduce((acc, item) => {
+    const price = item.product.price || 0; // asumimos que el producto tiene un campo "price"
+    return acc + price * item.quantity;
+  }, 0);
+}
+
   // Método para comprar el carrito
 comprarCarrito(cartItems: any[], idUsuario: number, formData: any): Observable<string> {
   const body = { 
