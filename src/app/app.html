@@ -54,7 +54,10 @@
       <button (click)="removeItem(i)">❌</button>
     </div>
           <button (click)="clearCartSinSession()">Vaciar Carrito</button>
-
+<!-- Subtotal -->
+    <div class="cart-total">
+      Total: ${{ total }}
+    </div>
     <button routerLink="/cart">Ver carrito</button>
   </div>
 </div>
