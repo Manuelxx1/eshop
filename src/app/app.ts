@@ -29,6 +29,10 @@ export class App {
   searchActive=false;
   //carrito sin session
 cartCount = 0;
+  // almacena los items agregados al carrito 
+  items: any[] = [];
+  //menu desplegable del carrito sin session
+  dropdownOpen = false;
   
   constructor(private productService: Product, private cartService: Cart ){}
   ngOnInit(): void {
@@ -62,6 +66,8 @@ cartCount = 0;
     this.cartService.cartCount$.subscribe(count => {
       this.cartCount = count;
     });
+
+    this.items = this.cartService.getItemsSinSession();
   
 }//ngOnInit 
 
@@ -73,6 +79,16 @@ cartCount = 0;
 //ocultar el nav-menu con sus elementos 
   closeMenu() {
   this.menuOpen = false;
+  }
+
+
+  //desplegable para mostrar los items del carrito sin session 
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+    // refrescamos los items cada vez que se abre
+    if (this.dropdownOpen) {
+      this.items = this.cartService.getItemsSinSession();
+    }
   }
 
 }
