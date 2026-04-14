@@ -89,6 +89,20 @@
   width: 250px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+/*eliminar los items del carrito sin session */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.cart-item button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+
 
 
 
