@@ -310,7 +310,7 @@ if (idUsuario) {
   });
       } else {
     // Usuario sin sesión → carrito local
-    this.cartService.addItem({ id: product.id, quantity });
+    this.cartService.addItem({ product, quantity });
     console.log("Agregado al carrito local");
 }
 }
