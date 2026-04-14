@@ -141,7 +141,14 @@ getItems() {
   getItemsSinSession() {
     return this.items;
   }
-
+  
+  //Método para eliminar un producto por índice
+  removeItem(index: number) {
+    if (index > -1 && index < this.items.length) {
+      this.items.splice(index, 1); // elimina el item
+      this.updateStorage();        // actualiza localStorage y contador
+    }
+  }
   clearCartSinSession() {
     this.items = [];
     this.updateStorage();
