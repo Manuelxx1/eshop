@@ -310,7 +310,9 @@ if (idUsuario) {
   });
       } else {
     // Usuario sin sesión → carrito local
-    this.cartService.addItem({ product, quantity });
+  //en este caso se pasa el objeto product completo porque la interfaz   
+  //CartItem lo requeria por esta definición private items: CartItem[] = [];
+  this.cartService.addItem( product, quantity );
     console.log("Agregado al carrito local");
 }
 }
