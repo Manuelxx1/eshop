@@ -7,7 +7,7 @@ import { WsTestComponent } from './components/ws-test-component/ws-test-componen
 import { Product,Order} from './services/product';
 import { Cart} from './services/cart';
 //se importa la interfaz CartItem que representa al modelo
-import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
+//import { CartItem } from './services/cart'; // ajustá el path si hace falta
 
 
 @Component({
