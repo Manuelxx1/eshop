@@ -18,8 +18,18 @@ export interface CartItem {
 export class Cart {
   
   private items: CartItem[] = [];
+  /*cartCount es el BehaviorSubject interno,
+  donde se hace .next() para actualizar*/
   private cartCount = new BehaviorSubject<number>(0);
 
+/*cartCount$ es la versión observable que se expone a los componentes.
+El $ en el nombre no es obligatorio, pero es una convención de estilo 
+para que al leer el código sepas que esa variable es un observable
+y no un valor normal
+En resumen: cartCount$ es simplemente un observable del contador del carrito, 
+y el $ es solo un nombre de variable que te ayuda a distinguirlo.
+*/
+  
   cartCount$ = this.cartCount.asObservable();
   
   /*versión frontend con localStorage 
