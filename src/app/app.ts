@@ -108,7 +108,7 @@ cartCount = 0;
 
   private refreshItems() {
     this.items = this.cartService.getItemsSinSession();
-    this.total = this.cartService.getTotal();
+    
   }
 
 }
