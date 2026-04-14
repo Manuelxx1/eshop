@@ -59,7 +59,7 @@ cartCount = 0;
     this.cartService.cartCount$.subscribe(count => {
       this.cartCount = count;
     });
-  }
+  
 }//ngOnInit 
 
   //para Mostrar el menú en movil
