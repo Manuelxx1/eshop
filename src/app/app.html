@@ -52,7 +52,7 @@
     <div *ngFor="let item of items; let i = index" class="cart-item">
       {{ item.product.name }} - Cantidad: {{ item.quantity }}
       <button (click)="removeItem(i)">❌</button>
-      <button (click)="clearCartSinSession()">❌</button>
+      <button (click)="clearCartSinSession()">Vaciar Carrito</button>
     </div>
     <button routerLink="/cart">Ver carrito</button>
   </div>
