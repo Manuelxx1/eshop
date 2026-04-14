@@ -36,8 +36,8 @@ cartCount = 0;
 
   //la property total no está acá porque usamos un async pipe
 // con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
- 
-  constructor(private productService: Product, private cartService: Cart ){}
+ //importante: public a cartService para usarlo en el template con async pipe
+  constructor(private productService: Product, public cartService: Cart ){}
   ngOnInit(): void {
   this.searchControl.valueChanges.subscribe(term => {
     const query = term?.trim();
@@ -71,8 +71,7 @@ cartCount = 0;
     });
 
     this.items = this.cartService.getItemsSinSession();
-  //para el total del carrito sin session 
-    this.refreshItems()
+  
 }//ngOnInit 
 
   //para Mostrar el menú en movil
@@ -106,9 +105,5 @@ cartCount = 0;
     
   }
 
-refreshItems() {
-    this.items = this.cartService.getItemsSinSession();
-    
-  }
 
 }
