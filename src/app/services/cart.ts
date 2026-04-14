@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+//para el carrito sin sesión 
+import { BehaviorSubject } from 'rxjs';
+ 
 //para agregar por cantidad sin repetir
 //el dato de la base solo la cantidad 
 export interface CartItem {
@@ -16,7 +18,10 @@ export interface CartItem {
 export class Cart {
   
   private items: CartItem[] = [];
- 
+  private cartCount = new BehaviorSubject<number>(0);
+
+  cartCount$ = this.cartCount.asObservable();
+  
   /*versión frontend con localStorage 
   constructor() {
     const storedCart = localStorage.getItem('cart');
@@ -90,9 +95,15 @@ decreaseQuantity(productId: number): void {
  // private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com';
   private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
 
-constructor(private http: HttpClient) {}
+constructor(private http: HttpClient) {
+  // Al iniciar, cargamos lo que haya en localStorage
+    const savedItems = localStorage.getItem('cartItems');
+    if (savedItems) {
+      this.items = JSON.parse(savedItems);
+      this.cartCount.next(this.items.length);
+    }
 
-
+}
   
 // Obtener carrito desde backend
 /*getItems() {
@@ -105,7 +116,26 @@ getItems() {
     params: { idUsuario: idUsuario! }
   });
 }
+ 
+  // Método para visitantes sin sesión
+  addItem(item: { id: number; quantity: number }) {
+    this.items.push(item);
+    this.updateStorage();
+  }
 
+  getItemsSinSession() {
+    return this.items;
+  }
+
+  clearCartSinSession() {
+    this.items = [];
+    this.updateStorage();
+  }
+
+  private updateStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
+    this.cartCount.next(this.items.length);
+                        }
 
   // Método para comprar el carrito
 comprarCarrito(cartItems: any[], idUsuario: number, formData: any): Observable<string> {
