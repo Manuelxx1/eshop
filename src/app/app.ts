@@ -5,6 +5,8 @@ import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } fro
 import { CommonModule } from '@angular/common';
 import { WsTestComponent } from './components/ws-test-component/ws-test-component';
 import { Product,Order} from './services/product';
+import { Cart} from '../../services/cart';
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule,RouterLink],
@@ -22,9 +24,10 @@ export class App {
   loading = true;
   error = false;
   searchActive=false;
-
+  //carrito sin session
+cartCount = 0;
   
-  constructor(private productService: Product ){}
+  constructor(private productService: Product, private cartService: CartService ){}
   ngOnInit(): void {
   this.searchControl.valueChanges.subscribe(term => {
     const query = term?.trim();
@@ -50,6 +53,13 @@ export class App {
       this.searchActive = false; // no hay búsqueda activa
     }
   });
+
+
+    // Nos suscribimos al observable del carrito sin session
+    this.cartService.cartCount$.subscribe(count => {
+      this.cartCount = count;
+    });
+  }
 }//ngOnInit 
 
   //para Mostrar el menú en movil
