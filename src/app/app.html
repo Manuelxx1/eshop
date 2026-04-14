@@ -63,7 +63,7 @@
       por la variable especial total$, esto evita tener que suscribirnos
       desde el component en ngOnInit 
   -->
-      Total: ${{ cartService.total$ | async }}
+      Total: {{ cartService.total$ | async | currency:'ARS':'symbol':'1.0-0' }}
     </div>
     <button routerLink="/cart">Ver carrito</button>
   </div>
