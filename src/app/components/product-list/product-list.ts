@@ -312,6 +312,11 @@ if (idUsuario) {
     // Usuario sin sesión → carrito local
   //en este caso se pasa el objeto product completo porque la interfaz   
   //CartItem lo requeria por esta definición private items: CartItem[] = [];
+  //si definimos así private items: Any [] = []; no iba a ser necesario obedecer 
+  //a las propiedades declaradas en la interfaz CartItem 
+  //y se le podria pasar cualquier tipo de datos a nuestro método addItem
+  //eso facilita el código pero en producción se usa la interfaz 
+  //porque  te facilita mostrar nombre, precio, imagen, etc. en la página del carrito sin errores.
   this.cartService.addItem( product, quantity );
     console.log("Agregado al carrito local");
 }
