@@ -56,7 +56,14 @@
           <button (click)="clearCartSinSession()">Vaciar Carrito</button>
 <!-- Subtotal -->
     <div class="cart-total">
-      Total: ${{ total }}
+      <!--usamos el pipe async para mostra los datos al instante 
+      sin tener que actualizar la página
+      esto nos permite suscribirnos directamente al
+      la variable totalSubject del BehaviorSubject que esta representada 
+      por la variable especial total$, esto evita tener que suscribirnos
+      desde el component en ngOnInit 
+  -->
+      Total: ${{ cartService.total$ | async }}
     </div>
     <button routerLink="/cart">Ver carrito</button>
   </div>
