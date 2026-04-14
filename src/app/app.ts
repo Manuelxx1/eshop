@@ -27,7 +27,7 @@ export class App {
   //carrito sin session
 cartCount = 0;
   
-  constructor(private productService: Product, private cartService: CartService ){}
+  constructor(private productService: Product, private cartService: Cart ){}
   ngOnInit(): void {
   this.searchControl.valueChanges.subscribe(term => {
     const query = term?.trim();
