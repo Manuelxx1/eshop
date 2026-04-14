@@ -31,6 +31,10 @@ y el $ es solo un nombre de variable que te ayuda a distinguirlo.
 */
   
   cartCount$ = this.cartCount.asObservable();
+
+  private totalSubject = new BehaviorSubject<number>(0);
+total$ = this.totalSubject.asObservable();
+
   
   /*versión frontend con localStorage 
   constructor() {
