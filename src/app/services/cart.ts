@@ -119,7 +119,10 @@ getItems() {
  
   // Método para visitantes sin sesión
   addItem(product: any, quantity: number) {
-  const cartItem: CartItem = { product, quantity };
+  const cartItem: CartItem = {
+    id: product.id,
+    product, quantity
+  };
   this.items.push(cartItem);
   this.updateStorage();
 }
