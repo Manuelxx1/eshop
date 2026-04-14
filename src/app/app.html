@@ -45,6 +45,14 @@
     <div class="cart-icon">
       🛒 <span class="cart-count">{{ cartCount }}</span>
     </div>
+      <!-- Dropdown del carrito -->
+  <div class="cart-dropdown" *ngIf="dropdownOpen">
+    <div *ngIf="items.length === 0">Tu carrito está vacío</div>
+    <div *ngFor="let item of items">
+      {{ item.product.name }} - Cantidad: {{ item.quantity }}
+    </div>
+    <button routerLink="/cart">Ver carrito</button>
+  </div>
     <div class="auth-links-desktop">
       <p>Iniciar sesion</p>
       <a routerLink="/login">Login</a> <p>No tienes una cuenta?</p> <a routerLink="/register">Register</a>
