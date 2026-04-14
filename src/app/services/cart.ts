@@ -161,6 +161,7 @@ getItems() {
   private updateStorage() {
     localStorage.setItem('cartItems', JSON.stringify(this.items));
     this.cartCount.next(this.items.length);
+    this.totalSubject.next(this.getTotal()); // recalculamos subtotal
                         }
 
     // ver el total del carrito sin session 
