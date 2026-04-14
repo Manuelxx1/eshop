@@ -6,6 +6,9 @@ import { CommonModule } from '@angular/common';
 import { WsTestComponent } from './components/ws-test-component/ws-test-component';
 import { Product,Order} from './services/product';
 import { Cart} from './services/cart';
+//se importa la interfaz CartItem que representa al modelo
+import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
+
 
 @Component({
   selector: 'app-root',
