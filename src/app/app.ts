@@ -33,6 +33,8 @@ cartCount = 0;
   items: any[] = [];
   //menu desplegable del carrito sin session
   dropdownOpen = false;
+  //total del carrito sin session 
+  total = 0;
   
   constructor(private productService: Product, private cartService: Cart ){}
   ngOnInit(): void {
@@ -68,7 +70,8 @@ cartCount = 0;
     });
 
     this.items = this.cartService.getItemsSinSession();
-  
+  //para el total del carrito sin session 
+    this.refreshItems()
 }//ngOnInit 
 
   //para Mostrar el menú en movil
@@ -100,6 +103,11 @@ cartCount = 0;
   clearCartSinSession() {
     this.cartService.clearCartSinSession();
     
+  }
+
+  private refreshItems() {
+    this.items = this.cartService.getItemsSinSession();
+    this.total = this.cartService.getTotal();
   }
 
 }
