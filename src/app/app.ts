@@ -33,9 +33,10 @@ cartCount = 0;
   items: any[] = [];
   //menu desplegable del carrito sin session
   dropdownOpen = false;
-  //total del carrito sin session 
-  total = 0;
-  
+
+  //la property total no está acá porque usamos un async pipe
+// con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
+ 
   constructor(private productService: Product, private cartService: Cart ){}
   ngOnInit(): void {
   this.searchControl.valueChanges.subscribe(term => {
