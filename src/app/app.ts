@@ -91,4 +91,10 @@ cartCount = 0;
     }
   }
 
+    //pata eliminar items del carrito sin session 
+  removeItem(index: number) {
+    this.cartService.removeItem(index);
+    this.items = this.cartService.getItemsSinSession(); // refrescamos lista
+  }
+
 }
