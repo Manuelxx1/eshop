@@ -42,10 +42,11 @@
 
   <!-- Carrito + Login/Register desktop -->
   <div class="header-actions">
-    <div class="cart-icon" (click)="toggleDropdown()"> 
-      🛒 <span class="cart-count">{{ cartCount }}</span>
-    </div>
-        <!-- Dropdown del carrito -->
+  <div class="cart-icon" (click)="toggleDropdown()">
+    🛒 <span class="cart-count">{{ cartCount }}</span>
+  </div>
+
+  <!-- Dropdown del carrito -->
   <div class="cart-dropdown" *ngIf="dropdownOpen">
     <div *ngIf="items.length === 0">Tu carrito está vacío</div>
     <div *ngFor="let item of items; let i = index" class="cart-item">
@@ -54,7 +55,9 @@
     </div>
     <button routerLink="/cart">Ver carrito</button>
   </div>
+</div>
 </header>
+
 <!-- Resultados fuera del header se muestra solo si hay búsqueda activa por el usuario-->
 <div *ngIf="searchActive" class="search-results">
   <div *ngIf="loading" class="loading">Buscando productos...</div>
