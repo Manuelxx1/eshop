@@ -298,7 +298,8 @@ startCountdown(durationMinutes: number) {
   addToCart(product: any): void {
   const quantity = this.quantityControl.value; //  acá tomás el valor del select
   const idUsuario = Number(localStorage.getItem('idUsuario'));
-
+if (idUsuario) {
+    // Usuario logueado → carrito en backend 
     this.cartService.addToCart(product.id, quantity,idUsuario ).subscribe({
     next: (res) =>{
       console.log("Error backend:", res);
@@ -307,6 +308,11 @@ startCountdown(durationMinutes: number) {
       console.error('Error al agregar al carrito', err);
     }
   });
+      } else {
+    // Usuario sin sesión → carrito local
+    this.cartService.addItem({ id: product.id, quantity });
+    console.log("Agregado al carrito local");
+}
 }
 
 
