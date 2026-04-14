@@ -106,7 +106,7 @@ cartCount = 0;
     
   }
 
-  private refreshItems() {
+refreshItems() {
     this.items = this.cartService.getItemsSinSession();
     
   }
