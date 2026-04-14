@@ -100,8 +100,12 @@ cartCount = 0;
     this.items = this.cartService.getItemsSinSession(); // refrescamos lista
   }
 
-  clearCartSinSession() {
-    this.cartService.clearCartSinSession();
+  
+    clearCartSinSession() {
+  this.cartService.clearCartSinSession();
+  this.items = this.cartService.getItemsSinSession(); // refrescar vista
+}
+
     
   }
 
