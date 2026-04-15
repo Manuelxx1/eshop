@@ -182,12 +182,6 @@ getTotal(): number {
   }, 0);
 }
 
-  //para la página del carrito
-  
-               private calculateTotal(cart: any[]): number {
-  return cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
-}            
-
   // Método para comprar el carrito
 comprarCarrito(cartItems: any[], idUsuario: number, formData: any): Observable<string> {
   const body = { 
@@ -251,45 +245,72 @@ increaseFromCart(productId: number, userId: number) {
   }
   */
 
+increaseLocal(productId: number) {
+    const item = this.items.find(i => i.product.id === productId);
+    if (item) {
+      item.quantity++;
+      this.updateStorage();
+    }
+  }
+
+  decreaseLocal(productId: number) {
+    const item = this.items.find(i => i.product.id === productId);
+    if (item && item.quantity > 1) {
+      item.quantity--;
+    } else {
+      this.items = this.items.filter(i => i.product.id !== productId);
+    }
+    this.updateStorage();
+  }
+
+  removeLocal(productId: number) {
+    this.items = this.items.filter(i => i.product.id !== productId);
+    this.updateStorage();
+  }
+
+  clearLocal() {
+    this.items = [];
+    this.updateStorage();
+    }
+
+
+  // Métodos con sesión (backend)
+  // -------------------
   increaseFromCart(productId: number, userId: number) {
-  return this.http.post<CartItem[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
-    tap(cart => {
-      this.itemsSubject.next(cart);
-      this.totalSubject.next(this.calculateTotal(cart));
-    })
-  );
+    return this.http.post<CartItem[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
+      tap(cart => {
+        this.items = cart;
+        this.updateStorage();
+      })
+    );
+  }
+
+  decreaseFromCart(productId: number, userId: number) {
+    return this.http.post<CartItem[]>(`${this.apiUrl}/decrease`, { productId, userId }).pipe(
+      tap(cart => {
+        this.items = cart;
+        this.updateStorage();
+      })
+    );
+  }
+
+  removeFromCart(productId: number, userId: number) {
+    return this.http.post<CartItem[]>(`${this.apiUrl}/remove`, { productId, userId }).pipe(
+      tap(cart => {
+        this.items = cart;
+        this.updateStorage();
+      })
+    );
+  }
+
+  clearCart(userId: number) {
+    return this.http.post<CartItem[]>(`${this.apiUrl}/clear`, { userId }).pipe(
+      tap(cart => {
+        this.items = cart;
+        this.updateStorage();
+      })
+    );
 }
-
-
-decreaseFromCart(productId: number, userId: number) {
-  return this.http.post<CartItem[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
-    tap(cart => {
-      this.itemsSubject.next(cart);
-      this.totalSubject.next(this.calculateTotal(cart));
-    })
-  );
-}
-
-
-removeFromCart(productId: number, userId: number) {
-  return this.http.post<CartItem[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
-    tap(cart => {
-      this.itemsSubject.next(cart);
-      this.totalSubject.next(this.calculateTotal(cart));
-    })
-  );
-}
-
-
-clearCart(userId: number) {
-  return this.http.post<CartItem[]>(`${this.apiUrl}/clear`, { userId }).pipe(
-    tap(cart => {
-      this.itemsSubject.next(cart);
-      this.totalSubject.next(this.calculateTotal(cart));
-    })
-  );
-                             }
-
 
 }
 
