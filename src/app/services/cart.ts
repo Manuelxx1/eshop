@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 //para el carrito sin sesión 
 import { BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
  
 //para agregar por cantidad sin repetir
 //el dato de la base solo la cantidad 
