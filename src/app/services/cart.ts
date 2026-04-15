@@ -252,25 +252,27 @@ increaseFromCart(productId: number, userId: number) {
   */
 
   increaseFromCart(productId: number, userId: number) {
-  return this.http.post<any[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
+  return this.http.post<CartItem[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
     tap(cart => {
       this.itemsSubject.next(cart);
       this.totalSubject.next(this.calculateTotal(cart));
     })
   );
 }
+
 
 decreaseFromCart(productId: number, userId: number) {
-  return this.http.post<any[]>(`${this.apiUrl}/decrease`, { productId, userId }).pipe(
+  return this.http.post<CartItem[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
     tap(cart => {
       this.itemsSubject.next(cart);
       this.totalSubject.next(this.calculateTotal(cart));
     })
   );
 }
+
 
 removeFromCart(productId: number, userId: number) {
-  return this.http.post<any[]>(`${this.apiUrl}/remove`, { productId, userId }).pipe(
+  return this.http.post<CartItem[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
     tap(cart => {
       this.itemsSubject.next(cart);
       this.totalSubject.next(this.calculateTotal(cart));
@@ -278,8 +280,9 @@ removeFromCart(productId: number, userId: number) {
   );
 }
 
+
 clearCart(userId: number) {
-  return this.http.post<any[]>(`${this.apiUrl}/clear`, { userId }).pipe(
+  return this.http.post<CartItem[]>(`${this.apiUrl}/clear`, { userId }).pipe(
     tap(cart => {
       this.itemsSubject.next(cart);
       this.totalSubject.next(this.calculateTotal(cart));
