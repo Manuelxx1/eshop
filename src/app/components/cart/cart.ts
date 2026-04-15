@@ -51,8 +51,10 @@ this.checkoutForm = this.fb.group({
 
 
 
-  //version backend 
-
+  //version backend para mostrar el carrito sin
+  //BehaviorSubject ni el pipe async
+  //suscribiéndose manualmente 
+/*
 loadCart(): void {
   this.cartService.getItems().subscribe({
     next: (data) => {
@@ -67,7 +69,7 @@ loadCart(): void {
     }
   });
 }
-
+*/
 
   currentStep = 1;
 
