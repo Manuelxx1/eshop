@@ -43,7 +43,10 @@
 -->
 
 <h2>Carrito de compras</h2>
-
+<!--Con as items, Angular guarda el resultado del async en una variable local items. 
+Como el *ngIf ya controla que exista, no hay riesgo de undefined.
+esto te permite usar la variable items varias veces dentro del bloque sin repetir el async pipe.
+ (cartService.items$ | async) en cada *ngFor y *ngIf-->
 <ng-container *ngIf="cartService.items$ | async as items">
   <div *ngIf="items.length === 0">
     Tu carrito está vacío
