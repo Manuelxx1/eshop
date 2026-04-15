@@ -316,42 +316,40 @@ increaseLocal(productId: number) {
 }
 
 
- migrateLocalCartToBackend(userId: number) {
-  const localItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+   migrateLocalCartToBackend(userId: number) {
+    const localItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
 
-  if (localItems.length === 0) {
-    return this.getCart(userId); // si no hay nada en local, solo traemos el carrito del backend
+    if (localItems.length === 0) {
+      return this.getCart(userId); // no hay nada que migrar
+    }
+
+    // Enviamos cada ítem con su cantidad al endpoint /add
+    const requests = localItems.map((item: any) =>
+      this.http.post(`${this.apiUrl}/add`, {
+        idUsuario: userId,
+        productId: item.product.id,
+        quantity: item.quantity
+      })
+    );
+
+    return forkJoin(requests).pipe(
+      switchMap(() => this.getCart(userId)), // sincronizamos al final
+      tap((cart: any[]) => {
+        this.items = cart;
+        this.updateStorage();
+        this.clearLocal();
+      })
+    );
   }
 
-  // Enviamos cada ítem con su cantidad al endpoint /add
-  const requests = localItems.map((item: any) =>
-    this.http.post(`${this.apiUrl}/add`, {
-      idUsuario: userId,
-      productId: item.product.id,
-      quantity: item.quantity
-    })
-  );
-
-  return forkJoin(requests).pipe(
-    // al terminar todas las inserciones, pedimos el carrito completo
-    switchMap(() => this.getCart(userId)),
-    tap((cart: CartItem[]) => {
-      this.items = cart;
-      this.updateStorage(); // actualizamos subjects y header
-      this.clearLocal();    // limpiamos carrito anónimo
-    })
-  );
-}
-
-getCart(userId: number) {
-  return this.http.get<CartItem[]>(`${this.apiUrl}/cart?idUsuario=${userId}`).pipe(
-    tap((cart: CartItem[]) => {
-      this.items = cart;
-      this.updateStorage();
-    })
-  );
-}
-
+  getCart(userId: number) {
+    return this.http.get<any[]>(`${this.apiUrl}/api/cart?idUsuario=${userId}`).pipe(
+      tap((cart: any[]) => {
+        this.items = cart;
+        this.updateStorage();
+      })
+    );
+  }
 
 
 }
