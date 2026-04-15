@@ -32,7 +32,7 @@ export class CartList implements OnInit{
     //obtener datos personales para envío 
 this.checkoutForm = this.fb.group({
   name: ['', Validators.required],
-  email: ['', [Validators.required, Validapne: [''],
+  email: ['', Validators.required],
   address: ['', Validators.required],
   city: ['', Validators.required],
   postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
