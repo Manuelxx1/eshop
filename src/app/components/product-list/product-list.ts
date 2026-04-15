@@ -301,8 +301,10 @@ startCountdown(durationMinutes: number) {
 if (idUsuario) {
     // Usuario logueado → carrito en backend 
     this.cartService.addToCart(product.id, quantity,idUsuario ).subscribe({
-    next: (res) =>{
-      console.log("Error backend:", res);
+    next: (cart) =>{
+      console.log("Carrito actualizado en backend:", cart);
+      // No hace falta asignar nada manualmente si tu servicio ya hace tap() y actualiza itemsSubject
+    // La vista se refresca sola porque el HTML usa cartService.items$ | async
     },
     error: err =>{
       console.error('Error al agregar al carrito', err);
