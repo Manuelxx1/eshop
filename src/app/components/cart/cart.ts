@@ -159,26 +159,41 @@ remove(productId: number): void {
 */
 
   increase(productId: number): void {
-  const userId = Number(localStorage.getItem('idUsuario'));
-    //aqui dejamos la suscripcion al service que usa un pipe tap
-    //con BehaviorSubject para que este método increase quede más liviano de codigo
-  this.cartService.increaseFromCart(productId, userId).subscribe();
+  const userId = localStorage.getItem('idUsuario');
+  if (userId) {
+    this.cartService.increaseFromCart(productId, Number(userId)).subscribe();
+  } else {
+    this.cartService.increaseLocal(productId);
+  }
 }
 
 decrease(productId: number): void {
-  const userId = Number(localStorage.getItem('idUsuario'));
-  this.cartService.decreaseFromCart(productId, userId).subscribe();
+  const userId = localStorage.getItem('idUsuario');
+  if (userId) {
+    this.cartService.decreaseFromCart(productId, Number(userId)).subscribe();
+  } else {
+    this.cartService.decreaseLocal(productId);
+  }
 }
 
 remove(productId: number): void {
-  const userId = Number(localStorage.getItem('idUsuario'));
-  this.cartService.removeFromCart(productId, userId).subscribe();
+  const userId = localStorage.getItem('idUsuario');
+  if (userId) {
+    this.cartService.removeFromCart(productId, Number(userId)).subscribe();
+  } else {
+    this.cartService.removeLocal(productId);
+  }
 }
 
 clear(): void {
-  const userId = Number(localStorage.getItem('idUsuario'));
-  this.cartService.clearCart(userId).subscribe();
+  const userId = localStorage.getItem('idUsuario');
+  if (userId) {
+    this.cartService.clearCart(Number(userId)).subscribe();
+  } else {
+    this.cartService.clearLocal();
+  }
 }
+
 
 
 }
