@@ -28,12 +28,11 @@ export class CartList implements OnInit{
 
       
 
-  constructor(private cartService: Cart, private fb: FormBuilder) {
+  constructor(public cartService: Cart, private fb: FormBuilder) {
     //obtener datos personales para envío 
 this.checkoutForm = this.fb.group({
   name: ['', Validators.required],
-  email: ['', [Validators.required, Validators.email]],
-  phone: [''],
+  email: ['', [Validators.required, Validapne: [''],
   address: ['', Validators.required],
   city: ['', Validators.required],
   postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
