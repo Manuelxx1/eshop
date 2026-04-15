@@ -152,7 +152,7 @@ this.message = 'Credenciales inválidas';
     next: () => {
       console.log('Carrito migrado y sincronizado con backend');
     },
-    error: err => console.error('Error al migrar carrito', err)
+    error: (err: any) => console.error('Error al migrar carrito', err)
   });
 }
 
