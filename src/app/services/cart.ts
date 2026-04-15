@@ -158,11 +158,17 @@ getItems() {
     this.updateStorage();
   }
 
+  private itemsSubject = new BehaviorSubject<any[]>([]);
+items$ = this.itemsSubject.asObservable();
+
   private updateStorage() {
     localStorage.setItem('cartItems', JSON.stringify(this.items));
     this.cartCount.next(this.items.length);
     this.totalSubject.next(this.getTotal()); // recalculamos subtotal
-                        }
+    this.itemsSubject.next([...this.items]); // emitir nueva lista 
+  }              
+  
+  }
 
     // ver el total del carrito sin session 
 getTotal(): number {
