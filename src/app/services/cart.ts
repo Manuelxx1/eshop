@@ -320,21 +320,22 @@ increaseLocal(productId: number) {
   const localItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
 
   if (localItems.length === 0) {
-    return this.getCart(userId); // no hay nada que migrar, solo traemos el carrito del backend
+    return this.getCart(userId); // si no hay nada en local, solo traemos el carrito del backend
   }
 
-  // Iteramos cada ítem y lo mandamos al backend
+  // Enviamos cada ítem con su cantidad al endpoint /add
   const requests = localItems.map((item: any) =>
-  this.http.post<CartItem[]>(`${this.apiUrl}/increase`, {
-    userId,
-    productId: item.product.id
-  })
-);
+    this.http.post(`${this.apiUrl}/add`, {
+      idUsuario: userId,
+      productId: item.product.id,
+      quantity: item.quantity
+    })
+  );
 
-  // Ejecutamos todas las llamadas y al final pedimos el carrito completo
   return forkJoin(requests).pipe(
+    // al terminar todas las inserciones, pedimos el carrito completo
     switchMap(() => this.getCart(userId)),
-    tap(cart => {
+    tap((cart: CartItem[]) => {
       this.items = cart;
       this.updateStorage(); // actualizamos subjects y header
       this.clearLocal();    // limpiamos carrito anónimo
@@ -343,13 +344,14 @@ increaseLocal(productId: number) {
 }
 
 getCart(userId: number) {
-  return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart?idUsuario=${userId}`).pipe(
-    tap(cart => {
+  return this.http.get<CartItem[]>(`${this.apiUrl}/cart?idUsuario=${userId}`).pipe(
+    tap((cart: CartItem[]) => {
       this.items = cart;
       this.updateStorage();
     })
   );
 }
+
 
 
 }
