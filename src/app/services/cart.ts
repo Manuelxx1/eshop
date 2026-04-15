@@ -227,10 +227,21 @@ comprarCarrito(cartItems: any[], idUsuario: number, formData: any): Observable<s
   //por ProductList component 
   //se usa este service que es de cart porque esta conectado
   //a la tabla cart_items y el de productlist no lo esta
-addToCart(productId: number, quantity: number,idUsuario:number): Observable<any> {
+/*
+  addToCart(productId: number, quantity: number,idUsuario:number): Observable<any> {
   return this.http.post(`${this.apiUrl}/add`, { productId, quantity,idUsuario });
 }
-
+*/
+  
+addToCart(productId: number, quantity: number, idUsuario: number): Observable<CartItem[]> {
+  return this.http.post(`${this.apiUrl}/add`, { productId, quantity, idUsuario }).pipe(
+    switchMap(() => this.getCart(idUsuario)), // pedimos carrito actualizado
+    tap((cart: CartItem[]) => {
+      this.items = cart;
+      this.updateStorage();
+    })
+  );
+}
 
   
   
