@@ -35,6 +35,10 @@ y el $ es solo un nombre de variable que te ayuda a distinguirlo.
   private totalSubject = new BehaviorSubject<number>(0);
 total$ = this.totalSubject.asObservable();
 
+  private itemsSubject = new BehaviorSubject<any[]>([]);
+items$ = this.itemsSubject.asObservable();
+
+
   
   /*versión frontend con localStorage 
   constructor() {
@@ -158,9 +162,7 @@ getItems() {
     this.updateStorage();
   }
 
-  private itemsSubject = new BehaviorSubject<any[]>([]);
-items$ = this.itemsSubject.asObservable();
-
+  
   private updateStorage() {
     localStorage.setItem('cartItems', JSON.stringify(this.items));
     this.cartCount.next(this.items.length);
@@ -168,7 +170,7 @@ items$ = this.itemsSubject.asObservable();
     this.itemsSubject.next([...this.items]); // emitir nueva lista 
   }              
   
-  }
+  
 
     // ver el total del carrito sin session 
 getTotal(): number {
