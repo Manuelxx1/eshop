@@ -123,7 +123,10 @@ this.message = 'Credenciales inválidas';
         
 //this.cargarDatosDashboard(res.usuario);
      
-        
+        onLoginSuccess(res.body.id);
+  
+
+
         
         
         alert(res.body.id); //mensaje del.backend por ejemplo: "Login exitoso"
@@ -143,6 +146,16 @@ this.message = 'Credenciales inválidas';
     
   });
 }
+
+  onLoginSuccess(userId: number) {
+  this.cartService.migrateLocalCartToBackend(userId).subscribe({
+    next: () => {
+      console.log('Carrito migrado y sincronizado con backend');
+    },
+    error: err => console.error('Error al migrar carrito', err)
+  });
+}
+
 
 
 }
