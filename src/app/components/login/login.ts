@@ -123,7 +123,7 @@ this.message = 'Credenciales inválidas';
         
 //this.cargarDatosDashboard(res.usuario);
      
-        onLoginSuccess(res.body.id);
+        this.onLoginSuccess(res.body.id);
   
 
 
