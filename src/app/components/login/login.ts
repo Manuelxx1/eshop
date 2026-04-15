@@ -3,7 +3,7 @@ import { Product} from '../../services/product';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet,RouterLink } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
-
+import { Cart } from '../../services/cart';
 import { Router } from '@angular/router';
 
 @Component({
