@@ -160,6 +160,8 @@ remove(productId: number): void {
 
   increase(productId: number): void {
   const userId = Number(localStorage.getItem('idUsuario'));
+    //aqui dejamos la suscripcion al service que usa un pipe tap
+    //con BehaviorSubject para que este método increase quede más liviano de codigo
   this.cartService.increaseFromCart(productId, userId).subscribe();
 }
 
