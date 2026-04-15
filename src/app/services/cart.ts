@@ -142,11 +142,17 @@ getItems() {
  
   // Método para visitantes sin sesión
   addItem(product: any, quantity: number) {
-  const cartItem: CartItem = {
+ const item = this.items.find(i => i.product.id === product.id);
+  if (item) {
+    // ya existe → aumentar cantidad
+    item.quantity++;
+  } else {
+    const cartItem: CartItem = {
     id: product.id,
     product, quantity
   };
   this.items.push(cartItem);
+  }
   this.updateStorage();
 }
 
