@@ -176,10 +176,14 @@ getItems() {
   
   private updateStorage() {
     localStorage.setItem('cartItems', JSON.stringify(this.items));
-    this.cartCount.next(this.items.length);
+  this.cartCount.next(this.getCartCount());   
     this.totalSubject.next(this.getTotal()); // recalculamos subtotal
     this.itemsSubject.next([...this.items]); // emitir nueva lista 
-  }              
+  }         
+
+  private getCartCount(): number {
+  return this.items.reduce((acc, item) => acc + item.quantity, 0);
+  }
   
   
 
