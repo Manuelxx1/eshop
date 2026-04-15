@@ -312,6 +312,43 @@ increaseLocal(productId: number) {
     );
 }
 
+
+ migrateLocalCartToBackend(userId: number) {
+  const localItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+
+  if (localItems.length === 0) {
+    return this.getCart(userId); // no hay nada que migrar, solo traemos el carrito del backend
+  }
+
+  // Iteramos cada ítem y lo mandamos al backend
+  const requests = localItems.map(item =>
+    this.http.post<CartItem[]>(`${this.apiUrl}/increase`, {
+      userId,
+      productId: item.product.id
+    })
+  );
+
+  // Ejecutamos todas las llamadas y al final pedimos el carrito completo
+  return forkJoin(requests).pipe(
+    switchMap(() => this.getCart(userId)),
+    tap(cart => {
+      this.items = cart;
+      this.updateStorage(); // actualizamos subjects y header
+      this.clearLocal();    // limpiamos carrito anónimo
+    })
+  );
+}
+
+getCart(userId: number) {
+  return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart?idUsuario=${userId}`).pipe(
+    tap(cart => {
+      this.items = cart;
+      this.updateStorage();
+    })
+  );
+}
+
+
 }
 
   
