@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 //para el carrito sin sesión 
 import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { forkJoin, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
 
  
 //para agregar por cantidad sin repetir
