@@ -6,6 +6,7 @@
 </div>
 
 <!-- Paso 1: Carrito -->
+<!--
 <div *ngIf="currentStep === 1" class="step-container step-active">
   <h2>Carrito</h2>
   <table>
@@ -39,6 +40,46 @@
 
   <button (click)="goNext()">Continuar</button>
 </div>
+-->
+
+<h2>Carrito de compras</h2>
+
+<div *ngIf="(cartService.items$ | async)?.length === 0">
+  Tu carrito está vacío
+</div>
+
+<table *ngIf="(cartService.items$ | async)?.length > 0">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio unitario</th>
+      <th>Subtotal</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of (cartService.items$ | async); let i = index">
+      <td>{{ item.product.name }}</td>
+      <td>
+        <button (click)="decrease(item.product.id)">-</button>
+        {{ item.quantity }}
+        <button (click)="increase(item.product.id)">+</button>
+      </td>
+      <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
+      <td>{{ getSubtotal(item) | currency:'ARS':'symbol' }}</td>
+      <td><button (click)="remove(item.product.id)">Eliminar</button></td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <button (click)="clear()">Vaciar Carrito</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Total: {{ cartService.total$ | async | currency:'ARS':'symbol' }}</h3>
+
 
 <!-- Paso 2: Resumen y envío -->
 <div *ngIf="currentStep === 2" class="step-container step-active">
