@@ -45,7 +45,7 @@ this.checkoutForm = this.fb.group({
   this.items = this.cartService.getItems();
   this.total = this.cartService.getTotal();
   */
-    this.loadCart();
+   // this.loadCart();
 }
 
 
@@ -119,7 +119,7 @@ comprarCarrito() {
  getSubtotal(item: CartItem): number {
   return item.product.price * item.quantity;
 }
-
+/*
   
   increase(productId: number): void {
   const userId = localStorage.getItem('idUsuario'); // recuperás el id guardado
@@ -154,7 +154,27 @@ remove(productId: number): void {
     error: err => console.error('Error al vaciar carrito', err)
   });
 }
+*/
 
+  increase(productId: number): void {
+  const userId = Number(localStorage.getItem('idUsuario'));
+  this.cartService.increaseFromCart(productId, userId).subscribe();
+}
+
+decrease(productId: number): void {
+  const userId = Number(localStorage.getItem('idUsuario'));
+  this.cartService.decreaseFromCart(productId, userId).subscribe();
+}
+
+remove(productId: number): void {
+  const userId = Number(localStorage.getItem('idUsuario'));
+  this.cartService.removeFromCart(productId, userId).subscribe();
+}
+
+clear(): void {
+  const userId = Number(localStorage.getItem('idUsuario'));
+  this.cartService.clearCart(userId).subscribe();
+}
 
 
 }
