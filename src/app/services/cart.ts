@@ -267,16 +267,23 @@ decreaseFromCart(productId: number, userId: number) {
   );
 }
 
-// igual para remove y clear
-  removeFromCart(productId: number, userId: number) {
-  return this.http.post<any[]>(`${this.apiUrl}/decrease`, { productId, userId }).pipe(
+removeFromCart(productId: number, userId: number) {
+  return this.http.post<any[]>(`${this.apiUrl}/remove`, { productId, userId }).pipe(
     tap(cart => {
       this.itemsSubject.next(cart);
       this.totalSubject.next(this.calculateTotal(cart));
     })
   );
-  }
-  
+}
+
+clearCart(userId: number) {
+  return this.http.post<any[]>(`${this.apiUrl}/clear`, { userId }).pipe(
+    tap(cart => {
+      this.itemsSubject.next(cart);
+      this.totalSubject.next(this.calculateTotal(cart));
+    })
+  );
+                             }
 
 
 }
