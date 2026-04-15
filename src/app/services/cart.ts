@@ -180,6 +180,12 @@ getTotal(): number {
   }, 0);
 }
 
+  //para la página del carrito
+  
+               private calculateTotal(cart: any[]): number {
+  return cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+}            
+
   // Método para comprar el carrito
 comprarCarrito(cartItems: any[], idUsuario: number, formData: any): Observable<string> {
   const body = { 
@@ -222,7 +228,7 @@ addToCart(productId: number, quantity: number,idUsuario:number): Observable<any>
   //Estos métodos usa el carrito
     //estos métodos están en AbmlcontrollerApplication 
 // Eliminar producto
-removeFromCart(productId: number, userId: number) {
+/*removeFromCart(productId: number, userId: number) {
   return this.http.post(`${this.apiUrl}/remove`, { productId, userId });
 }
 
@@ -241,6 +247,37 @@ increaseFromCart(productId: number, userId: number) {
   decreaseFromCart(productId: number, userId: number) {
   return this.http.post(`${this.apiUrl}/decrease`, { productId, userId });
   }
+  */
+
+  increaseFromCart(productId: number, userId: number) {
+  return this.http.post<any[]>(`${this.apiUrl}/increase`, { productId, userId }).pipe(
+    tap(cart => {
+      this.itemsSubject.next(cart);
+      this.totalSubject.next(this.calculateTotal(cart));
+    })
+  );
+}
+
+decreaseFromCart(productId: number, userId: number) {
+  return this.http.post<any[]>(`${this.apiUrl}/decrease`, { productId, userId }).pipe(
+    tap(cart => {
+      this.itemsSubject.next(cart);
+      this.totalSubject.next(this.calculateTotal(cart));
+    })
+  );
+}
+
+// igual para remove y clear
+  removeFromCart(productId: number, userId: number) {
+  return this.http.post<any[]>(`${this.apiUrl}/decrease`, { productId, userId }).pipe(
+    tap(cart => {
+      this.itemsSubject.next(cart);
+      this.totalSubject.next(this.calculateTotal(cart));
+    })
+  );
+  }
+  
+
 
 }
 
