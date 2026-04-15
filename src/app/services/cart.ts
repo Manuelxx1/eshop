@@ -321,12 +321,12 @@ increaseLocal(productId: number) {
   }
 
   // Iteramos cada ítem y lo mandamos al backend
-  const requests = localItems.map(item =>
-    this.http.post<CartItem[]>(`${this.apiUrl}/increase`, {
-      userId,
-      productId: item.product.id
-    })
-  );
+  const requests = localItems.map((item: any) =>
+  this.http.post<CartItem[]>(`${this.apiUrl}/increase`, {
+    userId,
+    productId: item.product.id
+  })
+);
 
   // Ejecutamos todas las llamadas y al final pedimos el carrito completo
   return forkJoin(requests).pipe(
