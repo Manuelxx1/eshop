@@ -29,7 +29,7 @@ import { Router } from '@angular/router';
   step = 1;
   message = '';
 
-  constructor(private productService: Product,private router: Router,private fb: FormBuilder ) {
+  constructor(private productService: Product,private cartService:Cart,private router: Router,private fb: FormBuilder ) {
 //formulario login
     this.formulariologin = this.fb.group({
     username: ['', Validators.required],
