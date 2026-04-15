@@ -48,44 +48,23 @@ Como el *ngIf ya controla que exista, no hay riesgo de undefined.
 esto te permite usar la variable items varias veces dentro del bloque sin repetir el async pipe.
  (cartService.items$ | async) en cada *ngFor y *ngIf-->
 <ng-container *ngIf="cartService.items$ | async as items">
-  <div *ngIf="items.length === 0">
-    Tu carrito está vacío
-  </div>
-
+  <div *ngIf="items.length === 0">Tu carrito está vacío</div>
   <table *ngIf="items.length > 0">
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio unitario</th>
-        <th>Subtotal</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of items; let i = index">
-        <td>{{ item.product.name }}</td>
-        <td>
-          <button (click)="decrease(item.product.id)">-</button>
-          {{ item.quantity }}
-          <button (click)="increase(item.product.id)">+</button>
-        </td>
-        <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
-        <td>{{ getSubtotal(item) | currency:'ARS':'symbol' }}</td>
-        <td><button (click)="remove(item.product.id)">Eliminar</button></td>
-      </tr>
-      <tr>
-        <td colspan="5">
-          <button (click)="clear()">Vaciar Carrito</button>
-        </td>
-      </tr>
-    </tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.product.name }}</td>
+      <td>
+        <button (click)="decrease(item.product.id)">-</button>
+        {{ item.quantity }}
+        <button (click)="increase(item.product.id)">+</button>
+      </td>
+      <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
+      <td>{{ item.product.price * item.quantity | currency:'ARS':'symbol' }}</td>
+      <td><button (click)="remove(item.product.id)">Eliminar</button></td>
+    </tr>
   </table>
 </ng-container>
 
 <h3>Total: {{ cartService.total$ | async | currency:'ARS':'symbol' }}</h3>
-
-
 
 <!-- Paso 2: Resumen y envío -->
 <div *ngIf="currentStep === 2" class="step-container step-active">
