@@ -66,6 +66,8 @@ cartCount = 0;
 
 
     // Nos suscribimos al observable del carrito sin session
+    ///usando BehaviorSubject sin el pipe async
+    //subscribiendonos desdecaqui
     this.cartService.cartCount$.subscribe(count => {
       this.cartCount = count;
     });
