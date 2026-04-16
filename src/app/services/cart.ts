@@ -11,22 +11,36 @@ import { switchMap } from 'rxjs/operators';
  
 //para agregar por cantidad sin repetir
 //el dato de la base solo la cantidad 
+// Interfaces auxiliares
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  mpUserId?: string | null;
+  name: string;
+  createdAt: string;
+}
+
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  imageUrl: string;
+  category: string;
+  createdAt: string;
+}
+
+// Interfaz principal del carrito
 export interface CartItem {
   id: number;
-  product: {
-    id: number;
-    name: string;
-    description: string;
-    price: number;
-    stock: number;
-    imageUrl: string;
-    category: string;
-    createdAt: string;
-  };
+  product: Product;
   quantity: number;
-  addedAt: string;
-  user: any; // si querés tipar también el usuario, podés crear otra interfaz
+  user?: User;        // opcional en carrito local
+  addedAt?: string;   // opcional en carrito local
 }
+
 
 @Injectable({
   providedIn: 'root',
@@ -161,8 +175,10 @@ getItems() {
     item.quantity++;
   } else {
     const cartItem: CartItem = {
-    id: product.id,
-    product, quantity
+      id: product.id,       // en local podés usar el id del producto como id temporal
+      product,
+      quantity
+      // user y addedAt quedan sin definir en local
   };
   this.items.push(cartItem);
   }
