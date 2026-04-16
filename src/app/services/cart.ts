@@ -203,16 +203,6 @@ getItems() {
   }
 
   
-  private updateStorage() {
-    localStorage.setItem('cartItems', JSON.stringify(this.items));
-  this.cartCount.next(this.getCartCount());   
-    this.totalSubject.next(this.getTotal()); // recalculamos subtotal
-    this.itemsSubject.next([...this.items]); // emitir nueva lista 
-  }         
-
-  private getCartCount(): number {
-  return this.items.reduce((acc, item) => acc + item.quantity, 0);
-  }
   
   
 
@@ -389,7 +379,7 @@ increaseLocal(productId: number) {
       )
     );//map
 
-   /*
+   
      return forkJoin(requests).pipe(
       switchMap(() => this.getCart(userId)), // sincronizamos al final
       tap((cart: any[]) => {
@@ -410,11 +400,23 @@ increaseLocal(productId: number) {
     })
   );
   }
-  */
 
-     
-  // 2. Ejecutamos todo en orden
-  return forkJoin(requests).pipe(
+  private updateStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
+  this.cartCount.next(this.getCartCount());   
+    this.totalSubject.next(this.getTotal()); // recalculamos subtotal
+    this.itemsSubject.next([...this.items]); // emitir nueva lista 
+  }         
+
+  private getCartCount(): number {
+  return this.items.reduce((acc, item) => acc + item.quantity, 0);
+  }
+  
+  
+
+     //gemini 
+  // 2.Ejecutamos todo en orden
+ /* return forkJoin(requests).pipe(
     switchMap(() => this.getCart(userId)), // Pedimos el carrito final al backend
     tap((cartFromServer) => {
       // 3. ACTUALIZACIÓN CRÍTICA:
@@ -447,7 +449,7 @@ private refreshAllSignals() {
     this.cartCount.next(this.getCartCount());
   }
 }
-  
+  */
 
 }
 
