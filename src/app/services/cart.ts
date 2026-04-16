@@ -40,8 +40,9 @@ y el $ es solo un nombre de variable que te ayuda a distinguirlo.
   private totalSubject = new BehaviorSubject<number>(0);
 total$ = this.totalSubject.asObservable();
 
-  private itemsSubject = new BehaviorSubject<any[]>([]);
+  private itemsSubject = new BehaviorSubject<CartItem[]>([]);
 items$ = this.itemsSubject.asObservable();
+
 
 
   
