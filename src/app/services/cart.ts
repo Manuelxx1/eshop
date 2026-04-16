@@ -339,6 +339,7 @@ increaseLocal(productId: number) {
 
 
    migrateLocalCartToBackend(userId: number) {
+     alert('se recibio idUsuario  desde onLoginSuccess'+userId);
     const localItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
 
     if (localItems.length === 0) {
