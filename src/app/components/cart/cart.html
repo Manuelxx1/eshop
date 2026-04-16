@@ -50,9 +50,8 @@
 Como el *ngIf ya controla que exista, no hay riesgo de undefined.
 esto te permite usar la variable items varias veces dentro del bloque sin repetir el async pipe.
  (cartService.items$ | async) en cada *ngFor y *ngIf-->
-  <div *ngIf="items$.length === 0">Tu carrito está vacío</div>
 
-  <table *ngIf="items$.length > 0">
+  <table>
   <tr *ngFor="let item of items$ | async">
       <td>{{ item.product.name }}</td>
       <td>
