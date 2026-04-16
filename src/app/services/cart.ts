@@ -373,14 +373,16 @@ increaseLocal(productId: number) {
   }
 
   getCart(userId: number) {
-    return this.http.get<any[]>(`${this.apiUrl}/api/cart?idUsuario=${userId}`).pipe(
-      tap((cart: any[]) => {
-        this.items = cart;
-        this.updateStorage();
-      })
-    );
+  return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart?idUsuario=${userId}`).pipe(
+    tap((cart: CartItem[]) => {
+      this.items = cart;
+      this.updateStorage();
+      // asegurate de emitir aquí también
+      this.itemsSubject.next([...this.items]);
+    })
+  );
   }
-
+  
 
 }
 
