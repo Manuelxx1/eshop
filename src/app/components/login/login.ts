@@ -151,8 +151,10 @@ this.message = 'Credenciales inválidas';
   this.cartService.migrateLocalCartToBackend(userId).subscribe({
     next: () => {
       console.log('Carrito migrado y sincronizado con backend');
+      alert('Carrito migrado y sincronizado con backend');
     },
     error: (err: any) => console.error('Error al migrar carrito', err)
+    alert('Error no se migro el carrito al backend);
   });
 }
 
