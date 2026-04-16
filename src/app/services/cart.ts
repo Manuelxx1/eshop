@@ -389,7 +389,8 @@ increaseLocal(productId: number) {
       )
     );//map
 
-    return forkJoin(requests).pipe(
+   /*
+     return forkJoin(requests).pipe(
       switchMap(() => this.getCart(userId)), // sincronizamos al final
       tap((cart: any[]) => {
         this.items = cart;
@@ -409,6 +410,43 @@ increaseLocal(productId: number) {
     })
   );
   }
+  */
+
+     
+  // 2. Ejecutamos todo en orden
+  return forkJoin(requests).pipe(
+    switchMap(() => this.getCart(userId)), // Pedimos el carrito final al backend
+    tap((cartFromServer) => {
+      // 3. ACTUALIZACIÓN CRÍTICA:
+      this.items = cartFromServer; // Guardamos en la variable local
+      localStorage.removeItem('cartItems'); // Limpiamos lo viejo
+      this.refreshAllSignals(); // Notificamos a la vista
+    })
+  );
+}
+
+getCart(userId: number) {
+  return this.http.get<CartItem[]>(`${this.apiUrl}/api/cart?idUsuario=${userId}`).pipe(
+    tap((cart) => {
+      this.items = cart;
+      this.refreshAllSignals();
+    })
+  );
+}
+
+// Crea esta función auxiliar para centralizar las notificaciones
+private refreshAllSignals() {
+  localStorage.setItem('cartItems', JSON.stringify(this.items));
+  
+  // Esto es lo que hace que el HTML con "| async" se actualice:
+  this.itemsSubject.next([...this.items]); 
+  this.totalSubject.next(this.getTotal());
+  
+  // Si tienes un contador de items, actualízalo también
+  if (this.cartCount) {
+    this.cartCount.next(this.getCartCount());
+  }
+}
   
 
 }
