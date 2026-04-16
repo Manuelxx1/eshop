@@ -340,10 +340,14 @@ increaseLocal(productId: number) {
 
    migrateLocalCartToBackend(userId: number) {
     const localItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-alert(localItems);
+
     if (localItems.length === 0) {
+      alert('no hay nada');
       return this.getCart(userId); // no hay nada que migrar
+    }else{
+      alert('hay localItems' +localItems.length);
     }
+     
 
     // Enviamos cada ítem con su cantidad al endpoint /add
     const requests = localItems.map((item: any) =>
