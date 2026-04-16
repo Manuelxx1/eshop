@@ -340,7 +340,7 @@ increaseLocal(productId: number) {
 
    migrateLocalCartToBackend(userId: number) {
     const localItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-
+alert(localItems);
     if (localItems.length === 0) {
       return this.getCart(userId); // no hay nada que migrar
     }
