@@ -257,7 +257,7 @@ addToCart(productId: number, quantity: number, idUsuario: number): Observable<Ca
     switchMap(() => this.getCart(idUsuario)), // pedimos carrito actualizado
     tap((cart: CartItem[]) => {
       this.items = cart;
-      this.updateStorage();
+      //this.updateStorage();
     })
   );
 }
