@@ -356,8 +356,10 @@ increaseLocal(productId: number) {
         idUsuario: userId,
         productId: item.product.id,
         quantity: item.quantity
-      })
-    );
+      },
+        { responseType: 'text'}
+      )
+    );//map
 
     return forkJoin(requests).pipe(
       switchMap(() => this.getCart(userId)), // sincronizamos al final
