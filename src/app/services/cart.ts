@@ -125,7 +125,8 @@ constructor(private http: HttpClient) {
       this.items = JSON.parse(savedItems);
       this.cartCount.next(this.items.length);
     }
-
+  
+localStorage.setItem('cartItems', JSON.stringify(this.items));
 }
   
 // Obtener carrito desde backend
