@@ -26,7 +26,7 @@ export class CartList implements OnInit{
   { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
 ];
 
-      
+      items$ = this.cartService.items$;
 
   constructor(public cartService: Cart, private fb: FormBuilder) {
     //obtener datos personales para envío 
