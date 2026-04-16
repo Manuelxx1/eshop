@@ -12,9 +12,20 @@ import { switchMap } from 'rxjs/operators';
 //para agregar por cantidad sin repetir
 //el dato de la base solo la cantidad 
 export interface CartItem {
-    id: number; // id del item en DB
-  product: any;
+  id: number;
+  product: {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    stock: number;
+    imageUrl: string;
+    category: string;
+    createdAt: string;
+  };
   quantity: number;
+  addedAt: string;
+  user: any; // si querés tipar también el usuario, podés crear otra interfaz
 }
 
 @Injectable({
