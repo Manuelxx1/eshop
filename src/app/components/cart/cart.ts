@@ -38,7 +38,7 @@ this.checkoutForm = this.fb.group({
   postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
   shippingOption: [null, Validators.required]   //  arranca en null
 });
-    items$ = this.cartService.items$;
+    
   }
 
   ngOnInit() {
