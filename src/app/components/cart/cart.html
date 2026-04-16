@@ -51,8 +51,12 @@ Como el *ngIf ya controla que exista, no hay riesgo de undefined.
 esto te permite usar la variable items varias veces dentro del bloque sin repetir el async pipe.
  (cartService.items$ | async) en cada *ngFor y *ngIf-->
 
-  <table>
-  <tr *ngFor="let item of items$ | async">
+
+<ng-container *ngIf="cartService.items$ | async as items">
+  <div *ngIf="items.length === 0">Tu carrito está vacío</div>
+
+  <table *ngIf="items.length > 0">
+    <tr *ngFor="let item of items">
       <td>{{ item.product.name }}</td>
       <td>
         <button (click)="decrease(item.product.id)">-</button>
@@ -64,8 +68,10 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
       <td><button (click)="remove(item.product.id)">Eliminar</button></td>
     </tr>
   </table>
+</ng-container>
 
 <h3>Total: {{ cartService.total$ | async | currency:'ARS':'symbol' }}</h3>
+
 <!-- Paso 2: Resumen y envío -->
 <div *ngIf="currentStep === 2" class="step-container step-active">
   <h2>Resumen de compra</h2>
