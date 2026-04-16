@@ -48,7 +48,8 @@ this.checkoutForm = this.fb.group({
   */
    // this.loadCart();
     const valorId = localStorage.getItem('idUsuario');
-    this.cartService.getCart(valorId).subscribe(); //  dispara la carga inicial
+    const idUsuario = Number(valorId);
+    this.cartService.getCart(idUsuario).subscribe(); //  dispara la carga inicial
 }
 
 
