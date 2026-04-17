@@ -15,7 +15,7 @@ export class CartList implements OnInit{
   items: CartItem[] = [];
 //items o productos del carrito para comprar 
   cart: any[] = [];
-  total: number = 0;
+  total: number | null = null;
   errorredir: string | null = null;
 
   checkoutForm: FormGroup;
