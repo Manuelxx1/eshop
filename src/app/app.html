@@ -46,14 +46,14 @@
   <!-- Carrito + Login/Register desktop -->
   <div class="header-actions">
 <div class="cart-icon" [class.bump]="animate" [class.shake]="animate" (click)="toggleDropdown()">
-  <i class="fa fa-shopping-cart"> 🛒</i>
+  <i class="fa fa-shopping-cart"></i><span class="emojicart">🛒</span>
  <span class="cart-count-badge">{{ cartCount }}</span>
   </div>
 
   <!-- Dropdown del carrito -->
   <div class="cart-dropdown" *ngIf="dropdownOpen">
     <div *ngIf="items.length === 0">Tu carrito está vacío</div>
-    <div *ngFor="let item of items; let i = index" class="cart-item">
+    <div *ngFor="let item of items; let i = index" class="cart-ite<m">
       {{ item.product.name }} - Cantidad: {{ item.quantity }}
       <button (click)="removeItem(i)">❌</button>
     </div>
