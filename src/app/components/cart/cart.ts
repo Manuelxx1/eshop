@@ -22,6 +22,8 @@ export class CartList implements OnInit{
  //modal de confirmar eliminación de item 
   showConfirm = false;
 itemToDelete: number=0;
+//mensaje después de eliminar un item
+  showToast = false;
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
@@ -192,28 +194,29 @@ askDeleteRemove(itemId: number) {
   
 confirmDelete(): void {
   const userId = localStorage.getItem('idUsuario');
-
   if (this.itemToDelete !== 0) {
     if (userId) {
-      // Si tu servicio devuelve un observable, suscribite para ejecutar
       this.cartService.removeFromCart(this.itemToDelete, Number(userId))
-        .subscribe(() => {
-          // acá podés actualizar la vista si hace falta
-        });
+        .subscribe(() => this.showFeedback());
     } else {
       this.cartService.removeLocal(this.itemToDelete);
+      this.showFeedback();
     }
   }
-
-  // cerrar modal y resetear
   this.showConfirm = false;
   this.itemToDelete = 0;
 }
 
+showFeedback() {
+  this.showToast = true;
+  setTimeout(() => this.showToast = false, 2000); // se oculta después de 2s
+}
+  
 cancelDelete() {
   this.showConfirm = false;
   this.itemToDelete = 0;
 }
+  
 clear(): void {
   const userId = localStorage.getItem('idUsuario');
   if (userId) {
