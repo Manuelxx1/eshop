@@ -198,7 +198,7 @@ confirmDelete(): void {
  this.cartService.removeFromCart(this.itemToDelete,Number(userId));
     } 
     this.showConfirm = false;
-  this.itemToDelete = null;
+  this.itemToDelete = 0;
   }else {
     this.cartService.removeLocal(this.itemToDelete);
   }
@@ -206,7 +206,7 @@ confirmDelete(): void {
 
 cancelDelete() {
   this.showConfirm = false;
-  this.itemToDelete = null;
+  this.itemToDelete = 0;
 }
   
 clear(): void {
