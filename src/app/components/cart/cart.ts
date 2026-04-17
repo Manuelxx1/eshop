@@ -21,7 +21,7 @@ export class CartList implements OnInit{
   checkoutForm: FormGroup;
  //modal de confirmar eliminación de item 
   showConfirm = false;
-itemToDelete: | null = null;
+itemToDelete: number | null = null;
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
