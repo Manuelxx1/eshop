@@ -71,22 +71,23 @@ cartCount = 0;
     ///usando BehaviorSubject sin el pipe async
     //subscribiendonos desdecaqui
     this.cartService.cartCount$.subscribe(count => {
-if (count !== this.cartCount) {
-        this.cartCount = count;
-        this.animate = true;
-if (count < this.cartCount) { //  detecta eliminación
+  const previousCount = this.cartCount;
+
+  if (count !== previousCount) {
     this.cartCount = count;
-    this.animateRemove = true;
-        // quitar la clase después de un tiempo para permitir re-disparo
-        setTimeout(() => {
-          this.animate = false;
-          this.animateRemove = false;
-        }, 500); // duración de la animación
-      }
-}else {
-    this.cartCount = count;
+
+    if (count < previousCount) {
+      // eliminación
+      this.animateRemove = true;
+      setTimeout(() => this.animateRemove = false, 600);
+    } else {
+      // agregado
+      this.animate = true;
+      setTimeout(() => this.animate = false, 600);
+    }
   }
-    });
+});
+
 
     this.items = this.cartService.getItemsSinSession();
   
