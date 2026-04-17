@@ -67,7 +67,16 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
       <td>{{ item.product.price * item.quantity | currency:'ARS':'symbol' }}</td>
       <td><button (click)="askDeleteRemove(item.product.id)">Eliminar</button></td>
     </tr>
+
   </table>
+  <!-- Modal simple -->
+<div class="modal" *ngIf="showConfirm">
+  <div class="modal-content">
+    <p>¿Seguro que deseas eliminar este ítem del carrito?</p>
+    <button (click)="confirmDelete()">Sí</button>
+    <button (click)="cancelDelete()">No</button>
+  </div>
+</div>
 </ng-container>
 
 <h3>Total: {{ cartService.total$ | async | currency:'ARS':'symbol' }}</h3>
