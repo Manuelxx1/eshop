@@ -68,7 +68,7 @@
   position: relative;
 }
 
-.cart-count {
+.cart-count-badge {
   background-color: red;
   color: white;
   font-size: 12px;
@@ -78,6 +78,32 @@
   top: -8px;
   right: -10px;
 }
+
+/* Animación tipo "golpecito" */
+.cart-icon.bump .cart-count-badge  {
+  animation: bump 0.4s ease;
+}
+
+@keyframes bump {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.3); }
+  60%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Animación tipo "campanilla" */
+.cart-icon.shake i {
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
 
 .cart-dropdown {
   position: absolute;
