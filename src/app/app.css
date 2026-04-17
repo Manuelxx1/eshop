@@ -92,13 +92,10 @@
 }
 
 /* Animación tipo "campanilla" */
-.cart-icon.shake i {
   /*El display: inline-block es clave,
   porque los íconos <i> por defecto son inline 
   y no aceptan transformaciones de rotación*/
-  display: inline-block;
-  animation: shake 0.5s ease;
-}
+
 .cart-icon.shake .emojicart {
   display: inline-block;
   animation: shake 0.5s ease;
@@ -132,12 +129,12 @@
   animation: fadeBadge 0.5s ease;
 }
 
-@keyframes fadeBadge {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.3; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
-}
 
+@keyframes fadeBadge {
+  0%   { opacity: 1; background-color: red; transform: scale(1); }
+  50%  { opacity: 0.3; background-color: gray; transform: scale(0.9); }
+  100% { opacity: 1; background-color: red; transform: scale(1); }
+}
 
 
 
