@@ -15,13 +15,13 @@ export class CartList implements OnInit{
   items: CartItem[] = [];
 //items o productos del carrito para comprar 
   cart: any[] = [];
-  total: number | null = null;
+  total: number;
   errorredir: string | null = null;
 
   checkoutForm: FormGroup;
  //modal de confirmar eliminación de item 
   showConfirm = false;
-itemToDelete: number=0;
+itemToDelete: | null = null;
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
