@@ -29,6 +29,7 @@ export class App {
   searchActive=false;
   //carrito sin session
 cartCount = 0;
+  animate = false;
   // almacena los items agregados al carrito 
   items: any[] = [];
   //menu desplegable del carrito sin session
@@ -69,7 +70,15 @@ cartCount = 0;
     ///usando BehaviorSubject sin el pipe async
     //subscribiendonos desdecaqui
     this.cartService.cartCount$.subscribe(count => {
-      this.cartCount = count;
+if (count !== this.cartCount) {
+        this.cartCount = count;
+        this.animate = true;
+
+        // quitar la clase después de un tiempo para permitir re-disparo
+        setTimeout(() => {
+          this.animate = false;
+        }, 500); // duración de la animación
+      }
     });
 
     this.items = this.cartService.getItemsSinSession();
