@@ -113,6 +113,31 @@
   100% { transform: rotate(0deg); }
 }
 
+/* Animación de eliminación en el carrito */
+.cart-icon.remove .emojicart {
+  display: inline-block;
+  animation: removeShake 0.5s ease;
+}
+
+@keyframes removeShake {
+  0%   { transform: translateX(0); opacity: 1; }
+  25%  { transform: translateX(-5px); }
+  50%  { transform: translateX(5px); }
+  75%  { transform: translateX(-5px); opacity: 0.5; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Animación de eliminación en el badge */
+.cart-icon.remove .cart-count-badge {
+  animation: fadeBadge 0.5s ease;
+}
+
+@keyframes fadeBadge {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.3; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
 
 
 
