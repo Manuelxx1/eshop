@@ -93,6 +93,10 @@
 
 /* Animación tipo "campanilla" */
 .cart-icon.shake i {
+  /*El display: inline-block es clave,
+  porque los íconos <i> por defecto son inline 
+  y no aceptan transformaciones de rotación*/
+  display: inline-block;
   animation: shake 0.5s ease;
 }
 
