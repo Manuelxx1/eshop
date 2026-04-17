@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Product,Order} from '../../services/product';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-
+import { Cart } from '../../services/cart';
 
   interface Actividad {
   id?: string;              // opcional, sirve para evitar duplicados
@@ -58,7 +58,7 @@ emaildedb:any;
     menuOpen: boolean = false;
   
 
-  constructor(private productService: Product,private router: Router,private fb: FormBuilder) {
+  constructor(private productService: Product,private cartService: Cart,private router: Router,private fb: FormBuilder) {
     //para cambiar contraseña dashboard 
 this.passwordForm = this.fb.group({
       nuevaPassword: ['', [Validators.required, Validators.minLength(6)]]
@@ -310,7 +310,14 @@ const usuarioGuardado = localStorage.getItem('usuario');
 this.datosdesesion ="";
         this.mensajedecambiopassword=null;
     this.mensajedecambiousername=null;
-  this.router.navigate(['/']);   // Redirige al login o donde prefieras
+
+        ;
+        //Limpiamos todos los items del carrito del localStorage y los subjects 
+        //al cerrar session asi cuando volvemos 
+        //a iniciar sesión y se realiza la migración
+        //al no haber items no se duplican los datos en la base
+      this.cartService.clearLocal()
+        this.router.navigate(['/']);   // Redirige al login o donde prefieras
       }
 
   //mantener la session al dar ok en el modal de advertencia 
