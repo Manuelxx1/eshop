@@ -311,10 +311,17 @@ increaseLocal(productId: number) {
     this.updateStorage();
   }
 
+  //luego de la migración del carrito sinsession al backend 
+  //Limpiamos todos los datos para evitar insertar duplicados que quedan en localStorage en 
+  //la próxima session ya que se ejecuta la migracion nuevamente 
+  //entonces limpiando no hay nada que se migre al backend 
   clearLocal() {
     localStorage.removeItem('cartItems');
     this.items = [];
-    this.updateStorage();
+    this.itemsSubject.next([]);
+  this.cartCount.next(0);
+  this.totalSubject.next(0);
+    
     }
 
 
@@ -403,7 +410,7 @@ increaseLocal(productId: number) {
   }
 
   private updateStorage() {
-    //localStorage.setItem('cartItems', JSON.stringify(this.items));
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
   this.cartCount.next(this.getCartCount());   
     this.totalSubject.next(this.getTotal()); // recalculamos subtotal
     this.itemsSubject.next([...this.items]); // emitir nueva lista 
