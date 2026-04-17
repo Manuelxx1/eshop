@@ -99,6 +99,11 @@
   display: inline-block;
   animation: shake 0.5s ease;
 }
+.cart-icon.shake .emojicart {
+  display: inline-block;
+  animation: shake 0.5s ease;
+}
+
 
 @keyframes shake {
   0% { transform: rotate(0deg); }
@@ -107,6 +112,8 @@
   75% { transform: rotate(-10deg); }
   100% { transform: rotate(0deg); }
 }
+
+
 
 
 .cart-dropdown {
