@@ -45,7 +45,7 @@
 
   <!-- Carrito + Login/Register desktop -->
   <div class="header-actions">
-<div class="cart-icon" [class.bump]="animate" [class.shake]="animate" (click)="toggleDropdown()">
+<div class="cart-icon" [class.bump]="animate" [class.shake]="animate" [class.remove]="animateRemove" (click)="toggleDropdown()">
   <i class="fa fa-shopping-cart"></i><span class="emojicart">🛒</span>
  <span class="cart-count-badge">{{ cartCount }}</span>
   </div>
