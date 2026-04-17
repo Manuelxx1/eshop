@@ -109,6 +109,18 @@ button:disabled {
   border-radius: 8px;
   text-align: center;
 }
+/*Mensaje después de eliminar un item*/
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  opacity: 0.9;
+}
+
 
 
 /*
