@@ -209,7 +209,7 @@ confirmDelete(): void {
 
 showFeedback() {
   this.showToast = true;
-  setTimeout(() => this.showToast = false, 10000); // se oculta después de 10s
+  setTimeout(() => this.showToast = false, 5000); // se oculta después de 5s
 }
   
 cancelDelete() {
