@@ -315,7 +315,7 @@ increaseLocal(productId: number) {
   //Limpiamos todos los datos para evitar insertar duplicados que quedan en localStorage en 
   //la próxima session ya que se ejecuta la migracion nuevamente 
   //entonces limpiando no hay nada que se migre al backend 
-  clearLocal() {
+public clearLocal() {
     localStorage.removeItem('cartItems');
     this.items = [];
     this.itemsSubject.next([]);
