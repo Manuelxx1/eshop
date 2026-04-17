@@ -312,6 +312,7 @@ increaseLocal(productId: number) {
   }
 
   clearLocal() {
+    localStorage.removeItem('cartItems');
     this.items = [];
     this.updateStorage();
     }
@@ -402,7 +403,7 @@ increaseLocal(productId: number) {
   }
 
   private updateStorage() {
-    localStorage.setItem('cartItems', JSON.stringify(this.items));
+    //localStorage.setItem('cartItems', JSON.stringify(this.items));
   this.cartCount.next(this.getCartCount());   
     this.totalSubject.next(this.getTotal()); // recalculamos subtotal
     this.itemsSubject.next([...this.items]); // emitir nueva lista 
