@@ -19,6 +19,9 @@ export class CartList implements OnInit{
   errorredir: string | null = null;
 
   checkoutForm: FormGroup;
+ //modal de confirmar eliminación de item 
+  showConfirm = false;
+itemToDelete: number | null = null;
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
@@ -174,21 +177,38 @@ remove(productId: number): void {
 decrease(productId: number): void {
   const userId = localStorage.getItem('idUsuario');
   if (userId) {
+    
     this.cartService.decreaseFromCart(productId, Number(userId)).subscribe();
   } else {
     this.cartService.decreaseLocal(productId);
   }
 }
 
-remove(productId: number): void {
+askDeleteRemove(itemId: number) {
+  this.itemToDelete = itemId;
+  this.showConfirm = true;
+}
+
+  
+confirmDelete(): void {
   const userId = localStorage.getItem('idUsuario');
   if (userId) {
-    this.cartService.removeFromCart(productId, Number(userId)).subscribe();
-  } else {
-    this.cartService.removeLocal(productId);
+    if (this.itemToDelete !== null) {
+   // this.cartService.removeFromCart(productId, Number(userId)).subscribe();
+ this.cartService.removeFromCart(this.itemToDelete);
+    } 
+    this.showConfirm = false;
+  this.itemToDelete = null;
+  }else {
+    this.cartService.removeLocal(this.itemToDelete);
   }
 }
 
+cancelDelete() {
+  this.showConfirm = false;
+  this.itemToDelete = null;
+}
+  
 clear(): void {
   const userId = localStorage.getItem('idUsuario');
   if (userId) {
