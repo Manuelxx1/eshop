@@ -193,7 +193,7 @@ askDeleteRemove(itemId: number) {
 confirmDelete(): void {
   const userId = localStorage.getItem('idUsuario');
   if (userId) {
-    if (this.itemToDelete !== null) {
+    if (this.itemToDelete !== 0) {
    // this.cartService.removeFromCart(productId, Number(userId)).subscribe();
  this.cartService.removeFromCart(this.itemToDelete,Number(userId));
     } 
