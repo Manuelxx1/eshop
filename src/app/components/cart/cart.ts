@@ -192,23 +192,28 @@ askDeleteRemove(itemId: number) {
   
 confirmDelete(): void {
   const userId = localStorage.getItem('idUsuario');
-  if (userId) {
-    if (this.itemToDelete !== 0) {
-   // this.cartService.removeFromCart(productId, Number(userId)).subscribe();
- this.cartService.removeFromCart(this.itemToDelete,Number(userId));
-    } 
-    this.showConfirm = false;
-  this.itemToDelete = 0;
-  }else {
-    this.cartService.removeLocal(this.itemToDelete);
+
+  if (this.itemToDelete !== 0) {
+    if (userId) {
+      // Si tu servicio devuelve un observable, suscribite para ejecutar
+      this.cartService.removeFromCart(this.itemToDelete, Number(userId))
+        .subscribe(() => {
+          // acá podés actualizar la vista si hace falta
+        });
+    } else {
+      this.cartService.removeLocal(this.itemToDelete);
+    }
   }
+
+  // cerrar modal y resetear
+  this.showConfirm = false;
+  this.itemToDelete = 0;
 }
 
 cancelDelete() {
   this.showConfirm = false;
   this.itemToDelete = 0;
 }
-  
 clear(): void {
   const userId = localStorage.getItem('idUsuario');
   if (userId) {
