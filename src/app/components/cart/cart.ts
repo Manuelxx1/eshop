@@ -21,7 +21,7 @@ export class CartList implements OnInit{
   checkoutForm: FormGroup;
  //modal de confirmar eliminación de item 
   showConfirm = false;
-itemToDelete: number | null = null;
+itemToDelete: number=0;
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
@@ -195,7 +195,7 @@ confirmDelete(): void {
   if (userId) {
     if (this.itemToDelete !== null) {
    // this.cartService.removeFromCart(productId, Number(userId)).subscribe();
- this.cartService.removeFromCart(this.itemToDelete);
+ this.cartService.removeFromCart(this.itemToDelete,Number(userId));
     } 
     this.showConfirm = false;
   this.itemToDelete = null;
