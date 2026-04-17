@@ -40,10 +40,14 @@
 
   </div>
 
+
+
+
   <!-- Carrito + Login/Register desktop -->
   <div class="header-actions">
-  <div class="cart-icon" (click)="toggleDropdown()">
-    🛒 <span class="cart-count">{{ cartCount }}</span>
+<div class="cart-icon" [class.bump]="animate" [class.shake]="animate" (click)="toggleDropdown()">
+  <i class="fa fa-shopping-cart"> 🛒</i>
+ <span class="cart-count-badge">{{ cartCount }}</span>
   </div>
 
   <!-- Dropdown del carrito -->
