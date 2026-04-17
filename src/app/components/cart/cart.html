@@ -65,7 +65,7 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
       </td>
       <td>{{ item.product.price | currency:'ARS':'symbol' }}</td>
       <td>{{ item.product.price * item.quantity | currency:'ARS':'symbol' }}</td>
-      <td><button (click)="remove(item.product.id)">Eliminar</button></td>
+      <td><button (click)="askDeleteRemove(item.product.id)">Eliminar</button></td>
     </tr>
   </table>
 </ng-container>
