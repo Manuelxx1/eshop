@@ -211,6 +211,7 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
 
 
 <!-- Paso 1: Selección de producto -->
+<div *ngIf="selectedProduct" >
 <div *ngIf="currentStep === 1" class="step-container step-active">
   <h2>Seleccionar producto</h2>
   <div *ngFor="let product of products" class="product-card">
@@ -295,6 +296,7 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
     <button type="submit" [disabled]="checkoutForm.invalid">Finalizar compra</button>
 
   </form>
+</div>
 </div>
 
 
