@@ -142,6 +142,11 @@ startCheckout(product: any) {
   this.showStepperModal = true;     // abre el modal
 }
 
+  closeStepper() {
+  this.showStepperModal = false;    // cierra el modal
+  this.selectedProduct = null;      // limpia selección si querés
+  }
+
 
 
   
