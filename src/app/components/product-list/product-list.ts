@@ -131,7 +131,7 @@ this.checkoutForm = this.fb.group({
   }// constructor 
 
   //para el stepper guía al usuario 
-currentStep = 1;
+
 selectedProduct: any;
 
   
