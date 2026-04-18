@@ -36,7 +36,7 @@ interface Actividad {
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,RouterLink],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink,CheckoutStepper],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
