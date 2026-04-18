@@ -1,11 +1,97 @@
 import { Component } from '@angular/core';
+import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-checkout-stepper',
-  imports: [],
+  imports: [CommonModule,ReactiveFormsModule,RouterLink],
   templateUrl: './checkout-stepper.html',
   styleUrl: './checkout-stepper.css',
 })
 export class CheckoutStepper {
+  @Input() selectedProduct: any;
+  currentStep = 1;
+  showSummary = false; //  flag para mostrar resumen
+
+quantityControl = new FormControl<number>(1, { nonNullable: true });
+
+quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
+  
+  constructor(private fb: FormBuilder) {
+
+      //obtener datos personales para envío 
+this.checkoutForm = this.fb.group({
+  name: ['', Validators.required],
+  email: ['', [Validators.required, Validators.email]],
+  phone: [''],
+  address: ['', Validators.required],
+  city: ['', Validators.required],
+  postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
+  shippingOption: [null, Validators.required]   //  arranca en null
+});
+  }
+
+  
+
+  selectProduct(product: any) {
+  this.selectedProduct = product;
+  this.currentStep = 2;
+}
+
+
+  
+  goNext() {
+  this.currentStep++;
+}
+
+
+
+goBack() {
+  if (this.currentStep > 1) {
+    this.currentStep--;
+    // Si vuelve al primer paso,para cambiar de producto reseteamos el envío
+    //para qye el usuario pueda elegir la opcion que le conviene
+    if (this.currentStep === 1) {
+      this.checkoutForm.get('shippingOption')?.reset(null);
+    }
+  }
+}
+
+  //mostrar resumen de compra antes de confirmar compra 
+mostrarResumen(): void {
+    this.showSummary = true;
+}
+
+
+  // Compra directa → redirige al checkout
+buyNow(productId: number): void {
+  alert("Botón comprar clickeado ");
+  alert("productId del frontend" + productId);
+  const selectedQuantity = this.quantityControl.value ?? 1;
+  console.log('Cantidad seleccionada:', selectedQuantity);
+//const shippingOption = this.shippingControl.value;
+  const formData = this.checkoutForm.value;
+  console.log('Datos del comprador:', formData);
+  // recuperar usuario de la sesión (guardado en login)
+  const valorId = localStorage.getItem('idUsuario');
+  const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
+alert("Usuario del login" +idUsuario);
+  this.productService.comprar(productId, selectedQuantity, idUsuario,formData).subscribe({
+    next: initPoint => {
+      alert("initPoint recibido: " + initPoint);
+      localStorage.setItem('selectedProduct', JSON.stringify(productId));
+
+      // redirige al checkout de Mercado Pago
+      window.location.href = initPoint;
+    },
+    error: err => {
+      alert("Error al llamar al backend: " + JSON.stringify(err));
+      this.errorredir = JSON.stringify(err);
+    }
+  });
+}
+
+
 
 }
