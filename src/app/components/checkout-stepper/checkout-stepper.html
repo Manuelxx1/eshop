@@ -48,7 +48,8 @@
       Continuar
     </button>
 
-  </div> <p>Debug: {{ checkoutForm.get('shippingOption')?.value | json }}</p>
+  </div> 
+  <p>Debug: {{ checkoutForm.get('shippingOption')?.value | json }}</p>
 
   <div *ngIf="checkoutForm.get('shippingOption')?.invalid && checkoutForm.get('shippingOption')?.touched" class="error">
     Debes seleccionar un método de envío antes de continuar.
