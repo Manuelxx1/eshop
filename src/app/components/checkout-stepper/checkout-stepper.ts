@@ -16,7 +16,7 @@ export class CheckoutStepper {
 initPointUrl: string | null = null;
   errorredir: string | null = null;
 quantityControl = new FormControl<number>(1, { nonNullable: true });
-
+products: any[] = [];
 quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
   checkoutForm: FormGroup;
   //opciones de envío
