@@ -38,6 +38,8 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 
 
 
+
+
 <section class="featured-products" id="destacados">
   <h2>Productos destacados</h2>
   <div class="product-grid">
@@ -48,6 +50,10 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
       <button (click)="addToCart(product)">Agregar al carrito</button>
 <button (click)="startCheckout(product)">Comprar ahora</button>    </div>
   </div>
+
+  <!-- Mostrar el stepper cuando se selecciona un producto -->
+<app-checkout-stepper *ngIf="selectedProduct" [selectedProduct]="selectedProduct"></app-checkout-stepper>
+
     <h2>Ver Productos destacados Por Categoría</h2>
 <form [formGroup]="destacadoporcategories">
   <select formControlName="category">
