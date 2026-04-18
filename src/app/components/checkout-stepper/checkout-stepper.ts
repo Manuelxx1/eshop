@@ -13,11 +13,18 @@ export class CheckoutStepper {
   @Input() selectedProduct: any;
   currentStep = 1;
   showSummary = false; //  flag para mostrar resumen
-
+initPointUrl: string | null = null;
+  errorredir: string | null = null;
 quantityControl = new FormControl<number>(1, { nonNullable: true });
 
 quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
-  
+  checkoutForm: FormGroup;
+  //opciones de envío
+  shippingOptions = [
+  { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
+  { id: 'express', name: 'Envío exprés (1-2 días)', price: 12.99 },
+  { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
+];
   constructor(private fb: FormBuilder) {
 
       //obtener datos personales para envío 
