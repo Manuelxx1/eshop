@@ -12,7 +12,7 @@
   <div *ngFor="let product of products" class="product-card">
     <img [src]="product.imageUrl" alt="{{ product.name }}" width="80" height="80">
     <p>{{ product.name }} - {{ product.description }} - {{ product.price | currency:'ARS' }}</p>
-
+<p>{{ selectedProduct?.name }} - {{ selectedProduct?.price | currency:'ARS' }}</p>
     <label for="quantity">Cantidad:</label>
     <select [formControl]="quantityControl" id="quantity">
       <option *ngFor="let qty of quantities" [value]="qty">{{ qty }}</option>
