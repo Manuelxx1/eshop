@@ -134,10 +134,12 @@ this.checkoutForm = this.fb.group({
   //para el stepper guía al usuario 
 
 selectedProduct: any;
+  showStepperModal = false;
 
   
 startCheckout(product: any) {
   this.selectedProduct = product;
+  this.showStepperModal = true;     // abre el modal
 }
 
 
