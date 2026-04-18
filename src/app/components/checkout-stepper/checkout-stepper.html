@@ -9,7 +9,7 @@
 
   
 
-<div *ngIf="currentStep === 1">
+<div *ngIf="currentStep === 1" class="step-container step-active">
   <h2>Seleccionar producto</h2>
   <p>{{ selectedProduct?.name }} - {{ selectedProduct?.price | currency:'ARS' }}</p>
   <button (click)="goNext()">Continuar</button>
