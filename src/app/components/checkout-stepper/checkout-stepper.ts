@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-checkout-stepper',
-  imports: [CommonModule,ReactiveFormsModule,RouterLink],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './checkout-stepper.html',
   styleUrl: './checkout-stepper.css',
 })
