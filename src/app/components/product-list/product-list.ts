@@ -18,6 +18,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 import { Cart} from '../../services/cart';
+import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 //se importa la interfaz CartItem que representa al modelo
 import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 
