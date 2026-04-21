@@ -160,7 +160,7 @@ selectedProduct: any;
 
   }
   
-  
+/*para el carrito  
 startCheckout(product: any) {
 const valorId = localStorage.getItem('idUsuario');
   const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
@@ -178,6 +178,14 @@ const valorId = localStorage.getItem('idUsuario');
     }
     
 }
+*/
+  startCheckout(product: any) {
+const valorId = localStorage.getItem('idUsuario');
+  const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
+    if(idUsuario){
+  this.selectedProduct = product;
+  this.showStepperModal = true;   
+    }
 
   closeStepper() {
   this.showStepperModal = false;    // cierra el modal
