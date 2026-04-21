@@ -245,7 +245,10 @@ this.productService.getProductsenoferta().subscribe(products => {
     //qye finalmente ke pasamos al metodo openStepperModal oara abrir
     //el modal stepper y poder comprar el producto que se habia seleccionado
     //cuando estábamos sin session
-    const pendingId = this.productService.getPendingCheckout();
+   
+    this.productService.getAllProducts().subscribe(data => {
+    this.products = data;
+ const pendingId = this.productService.getPendingCheckout();
   if (pendingId && this.isLoggedIn()) {
     this.productService.clearPendingCheckout();
     const product = this.products.find(p => p.id === pendingId); // buscás el objeto
