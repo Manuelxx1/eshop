@@ -136,7 +136,17 @@ this.checkoutForm = this.fb.group({
   const valorId = localStorage.getItem('idUsuario');
   return !!valorId; // true si hay sesión
 }
-
+//el boton iniciar sesión para comprar Llama a este metodo 
+  //guardando el id del producto para que luego de iniciar session
+  //se tome el producto que se había seleccionado para evitar 
+  //qye el usuario vuelva abuscar asi el flujo queda optimizado
+  //listo para hacer la compra
+  goToLogin(productId: number) {
+  localStorage.setItem('pendingCheckout', productId.toString());
+  this.router.navigate(['/login']);
+  }
+ 
+  
   //para el stepper guía al usuario 
 
 selectedProduct: any;
