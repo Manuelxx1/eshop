@@ -140,9 +140,7 @@ selectedProduct: any;
   
   showToast(message: string) {
   this.toastMessage = message;
-setTimeout(() => {
-    this.toastMessage = null; // se oculta después de 8 segundos
-  }, 8000);
+
   }
   
   
@@ -159,7 +157,7 @@ const valorId = localStorage.getItem('idUsuario');
       // esperar 5 segundos antes de redirigir
     setTimeout(() => {
       this.router.navigate(['/login']);
-    }, 8000);
+    }, 5000);
     }
     
 }
