@@ -133,13 +133,17 @@ this.message = 'Credenciales inválidas';
         
        // this.router.navigate(['/dashboard']);
         
+        // Migrar carrito
+        this.onLoginSuccess(res.body.id);
+
+        // Decidir redirección
         const pendingId = this.productService.getPendingCheckout();
         if (pendingId) {
           this.productService.clearPendingCheckout();
           this.router.navigate(['/']); // vuelve a productos
         } else {
           this.router.navigate(['/dashboard']); // si no hay compra pendiente
-        }
+      }
       }
     },
     error: (err) => {
