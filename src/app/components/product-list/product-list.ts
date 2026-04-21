@@ -135,7 +135,14 @@ this.checkoutForm = this.fb.group({
 
 selectedProduct: any;
   showStepperModal = false;
+  toastMessage: string | null = null;
 
+  
+  showToast(message: string) {
+  this.toastMessage = message;
+  setTimeout(() => {
+    this.toastMessage = null; // se oculta después de 5 segundos
+  }, 5000);
   
 startCheckout(product: any) {
 const valorId = localStorage.getItem('idUsuario');
@@ -144,7 +151,8 @@ const valorId = localStorage.getItem('idUsuario');
   this.selectedProduct = product;
   this.showStepperModal = true;   // abre el modal
     }else{
-    alert("Debes iniciar sesión para hacer la compra");
+      this.showToast("Debes iniciar sesión para hacer la compra");
+   // alert("Debes iniciar sesión para hacer la compra");
       this.showStepperModal = false; // asegurate de cerrarlo
       this.router.navigate(['/login'])
     }
