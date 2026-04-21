@@ -196,7 +196,7 @@ const valorId = localStorage.getItem('idUsuario');
 
   closeStepper() {
   this.showStepperModal = false;    // cierra el modal
-  this.selectedProduct = null;      // limpia selección si querés
+  this.selectedProduct = null; // limpia selección si querés
   }
 
 
