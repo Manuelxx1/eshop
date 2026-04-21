@@ -247,22 +247,23 @@ this.productService.getProductsenoferta().subscribe(products => {
     //cuando estábamos sin session
    // Revisar si había producto pendiente después del login
       this.productService.getFeaturedProducts().subscribe(data => {
-      this.featuredProducts = data;
-    
-    const pendingId = this.productService.getPendingCheckout();
-      console.log('PendingId:', pendingId);
+    this.featuredProducts = data;
+    console.log('Productos cargados:', this.featuredProducts);
 
-      if (pendingId && this.isLoggedIn()) {
-        this.productService.clearPendingCheckout();
-        const product = this.featuredProducts.find(p => p.id === pendingId);
-        console.log('Producto encontrado:', product);
+    const pendingId = this.checkoutService.getPendingCheckout();
+    console.log('PendingId:', pendingId);
 
-        if (product) {
-          this.selectedProduct = product;
-          this.showStepperModal = true;
-        }
+    if (pendingId && this.isLoggedIn()) {
+      this.checkoutService.clearPendingCheckout();
+      const product = this.featuredProducts.find(p => p.id === pendingId);
+      console.log('Producto encontrado:', product);
+
+      if (product) {
+        this.selectedProduct = product;
+        this.showStepperModal = true;
       }
-    });
+    }
+  });
     
   }//ngOnInit 
 
