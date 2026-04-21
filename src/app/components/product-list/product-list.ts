@@ -142,8 +142,9 @@ this.checkoutForm = this.fb.group({
   //qye el usuario vuelva abuscar asi el flujo queda optimizado
   //listo para hacer la compra
   goToLogin(productId: number) {
-  localStorage.setItem('pendingCheckout', productId.toString());
-  this.router.navigate(['/login']);
+  //localStorage.setItem('pendingCheckout', productId.toString());
+  this.productService.setPendingCheckout(productId); // acá usás el setter
+    this.router.navigate(['/login']);
   }
  
   
