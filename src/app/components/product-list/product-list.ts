@@ -249,16 +249,16 @@ this.productService.getProductsenoferta().subscribe(products => {
       this.productService.getFeaturedProducts().subscribe(data => {
     this.featuredProducts = data;
     console.log('Productos cargados:', this.featuredProducts);
-alert('Productos cargados:', this.featuredProducts);
+alert('Productos cargados:'+ this.featuredProducts);
     const pendingId = this.productService.getPendingCheckout();
     console.log('PendingId:', pendingId);
-        alert('PendingId:', pendingId);
+        alert('PendingId:'+ pendingId);
 
     if (pendingId ) {
       this.productService.clearPendingCheckout();
       const product = this.featuredProducts.find(p => p.id === pendingId);
       console.log('Producto encontrado:', product);
-alert('Producto encontrado:', product);
+alert('Producto encontrado:' + product);
       if (product) {
         this.selectedProduct = product;
         this.showStepperModal = true;
