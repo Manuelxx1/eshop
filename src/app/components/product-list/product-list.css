@@ -440,7 +440,7 @@ para hacer la compra */
 
 .toast {
   position: fixed;
-  top: 20px;
+  top: 50%;
   left: 50%;
   transform: translateX(-50%);
   background: #333;
