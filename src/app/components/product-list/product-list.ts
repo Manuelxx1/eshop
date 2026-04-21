@@ -248,7 +248,11 @@ this.productService.getProductsenoferta().subscribe(products => {
     const pendingId = this.productService.getPendingCheckout();
   if (pendingId && this.isLoggedIn()) {
     this.productService.clearPendingCheckout();
-    this.openStepperModal(pendingId);
+    const product = this.products.find(p => p.id === pendingId); // buscás el objeto
+    if (product) {
+      this.selectedProduct = product;
+      this.showStepperModal = true;
+    }
   }
   }//ngOnInit 
 
