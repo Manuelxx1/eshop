@@ -141,8 +141,8 @@ selectedProduct: any;
   showToast(message: string) {
   this.toastMessage = message;
   setTimeout(() => {
-    this.toastMessage = null; // se oculta después de 5 segundos
-  }, 5000);
+    this.toastMessage = null; // se oculta después de 3 segundos
+  }, 3000);
   }
   
 startCheckout(product: any) {
