@@ -245,19 +245,25 @@ this.productService.getProductsenoferta().subscribe(products => {
     //qye finalmente ke pasamos al metodo openStepperModal oara abrir
     //el modal stepper y poder comprar el producto que se habia seleccionado
     //cuando estábamos sin session
-   
-    this.productService.getAllProducts().subscribe(data => {
-    this.products = data;
- const pendingId = this.productService.getPendingCheckout();
-  if (pendingId && this.isLoggedIn()) {
-    this.productService.clearPendingCheckout();
-    const product = this.products.find(p => p.id === pendingId); // buscás el objeto
-    if (product) {
-      this.selectedProduct = product;
-      this.showStepperModal = true;
-    }
-  }
+   // Revisar si había producto pendiente después del login
+      this.productService.getFeaturedProducts().subscribe(data => {
+      this.featuredProducts = data;
+    
+    const pendingId = this.productService.getPendingCheckout();
+      console.log('PendingId:', pendingId);
+
+      if (pendingId && this.isLoggedIn()) {
+        this.productService.clearPendingCheckout();
+        const product = this.featuredProducts.find(p => p.id === pendingId);
+        console.log('Producto encontrado:', product);
+
+        if (product) {
+          this.selectedProduct = product;
+          this.showStepperModal = true;
+        }
+      }
     });
+    
   }//ngOnInit 
 
 
