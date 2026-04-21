@@ -148,6 +148,16 @@ this.message = 'Credenciales inválidas';
 }
 
   onLoginSuccess(userId: number) {
+    
+  const pendingId = this.productService.getPendingCheckout(); // acá usás el getter
+  if (pendingId) {
+    this.productService.clearPendingCheckout(); // limpiás el valor
+    this.router.navigate(['/']); // redirigís al componente de compra
+  } else {
+    this.router.navigate(['/']);
+  }
+
+
     alert('se recibio el idUsuario' + userId + 'desde aqui this.onLoginSuccess(res.body.id);' );
   this.cartService.migrateLocalCartToBackend(userId).subscribe({
     next: () => {
