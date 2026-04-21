@@ -136,6 +136,9 @@ this.checkoutForm = this.fb.group({
   const valorId = localStorage.getItem('idUsuario');
   return !!valorId; // true si hay sesión
 }
+
+  
+  // Caso 2: usuario no logueado
 //el boton iniciar sesión para comprar Llama a este metodo 
   //guardando el id del producto para que luego de iniciar session
   //se tome el producto que se había seleccionado para evitar 
@@ -151,6 +154,7 @@ this.checkoutForm = this.fb.group({
   //para el stepper guía al usuario 
 
 selectedProduct: any;
+  selectedProductId: number | null = null;
   showStepperModal = false;
   toastMessage: string | null = null;
 
@@ -179,6 +183,8 @@ const valorId = localStorage.getItem('idUsuario');
     
 }
 */
+
+  // Caso 1: usuario ya logueado
   startCheckout(product: any) {
 const valorId = localStorage.getItem('idUsuario');
   const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
@@ -408,8 +414,8 @@ alert("Usuario del login" +idUsuario);
 
   //abre el modal
   openStepperModal(productId: number) {
-  this.selectedProduct = productId;
-  this.showStepperModal = true;
+    this.selectedProductId = productId;
+    this.showStepperModal = true;
   }
 
 
