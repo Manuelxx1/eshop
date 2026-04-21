@@ -272,7 +272,8 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
 
   private pendingKey = 'pendingCheckout';// Guardar el ID del producto pendiente
   setPendingCheckout(productId: number) {
-    localStorage.setItem(this.pendingKey, productId.toString());
+  localStorage.setItem(this.pendingKey, productId.toString());
+    alert('pendingkey productid'+productId);
   }
 
   // Recuperar el ID pendiente
