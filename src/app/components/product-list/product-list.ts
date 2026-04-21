@@ -251,7 +251,7 @@ this.productService.getProductsenoferta().subscribe(products => {
     this.featuredProducts = data;
     alert('Productos cargados:'+this.featuredProducts);
 
-    const pendingId = this.checkoutService.getPendingCheckout();
+    const pendingId = this.productService.getPendingCheckout();
     alert('PendingId leído en ProductComponent:'+ pendingId);
 
     if (pendingId && this.isLoggedIn()) {
@@ -261,7 +261,7 @@ this.productService.getProductsenoferta().subscribe(products => {
       if (product) {
         this.selectedProduct = product;
         this.showStepperModal = true;
-        this.checkoutService.clearPendingCheckout();
+        this.productService.clearPendingCheckout();
       }
     }
   });
