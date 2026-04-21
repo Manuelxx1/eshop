@@ -224,7 +224,17 @@ this.productService.getProductsenoferta().subscribe(products => {
   });
 
     this.startCountdown(120); // duración en minutos
-  
+
+//luego de iniciar session desde el boton iniciar session para comprar 
+    //llamamos al servicio donde le habíamos pasado el productId 
+    //qye finalmente ke pasamos al metodo openStepperModal oara abrir
+    //el modal stepper y poder comprar el producto que se habia seleccionado
+    //cuando estábamos sin session
+    const pendingId = this.productService.getPendingCheckout();
+  if (pendingId && this.isLoggedIn()) {
+    this.productService.clearPendingCheckout();
+    this.openStepperModal(pendingId);
+  }
   }//ngOnInit 
 
 
@@ -387,6 +397,11 @@ alert("Usuario del login" +idUsuario);
   });
 }
 
+  //abre el modal
+  openStepperModal(productId: number) {
+  this.selectedProduct = productId;
+  this.showStepperModal = true;
+  }
 
 
 }
