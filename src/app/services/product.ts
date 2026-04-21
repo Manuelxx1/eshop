@@ -270,18 +270,21 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
 
 
 
-  private pendingProductId: number | null = null;
-
-  setPendingCheckout(id: number) { 
-    this.pendingProductId = id; 
+  private pendingKey = 'pendingCheckout';// Guardar el ID del producto pendiente
+  setPendingCheckout(productId: number) {
+    localStorage.setItem(this.pendingKey, productId.toString());
   }
+
+  // Recuperar el ID pendiente
   getPendingCheckout(): number | null {
-    return this.pendingProductId;
-  }
-  clearPendingCheckout() {
-    this.pendingProductId = null; 
+    const value = localStorage.getItem(this.pendingKey);
+    return value ? Number(value) : null;
   }
 
+  // Limpiar el ID pendiente
+  clearPendingCheckout() {
+    localStorage.removeItem(this.pendingKey);
+}
 
 
 }
