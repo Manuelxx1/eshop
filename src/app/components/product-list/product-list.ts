@@ -131,7 +131,7 @@ this.checkoutForm = this.fb.group({
     
   }// constructor 
 
-//mostrarcel boton compra directa solo si hay session
+//mostrar el boton compra directa que abre el modal stepper solo si hay session
   isLoggedIn(): boolean {
   const valorId = localStorage.getItem('idUsuario');
   return !!valorId; // true si hay sesión
