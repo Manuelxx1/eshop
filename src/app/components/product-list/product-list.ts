@@ -250,11 +250,11 @@ this.productService.getProductsenoferta().subscribe(products => {
     this.featuredProducts = data;
     console.log('Productos cargados:', this.featuredProducts);
 
-    const pendingId = this.checkoutService.getPendingCheckout();
+    const pendingId = this.productService.getPendingCheckout();
     console.log('PendingId:', pendingId);
 
     if (pendingId && this.isLoggedIn()) {
-      this.checkoutService.clearPendingCheckout();
+      this.productService.clearPendingCheckout();
       const product = this.featuredProducts.find(p => p.id === pendingId);
       console.log('Producto encontrado:', product);
 
