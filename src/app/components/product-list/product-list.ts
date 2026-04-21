@@ -145,6 +145,7 @@ const valorId = localStorage.getItem('idUsuario');
   this.showStepperModal = true;   // abre el modal
     }else{
     alert("Debes iniciar sesión para hacer la compra");
+      this.showStepperModal = false; // asegurate de cerrarlo
       this.router.navigate(['/login'])
     }
 }
