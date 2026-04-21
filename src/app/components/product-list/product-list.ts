@@ -140,10 +140,11 @@ selectedProduct: any;
   
   showToast(message: string) {
   this.toastMessage = message;
-  setTimeout(() => {
+  /*setTimeout(() => {
     this.toastMessage = null; // se oculta después de 3 segundos
-  }, 3000);
+  }, 5000);
   }
+  */
   
 startCheckout(product: any) {
 const valorId = localStorage.getItem('idUsuario');
@@ -155,8 +156,12 @@ const valorId = localStorage.getItem('idUsuario');
       this.showToast("Debes iniciar sesión para hacer la compra");
    // alert("Debes iniciar sesión para hacer la compra");
       this.showStepperModal = false; // asegurate de cerrarlo
-      this.router.navigate(['/login'])
+      // esperar 5 segundos antes de redirigir
+    setTimeout(() => {
+      this.router.navigate(['/login']);
+    }, 5000);
     }
+    
 }
 
   closeStepper() {
