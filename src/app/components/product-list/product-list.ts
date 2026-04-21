@@ -247,28 +247,24 @@ this.productService.getProductsenoferta().subscribe(products => {
     //el modal stepper y poder comprar el producto que se habia seleccionado
     //cuando estábamos sin session
    // Revisar si había producto pendiente después del login
-      this.productService.getFeaturedProducts().subscribe(data => {
+        this.productService.getFeaturedProducts().subscribe(data => {
     this.featuredProducts = data;
-    console.log('Productos cargados:', this.featuredProducts);
-alert('Productos cargados:'+ this.featuredProducts);
-    const pendingId = this.productService.getPendingCheckout();
-    console.log('PendingId:', pendingId);
-        alert('PendingId:'+ pendingId);
+    alert('Productos cargados:'+this.featuredProducts);
 
-    if (pendingId ) {
-      
+    const pendingId = this.checkoutService.getPendingCheckout();
+    alert('PendingId leído en ProductComponent:'+ pendingId);
+
+    if (pendingId && this.isLoggedIn()) {
       const product = this.featuredProducts.find(p => p.id === pendingId);
-      console.log('Producto encontrado:', product);
-      
-alert('Producto encontrado:' + product);
+      alert('Producto encontrado:' +product);
+
       if (product) {
         this.selectedProduct = product;
         this.showStepperModal = true;
-        this.productService.clearPendingCheckout();
+        this.checkoutService.clearPendingCheckout();
       }
     }
   });
-    
   }//ngOnInit 
 
 
