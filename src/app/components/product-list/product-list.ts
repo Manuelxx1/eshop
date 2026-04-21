@@ -427,11 +427,7 @@ alert("Usuario del login" +idUsuario);
   });
 }
 
-  //abre el modal
-  openStepperModal(productId: number) {
-    this.selectedProductId = productId;
-    this.showStepperModal = true;
-  }
+
 
 
 }
