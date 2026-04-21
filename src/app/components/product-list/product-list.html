@@ -56,8 +56,8 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
   Comprar ahora
 </button>
 
-<!-- Si NO está logueado muestra un botón para ir al login-->
-<button *ngIf="!isLoggedIn()" routerLink="/login">
+<!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
+<button *ngIf="!isLoggedIn()" (click)="goToLogin(product.id)">
   Inicia sesión para comprar
 </button>
     </div>
