@@ -186,6 +186,7 @@ const valorId = localStorage.getItem('idUsuario');
   this.selectedProduct = product;
   this.showStepperModal = true;   
     }
+  }
 
   closeStepper() {
   this.showStepperModal = false;    // cierra el modal
