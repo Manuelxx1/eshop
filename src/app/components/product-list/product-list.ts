@@ -143,6 +143,7 @@ selectedProduct: any;
   setTimeout(() => {
     this.toastMessage = null; // se oculta después de 5 segundos
   }, 5000);
+  }
   
 startCheckout(product: any) {
 const valorId = localStorage.getItem('idUsuario');
