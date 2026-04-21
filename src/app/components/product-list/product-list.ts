@@ -261,7 +261,11 @@ this.productService.getProductsenoferta().subscribe(products => {
       if (product) {
         this.selectedProduct = product;
         this.showStepperModal = true;
-        this.productService.clearPendingCheckout();
+        // limpiar solo después de abrir el modal
+        setTimeout(() => {
+          this.productService.clearPendingCheckout();
+          alert('Clave borrada después de abrir modal');
+        }, 0);
       }
     }
   });
