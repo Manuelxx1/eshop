@@ -268,4 +268,20 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
     return this.http.get<Product[]>(this.apiUrlTodosLosProductos);
   }
 
+
+
+  private pendingProductId: number | null = null;
+
+  setPendingCheckout(id: number) { 
+    this.pendingProductId = id; 
+  }
+  getPendingCheckout(): number | null {
+    return this.pendingProductId;
+  }
+  clearPendingCheckout() {
+    this.pendingProductId = null; 
+  }
+
+
+
 }
