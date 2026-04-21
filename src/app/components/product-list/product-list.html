@@ -38,7 +38,10 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 
 
 
-
+<!-- Toast para avisar que se debe iniciar sesión para hacer la compra-->
+<div class="toast" *ngIf="toastMessage">
+  {{ toastMessage }}
+</div>
 
 <section class="featured-products" id="destacados">
   <h2>Productos destacados</h2>
