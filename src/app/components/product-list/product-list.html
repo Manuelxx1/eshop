@@ -69,13 +69,11 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
     <button class="close-btn" (click)="closeStepper()">X</button>
 
     <!-- Stepper dentro del modal -->
-   <!-- <app-checkout-stepper *ngIf="selectedProduct"
+   <app-checkout-stepper *ngIf="selectedProduct"
       [selectedProduct]="selectedProduct"
       (close)="closeStepper()">
-    </app-checkout-stepper>-->
-  <app-checkout-stepper [productId]="selectedProductId || selectedProduct?.id"
-                        (close)="showStepperModal = false">
-  </app-checkout-stepper>
+    </app-checkout-stepper>
+
     
   </div>
 </div>
