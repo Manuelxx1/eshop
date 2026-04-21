@@ -139,7 +139,7 @@ this.message = 'Credenciales inválidas';
         // Decidir redirección
         const pendingId = this.productService.getPendingCheckout();
         if (pendingId) {
-          this.productService.clearPendingCheckout();
+          
           this.router.navigate(['/']); // vuelve a productos
         } else {
           this.router.navigate(['/dashboard']); // si no hay compra pendiente
