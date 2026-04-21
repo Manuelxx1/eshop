@@ -138,8 +138,15 @@ selectedProduct: any;
 
   
 startCheckout(product: any) {
+const valorId = localStorage.getItem('idUsuario');
+  const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
+    if(idUsuario){
   this.selectedProduct = product;
-  this.showStepperModal = true;     // abre el modal
+  this.showStepperModal = true;   // abre el modal
+    }else{
+    alert("Debes iniciar sesión para hacer la compra");
+      this.router.navigate(['/login'])
+    }
 }
 
   closeStepper() {
