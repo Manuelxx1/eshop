@@ -198,6 +198,9 @@ const valorId = localStorage.getItem('idUsuario');
   closeStepper() {
   this.showStepperModal = false;    // cierra el modal
   this.selectedProduct = null; // limpia selección si querés
+ // limpiar la clave recién al cerrar el modal
+  this.productService.clearPendingCheckout();
+  alert('Clave borrada al cerrar modal');
   }
 
 
@@ -261,12 +264,7 @@ this.productService.getProductsenoferta().subscribe(products => {
       if (product) {
         this.selectedProduct = product;
         this.showStepperModal = true;
-        // limpiar solo después de abrir el modal
-        /*setTimeout(() => {
-          this.productService.clearPendingCheckout();
-          alert('Clave borrada después de abrir modal');
-        }, 0);
-        */
+        
       }
     }
   });
