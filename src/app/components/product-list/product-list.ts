@@ -256,13 +256,15 @@ alert('Productos cargados:'+ this.featuredProducts);
         alert('PendingId:'+ pendingId);
 
     if (pendingId ) {
-      this.productService.clearPendingCheckout();
+      
       const product = this.featuredProducts.find(p => p.id === pendingId);
       console.log('Producto encontrado:', product);
+      
 alert('Producto encontrado:' + product);
       if (product) {
         this.selectedProduct = product;
         this.showStepperModal = true;
+        this.productService.clearPendingCheckout();
       }
     }
   });
