@@ -268,7 +268,7 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
     return this.http.get<Product[]>(this.apiUrlTodosLosProductos);
   }
 
-
+private pendingKey = 'pendingCheckout'; // clave única
 
     // Guardar el ID del producto pendiente
   setPendingCheckout(productId: number) {
