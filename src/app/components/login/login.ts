@@ -123,7 +123,7 @@ this.message = 'Credenciales inválidas';
         
 //this.cargarDatosDashboard(res.usuario);
      
-        this.onLoginSuccess(res.body.id);
+       // this.onLoginSuccess(res.body.id);
   
 
 
@@ -131,8 +131,15 @@ this.message = 'Credenciales inválidas';
         
         alert(res.body.id); //mensaje del.backend por ejemplo: "Login exitoso"
         
-        this.router.navigate(['/dashboard']);
+       // this.router.navigate(['/dashboard']);
         
+        const pendingId = this.productService.getPendingCheckout();
+        if (pendingId) {
+          this.productService.clearPendingCheckout();
+          this.router.navigate(['/']); // vuelve a productos
+        } else {
+          this.router.navigate(['/dashboard']); // si no hay compra pendiente
+        }
       }
     },
     error: (err) => {
