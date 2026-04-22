@@ -76,26 +76,20 @@ get subtotal(): number {
 
   
 
-finalizeCart() {
-    const idUsuario = localStorage.getItem('idUsuario');
+comprarCarrito() {
+    const idUsuario = Number(localStorage.getItem('idUsuario'));
     const cartItems = this.cart.map(item => ({
-    productId: item.product.id,
-    quantity: item.quantity
-  }));
-  const formData = this.checkoutForm.value;
+      productId: item.product.id,
+      quantity: item.quantity
+    }));
 
-    this.cartService.comprarCarrito(cartItems,Number(idUsuario), formData).subscribe({
-      next: (res) => {
-        console.log('Compra del carrito realizada:', res);
-        localStorage.removeItem('pendingCart');
-        alert('¡Compra finalizada con éxito!');
-      },
-      error: (err) => {
-        console.error('Error en la compra del carrito:', err);
-        alert('Hubo un problema al procesar la compra');
-      }
+    const formData = this.checkoutForm.value;
+
+    this.cartService.comprarCarrito(cartItems, idUsuario, formData).subscribe({
+      next: initPoint => window.location.href = initPoint,
+      error: err => console.error('Error en compra carrito', err)
     });
-                    }
+                                    }
 
 
 }
