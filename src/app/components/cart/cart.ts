@@ -235,17 +235,25 @@ clear(): void {
   const valorId = localStorage.getItem('idUsuario');
   return !!valorId; // true si hay sesión
   }
+//compra desde el carrito en session 
+  startCheckout(items: any[]) {
+  this.cartItems = items; // asignás el array al estado local
+  this.showStepperModal = true; // abrís el modal stepper
+}
+
+
   // Caso 2: usuario no logueado
 //el boton iniciar sesión para comprar Llama a este metodo 
   //guardando el id del producto para que luego de iniciar session
   //se tome el producto que se había seleccionado para evitar 
   //qye el usuario vuelva abuscar asi el flujo queda optimizado
   //listo para hacer la compra
-  goToLogin(productId: number) {
-  //localStorage.setItem('pendingCheckout', productId.toString());
-  alert('Guardando pendingId:'+ productId);
-    this.productService.setPendingCheckout(productId); // acá usás el setter
-    this.router.navigate(['/login']);
-  }
+  
+    //conprar desde el biton inciar session para comprar 
+goToLoginFromCart(items: any[]) {
+  localStorage.setItem('pendingCart', JSON.stringify(items));
+  this.router.navigate(['/login']);
+}
+
 
 }
