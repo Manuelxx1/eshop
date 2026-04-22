@@ -137,14 +137,19 @@ this.message = 'Credenciales inválidas';
         this.onLoginSuccess(res.body.id);
 
         // Decidir redirección
-        const pendingId = this.productService.getPendingCheckout();
-        if (pendingId) {
-          
-          this.router.navigate(['/']); // vuelve a productos
-        } else {
-          this.router.navigate(['/dashboard']); // si no hay compra pendiente
-      }
-      }
+          // Caso: carrito completo
+  const pendingCart = localStorage.getItem('pendingCart');
+
+  if (pendingId) {
+    // Si había un producto pendiente → redirige a productos
+    this.router.navigate(['/']);
+  } else if (pendingCart) {
+    // Si había un carrito pendiente → redirige al carrito
+    this.router.navigate(['/cart']);
+  } else {
+    // Si no hay nada pendiente → redirige al dashboard
+    this.router.navigate(['/dashboard']);
+  }
     },
     error: (err) => {
       console.error("Error backend:", err);
