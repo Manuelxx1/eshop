@@ -11,6 +11,7 @@ import { Product,Order} from '../../services/product';
 })
 export class CheckoutStepper {
   @Input() selectedProduct: any;
+  @Input() cart: any[] = [];
   currentStep = 1;
   showSummary = false; //  flag para mostrar resumen
 initPointUrl: string | null = null;
