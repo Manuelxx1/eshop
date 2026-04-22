@@ -72,7 +72,7 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
     </tr>
 
   </table>
-  <!-- Modal simple -->
+  <!-- Modal simple para confirmar eliminación de item -->
 <div class="modal" *ngIf="showConfirm">
   <div class="modal-content">
     <p>¿Seguro que deseas eliminar este ítem del carrito?</p>
@@ -84,7 +84,18 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
 
 <h3>Total: {{ cartService.total$ | async | currency:'ARS':'symbol' }}</h3>
 
+<!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
+<button *ngIf="isLoggedIn()" (click)="startCheckout(product)">
+  Comprar ahora
+</button>
+
+<!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
+<button *ngIf="!isLoggedIn()" (click)="goToLogin(product.id)">
+  Inicia sesión para comprar
+</button>
+
 <!-- Paso 2: Resumen y envío -->
+<!--
 <div *ngIf="currentStep === 2" class="step-container step-active">
   <h2>Resumen de compra</h2>
   <ul>
@@ -113,9 +124,9 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
 
   <button type="button" class="secondary" (click)="goBack()">Volver</button>
 </div>
-
+-->
 <!-- Paso 3: Datos personales -->
-<div *ngIf="currentStep === 3" class="step-container step-active">
+<!--<div *ngIf="currentStep === 3" class="step-container step-active">
   <h2>Datos personales</h2>
   <form [formGroup]="checkoutForm" (ngSubmit)="comprarCarrito()">
     <label for="name">Nombre completo</label>
@@ -140,6 +151,6 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
     <button type="submit" [disabled]="checkoutForm.invalid">Finalizar compra</button>
   </form>
 </div>
-
+-->
 
 <p *ngIf="errorredir">Error: {{ errorredir }}</p>
