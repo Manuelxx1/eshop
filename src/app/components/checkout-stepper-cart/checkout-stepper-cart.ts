@@ -71,7 +71,22 @@ mostrarResumen(): void {
 
 
 
+finalizeCart() {
+    const idUsuario = localStorage.getItem('idUsuario');
+    const formData = this.checkoutForm.value;
 
+    this.cartService.comprarCarrito(Number(idUsuario), formData).subscribe({
+      next: (res) => {
+        console.log('Compra del carrito realizada:', res);
+        localStorage.removeItem('pendingCart');
+        alert('¡Compra finalizada con éxito!');
+      },
+      error: (err) => {
+        console.error('Error en la compra del carrito:', err);
+        alert('Hubo un problema al procesar la compra');
+      }
+    });
+                    }
 
 
 }
