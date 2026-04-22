@@ -60,7 +60,13 @@ this.checkoutForm = this.fb.group({
     const valorId = localStorage.getItem('idUsuario');
     const idUsuario = Number(valorId);
     this.cartService.getCart(idUsuario).subscribe(); //  dispara la carga inicial
-}
+
+  const pendingCart = localStorage.getItem('pendingCart');
+  if (pendingCart && this.isLoggedIn()) {
+    this.cart= JSON.parse(pendingCart);
+    this.showStepperModal = true; // abre el checkout stepper
+  }
+  }
 
 
 
