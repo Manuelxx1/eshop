@@ -6,6 +6,7 @@ import { Cart} from '../../services/cart';
 
 @Component({
   selector: 'app-checkout-stepper-cart',
+  standalone: true,
   imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './checkout-stepper-cart.html',
   styleUrl: './checkout-stepper-cart.css',
