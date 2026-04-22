@@ -73,7 +73,7 @@ get subtotal(): number {
     return this.cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
 }
 
-  const cartItems = this.this.cart.map(item => ({
+  const cartItems = this.cart.map(item => ({
     productId: item.product.id,
     quantity: item.quantity
   }));
