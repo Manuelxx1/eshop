@@ -9,6 +9,7 @@ import { CheckoutStepperCart} from '../../components/checkout-stepper-cart/check
 
 @Component({
   selector: 'app-cart',
+  standalone: true,
   imports: [CommonModule,Dashboard,ReactiveFormsModule,CheckoutStepperCart],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
