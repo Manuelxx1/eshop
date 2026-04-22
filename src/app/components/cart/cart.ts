@@ -28,6 +28,7 @@ itemToDelete: number=0;
 //mensaje después de eliminar un item
   showToast = false;
   showStepperModal = false;
+  fromLoginButton = false; //  bandera para el template
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
@@ -70,11 +71,11 @@ this.checkoutForm = this.fb.group({
     this.cart = items;
   });
   const pendingCart = localStorage.getItem('pendingCart');
-  const fromLoginButton = localStorage.getItem('fromLoginButton');
+  const fromLoginButtonFlag = localStorage.getItem('fromLoginButton');
     if (pendingCart && this.isLoggedIn()) {
     this.cart= JSON.parse(pendingCart);
     this.showStepperModal = true; // abre el checkout stepper
-  
+  this.fromLoginButton = true; //  activás la bandera
 
     // limpiar el flag para que no quede pegado
     localStorage.removeItem('pendingCart');
