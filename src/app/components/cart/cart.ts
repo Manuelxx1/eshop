@@ -15,9 +15,9 @@ import { CheckoutStepperCart} from '../checkout-stepper-cart/checkout-stepper-ca
   styleUrl: './cart.css',
 })
 export class CartList implements OnInit{
-  items: CartItem[] = [];
+  //items: CartItem[] = [];
 //items o productos del carrito para comprar 
-  cart: any[] = [];
+  cart: CartItem[] = [];   
   total: number=0;
   errorredir: string | null = null;
 
@@ -112,7 +112,7 @@ goBack() {
     }
   }
 }
-
+/*
 comprarCarrito() {
   const valorId = localStorage.getItem('idUsuario');
 
@@ -142,7 +142,7 @@ comprarCarrito() {
   });
 }
 
-  
+  */
 
 
  getSubtotal(item: CartItem): number {
