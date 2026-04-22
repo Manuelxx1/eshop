@@ -150,6 +150,7 @@ this.message = 'Credenciales inválidas';
     // Si no hay nada pendiente → redirige al dashboard
     this.router.navigate(['/dashboard']);
   }
+      }
     },
     error: (err) => {
       console.error("Error backend:", err);
