@@ -237,7 +237,7 @@ clear(): void {
   }
 //compra desde el carrito en session 
   startCheckout(items: any[]) {
-  this.cartItems = items; // asignás el array al estado local
+  this.cart = items; // asignás el array al estado local
   this.showStepperModal = true; // abrís el modal stepper
 }
 
