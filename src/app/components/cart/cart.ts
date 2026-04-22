@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CartItem } from '../../services/cart'; // ajustá el path si hace falta
 import { Dashboard } from '../dashboard/dashboard';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
