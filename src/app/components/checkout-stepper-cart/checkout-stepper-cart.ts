@@ -73,12 +73,16 @@ get subtotal(): number {
     return this.cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
 }
 
+  const cartItems = this.this.cart.map(item => ({
+    productId: item.product.id,
+    quantity: item.quantity
+  }));
 
 finalizeCart() {
     const idUsuario = localStorage.getItem('idUsuario');
     const formData = this.checkoutForm.value;
 
-    this.cartService.comprarCarrito(Number(idUsuario), formData).subscribe({
+    this.cartService.comprarCarrito(cartItems,Number(idUsuario), formData).subscribe({
       next: (res) => {
         console.log('Compra del carrito realizada:', res);
         localStorage.removeItem('pendingCart');
