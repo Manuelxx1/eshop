@@ -60,6 +60,7 @@ this.checkoutForm = this.fb.group({
   */
    // this.loadCart();
     const valorId = localStorage.getItem('idUsuario');
+    
     const idUsuario = Number(valorId);
     this.cartService.getCart(idUsuario).subscribe(); //  dispara la carga inicial
 
@@ -69,13 +70,18 @@ this.checkoutForm = this.fb.group({
     this.cart = items;
   });
   const pendingCart = localStorage.getItem('pendingCart');
-  if (pendingCart && this.isLoggedIn()) {
+  const fromLoginButton = localStorage.getItem('fromLoginButton');
+    if (pendingCart && this.isLoggedIn()) {
     this.cart= JSON.parse(pendingCart);
     this.showStepperModal = true; // abre el checkout stepper
-  }
+  
+
+    // limpiar el flag para que no quede pegado
+    localStorage.removeItem('pendingCart');
+    localStorage.removeItem('fromLoginButton');
   }
 
-
+  }
 
 
   //version backend para mostrar el carrito sin
@@ -266,6 +272,7 @@ clear(): void {
     //conprar desde el biton inciar session para comprar 
 goToLoginFromCart(items: any[]) {
   localStorage.setItem('pendingCart', JSON.stringify(items));
+ localStorage.setItem('fromLoginButton', 'true'); //  flag extra el boton comprar ahora 
   this.router.navigate(['/login']);
 }
 
