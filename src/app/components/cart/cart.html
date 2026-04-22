@@ -95,6 +95,12 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
   Inicia sesión para comprar
 </button>
 
+<!-- Stepper exclusivo para carrito -->
+<app-checkout-stepper-cart
+  *ngIf="showStepperModal"
+  [cart]="cart">
+</app-checkout-stepper-cart>
+
 
 <!-- Paso 2: Resumen y envío -->
 <!--
