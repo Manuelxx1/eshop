@@ -140,7 +140,7 @@ this.message = 'Credenciales inválidas';
           // Caso: carrito completo
   const pendingCart = localStorage.getItem('pendingCart');
 
-  if (pendingId) {
+  if (pendingCart) {
     // Si había un producto pendiente → redirige a productos
     this.router.navigate(['/']);
   } else if (pendingCart) {
