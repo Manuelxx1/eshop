@@ -24,12 +24,16 @@ export class CartList implements OnInit{
 itemToDelete: number=0;
 //mensaje después de eliminar un item
   showToast = false;
+  showStepperModal = false;
   //opciones de envío
   shippingOptions = [
   { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
   { id: 'express', name: 'Envío exprés (1-2 días)', price: 12.99 },
   { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
 ];
+
+  
+ 
 
       
 
@@ -226,6 +230,22 @@ clear(): void {
   }
 }
 
-
+  //mostrar el boton compra directa que abre el modal stepper solo si hay session
+  isLoggedIn(): boolean {
+  const valorId = localStorage.getItem('idUsuario');
+  return !!valorId; // true si hay sesión
+  }
+  // Caso 2: usuario no logueado
+//el boton iniciar sesión para comprar Llama a este metodo 
+  //guardando el id del producto para que luego de iniciar session
+  //se tome el producto que se había seleccionado para evitar 
+  //qye el usuario vuelva abuscar asi el flujo queda optimizado
+  //listo para hacer la compra
+  goToLogin(productId: number) {
+  //localStorage.setItem('pendingCheckout', productId.toString());
+  alert('Guardando pendingId:'+ productId);
+    this.productService.setPendingCheckout(productId); // acá usás el setter
+    this.router.navigate(['/login']);
+  }
 
 }
