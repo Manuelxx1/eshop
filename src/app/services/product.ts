@@ -150,6 +150,8 @@ name: formData.name,
     body,
     { responseType: 'text' }
   );
+  this.clearPendingCheckout();
+  
 }
 
 
