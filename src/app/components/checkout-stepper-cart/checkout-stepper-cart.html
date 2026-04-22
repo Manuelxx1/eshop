@@ -46,7 +46,7 @@
 <!-- Paso 3: Datos personales -->
 <div *ngIf="currentStep === 3" class="step-container step-active">
   <h2>Datos personales</h2>
-  <form [formGroup]="checkoutForm" (ngSubmit)="finalizeCart()">
+  <form [formGroup]="checkoutForm" (ngSubmit)="comprarCarrito()">
     <label for="name">Nombre completo</label>
     <input id="name" formControlName="name" type="text" required />
 
