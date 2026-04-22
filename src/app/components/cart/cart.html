@@ -85,10 +85,12 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
 <h3>Total: {{ cartService.total$ | async | currency:'ARS':'symbol' }}</h3>
 
 <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
-
-<button *ngIf="isLoggedIn()" (click)="startCheckout(cart)">
+<button 
+  *ngIf="isLoggedIn() && cart.length > 0" 
+  (click)="startCheckout(cart)">
   Comprar ahora
 </button>
+
 
 <!-- Si NO está logueado, guarda el carrito completo y va al login -->
 <button *ngIf="!isLoggedIn()" (click)="goToLoginFromCart(cart)">
