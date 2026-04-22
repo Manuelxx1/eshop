@@ -68,7 +68,10 @@ goBack() {
 mostrarResumen(): void {
     this.showSummary = true;
 }
-
+  
+get subtotal(): number {
+    return this.cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+}
 
 
 finalizeCart() {
