@@ -91,6 +91,7 @@ alert("Usuario del login" +idUsuario);
 
       // redirige al checkout de Mercado Pago
       window.location.href = initPoint;
+      this.productService.clearPendingCheckout();
     },
     error: err => {
       alert("Error al llamar al backend: " + JSON.stringify(err));
