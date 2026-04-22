@@ -38,7 +38,7 @@ itemToDelete: number=0;
 
       
 
-  constructor(public cartService: Cart, private fb: FormBuilder) {
+  constructor(public cartService: Cart, private fb: FormBuilder,private router: Router) {
     //obtener datos personales para envío 
 this.checkoutForm = this.fb.group({
   name: ['', Validators.required],
