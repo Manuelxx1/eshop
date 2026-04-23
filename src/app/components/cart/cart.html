@@ -79,7 +79,6 @@ ahora todo en la suscripcion hace referencia a la variable local as items
     <button (click)="cancelDelete()">No</button>
   </div>
 </div>
-</ng-container>
 
 <h3>Total: {{ cartService.total$ | async | currency:'ARS':'symbol' }}</h3>
 
@@ -103,6 +102,7 @@ ahora todo en la suscripcion hace referencia a la variable local as items
   [cart]="items">
 </app-checkout-stepper-cart>
 
+</ng-container>
 
 <!-- Paso 2: Resumen y envío -->
 <!--
