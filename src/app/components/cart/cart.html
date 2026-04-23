@@ -1,9 +1,4 @@
 <app-dashboard></app-dashboard>
-<div class="stepper">
-  <div [class.active]="currentStep === 1">1. Carrito</div>
-  <div [class.active]="currentStep === 2">2. Resumen</div>
-  <div [class.active]="currentStep === 3">3. Datos</div>
-</div>
 
 <!-- Paso 1: Carrito -->
 <!--
@@ -55,6 +50,7 @@ esto te permite usar la variable items varias veces dentro del bloque sin repeti
  (cartService.items$ | async) en cada *ngFor y *ngIf
 esto nos permite suscribirnos desde el template evitando tener que hacerlo
 en el ngOnInit del ts component 
+ahora todo en la suscripcion hace referencia a la variable local as items
 -->
 
 
@@ -90,21 +86,21 @@ en el ngOnInit del ts component
 <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
 <!-- Botón solo si está logueado, hay productos y NO vino del botón "Iniciar sesión para comprar" -->
 <button 
-  *ngIf="isLoggedIn() && cart.length > 0 && !fromLoginButton" 
-  (click)="startCheckout(cart)">
+  *ngIf="isLoggedIn() && items.length > 0 && !fromLoginButton" 
+  (click)="startCheckout(items)">
   Comprar ahora
 </button>
 
 
 <!-- Si NO está logueado, guarda el carrito completo y va al login -->
-<button *ngIf="!isLoggedIn()" (click)="goToLoginFromCart(cart)">
+<button *ngIf="!isLoggedIn()" (click)="goToLoginFromCart(items)">
   Inicia sesión para comprar
 </button>
 
 <!-- Stepper exclusivo para carrito -->
 <app-checkout-stepper-cart
   *ngIf="showStepperModal"
-  [cart]="cart">
+  [cart]="items">
 </app-checkout-stepper-cart>
 
 
