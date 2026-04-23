@@ -66,10 +66,7 @@ this.checkoutForm = this.fb.group({
     this.cartService.getCart(idUsuario).subscribe(); //  dispara la carga inicial
 
 
-      // Suscribirse al servicio del carrito
-  this.cartService.items$.subscribe(items => {
-    this.cart = items;
-  });
+
   const pendingCart = localStorage.getItem('pendingCart');
   const fromLoginButtonFlag = localStorage.getItem('fromLoginButton');
     if (pendingCart && this.isLoggedIn()) {
