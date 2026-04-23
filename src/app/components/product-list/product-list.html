@@ -50,7 +50,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
       <img [src]="product.imageUrl" alt="{{ product.name }}">
       <h3>{{ product.name }}</h3>
       <p>{{ product.price | currency:'ARS' }}</p>
-      <button (click)="addToCart(product)">Agregar al carrito</button>
+      <button class="agregaralcarrito" (click)="addToCart(product)">Agregar al carrito</button>
 <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
 <button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
   Comprar ahora
