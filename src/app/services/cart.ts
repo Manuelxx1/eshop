@@ -317,7 +317,7 @@ increaseLocal(productId: number) {
   //entonces limpiando no hay nada que se migre al backend 
 //este método se ejecuta al cerrar session desde el boton cerrar sesión 
   //que esta en el dashboard para asegurarse de que se limpie todo
-  //solamente cuando ya no lo vamos a ocupar mas
+  //solamente cuando ya no lo vamos a ocupar mas 
   public clearLocal() {
     localStorage.removeItem('cartItems');
     this.items = [];
