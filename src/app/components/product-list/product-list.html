@@ -52,12 +52,12 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
       <p>{{ product.price | currency:'ARS' }}</p>
       <button (click)="addToCart(product)">Agregar al carrito</button>
 <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
-<button *ngIf="isLoggedIn()" (click)="startCheckout(product)">
+<button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
   Comprar ahora
 </button>
 
 <!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
-<button *ngIf="!isLoggedIn()" (click)="goToLogin(product.id)">
+<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin(product.id)">
   Inicia sesión para comprar
 </button>
     </div>
