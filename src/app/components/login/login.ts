@@ -129,8 +129,7 @@ this.message = 'Credenciales inválidas';
         
        
         
-        // Migrar carrito
-        this.onLoginSuccess(res.body.id);
+
 
         // Decidir redirección
           // Caso: carrito completo
@@ -152,6 +151,9 @@ const pendingCheckout = localStorage.getItem('pendingCheckout');
     // Si no hay nada pendiente → redirige al dashboard
     this.router.navigate(['/dashboard']);
   }
+
+                // Migrar carrito
+        this.onLoginSuccess(res.body.id);
       }
     },
     error: (err) => {
