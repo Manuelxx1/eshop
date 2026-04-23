@@ -269,6 +269,7 @@ this.productService.getProductsenoferta().subscribe(products => {
         //y nos permita otra vez buscar algún otro producto que deseamos comprar 
         localStorage.removeItem('pendingCheckout');
         
+        
       }
     }
   });
