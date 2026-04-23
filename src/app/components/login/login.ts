@@ -121,17 +121,13 @@ this.message = 'Credenciales inválidas';
 
     
         
-//this.cargarDatosDashboard(res.usuario);
-     
-       // this.onLoginSuccess(res.body.id);
-  
 
 
         
         
         alert(res.body.id); //mensaje del.backend por ejemplo: "Login exitoso"
         
-       // this.router.navigate(['/dashboard']);
+       
         
         // Migrar carrito
         this.onLoginSuccess(res.body.id);
