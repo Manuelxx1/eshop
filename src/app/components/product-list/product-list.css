@@ -156,20 +156,56 @@
   margin-bottom: 12px;
 }
 
-.product-card button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.comprarahora {
+  background-color: #28a745; /* verde fuerte */
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.product-card button:hover {
-  background-color: #e63939;
+.comprarahora:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: #eafbea;
+  font-weight: 600;
 }
+
+.comprarahora:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.comprarahora:focus {
+  outline: none; /* quitamos el borde azul por defecto */
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* halo verde */
+}
+
+.iniciasesionparacomprar{
+  background-color: #0000FF; /* naranja */
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.iniciasesionparacomprar:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: #fff3e0;
+  font-weight: 600;
+}
+
+.iniciasesionparacomprar:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.iniciasesionparacomprar:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.5); /* halo naranja */
+}
+
 
 /*section categoria*/
 
