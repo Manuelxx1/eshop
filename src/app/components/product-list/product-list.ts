@@ -264,6 +264,10 @@ this.productService.getProductsenoferta().subscribe(products => {
       if (product) {
         this.selectedProduct = product;
         this.showStepperModal = true;
+        //para que no quede en localStorage luego de finalizar la compra
+       //esto evita que el stepper vuelva a aparecer sin que lo llamaramos
+        //y nos permita otra vez buscar algún otro producto que deseamos comprar 
+        localStorage.removeItem('pendingCheckout');
         
       }
     }
