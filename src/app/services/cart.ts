@@ -393,7 +393,7 @@ public clearLocal() {
       tap((cart: any[]) => {
         this.items = cart;
         this.updateStorage();
-       this.clearLocal();
+       //this.clearLocal();
       })
     );
   }
