@@ -1,9 +1,6 @@
 <app-dashboard></app-dashboard>
 
-<!-- Paso 1: Carrito -->
-<!--
-<div *ngIf="currentStep === 1" class="step-container step-active">
-  <h2>Carrito</h2>
+
   <table>
     <thead>
       <tr>
@@ -58,6 +55,15 @@ ahora todo en la suscripcion hace referencia a la variable local as items
   <div *ngIf="items.length === 0">Tu carrito está vacío</div>
 
   <table *ngIf="items.length > 0">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let item of items">
       <td>{{ item.product.name }}</td>
       <td>
@@ -69,7 +75,8 @@ ahora todo en la suscripcion hace referencia a la variable local as items
       <td>{{ item.product.price * item.quantity | currency:'ARS':'symbol' }}</td>
       <td><button (click)="askDeleteRemove(item.product.id)">Eliminar</button></td>
     </tr>
-
+      <tr> <button (click)="clear()">Vaciar Carrito</button> </tr>
+    </tbody>
   </table>
   <!-- Modal simple para confirmar eliminación de item -->
 <div class="modal" *ngIf="showConfirm">
