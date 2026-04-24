@@ -94,7 +94,7 @@ if (idUsuario) {
   //se tome el producto que se había seleccionado para evitar 
   //qye el usuario vuelva abuscar asi el flujo queda optimizado
   //listo para hacer la compra
-  goToLogin(type: 'product' | 'featured' | 'category | offers', value: string | number) {
+  goToLogin(type: 'product' | 'featured' | 'category' | 'offers', value: string | number) {
   this.productService.setPendingCheckout(type, value);
   this.router.navigate(['/login']);
 }
