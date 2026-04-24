@@ -3,10 +3,16 @@ import { ActivatedRoute } from '@angular/router';
 import { TitleCasePipe,CurrencyPipe} from '@angular/common';
 import { Product} from '../../services/product';
 import { CommonModule } from '@angular/common';
+import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
+import { Cart} from '../../services/cart';
+import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 
 @Component({
   selector: 'app-categoria',
-  imports: [TitleCasePipe,CommonModule,CurrencyPipe],
+  imports: [TitleCasePipe,CommonModule,CurrencyPipe,ReactiveFormsModule,CheckoutStepper],
   templateUrl: './categoria.html',
   styleUrls: ['./categoria.css']
 })
@@ -14,6 +20,16 @@ export class Categoria implements OnInit {
   categoriaNombre: string = '';
     //productos por categoría 
   productosporcategoria: any[] = [];
+  quantityControl = new FormControl<number>(1, { nonNullable: true });
+
+quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
+
+
+  showSummary = false; //  flag para mostrar resumen
+  
+  lastOrderId: number | null = null; // acá guardamos el ID dinámico
+initPointUrl: string | null = null;
+  errorredir: string | null = null;
 
   constructor(private route: ActivatedRoute,private productService: Product) {}
 
