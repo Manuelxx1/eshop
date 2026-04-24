@@ -36,21 +36,20 @@ export class Categoria implements OnInit {
       alert('Productos cargados:'+this.productosporcategoria);
     });
 
-const pendingData = this.productService.getPendingCheckout();
-alert('Pending leído en CategoriaComponent:' + JSON.stringify(pendingData));
+
+   const pendingData = this.productService.getPendingCheckout();
 
 if (pendingData && this.isLoggedIn()) {
-  
-    const product = this.productosporcategoria.find(p => p.id === pendingData.value);
+  if (pendingData.type === 'product') {
+    const product = this.productosporcategoria.find(p => p.id === pendingData.value.id);
     if (product) {
       this.selectedProduct = product;
       this.showStepperModal = true;
-      localStorage.removeItem('pendingCheckout');
-    }
+      this.productService.clearPendingCheckout();
     }
   }
-
-                              
+}
+             
                                                                               
 
 
