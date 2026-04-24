@@ -12,7 +12,7 @@
 </button>
 
 <!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
-<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin(product.id)">
+<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('category', category.slug)">
   Inicia sesión para comprar
 </button>
     </div>
