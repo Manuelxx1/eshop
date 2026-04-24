@@ -141,9 +141,27 @@ const pendingCheckout = localStorage.getItem('pendingCheckout');
 
         
   if (pendingCheckout) {
+
+    const checkoutData = JSON.parse(pendingCheckout);
+
+  switch (checkoutData.type) {
+    case 'product':
+      this.router.navigate(['/algunlado']); 
+      break;
+    case 'featured':
+      this.router.navigate(['/', checkoutData.value]);
+      break;
+    case 'category':
+      this.router.navigate(['/categoria', checkoutData.value]); 
+      break;
+    default:
+      this.router.navigate(['/']);
+  }
     // Última intención: producto puntual
+    //tiene prioridad sobre un carrito guardado anteriormente
     // Si había un producto pendiente → redirige a productos
-    this.router.navigate(['/']);
+    //usando la condición pendingCheckout     
+ 
   } else if (pendingCart) {
     // Si había un carrito pendiente → redirige al carrito
     this.router.navigate(['/cart']);
