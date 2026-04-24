@@ -34,7 +34,7 @@ export class Categoria implements OnInit {
     this.productosporcategoria = products;
 
       alert('Productos cargados:'+this.productosporcategoria);
-
+    }
 
 const pendingData = this.productService.getPendingCheckout();
 alert('Pending leído en CategoriaComponent:' + JSON.stringify(pendingData));
@@ -49,7 +49,7 @@ if (pendingData && this.isLoggedIn()) {
     }
     }
   }
-}
+
                               
                                                                               
 
