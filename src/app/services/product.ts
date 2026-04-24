@@ -280,7 +280,7 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
   //categoria donde esta el checkout stepper de categoria
 
 private pendingKey = 'pendingCheckout'; // clave única
-
+/*
     // Guardar el ID del producto pendiente
   setPendingCheckout(productId: number) {
     alert('Guardando en localStorage:'+ this.pendingKey+ productId);
@@ -293,6 +293,11 @@ private pendingKey = 'pendingCheckout'; // clave única
     alert('Leyendo de localStorage:'+ this.pendingKey + value);
     return value ? Number(value) : null;
   }
+  */
+  setPendingCheckout(type: 'product' | 'featured' | 'category', value: string | number) {
+  const data = { type, value };
+  localStorage.setItem(this.pendingKey, JSON.stringify(data));
+}
   
   // Limpiar el ID pendiente
   clearPendingCheckout() {
