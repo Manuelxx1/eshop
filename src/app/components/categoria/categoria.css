@@ -182,8 +182,14 @@
     font-size: 0.9rem;
   }
 
-  .product-card button {
-    width: 100%; /* botón ocupa todo el ancho en móvil */
-    font-size: 15px;
+  /* Botones grandes y táctiles */
+button {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   }
 }
