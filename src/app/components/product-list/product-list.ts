@@ -67,6 +67,7 @@ countdown: string = '';
 total: number = 0;
 
 searchControl = new FormControl;
+  quantityControl = new FormControl<number>(1, { nonNullable: true });
 
   datosDebug: string = '';
   email:string = '';  
