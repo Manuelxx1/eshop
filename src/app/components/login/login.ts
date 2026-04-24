@@ -158,7 +158,7 @@ const pendingCheckout = this.productService.getPendingCheckout();
     default:
       this.router.navigate(['/']);
   }
-  }
+  
     // Última intención: producto puntual
     //tiene prioridad sobre un carrito guardado anteriormente
     // Si había un producto pendiente → redirige a productos
@@ -185,13 +185,13 @@ const pendingCheckout = this.productService.getPendingCheckout();
     alert ("Error en la validación"+err.body.error);
     }
     
-  });
-}
+  }
 
-  onLoginSuccess(userId: number) {
-    
-  
 
+ 
+
+
+onLoginSuccess(userId: number) {
     alert('se recibio el idUsuario' + userId + 'desde aqui this.onLoginSuccess(res.body.id);' );
   this.cartService.migrateLocalCartToBackend(userId).subscribe({
     next: () => {
