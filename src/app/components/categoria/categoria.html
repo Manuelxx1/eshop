@@ -17,4 +17,19 @@
 </button>
     </div>
   </div>
+
+  <!-- Modal -->
+<div class="modal-overlay" *ngIf="showStepperModal">
+  <div class="modal-content">
+    <button class="close-btn" (click)="closeStepper()">Cerrar</button>
+
+    <!-- Stepper dentro del modal -->
+   <app-checkout-stepper *ngIf="selectedProduct"
+      [selectedProduct]="selectedProduct"
+      (close)="closeStepper()">
+    </app-checkout-stepper>
+
+    
+  </div>
+</div>
 </section>
