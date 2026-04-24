@@ -49,6 +49,7 @@ if (pendingData && this.isLoggedIn()) {
     }
   }
 }
+  }
              
                                                                               
 
