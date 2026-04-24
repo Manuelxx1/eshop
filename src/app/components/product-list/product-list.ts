@@ -72,20 +72,6 @@ searchControl = new FormControl;
   email:string = '';  
   fechaderegistro:any;
   nombre:string ='';
-  //para el dropdawn de compra directa 
-  // Control reactivo para la cantidad
-  //formato con declaración de tipado 
-  //se me asigna el valor por defecto 1
-  //y se define no nulo para que no surga error
-  quantityControl = new FormControl<number>(1, { nonNullable: true });
-
-quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
-
-
-  showSummary = false; //  flag para mostrar resumen
-  
-  lastOrderId: number | null = null; // acá guardamos el ID dinámico
-initPointUrl: string | null = null;
   errorredir: string | null = null;
 
 
@@ -96,33 +82,14 @@ initPointUrl: string | null = null;
 
 
 
-  checkoutForm: FormGroup;
-  //opciones de envío
-  shippingOptions = [
-  { id: 'standard', name: 'Envío estándar (3-5 días)', price: 5.99 },
-  { id: 'express', name: 'Envío exprés (1-2 días)', price: 12.99 },
-  { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
-];
-
-// Control reactivo para la opción seleccionada 
-  //shippingControl = new FormControl(this.shippingOptions[0]);
-
+  
 
   constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
 
 
 
 
-    //obtener datos personales para envío 
-this.checkoutForm = this.fb.group({
-  name: ['', Validators.required],
-  email: ['', [Validators.required, Validators.email]],
-  phone: [''],
-  address: ['', Validators.required],
-  city: ['', Validators.required],
-  postalCode: ['', [Validators.required, Validators.pattern(/^[0-9]{4,10}$/)]],
-  shippingOption: [null, Validators.required]   //  arranca en null
-});
+
 
 
     this.destacadoporcategories = this.fb.group({
@@ -399,41 +366,10 @@ if (idUsuario) {
 }
 
 
-//mostrar resumen de compra antes de confirmar compra 
-mostrarResumen(): void {
-    this.showSummary = true;
-}
 
 
 
   
-// Compra directa → redirige al checkout
-buyNow(productId: number): void {
-  alert("Botón comprar clickeado ");
-  alert("productId del frontend" + productId);
-  const selectedQuantity = this.quantityControl.value ?? 1;
-  console.log('Cantidad seleccionada:', selectedQuantity);
-//const shippingOption = this.shippingControl.value;
-  const formData = this.checkoutForm.value;
-  console.log('Datos del comprador:', formData);
-  // recuperar usuario de la sesión (guardado en login)
-  const valorId = localStorage.getItem('idUsuario');
-  const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
-alert("Usuario del login" +idUsuario);
-  this.productService.comprar(productId, selectedQuantity, idUsuario,formData).subscribe({
-    next: initPoint => {
-      alert("initPoint recibido: " + initPoint);
-      localStorage.setItem('selectedProduct', JSON.stringify(productId));
-
-      // redirige al checkout de Mercado Pago
-      window.location.href = initPoint;
-    },
-    error: err => {
-      alert("Error al llamar al backend: " + JSON.stringify(err));
-      this.errorredir = JSON.stringify(err);
-    }
-  });
-}
 
 
 
