@@ -33,8 +33,11 @@ export class Categoria implements OnInit {
     this.productService.getProductsByCategory(this.categoriaNombre).subscribe(products => {
     this.productosporcategoria = products;
 
+      alert('Productos cargados:'+this.this.productosporcategoria);
+
+
 const pendingId = this.productService.getPendingCheckout();
-    alert('PendingId leído en ProductComponent:'+ pendingId);
+    alert('PendingId leído en CategoriaComponent:'+ pendingId);
 
     if (pendingId && this.isLoggedIn()) {
       const product = this.productosporcategoria.find(p => p.id === pendingId);
