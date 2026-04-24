@@ -25,11 +25,11 @@ export class Categoria implements OnInit {
   constructor(private route: ActivatedRoute,private productService: Product,private cartService: Cart,private router: Router) {}
 
   ngOnInit() {
-    this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
+    //this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
   /* para el mocking de categoría 
     this.productosporcategoria = this.productService.getProductsByCategory(this.categoriaNombre);
  */
-
+/*
     this.productService.getProductsByCategory(this.categoriaNombre).subscribe(products => {
     this.productosporcategoria = products;
 
@@ -48,9 +48,28 @@ if (pendingData && this.isLoggedIn()) {
       this.productService.clearPendingCheckout();
     }
   }
-}
+}*/
+
+this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
+
+  this.productService.getProductsByCategory(this.categoriaNombre).subscribe(products => {
+    this.productosporcategoria = products;
+
+    const pendingData = this.productService.getPendingCheckout();
+    if (pendingData && this.isLoggedIn()) {
+      if (pendingData.type === 'product') {
+        const product = this.productosporcategoria.find(p => p.id === pendingData.value.id);
+        if (product) {
+          this.selectedProduct = product;
+          this.showStepperModal = true;
+          this.productService.clearPendingCheckout();
+        }
+      }
+    }
+  });
   }
-             
+        
+    
                                                                               
 
 
