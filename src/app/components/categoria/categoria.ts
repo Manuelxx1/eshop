@@ -47,9 +47,10 @@ if (pendingData && this.isLoggedIn()) {
       this.showStepperModal = true;
       localStorage.removeItem('pendingCheckout');
     }
+    }
   }
 }
-                              }
+                              
                                                                               
 
 
