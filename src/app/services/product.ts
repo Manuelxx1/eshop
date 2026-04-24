@@ -270,6 +270,15 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
     return this.http.get<Product[]>(this.apiUrlTodosLosProductos);
   }
 
+
+
+  
+  
+
+  //para seccion categoria se define una key propia
+  //así después en el login  podemos usarla para redirigir al component 
+  //categoria donde esta el checkout stepper de categoria
+
 private pendingKey = 'pendingCheckout'; // clave única
 
     // Guardar el ID del producto pendiente
@@ -284,7 +293,7 @@ private pendingKey = 'pendingCheckout'; // clave única
     alert('Leyendo de localStorage:'+ this.pendingKey + value);
     return value ? Number(value) : null;
   }
-
+  
   // Limpiar el ID pendiente
   clearPendingCheckout() {
     alert('Borrando clave:'+ this.pendingKey);
