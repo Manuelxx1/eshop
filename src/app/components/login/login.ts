@@ -154,6 +154,9 @@ const pendingCheckout = localStorage.getItem('pendingCheckout');
     case 'category':
       this.router.navigate(['/categoria', checkoutData.value]); 
       break;
+      case 'offers':
+      this.router.navigate(['/', checkoutData.value]); 
+      break;
     default:
       this.router.navigate(['/']);
   }
