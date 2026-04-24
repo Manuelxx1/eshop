@@ -20,6 +20,7 @@ export class Categoria implements OnInit {
   categoriaNombre: string = '';
     //productos por categoría 
   productosporcategoria: any[] = [];
+  quantityControl = new FormControl<number>(1, { nonNullable: true });
   
   constructor(private route: ActivatedRoute,private productService: Product,private cartService: Cart,private router: Router) {}
 
