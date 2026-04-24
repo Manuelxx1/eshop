@@ -32,6 +32,27 @@ export class Categoria implements OnInit {
 
     this.productService.getProductsByCategory(this.categoriaNombre).subscribe(products => {
     this.productosporcategoria = products;
+
+const pendingId = this.productService.getPendingCheckout();
+    alert('PendingId leído en ProductComponent:'+ pendingId);
+
+    if (pendingId && this.isLoggedIn()) {
+      const product = this.productosporcategoria.find(p => p.id === pendingId);
+      alert('Producto encontrado:' +product);
+
+      if (product) {
+        this.selectedProduct = product;
+        this.showStepperModal = true;
+        //para que no quede en localStorage luego de finalizar la compra
+       //esto evita que el stepper vuelva a aparecer sin que lo llamaramos
+        //y nos permita otra vez buscar algún otro producto que deseamos comprar 
+        localStorage.removeItem('pendingCheckout');
+        
+        
+      }
+    }
+  });
+      
     });
   }
 
