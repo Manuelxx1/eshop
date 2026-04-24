@@ -185,7 +185,8 @@ const pendingCheckout = this.productService.getPendingCheckout();
     alert ("Error en la validación"+err.body.error);
     }
     
-  }
+  });
+    }
 
 
  
