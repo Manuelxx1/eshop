@@ -298,6 +298,19 @@ private pendingKey = 'pendingCheckout'; // clave única
   const data = { type, value };
   localStorage.setItem(this.pendingKey, JSON.stringify(data));
 }
+
+  getPendingCheckout(): { type: string, value: string | number } | null {
+  const data = localStorage.getItem(this.pendingKey);
+  if (data) {
+    try {
+      return JSON.parse(data);
+    } catch (e) {
+      console.error('Error parseando pendingCheckout', e);
+      return null;
+    }
+  }
+  return null;
+  }
   
   // Limpiar el ID pendiente
   clearPendingCheckout() {
