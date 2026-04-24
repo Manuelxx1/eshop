@@ -21,6 +21,10 @@
 
     </div>
   </div>
+  <div *ngIf="message" class="info-banner">
+  {{ message }}
+</div>
+
 
   <!-- Modal -->
 <div class="modal-overlay" *ngIf="showStepperModal">
