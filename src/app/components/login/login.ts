@@ -136,29 +136,28 @@ this.message = 'Credenciales inválidas';
   const pendingCart = localStorage.getItem('pendingCart');
 
 const pendingCheckout = localStorage.getItem('pendingCheckout');
-
+//const pendingCheckout = this.productService.getPendingCheckout();
 
 
         
   if (pendingCheckout) {
-
-    const checkoutData = JSON.parse(pendingCheckout);
-
-  switch (checkoutData.type) {
+  switch (pendingCheckout.type) {
     case 'product':
-      this.router.navigate(['/algunlado']); 
+      // Redirige a la categoría guardada junto con el producto
+      this.router.navigate(['/categoria', pendingCheckout.value.category]);
       break;
+
     case 'featured':
-      this.router.navigate(['/', checkoutData.value]);
+      this.router.navigate(['/', pendingCheckout.value]);
       break;
+
     case 'category':
-      this.router.navigate(['/categoria', checkoutData.value]); 
+      this.router.navigate(['/categoria', pendingCheckout.value]);
       break;
-      case 'offers':
-      this.router.navigate(['/', checkoutData.value]); 
-      break;
+
     default:
       this.router.navigate(['/']);
+  }
   }
     // Última intención: producto puntual
     //tiene prioridad sobre un carrito guardado anteriormente
