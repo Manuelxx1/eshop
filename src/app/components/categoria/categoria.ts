@@ -36,26 +36,22 @@ export class Categoria implements OnInit {
       alert('Productos cargados:'+this.productosporcategoria);
 
 
-const pendingId = this.productService.getPendingCheckout();
-    alert('PendingId leído en CategoriaComponent:'+ pendingId);
+const pendingData = this.productService.getPendingCheckout();
+alert('Pending leído en CategoriaComponent:' + JSON.stringify(pendingData));
 
-    if (pendingId && this.isLoggedIn()) {
-      const product = this.productosporcategoria.find(p => p.id === pendingId);
-      alert('Producto encontrado:' +product);
-
-      if (product) {
-        this.selectedProduct = product;
-        this.showStepperModal = true;
-        //para que no quede en localStorage luego de finalizar la compra
-       //esto evita que el stepper vuelva a aparecer sin que lo llamaramos
-        //y nos permita otra vez buscar algún otro producto que deseamos comprar 
-        localStorage.removeItem('pendingCheckout');
-        
-        
-      }
+if (pendingData && this.isLoggedIn()) {
+  
+    const product = this.productosporcategoria.find(p => p.id === pendingData.value);
+    if (product) {
+      this.selectedProduct = product;
+      this.showStepperModal = true;
+      localStorage.removeItem('pendingCheckout');
     }
-    });
   }
+}
+                              }
+                                                                              
+
 
   addToCart(product: any): void {
   const quantity = this.quantityControl.value; //  acá tomás el valor del select
