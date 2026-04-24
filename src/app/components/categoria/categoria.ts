@@ -4,7 +4,7 @@ import { TitleCasePipe,CurrencyPipe} from '@angular/common';
 import { Product} from '../../services/product';
 import { CommonModule } from '@angular/common';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+
 import { Router } from '@angular/router';
 
 import { Cart} from '../../services/cart';
