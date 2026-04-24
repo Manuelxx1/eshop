@@ -51,8 +51,6 @@ const pendingId = this.productService.getPendingCheckout();
         
       }
     }
-  });
-      
     });
   }
 
