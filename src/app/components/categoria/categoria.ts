@@ -21,7 +21,7 @@ export class Categoria implements OnInit {
     //productos por categoría 
   productosporcategoria: any[] = [];
   
-  constructor(private route: ActivatedRoute,private productService: Product) {}
+  constructor(private route: ActivatedRoute,private productService: Product,private cartService: Cart,private router: Router) {}
 
   ngOnInit() {
     this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
