@@ -57,7 +57,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 </button>
 
 <!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
-<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin(featured,product.id)">
+<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('featured',product.id)">
   Inicia sesión para comprar
 </button>
     </div>
@@ -106,7 +106,7 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
 </button>
 
 <!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
-<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin(featured,product.id)">
+<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('featured',product.id)">
   Inicia sesión para comprar
 </button>
   </div>
