@@ -121,7 +121,7 @@ searchControl = new FormControl;
   }
  */
 
-  goToLogin(type: 'product' | 'featured' | 'category', value: string | number) {
+  goToLogin(type: 'product' | 'featured' | 'category' | 'offers', value: string | number) {
   this.productService.setPendingCheckout(type, value);
   this.router.navigate(['/login']);
 }
