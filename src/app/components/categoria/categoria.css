@@ -47,20 +47,6 @@
   margin-bottom: 12px;
 }
 
-.product-card button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.product-card button:hover {
-  background-color: #e63939;
-}
 
 .modal-overlay {
   position: fixed;
@@ -145,7 +131,7 @@
 }
 
 .agregaralcarrito {
-  background-color: #ff9800; /* naranja */
+  background-color: #ff9800; /* naranja o tambien usar esta variante  #ff4d4d*/
   color: #fff;
   font-weight: 500;
   transition: all 0.3s ease;
