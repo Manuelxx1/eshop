@@ -20,17 +20,7 @@ export class Categoria implements OnInit {
   categoriaNombre: string = '';
     //productos por categoría 
   productosporcategoria: any[] = [];
-  quantityControl = new FormControl<number>(1, { nonNullable: true });
-
-quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de producto
-
-
-  showSummary = false; //  flag para mostrar resumen
   
-  lastOrderId: number | null = null; // acá guardamos el ID dinámico
-initPointUrl: string | null = null;
-  errorredir: string | null = null;
-
   constructor(private route: ActivatedRoute,private productService: Product) {}
 
   ngOnInit() {
@@ -77,5 +67,44 @@ if (idUsuario) {
   const valorId = localStorage.getItem('idUsuario');
   return !!valorId; // true si hay sesión
 }
+
+  // Caso 2: usuario no logueado
+//el boton iniciar sesión para comprar Llama a este metodo 
+  //guardando el id del producto para que luego de iniciar session
+  //se tome el producto que se había seleccionado para evitar 
+  //qye el usuario vuelva abuscar asi el flujo queda optimizado
+  //listo para hacer la compra
+  goToLogin(productId: number) {
+  //localStorage.setItem('pendingCheckout', productId.toString());
+  alert('Guardando pendingId:'+ productId);
+    this.productService.setPendingCheckout(productId); // acá usás el setter
+    this.router.navigate(['/login']);
+  }
+ 
+  
+  //para el stepper guía al usuario 
+
+selectedProduct: any;
+  selectedProductId: number | null = null;
+  showStepperModal = false;
+
+
+  // Caso 1: usuario ya logueado
+  startCheckout(product: any) {
+const valorId = localStorage.getItem('idUsuario');
+  const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
+    if(idUsuario){
+  this.selectedProduct = product;
+  this.showStepperModal = true;   
+    }
+  }
+
+  closeStepper() {
+  this.showStepperModal = false;    // cierra el modal
+  this.selectedProduct = null; // limpia selección si querés
+ // limpiar la clave recién al cerrar el modal
+  this.productService.clearPendingCheckout();
+  alert('Clave borrada al cerrar modal');
+  }
 
 }
