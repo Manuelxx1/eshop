@@ -21,7 +21,8 @@ export class Categoria implements OnInit {
     //productos por categoría 
   productosporcategoria: any[] = [];
   quantityControl = new FormControl<number>(1, { nonNullable: true });
-  
+  message:string = '';
+ 
   constructor(private route: ActivatedRoute,private productService: Product,private cartService: Cart,private router: Router) {}
 
   ngOnInit() {
