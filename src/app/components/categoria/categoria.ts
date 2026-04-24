@@ -60,6 +60,7 @@ this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
       if (pendingData.type === 'product') {
         const product = this.productosporcategoria.find(p => p.id === pendingData.value.id);
         if (product) {
+          this.message = "Reanudando tu compra…";
           this.selectedProduct = product;
           this.showStepperModal = true;
           this.productService.clearPendingCheckout();
