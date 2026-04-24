@@ -112,13 +112,20 @@ searchControl = new FormControl;
   //se tome el producto que se había seleccionado para evitar 
   //qye el usuario vuelva abuscar asi el flujo queda optimizado
   //listo para hacer la compra
-  goToLogin(productId: number) {
+  //método antiguo sin el switch en el login
+  /*goToLogin(productId: number) {
   //localStorage.setItem('pendingCheckout', productId.toString());
   alert('Guardando pendingId:'+ productId);
     this.productService.setPendingCheckout(productId); // acá usás el setter
     this.router.navigate(['/login']);
   }
- 
+ */
+
+  goToLogin(type: 'product' | 'featured' | 'category', value: string | number) {
+  this.productService.setPendingCheckout(type, value);
+  this.router.navigate(['/login']);
+}
+
   
   //para el stepper guía al usuario 
 
