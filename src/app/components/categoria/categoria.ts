@@ -33,7 +33,7 @@ export class Categoria implements OnInit {
     this.productService.getProductsByCategory(this.categoriaNombre).subscribe(products => {
     this.productosporcategoria = products;
 
-      alert('Productos cargados:'+this.this.productosporcategoria);
+      alert('Productos cargados:'+this.productosporcategoria);
 
 
 const pendingId = this.productService.getPendingCheckout();
