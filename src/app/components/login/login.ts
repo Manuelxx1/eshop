@@ -135,8 +135,8 @@ this.message = 'Credenciales inválidas';
           // Caso: carrito completo
   const pendingCart = localStorage.getItem('pendingCart');
 
-const pendingCheckout = localStorage.getItem('pendingCheckout');
-//const pendingCheckout = this.productService.getPendingCheckout();
+//const pendingCheckout = localStorage.getItem('pendingCheckout');
+const pendingCheckout = this.productService.getPendingCheckout();
 
 
         
