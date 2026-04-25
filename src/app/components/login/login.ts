@@ -138,18 +138,17 @@ this.message = 'Credenciales inválidas';
 //const pendingCheckout = localStorage.getItem('pendingCheckout');
 const pendingCheckout = this.productService.getPendingCheckout();
 
+const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory();
 
         
-  if (pendingCheckout) {
-  switch (pendingCheckout.type) {
+  if (pendingCheckoutCategory) {
+  switch (pendingCheckoutCategory.type) {
     case 'product':
       // Redirige a la categoría guardada junto con el producto
       this.router.navigate(['/categoria', pendingCheckout.value.category]);
       break;
 
-    case 'featured':
-      this.router.navigate(['/']);
-      break;
+    
     case 'category':
       this.router.navigate(['/categoria', pendingCheckout.value]);
       break;
@@ -162,7 +161,10 @@ const pendingCheckout = this.productService.getPendingCheckout();
     //tiene prioridad sobre un carrito guardado anteriormente
     // Si había un producto pendiente → redirige a productos
     //usando la condición pendingCheckout     
- 
+   } else if (pendingCheckout) {
+    // Si había un carrito pendiente → redirige al carrito
+    this.router.navigate(['/']);
+  }
   } else if (pendingCart) {
     // Si había un carrito pendiente → redirige al carrito
     this.router.navigate(['/cart']);
