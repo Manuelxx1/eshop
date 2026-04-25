@@ -120,7 +120,7 @@ if (idUsuario) {
   //qye el usuario vuelva abuscar asi el flujo queda optimizado
   //listo para hacer la compra
   goToLogin(type: 'product' | 'featured' | 'category' | 'offers',value: any) {
-  this.productService.setPendingCheckout(type, value);
+  this.productService.setPendingCheckoutCategory(type, value);
   this.router.navigate(['/login']);
 }
 
