@@ -194,7 +194,7 @@ const pendingCheckout = this.productService.getPendingCheckout();
 
 onLoginSuccess(userId: number) {
   // Primero verificás si hay productos en el carrito local
-  const localCart = this.cartService.getCart(); // asumimos que tenés este método
+  const localCart = this.cartService.getCart(userId); // asumimos que tenés este método
   if (localCart && localCart.length > 0) {
     // Solo si hay productos, intentás migrar
     this.cartService.migrateLocalCartToBackend(userId).subscribe({
