@@ -149,8 +149,6 @@ const pendingCheckout = this.productService.getPendingCheckout();
 
     case 'featured':
       this.router.navigate(['/']);
-      break;
-
     case 'category':
       this.router.navigate(['/categoria', pendingCheckout.value]);
       break;
