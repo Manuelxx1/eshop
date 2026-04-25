@@ -193,17 +193,24 @@ const pendingCheckout = this.productService.getPendingCheckout();
 
 
 onLoginSuccess(userId: number) {
-    alert('se recibio el idUsuario' + userId + 'desde aqui this.onLoginSuccess(res.body.id);' );
-  this.cartService.migrateLocalCartToBackend(userId).subscribe({
-    next: () => {
-      console.log('Carrito migrado y sincronizado con backend');
-      alert('Carrito migrado y sincronizado con backend');
-    },
-    error: (err: any) => {
-      console.error('Error al migrar carrito', err);
-      alert('Error: no se migró el carrito al backend');
-    }
-  });
+  // Primero verificás si hay productos en el carrito local
+  const localCart = this.cartService.getCart(); // asumimos que tenés este método
+  if (localCart && localCart.length > 0) {
+    // Solo si hay productos, intentás migrar
+    this.cartService.migrateLocalCartToBackend(userId).subscribe({
+      next: () => {
+        console.log('Carrito migrado y sincronizado con backend');
+        alert('Carrito migrado y sincronizado con backend');
+      },
+      error: (err: any) => {
+        console.error('Error al migrar carrito', err);
+        alert('Error: no se migró el carrito al backend');
+      }
+    });
+  } else {
+    console.log('No había productos en el carrito local, nada que migrar');
+    // No mostrar alert de éxito porque no hubo migración
+  }
 }
 
 
