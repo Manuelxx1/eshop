@@ -299,7 +299,7 @@ private pendingKey = 'pendingCheckout'; // clave única
   localStorage.setItem(this.pendingKey, JSON.stringify(data));
 }
 
-  getPendingCheckout(): { type: string, productId } | null {
+  getPendingCheckout(): { type: string, productId:number } | null {
   const data = localStorage.getItem(this.pendingKey);
   if (data) {
     try {
