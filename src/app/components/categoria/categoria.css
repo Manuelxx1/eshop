@@ -155,22 +155,25 @@
   box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.5); /* halo naranja */
 }
 .info-banner {
-  background-color: #d4edda;   /* verde claro */
-  color: #155724;              /* verde oscuro para el texto */
-  border: 1px solid #c3e6cb;   /* borde verde */
-  padding: 12px 20px;
-  margin-bottom: 15px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px 15px;
   border-radius: 5px;
-  font-weight: 500;
   text-align: center;
-  animation: fadeIn 0.5s ease-in-out;
+  font-weight: 500;
+  opacity: 0; /* inicial invisible */
+  animation: fadeInOut 8s ease-in-out forwards;
 }
 
-/* Animación de entrada */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Animación: entra, se queda un poco, y se va */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  15% { opacity: 1; transform: translateY(0); }
+  85% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
 }
+
 
 
 /* 🔹 Responsive ajustes */
