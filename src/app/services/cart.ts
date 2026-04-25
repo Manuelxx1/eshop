@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { forkJoin, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
 
 
  
@@ -372,8 +373,9 @@ increaseLocal(productId: number) {
     const localItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
 
     if (localItems.length === 0) {
-      alert('no hay nada');
-      return this.getCart(userId); // no hay nada que migrar
+    console.log('No hay nada que migrar');
+    return EMPTY; // no emite nada, el next no se dispara
+
     }else{
       alert('hay localItems' +localItems.length);
     }
