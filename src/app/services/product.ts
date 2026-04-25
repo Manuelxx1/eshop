@@ -294,12 +294,12 @@ private pendingKey = 'pendingCheckout'; // clave única
     return value ? Number(value) : null;
   }
   */
-  setPendingCheckout(type: 'product' | 'featured' | 'category' | 'offers' , value: any) {
-  const data = { type, value };
+  setPendingCheckout(type: 'product' | 'featured' | 'category' | 'offers' , productId: number) {
+  const data = { type, productId };
   localStorage.setItem(this.pendingKey, JSON.stringify(data));
 }
 
-  getPendingCheckout(): { type: string, value: any } | null {
+  getPendingCheckout(): { type: string, productId } | null {
   const data = localStorage.getItem(this.pendingKey);
   if (data) {
     try {
