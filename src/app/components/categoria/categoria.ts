@@ -145,6 +145,7 @@ const valorId = localStorage.getItem('idUsuario');
  // limpiar la clave recién al cerrar el modal
   this.productService.clearPendingCheckout();
   alert('Clave borrada al cerrar modal');
+    this.message = ''; // ← limpia el mensaje
   }
 
 }
