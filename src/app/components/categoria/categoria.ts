@@ -56,7 +56,7 @@ this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
   this.productService.getProductsByCategory(this.categoriaNombre).subscribe(products => {
     this.productosporcategoria = products;
 
-    const pendingData = this.productService.getPendingCheckout();
+    const pendingData = this.productService.getPendingCheckoutCategory();
     if (pendingData && this.isLoggedIn()) {
       if (pendingData.type === 'product') {
         const product = this.productosporcategoria.find(p => p.id === pendingData.value.id);
