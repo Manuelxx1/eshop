@@ -30,6 +30,9 @@
   <!-- Modal -->
 <div class="modal-overlay" *ngIf="showStepperModal">
   <div class="modal-content">
+      <div *ngIf="message" class="info-banner">
+  {{ message }}
+      </div>
     <button class="close-btn" (click)="closeStepper()">Cerrar</button>
 
     <!-- Stepper dentro del modal -->
