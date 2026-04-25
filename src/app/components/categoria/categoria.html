@@ -1,7 +1,5 @@
 <section class="categoria">
-  <div *ngIf="message" class="info-banner">
-  {{ message }}
-  </div>
+  
   <h2>{{ categoriaNombre | titlecase }}</h2>
   <div class="product-grid">
     <div class="product-card" *ngFor="let product of productosporcategoria">
