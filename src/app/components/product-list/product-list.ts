@@ -73,6 +73,7 @@ searchControl = new FormControl;
   email:string = '';  
   fechaderegistro:any;
   nombre:string ='';
+  categoriaNombre:string='';
   errorredir: string | null = null;
 
 
