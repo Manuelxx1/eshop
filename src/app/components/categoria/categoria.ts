@@ -65,6 +65,10 @@ this.categoriaNombre = this.route.snapshot.paramMap.get('nombre') || '';
           this.selectedProduct = product;
           this.showStepperModal = true;
           this.productService.clearPendingCheckout();
+          // Ocultar el mensaje después de 10 segundos
+  setTimeout(() => {
+    this.message = '';
+  }, 10000);
         }
       }
     }
