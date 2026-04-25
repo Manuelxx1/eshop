@@ -311,6 +311,25 @@ private pendingKey = 'pendingCheckout'; // clave única
   }
   return null;
   }
+
+  //categoria
+setPendingCheckoutCategory(type: 'product' | 'featured' | 'category' | 'offers' , value: any) {
+  const data = { type, value };
+  localStorage.setItem(this.pendingKey, JSON.stringify(data));
+}
+
+  getPendingCheckoutCategory(): { type: string, value:any } | null {
+  const data = localStorage.getItem(this.pendingKey);
+  if (data) {
+    try {
+      return JSON.parse(data);
+    } catch (e) {
+      console.error('Error parseando pendingCheckout', e);
+      return null;
+    }
+  }
+  return null;
+  }
   
   // Limpiar el ID pendiente
   clearPendingCheckout() {
