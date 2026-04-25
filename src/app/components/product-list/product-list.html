@@ -57,7 +57,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 </button>
 
 <!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
-<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('featured', { id: product.id, category: categoriaNombre })">
+<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('featured', { id: product.id, category: featured })">
   Inicia sesión para comprar
 </button>
     </div>
