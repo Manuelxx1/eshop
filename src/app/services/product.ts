@@ -297,7 +297,8 @@ private pendingKey = 'pendingCheckout'; // clave única
   setPendingCheckout(type: 'product' | 'featured' | 'category' | 'offers' , productId: number) {
   const data = { type, productId };
   localStorage.setItem(this.pendingKey, JSON.stringify(data));
-}
+alert("pendingKey recibida en el servicio setPendingCheckout");
+  }
 
   getPendingCheckout(): { type: string, productId:number } | null {
   const data = localStorage.getItem(this.pendingKey);
@@ -316,6 +317,7 @@ private pendingKey = 'pendingCheckout'; // clave única
 setPendingCheckoutCategory(type: 'product' | 'featured' | 'category' | 'offers' , value: any) {
   const data = { type, value };
   localStorage.setItem(this.pendingKey, JSON.stringify(data));
+   
 }
 
   getPendingCheckoutCategory(): { type: string, value:any } | null {
