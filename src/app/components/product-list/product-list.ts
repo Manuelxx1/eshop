@@ -122,7 +122,7 @@ searchControl = new FormControl;
   }
  */
 
-  goToLogin(type: 'product' | 'featured' | 'category' | 'offers',productId: number ) {
+  goToLogin(type: 'allproducts' | 'featured' | 'category' | 'offers',productId: number ) {
   this.productService.setPendingCheckout(type, productId);
   this.router.navigate(['/login']);
 }
