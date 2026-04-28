@@ -230,24 +230,23 @@ this.productService.getProductsenoferta().subscribe(products => {
     this.featuredProducts = data;
     alert('Productos cargados:'+this.featuredProducts);
 
-    const pendingId = this.productService.getPendingCheckout();
-    alert('PendingId leído en ProductComponent:'+ pendingId?.productId);
+    const pendingCheckout = this.productService.getPendingCheckout();
+alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
 
-    if (pendingId && this.isLoggedIn()) {
-      const product = this.featuredProducts.find(p => p.id === pendingId);
-      alert('Producto encontrado:' +product);
+if (pendingCheckout && this.isLoggedIn()) {
+  const product = this.featuredProducts.find(p => p.id === pendingCheckout.productId);
+  alert('Producto encontrado:' + product?.name);
 
-      if (product) {
-        this.selectedProduct = product;
-        this.showStepperModal = true;
-        //para que no quede en localStorage luego de finalizar la compra
+  if (product) {
+    this.selectedProduct = product;
+    this.showStepperModal = true;
+    //para que no quede en localStorage luego de finalizar la compra
        //esto evita que el stepper vuelva a aparecer sin que lo llamaramos
         //y nos permita otra vez buscar algún otro producto que deseamos comprar 
-        localStorage.removeItem('pendingCheckout');
         
-        
-      }
-    }
+    localStorage.removeItem('pendingCheckout');
+  }
+}
   });
   }//ngOnInit 
 
