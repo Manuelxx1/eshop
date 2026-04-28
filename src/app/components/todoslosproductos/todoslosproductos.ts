@@ -25,7 +25,7 @@ export class Todoslosproductos implements OnInit {
 selectedProduct: any;
   showStepperModal = false;
   
-  constructor(private productService: Product ){}
+  constructor(private productService: Product,private cartService: Cart,private router: Router){}
 
 ngOnInit(): void {
     this.loadProducts();
