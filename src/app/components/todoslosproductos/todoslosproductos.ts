@@ -3,7 +3,7 @@ import { Product,Order} from '../../services/product';
 import { RouterModule } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Product,Order} from '../../services/product';
+
 import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 import { Router } from '@angular/router';
 import { Cart} from '../../services/cart';
@@ -24,6 +24,8 @@ export class Todoslosproductos implements OnInit {
   
 selectedProduct: any;
   showStepperModal = false;
+  quantityControl = new FormControl<number>(1, { nonNullable: true });
+
   
   constructor(private productService: Product,private cartService: Cart,private router: Router){}
 
@@ -55,7 +57,7 @@ if (pendingCheckout && this.isLoggedIn()) {
   
 
 if (product) {
-  this.selectedProduct = selected;
+  this.selectedProduct = product;
   this.showStepperModal = true;
   
 
