@@ -296,8 +296,8 @@ private pendingKey = 'pendingCheckout'; // clave única
   */
   setPendingCheckout(type: 'product' | 'featured' | 'category' | 'offers' , productId: number) {
   const data = { type, productId };
-  //localStorage.setItem(this.pendingKey, JSON.stringify(data));
-localStorage.setItem(this.pendingKey, data.productId);
+  localStorage.setItem(this.pendingKey, JSON.stringify(data));
+
 
     alert("pendingKey recibida en el servicio setPendingCheckout"+ JSON.stringify(data));
   }
