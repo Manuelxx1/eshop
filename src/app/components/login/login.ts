@@ -163,6 +163,7 @@ const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory()
     //usando la condición pendingCheckout     
    } else if (pendingCheckout) {
     // Si había un carrito pendiente → redirige al carrito
+    alert("datos del pendingCheckout en login "+pendingCheckout);
     this.router.navigate(['/']);
   
   } else if (pendingCart) {
