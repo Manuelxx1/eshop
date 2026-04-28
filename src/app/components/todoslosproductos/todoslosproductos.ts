@@ -30,9 +30,36 @@ selectedProduct: any;
   constructor(private productService: Product,private cartService: Cart,private router: Router){}
 
 ngOnInit(): void {
-    this.loadProducts();
+    //this.loadProducts();
+  this.productService.getAllProducts().subscribe({
+  next: data => {
+    this.products = data;
+    this.loading = false;
+
+    const pendingCheckout = this.productService.getPendingCheckout();
+    alert('PendingId leído en ProductComponent:' + pendingCheckout?.productId);
+
+    if (pendingCheckout && this.isLoggedIn()) {
+      const product = this.products.find(p => p.id === pendingCheckout.productId);
+      alert('Producto encontrado:' + product?.name);
+
+      if (product) {
+        this.selectedProduct = product;
+        this.showStepperModal = true;
+        localStorage.removeItem('pendingCheckout');
+      }
+    }
+  },
+  error: err => {
+    console.error('Error al cargar productos', err);
+    this.products = [];
+    this.loading = false;
+    this.error = true;
+  }
+});
+
 }
-  
+  /*
       loadProducts(): void {
     this.productService.getAllProducts().subscribe({
       next: data => {
@@ -77,7 +104,7 @@ if (product) {
 });
       }
         
-  
+  */
 
   //mostrar el boton compra directa que abre el modal stepper solo si hay session
   isLoggedIn(): boolean {
