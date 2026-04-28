@@ -215,7 +215,7 @@ this.productService.getFeaturedProducts().subscribe(products => {
 
 this.productService.getProductsenoferta().subscribe(products => {
     this.productosenoferta = products; // acá sí es un array
-  
+  alert('Productos cargados:'+this.productosenoferta);
   });
 
     this.startCountdown(120); // duración en minutos
@@ -236,8 +236,9 @@ alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
 if (pendingCheckout && this.isLoggedIn()) {
   const product = this.featuredProducts.find(p => p.id === pendingCheckout.productId);
   alert('Producto encontrado:' + product?.name);
+  const productoffers = this.productosenoferta.find(p => p.id === pendingCheckout.productId);
 
-  if (product) {
+  if (product || productoffers) {
     this.selectedProduct = product;
     this.showStepperModal = true;
     //para que no quede en localStorage luego de finalizar la compra
