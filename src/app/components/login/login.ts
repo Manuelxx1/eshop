@@ -158,7 +158,7 @@ const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory()
       this.router.navigate(['/']);
   }
 
-    } else if (pendingCheckout.type="allproducts") {
+    } else if (pendingCheckout?.type="allproducts") {
     // Si había un carrito pendiente → redirige al carrito
     alert("datos del pendingCheckout en login para menu "+pendingCheckout.productId);
     this.router.navigate(['/productos']);
@@ -167,7 +167,7 @@ const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory()
     //tiene prioridad sobre un carrito guardado anteriormente
     // Si había un producto pendiente → redirige a productos
     //usando la condición pendingCheckout     
-   } else if (pendingCheckout.type="featured") {
+   } else if (pendingCheckout?.type="featured") {
     // Si había un carrito pendiente → redirige al carrito
     alert("datos del pendingCheckout en login "+pendingCheckout.productId);
     this.router.navigate(['/']);
