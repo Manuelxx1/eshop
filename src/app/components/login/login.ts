@@ -154,6 +154,7 @@ const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory()
       break;
 
     default:
+      alert("datos del pendingCheckoutCategory en login "+pendingCheckoutCategory.value);
       this.router.navigate(['/']);
   }
   
