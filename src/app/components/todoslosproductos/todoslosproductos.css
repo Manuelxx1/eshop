@@ -166,7 +166,12 @@ button {
   z-index: 1000;         /* que quede por encima del resto */
 }
 
+
+
+
+
 .modal-content {
+  position: relative; /* importante para que el botón se posicione respecto al modal*/
   background: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -175,13 +180,17 @@ button {
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.close-btn {
+  .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   background: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
-  float: right;
 }
+
+
 
 
 .modal-actions {
