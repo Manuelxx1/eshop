@@ -76,7 +76,7 @@ if (product) {
   return !!valorId; // true si hay sesión
   }
 
-  goToLogin(type: 'product' | 'featured' | 'category' | 'offers',productId: number ) {
+  goToLogin(type: 'allproduct' | 'featured' | 'category' | 'offers',productId: number ) {
   this.productService.setPendingCheckout(type, productId);
   this.router.navigate(['/login']);
   }
