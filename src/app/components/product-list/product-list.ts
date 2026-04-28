@@ -231,7 +231,7 @@ this.productService.getProductsenoferta().subscribe(products => {
     alert('Productos cargados:'+this.featuredProducts);
 
     const pendingId = this.productService.getPendingCheckout();
-    alert('PendingId leído en ProductComponent:'+ pendingId);
+    alert('PendingId leído en ProductComponent:'+ pendingId.productId);
 
     if (pendingId && this.isLoggedIn()) {
       const product = this.featuredProducts.find(p => p.id === pendingId);
