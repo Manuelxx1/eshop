@@ -137,7 +137,7 @@ this.message = 'Credenciales inválidas';
 
 //const pendingCheckout = localStorage.getItem('pendingCheckout');
 const pendingCheckout = this.productService.getPendingCheckout();
-
+//const pendingCheckoutMenu = this.productService.getPendingCheckout();
 const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory();
 
         
@@ -157,17 +157,24 @@ const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory()
       alert("datos del pendingCheckoutCategory en login "+pendingCheckoutCategory.value);
       this.router.navigate(['/']);
   }
+
+    } else if (pendingCheckout.type="allproducts") {
+    // Si había un carrito pendiente → redirige al carrito
+    alert("datos del pendingCheckout en login para menu "+pendingCheckout.productId);
+    this.router.navigate(['/productos']);
   
     // Última intención: producto puntual
     //tiene prioridad sobre un carrito guardado anteriormente
     // Si había un producto pendiente → redirige a productos
     //usando la condición pendingCheckout     
-   } else if (pendingCheckout) {
+   } else if (pendingCheckout.type="featured") {
     // Si había un carrito pendiente → redirige al carrito
     alert("datos del pendingCheckout en login "+pendingCheckout.productId);
     this.router.navigate(['/']);
   
-  } else if (pendingCart) {
+  } 
+  
+  else if (pendingCart) {
     // Si había un carrito pendiente → redirige al carrito
     this.router.navigate(['/cart']);
   } else {
