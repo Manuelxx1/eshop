@@ -38,16 +38,8 @@ ngOnInit(): void {
       next: data => {
         this.products = data;
         this.loading = false;
-      },
-      error: err => {
-        console.error('Error al cargar productos', err);
-        this.products = [];
-        this.loading = false;
-        this.error = true;
-      }
-    
-});
-        const pendingCheckout = this.productService.getPendingCheckout();
+
+const pendingCheckout = this.productService.getPendingCheckout();
 alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
 
         
@@ -72,7 +64,19 @@ if (product) {
 }
   }
         
+  
+        
+      },
+      error: err => {
+        console.error('Error al cargar productos', err);
+        this.products = [];
+        this.loading = false;
+        this.error = true;
       }
+    
+});
+      }
+        
   
 
   //mostrar el boton compra directa que abre el modal stepper solo si hay session
