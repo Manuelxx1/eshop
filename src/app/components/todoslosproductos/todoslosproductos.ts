@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Product,Order} from '../../services/product';
 import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 import { Router } from '@angular/router';
-
+import { Cart} from '../../services/cart';
 
 
 @Component({
