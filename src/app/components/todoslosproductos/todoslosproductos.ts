@@ -45,7 +45,7 @@ ngOnInit(): void {
         this.loading = false;
         this.error = true;
       }
-    });
+    
 
         const pendingCheckout = this.productService.getPendingCheckout();
 alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
@@ -68,7 +68,9 @@ if (product) {
     localStorage.removeItem('pendingCheckout');
 }
   }
+        });
       }
+  
 
   //mostrar el boton compra directa que abre el modal stepper solo si hay session
   isLoggedIn(): boolean {
