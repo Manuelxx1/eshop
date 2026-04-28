@@ -141,8 +141,8 @@ const pendingCheckout = this.productService.getPendingCheckout();
 const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory();
 
         
-  if (pendingCheckoutCategory.value) {
-  switch (pendingCheckoutCategory.type) {
+  if (pendingCheckoutCategory?.value) {
+  switch (pendingCheckoutCategory?.type) {
     case 'product':
       // Redirige a la categoría guardada junto con el producto
       this.router.navigate(['/categoria', pendingCheckoutCategory.value.category]);
