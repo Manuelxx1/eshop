@@ -213,10 +213,7 @@ this.productService.getFeaturedProducts().subscribe(products => {
   this.categories = [...new Set(products.map(p => p.category))];
   });
 
-this.productService.getProductsenoferta().subscribe(products => {
-    this.productosenoferta = products; // acá sí es un array
-  alert('Productos cargados:'+this.productosenoferta);
-  });
+
 
     this.startCountdown(120); // duración en minutos
 
@@ -230,6 +227,12 @@ this.productService.getProductsenoferta().subscribe(products => {
     this.featuredProducts = data;
     alert('Productos cargados:'+this.featuredProducts);
 
+
+this.productService.getProductsenoferta().subscribe(products => {
+    this.productosenoferta = products; // acá sí es un array
+  alert('Productos cargados:'+this.productosenoferta);
+  
+          
     const pendingCheckout = this.productService.getPendingCheckout();
 alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
 
@@ -249,6 +252,7 @@ if (pendingCheckout && this.isLoggedIn()) {
   }
 }
   });
+        });
   }//ngOnInit 
 
 
