@@ -31,17 +31,18 @@ selectedProduct: any;
 
 ngOnInit(): void {
     //this.loadProducts();
-  this.productService.getAllProducts().subscribe({
+
+this.productService.getAllProducts().subscribe({
   next: data => {
     this.products = data;
     this.loading = false;
 
     const pendingCheckout = this.productService.getPendingCheckout();
-    alert('PendingId leído en ProductComponent:' + pendingCheckout?.productId);
+    console.log('Pending checkout:', pendingCheckout);
 
-    if (pendingCheckout && this.isLoggedIn()) {
+    if (pendingCheckout?.type === 'allproducts' && this.isLoggedIn()) {
       const product = this.products.find(p => p.id === pendingCheckout.productId);
-      alert('Producto encontrado:' + product?.name);
+      console.log('Producto encontrado:', product);
 
       if (product) {
         this.selectedProduct = product;
@@ -57,8 +58,9 @@ ngOnInit(): void {
     this.error = true;
   }
 });
-
 }
+
+  
   /*
       loadProducts(): void {
     this.productService.getAllProducts().subscribe({
