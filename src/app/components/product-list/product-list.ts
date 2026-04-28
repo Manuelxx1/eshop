@@ -241,9 +241,13 @@ if (pendingCheckout && this.isLoggedIn()) {
   alert('Producto encontrado:' + product?.name);
   const productoffers = this.productosenoferta.find(p => p.id === pendingCheckout.productId);
 
-  if (product || productoffers) {
-    this.selectedProduct = product;
-    this.showStepperModal = true;
+  const selected = product || productoffers;
+
+if (selected) {
+  this.selectedProduct = selected;
+  this.showStepperModal = true;
+  
+
     //para que no quede en localStorage luego de finalizar la compra
        //esto evita que el stepper vuelva a aparecer sin que lo llamaramos
         //y nos permita otra vez buscar algún otro producto que deseamos comprar 
