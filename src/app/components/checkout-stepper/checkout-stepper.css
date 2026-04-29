@@ -67,16 +67,18 @@
 }
 
 .continuar {
-    width:100px;
-  height:50px;
+  width: 100px;
+  height: 50px;
   background-color: #008000;
   color: white;
   border: none;
   border-radius: 4px;
-  top:5px;
-  left:15px;
-  justify-content: space-between;
+  position: absolute;   /* clave */
+  bottom: 15px;         /* distancia desde abajo hacia arriba*/
+  right: 15px;          /* distancia desde la derecha hacia la izquierda */
+  cursor: pointer;
 }
+
 
 .volver{
       width:100px;
