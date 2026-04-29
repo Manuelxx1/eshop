@@ -21,6 +21,7 @@ export class App {
   //protected readonly title = signal('eshop con WebSocket');
 //recibir datos del formulario buscador
   searchControl = new FormControl('');
+  quantityControl = new FormControl<number>(1, { nonNullable: true });
   menuOpen = false;
 
   products: any[] = [];
@@ -35,6 +36,8 @@ cartCount = 0;
   items: any[] = [];
   //menu desplegable del carrito sin session
   dropdownOpen = false;
+  selectedProduct: any;
+  showStepperModal = false;
 
   //la property total no está acá porque usamos un async pipe
 // con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
@@ -52,6 +55,29 @@ cartCount = 0;
         next: data => {
           this.products = data;
           this.loading = false;
+
+          const pendingCheckout = this.productService.getPendingCheckout();
+alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
+
+if (pendingCheckout && this.isLoggedIn()) {
+  const product = this.products.find(p => p.id === pendingCheckout.productId);
+  alert('Producto encontrado:' + product?.name);
+  
+
+  
+
+if (product) {
+  this.selectedProduct = product;
+  this.showStepperModal = true;
+  
+
+    //para que no quede en localStorage luego de finalizar la compra
+       //esto evita que el stepper vuelva a aparecer sin que lo llamaramos
+        //y nos permita otra vez buscar algún otro producto que deseamos comprar 
+        
+    localStorage.removeItem('pendingCheckout');
+}
+}
         },
         error: err => {
           console.error('Error al buscar productos', err);
@@ -124,6 +150,54 @@ cartCount = 0;
   this.cartService.clearCartSinSession();
   this.items = this.cartService.getItemsSinSession(); // refrescar vista
 }
+
+      //mostrar el boton compra directa que abre el modal stepper solo si hay session
+  isLoggedIn(): boolean {
+  const valorId = localStorage.getItem('idUsuario');
+  return !!valorId; // true si hay sesión
+}
+
+  
+  // Caso 2: usuario no logueado
+//el boton iniciar sesión para comprar Llama a este metodo 
+  //guardando el id del producto para que luego de iniciar session
+  //se tome el producto que se había seleccionado para evitar 
+  //qye el usuario vuelva abuscar asi el flujo queda optimizado
+  //listo para hacer la compra
+  //método antiguo sin el switch en el login
+  /*goToLogin(productId: number) {
+  //localStorage.setItem('pendingCheckout', productId.toString());
+  alert('Guardando pendingId:'+ productId);
+    this.productService.setPendingCheckout(productId); // acá usás el setter
+    this.router.navigate(['/login']);
+  }
+ */
+
+  goToLogin(type: 'allproducts' | 'featured' | 'category' | 'offers',productId: number ) {
+  this.productService.setPendingCheckout(type, productId);
+  this.router.navigate(['/login']);
+  }
+
+
+  // Caso 1: usuario ya logueado
+  startCheckout(product: any) {
+const valorId = localStorage.getItem('idUsuario');
+  const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
+    if(idUsuario){
+  this.selectedProduct = product;
+  this.showStepperModal = true;   
+    }
+  }
+
+  closeStepper() {
+  this.showStepperModal = false;    // cierra el modal
+  this.selectedProduct = null; // limpia selección si querés
+ // limpiar la clave recién al cerrar el modal
+  this.productService.clearPendingCheckout();
+  alert('Clave borrada al cerrar modal');
+  }
+
+
 
     
 }
