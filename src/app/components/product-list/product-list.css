@@ -556,6 +556,8 @@ para hacer la compra */
 }
 
 .close-btn {
+  position:absolute;
+  right:10px;
   background: transparent;
   border: none;
   font-size: 20px;
