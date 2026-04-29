@@ -123,10 +123,6 @@ decrease(productId: number): void {
   }
 }
 
-askDeleteRemove(itemId: number) {
-  this.itemToDelete = itemId;
-  this.showConfirm = true;
-      }
 
 
 
