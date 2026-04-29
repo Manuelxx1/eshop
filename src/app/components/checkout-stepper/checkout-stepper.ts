@@ -3,6 +3,8 @@ import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } fro
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Product,Order} from '../../services/product';
+import { Cart } from '../../services/cart';
+
 @Component({
   selector: 'app-checkout-stepper',
   imports: [CommonModule,ReactiveFormsModule],
@@ -26,7 +28,7 @@ quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de 
   { id: 'express', name: 'Envío exprés (1-2 días)', price: 12.99 },
   { id: 'pickup', name: 'Retiro en tienda', price: 0.0 }
 ];
-  constructor(private productService: Product,private fb: FormBuilder) {
+  constructor(private productService: Product,public cartService: Cart,private fb: FormBuilder) {
 
       //obtener datos personales para envío 
 this.checkoutForm = this.fb.group({
