@@ -162,6 +162,10 @@ const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory()
     // Si había un carrito pendiente → redirige al carrito
     alert("datos del pendingCheckout en login para menu "+pendingCheckout.productId);
     this.router.navigate(['/productos']);
+  }else if (pendingCheckout?.type==="allproductsearch") {
+    // Si había un carrito pendiente → redirige al carrito
+    alert("datos del pendingCheckout en login para el buscador principal"+pendingCheckout.productId);
+    this.router.navigate(['/productos']);
   
     // Última intención: producto puntual
     //tiene prioridad sobre un carrito guardado anteriormente
