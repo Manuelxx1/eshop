@@ -12,10 +12,10 @@
 <div *ngIf="currentStep === 1" class="step-container step-active">
   <h2>Producto Seleccionado</h2>
   <p>{{ selectedProduct?.name }} - {{ selectedProduct?.price | currency:'ARS' }}</p>
-   <button (click)="decrease(selectedProduct?.id)">-</button>
-        {{ selectedProduct?.quantity }}   <p>Cantidad: {{ quantityControl.value }}</p>
+   <button (click)="decrease()">-</button>
+           <p>Cantidad: {{ quantityControl.value }}</p>
 
-        <button (click)="increase(selectedProduct?.id)">+</button>
+        <button (click)="increase()">+</button>
   <button (click)="goNext()">Continuar</button>
 </div>
 
