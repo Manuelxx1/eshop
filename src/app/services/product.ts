@@ -294,7 +294,7 @@ private pendingKey = 'pendingCheckout'; // clave única
     return value ? Number(value) : null;
   }
   */
-  setPendingCheckout(type: 'allproducts' | 'featured' | 'category' | 'offers' , productId: number) {
+  setPendingCheckout(type: 'allproducts' | 'allproductsearch' | 'featured' | 'category' | 'offers' , productId: number) {
   const data = { type, productId };
   localStorage.setItem(this.pendingKey, JSON.stringify(data));
 
