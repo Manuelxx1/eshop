@@ -28,18 +28,24 @@
   <!-- Modal -->
 <div class="modal-overlay" *ngIf="showStepperModal">
   <div class="modal-content">
-      <div *ngIf="message" class="info-banner">
-  {{ message }}
-      </div>
-    <button class="close-btn" (click)="closeStepper()">Cerrar</button>
+    <!-- Header -->
+    <div class="modal-header">
+      <h3>Checkout</h3>
+      <button class="close-btn" (click)="closeStepper()">✖</button>
+    </div>
 
-    <!-- Stepper dentro del modal -->
-   <app-checkout-stepper *ngIf="selectedProduct"
-      [selectedProduct]="selectedProduct"
-      (close)="closeStepper()">
-    </app-checkout-stepper>
+    <!-- Body -->
+    <div class="modal-body">
+      <app-checkout-stepper *ngIf="selectedProduct"
+        [selectedProduct]="selectedProduct"
+        (close)="closeStepper()">
+      </app-checkout-stepper>
+    </div>
 
-    
+    <!-- Footer -->
+    <div class="modal-footer">
+      <button class="cancel-btn" (click)="closeStepper()">Cancelar</button>
+    </div>
   </div>
 </div>
 </section>
