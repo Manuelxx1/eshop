@@ -6,13 +6,14 @@ import { CommonModule } from '@angular/common';
 import { WsTestComponent } from './components/ws-test-component/ws-test-component';
 import { Product,Order} from './services/product';
 import { Cart} from './services/cart';
+import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 //se importa la interfaz CartItem que representa al modelo
 import { CartItem } from './services/cart'; // ajustá el path si hace falta
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule,RouterLink],
+  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule,RouterLink,CheckoutStepper],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
