@@ -104,25 +104,17 @@ alert("Usuario del login" +idUsuario);
 }
 
 
-  increase(productId: number): void {
-  const userId = localStorage.getItem('idUsuario');
-  if (userId) {
-    this.cartService.increaseFromCart(productId, Number(userId)).subscribe();
-  } else {
-    this.cartService.increaseLocal(productId);
-  }
+  increase() {
+  const current = this.quantityControl.value || 1;
+  this.quantityControl.setValue(current + 1);
 }
 
-decrease(productId: number): void {
-  const userId = localStorage.getItem('idUsuario');
-  if (userId) {
-    
-    this.cartService.decreaseFromCart(productId, Number(userId)).subscribe();
-  } else {
-    this.cartService.decreaseLocal(productId);
+decrease() {
+  const current = this.quantityControl.value || 1;
+  if (current > 1) {
+    this.quantityControl.setValue(current - 1);
   }
-}
-
+  }
 
 
 
