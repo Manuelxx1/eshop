@@ -74,7 +74,7 @@
   border: none;
   border-radius: 4px;
   position: absolute;   /* clave */
-  bottom: 15px;         /* distancia desde abajo hacia arriba*/
+  bottom: 40px;         /* distancia desde abajo hacia arriba*/
   right: 15px;          /* distancia desde la derecha hacia la izquierda */
   cursor: pointer;
 }
