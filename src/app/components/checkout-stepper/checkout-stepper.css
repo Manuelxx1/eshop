@@ -45,3 +45,23 @@
 .buynow:hover {
   background-color: #0056b3; /* azul más oscuro al pasar el mouse */
 }
+
+
+.increaseQuantity{
+  width:25px;
+  height:24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  
+}
+.decreaseQuantity{
+  width:25px;
+  height:24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  
+}
