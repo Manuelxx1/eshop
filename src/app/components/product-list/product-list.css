@@ -565,7 +565,7 @@ para hacer la compra */
 .cancel-btn {
   position:absolute;
   bottom:15px;
-  left:50%;
+  left:30px;
   width:50%;
   background: #ccc;
   border: none;
