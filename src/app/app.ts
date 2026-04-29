@@ -71,10 +71,7 @@ cartCount = 0;
     }
   });
 
-          this.productService.searchProducts(query).subscribe({
-        next: data => {
-          this.products = data;
-          this.loading = false;
+          
 
           const pendingCheckout = this.productService.getPendingCheckout();
 alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
@@ -99,15 +96,7 @@ if (product) {
 }
 }
 
-                  },
-        error: err => {
-          console.error('Error al buscar productos', err);
-          this.products = [];
-          this.loading = false;
-          this.error = true;
-        }
-      });
-
+                  
 
 
     // Nos suscribimos al observable del carrito sin session
