@@ -102,5 +102,30 @@ alert("Usuario del login" +idUsuario);
 }
 
 
+  increase(productId: number): void {
+  const userId = localStorage.getItem('idUsuario');
+  if (userId) {
+    this.cartService.increaseFromCart(productId, Number(userId)).subscribe();
+  } else {
+    this.cartService.increaseLocal(productId);
+  }
+}
+
+decrease(productId: number): void {
+  const userId = localStorage.getItem('idUsuario');
+  if (userId) {
+    
+    this.cartService.decreaseFromCart(productId, Number(userId)).subscribe();
+  } else {
+    this.cartService.decreaseLocal(productId);
+  }
+}
+
+askDeleteRemove(itemId: number) {
+  this.itemToDelete = itemId;
+  this.showConfirm = true;
+      }
+
+
 
 }
