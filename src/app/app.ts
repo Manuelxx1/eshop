@@ -57,6 +57,25 @@ cartCount = 0;
           this.products = data;
           this.loading = false;
 
+                  },
+        error: err => {
+          console.error('Error al buscar productos', err);
+          this.products = [];
+          this.loading = false;
+          this.error = true;
+        }
+      });
+    } else {
+      this.products = [];
+      this.searchActive = false; // no hay búsqueda activa
+    }
+  });
+
+          this.productService.searchProducts(query).subscribe({
+        next: data => {
+          this.products = data;
+          this.loading = false;
+
           const pendingCheckout = this.productService.getPendingCheckout();
 alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
 
@@ -79,7 +98,8 @@ if (product) {
     localStorage.removeItem('pendingCheckout');
 }
 }
-        },
+
+                  },
         error: err => {
           console.error('Error al buscar productos', err);
           this.products = [];
@@ -87,11 +107,7 @@ if (product) {
           this.error = true;
         }
       });
-    } else {
-      this.products = [];
-      this.searchActive = false; // no hay búsqueda activa
-    }
-  });
+
 
 
     // Nos suscribimos al observable del carrito sin session
