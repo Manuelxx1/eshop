@@ -174,7 +174,7 @@ if (product) {
   }
  */
 
-  goToLogin(type: 'allproducts' | 'allproductsearch |'featured' | 'category' | 'offers',productId: number ) {
+  goToLogin(type: 'allproducts' | 'allproductsearch' | 'featured' | 'category' | 'offers',productId: number ) {
   this.productService.setPendingCheckout(type, productId);
   this.router.navigate(['/login']);
   }
