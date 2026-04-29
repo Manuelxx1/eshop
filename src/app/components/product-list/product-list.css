@@ -791,13 +791,7 @@ button {
 }
 
 
-button.secondary {
-  background-color: #6c757d;
-}
 
-button.secondary:hover {
-  background-color: #5a6268;
-}
 
 /* Tarjeta de producto */
 .product-card {
