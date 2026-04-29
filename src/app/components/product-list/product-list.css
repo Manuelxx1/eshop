@@ -538,8 +538,7 @@ para hacer la compra */
 }
 
 .modal-header {
-  display: flex;
-  justify-content: space-between;
+  display: relative;
   align-items: center;
   padding: 10px 15px;
   border-bottom: 1px solid #ddd;
