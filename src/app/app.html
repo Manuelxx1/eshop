@@ -87,7 +87,30 @@
       <div class="product-info">
         <h4>{{ product.name }}</h4>
         <p>{{ product.price | currency:'ARS' }}</p>
+<button class="ver-detalle" (click)="openProductDetail(product)">
+  Ver detalles
+</button>
 
+        <!--modal para detalles o descripción del producto-->
+       
+        <div class="modal" *ngIf="selectedProduct">
+  <div class="modal-content">
+    <h3>{{ selectedProduct.name }}</h3>
+    <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" />
+    <p>{{ selectedProduct.price | currency:'ARS' }}</p>
+    <p class="product-description">{{ selectedProduct.description }}</p>
+
+    <button (click)="addToCart(selectedProduct)">Agregar al carrito</button>
+    <button *ngIf="isLoggedIn()" (click)="startCheckout(selectedProduct)">Comprar ahora</button>
+    <button *ngIf="!isLoggedIn()" (click)="goToLogin('allproductsearch', selectedProduct.id)">
+      Inicia sesión para comprar
+    </button>
+
+    <button class="close-btn" (click)="selectedProduct = null">Cerrar</button>
+  </div>
+</div>
+
+        
         <button class="agregaralcarrito" (click)="addToCart(product)">Agregar al carrito</button>
 <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
 <button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
