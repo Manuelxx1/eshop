@@ -83,6 +83,7 @@ buyNow(productId: number): void {
   console.log('Cantidad seleccionada:', selectedQuantity);
 //const shippingOption = this.shippingControl.value;
   const formData = this.checkoutForm.value;
+  alert(this.checkoutForm.value.dni);
   console.log('Datos del comprador:', formData);
   // recuperar usuario de la sesión (guardado en login)
   const valorId = localStorage.getItem('idUsuario');
