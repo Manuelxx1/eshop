@@ -106,8 +106,14 @@
     <p>Cargando tu producto...</p>
   </div>
 
+<!-- Estado de error por si falla la conexión de la red-->
+  <div *ngIf="error" class="error-container">
+    <p>No se pudo cargar el producto. Intenta nuevamente más tarde.</p>
+    <button (click)="retryPendingCheckout()">Reintentar</button>
+  </div>
+
 <!-- Modal -->
-<div *ngIf="!loading">
+<div *ngIf="!loading && !error">
 <div class="modal-overlay" *ngIf="showStepperModal">
   <div class="modal-content">
     <!-- Header -->
