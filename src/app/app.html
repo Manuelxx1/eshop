@@ -76,8 +76,10 @@
 
 <!-- Resultados fuera del header se muestra solo si hay búsqueda activa por el usuario-->
 <div *ngIf="searchActive" class="search-results">
-  <div *ngIf="loading" class="loading">Buscando productos...</div>
-  <div *ngIf="error" class="error">Ocurrió un error al buscar productos.</div>
+  <div *ngIf="loading" class="spinner-container">
+    <div class="spinner"></div>
+    <p>Cargando tu producto...</p>
+  </div>  <div *ngIf="error" class="error">Ocurrió un error al buscar productos.</div>
 
   <ul *ngIf="products.length > 0" class="results-list">
     <li *ngFor="let product of products" class="result-item">
