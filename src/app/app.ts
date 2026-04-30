@@ -83,7 +83,7 @@ ngOnInit(): void {
       this.searchActive = false;
     }
   });
-}
+
 
           
 
