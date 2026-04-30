@@ -33,6 +33,7 @@ quantities: number[] = [1, 2, 3, 4, 5, 10]; // podés ajustar según el tipo de 
       //obtener datos personales para envío 
 this.checkoutForm = this.fb.group({
   name: ['', Validators.required],
+  dni: ['', Validators.required],
   email: ['', [Validators.required, Validators.email]],
   phone: [''],
   address: ['', Validators.required],
