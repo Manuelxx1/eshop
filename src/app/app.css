@@ -375,6 +375,40 @@
   100% { transform: rotate(360deg); }
 }
 
+/*para el mensaje de error de conexion de red en en el modal*/
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffe5e5; /* fondo rojo claro */
+  border: 1px solid #ff4d4d; /* borde rojo */
+  border-radius: 6px;
+  margin: 15px 0;
+}
+
+.error-container p {
+  color: #b30000; /* texto rojo oscuro */
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.error-container button {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.error-container button:hover {
+  background-color: #cc0000;
+}
+
 
 /*RESPONSIVE para movil*/
 @media (max-width: 768px) {
