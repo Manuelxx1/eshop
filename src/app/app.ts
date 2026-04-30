@@ -44,20 +44,33 @@ cartCount = 0;
 // con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
  //importante: public a cartService para usarlo en el template con async pipe
   constructor(private productService: Product, public cartService: Cart, private router: Router){}
-  ngOnInit(): void {
+ngOnInit(): void {
   this.searchControl.valueChanges.subscribe(term => {
     const query = term?.trim();
     if (query && query.length >= 2) {
       this.loading = true;
       this.error = false;
       this.products = [];
-      this.searchActive = true; // nueva bandera
+      this.searchActive = true;
+
       this.productService.searchProducts(query).subscribe({
         next: data => {
           this.products = data;
           this.loading = false;
 
-                  },
+          // Verificamos si hay un checkout pendiente
+          const pendingCheckout = this.productService.getPendingCheckout();
+          if (pendingCheckout && this.isLoggedIn()) {
+            const product = this.products.find(p => p.id === pendingCheckout.productId);
+            if (product) {
+              this.selectedProduct = product;
+              this.showStepperModal = true;
+
+              // Limpiamos el localStorage para que no quede pendiente
+              localStorage.removeItem('pendingCheckout');
+            }
+          }
+        },
         error: err => {
           console.error('Error al buscar productos', err);
           this.products = [];
@@ -67,35 +80,14 @@ cartCount = 0;
       });
     } else {
       this.products = [];
-      this.searchActive = false; // no hay búsqueda activa
+      this.searchActive = false;
     }
   });
+}
 
           
 
-          const pendingCheckout = this.productService.getPendingCheckout();
-alert('PendingId leído en ProductComponent:'+ pendingCheckout?.productId);
-
-if (pendingCheckout && this.isLoggedIn()) {
-  const product = this.products.find(p => p.id === pendingCheckout.productId);
-  alert('Producto encontrado:' + product?.name);
-  
-
-  
-
-if (product) {
-  this.selectedProduct = product;
-  this.showStepperModal = true;
-  
-
-    //para que no quede en localStorage luego de finalizar la compra
-       //esto evita que el stepper vuelva a aparecer sin que lo llamaramos
-        //y nos permita otra vez buscar algún otro producto que deseamos comprar 
-        
-    localStorage.removeItem('pendingCheckout');
-}
-}
-
+          
                   
 
 
