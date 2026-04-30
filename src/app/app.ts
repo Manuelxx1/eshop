@@ -26,7 +26,7 @@ export class App {
   menuOpen = false;
 
   products: any[] = [];
-  loading = true;
+  loading = false;
   error = false;
   searchActive=false;
   //carrito sin session
