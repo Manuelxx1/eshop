@@ -64,6 +64,11 @@
     <input id="name" formControlName="name" type="text" required />
     <div *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched" class="error"> El nombre es obligatorio. </div>
 
+    <label for="dni">Numero de DNI</label>
+    <input id="dni" formControlName="dni" type="text" required />
+    <div *ngIf="checkoutForm.get('dni')?.invalid && checkoutForm.get('dni')?.touched" class="error"> El número de DNI es obligatorio. </div>
+
+    
     <label for="email">Correo electrónico</label>
     <input id="email" formControlName="email" type="email" required />
 <div *ngIf="checkoutForm.get('email')?.invalid && checkoutForm.get('email')?.touched" class="error"> Ingresa un correo válido. </div>
