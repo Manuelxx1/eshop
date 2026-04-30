@@ -94,7 +94,7 @@
         <!--modal para detalles o descripción del producto-->
        
         <div class="modal-description" *ngIf="selectedProduct">
-  <div class="modal-content-description">
+  <div class="modal-content-description" (click)="$event.stopPropagation()">
     <h3>{{ selectedProduct.name }}</h3>
     <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" />
     <p>{{ selectedProduct.price | currency:'ARS' }}</p>
