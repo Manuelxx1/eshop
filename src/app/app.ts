@@ -271,6 +271,10 @@ openProductDetail(product: any): void {
   this.selectedProduct = product;
 }
 
+closeModal(event: MouseEvent): void {
+  // Si el clic fue en el fondo (modal), cerramos
+  this.selectedProduct = null;
+}
 
 
     
