@@ -79,11 +79,13 @@ mostrarResumen(): void {
 buyNow(productId: number): void {
   alert("Botón comprar clickeado ");
   alert("productId del frontend" + productId);
+  const dni =this.checkoutForm.value.dni;
+    alert(" número de dni"+ dni);
   const selectedQuantity = this.quantityControl.value ?? 1;
   console.log('Cantidad seleccionada:', selectedQuantity);
 //const shippingOption = this.shippingControl.value;
   const formData = this.checkoutForm.value;
-  alert(this.checkoutForm.value.dni);
+  
   console.log('Datos del comprador:', formData);
   // recuperar usuario de la sesión (guardado en login)
   const valorId = localStorage.getItem('idUsuario');
