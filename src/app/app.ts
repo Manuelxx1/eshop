@@ -45,6 +45,31 @@ cartCount = 0;
  //importante: public a cartService para usarlo en el template con async pipe
   constructor(private productService: Product, public cartService: Cart, private router: Router){}
 ngOnInit(): void {
+  // 1. Revisar si hay un checkout pendiente al entrar
+  const pendingCheckout = this.productService.getPendingCheckout();
+  if (pendingCheckout && this.isLoggedIn()) {
+    this.loading = true;
+    this.productService.searchProducts(pendingCheckout.productId).subscribe({
+      next: data => {
+        this.products = data;
+        this.loading = false;
+        const product = this.products.find(p => p.id === pendingCheckout.productId);
+        if (product) {
+          this.selectedProduct = product;
+          this.showStepperModal = true;
+          localStorage.removeItem('pendingCheckout');
+        }
+      },
+      error: err => {
+        console.error('Error al buscar producto pendiente', err);
+        this.products = [];
+        this.loading = false;
+        this.error = true;
+      }
+    });
+  }
+
+  // 2. Mantener la lógica normal del buscador
   this.searchControl.valueChanges.subscribe(term => {
     const query = term?.trim();
     if (query && query.length >= 2) {
@@ -57,19 +82,6 @@ ngOnInit(): void {
         next: data => {
           this.products = data;
           this.loading = false;
-
-          // Verificamos si hay un checkout pendiente
-          const pendingCheckout = this.productService.getPendingCheckout();
-          if (pendingCheckout && this.isLoggedIn()) {
-            const product = this.products.find(p => p.id === pendingCheckout.productId);
-            if (product) {
-              this.selectedProduct = product;
-              this.showStepperModal = true;
-
-              // Limpiamos el localStorage para que no quede pendiente
-              localStorage.removeItem('pendingCheckout');
-            }
-          }
         },
         error: err => {
           console.error('Error al buscar productos', err);
@@ -85,7 +97,6 @@ ngOnInit(): void {
   });
 
 
-          
 
           
                   
