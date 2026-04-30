@@ -106,7 +106,9 @@
     <p>Cargando tu producto...</p>
   </div>
 
-<!-- Estado de error por si falla la conexión de la red-->
+<!-- Estado de error por si falla la conexión de la red
+  o el backend devuelve error, el modal no queda vacío: muestra un mensaje claro 
+y hasta le das al usuario la opción de reintentar.  -->
   <div *ngIf="error" class="error-container">
     <p>No se pudo cargar el producto. Intenta nuevamente más tarde.</p>
     <button (click)="retryPendingCheckout()">Reintentar</button>
