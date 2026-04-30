@@ -132,6 +132,7 @@ comprar(productId: number, quantity: number, idUsuario: number | null, formData:
     shippingCost: shippingOption.price, // extraer precio del objeto 
  shippingName: shippingOption.name*/
 name: formData.name, 
+    dni:formData.dni,
     email: formData.email,
     phone: formData.phone, 
     address: formData.address, 
