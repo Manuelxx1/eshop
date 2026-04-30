@@ -93,8 +93,8 @@
 
         <!--modal para detalles o descripción del producto-->
        
-        <div class="modal" *ngIf="selectedProduct">
-  <div class="modal-content">
+        <div class="modal-description" *ngIf="selectedProduct">
+  <div class="modal-content-description">
     <h3>{{ selectedProduct.name }}</h3>
     <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" />
     <p>{{ selectedProduct.price | currency:'ARS' }}</p>
@@ -106,7 +106,7 @@
       Inicia sesión para comprar
     </button>
 
-    <button class="close-btn" (click)="selectedProduct = null">Cerrar</button>
+    <button class="close-btn-description" (click)="selectedProduct = null">Cerrar</button>
   </div>
 </div>
 
