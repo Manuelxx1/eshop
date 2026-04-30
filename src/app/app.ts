@@ -265,6 +265,13 @@ if (idUsuario) {
   }
 }
 
+  
+
+openProductDetail(product: any): void {
+  this.selectedProduct = product;
+}
+
+
 
     
 }
