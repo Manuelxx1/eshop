@@ -236,6 +236,36 @@ if (idUsuario) {
 }
 }
 
+  //método al que se llama para intentar  
+  //a que se muestre el modal con el producto 
+  //si hubo un error de conexion de red
+  retryPendingCheckout(): void {
+  const pendingCheckout = this.productService.getPendingCheckout();
+  if (pendingCheckout && this.isLoggedIn()) {
+    this.loading = true;
+    this.error = false;
+    this.productService.searchProducts(pendingCheckout.productId).subscribe({
+      next: data => {
+        this.products = data;
+        this.loading = false;
+        const product = this.products.find(p => p.id === pendingCheckout.productId);
+        if (product) {
+          this.selectedProduct = product;
+          this.showStepperModal = true;
+          localStorage.removeItem('pendingCheckout');
+        }
+      },
+      error: err => {
+        console.error('Error al reintentar cargar producto', err);
+        this.products = [];
+        this.loading = false;
+        this.error = true;
+      }
+    });
+  }
+}
+
+
     
 }
 
