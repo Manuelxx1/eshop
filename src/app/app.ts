@@ -39,7 +39,7 @@ cartCount = 0;
   dropdownOpen = false;
   selectedProduct: any;
   showStepperModal = false;
-
+highlightedProductId: number | null = null;
   //la property total no está acá porque usamos un async pipe
 // con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
  //importante: public a cartService para usarlo en el template con async pipe
@@ -276,7 +276,10 @@ closeModal(event: MouseEvent): void {
   this.selectedProduct = null;
 }
 
-
+markSelected(product: any): void {
+  this.highlightedProductId = product.id;
+  this.selectedProduct = null; // cerrar modal
+  }
     
 }
 
