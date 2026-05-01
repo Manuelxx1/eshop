@@ -31,7 +31,7 @@
     <!-- Login/Register dentro del menú en móvil -->
     <div class="auth-links-mobile">
       <p>Iniciar sesion</p>
-      <a routerLink="/login" (click)="closeMenu()" >Login</a>  <p>No tienes una cuenta?</p><a routerLink="/register"  (click)="closeMenu()">Register</a>
+      <a routerLink="/login" *ngIf= !isLoggedIn() (click)="closeMenu()" >Login</a>  <p>No tienes una cuenta?</p><a routerLink="/register" *ngIf= !isLoggedIn() (click)="closeMenu()">Register</a>
     </div>
   </nav>
 
