@@ -463,9 +463,9 @@
 }
 
 .highlighted {
-  border: 2px solid #00FF00; /* azul o el color que prefieras */
+  border: 2px solid #00FF00; 
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,123,255,0.5);
+  box-shadow: 0 0 10px rgba(50, 205, 50, 1)
 }
 
 
