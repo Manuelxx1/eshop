@@ -7,13 +7,14 @@ import { WsTestComponent } from './components/ws-test-component/ws-test-componen
 import { Product,Order} from './services/product';
 import { Cart} from './services/cart';
 import { CheckoutStepper} from './components/checkout-stepper/checkout-stepper';
+import { Dashboard} from './components/dashboard/dashboard;
 //se importa la interfaz CartItem que representa al modelo
 import { CartItem } from './services/cart'; // ajustá el path si hace falta
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule,RouterLink,CheckoutStepper],
+  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule,RouterLink,CheckoutStepper,Dashboard],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
