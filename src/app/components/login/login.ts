@@ -182,8 +182,9 @@ const pendingCheckoutCategory = this.productService.getPendingCheckoutCategory()
     // Si había un carrito pendiente → redirige al carrito
     this.router.navigate(['/cart']);
   } else {
-    // Si no hay nada pendiente → redirige al dashboard
-    this.router.navigate(['/dashboard']);
+    // Si no hay nada pendiente → redirige al dashboard 
+    //que esta integrado  en app.ts usando su selector app-dashboard    
+    this.router.navigate(['/']);
   }
 
                 // Migrar carrito
