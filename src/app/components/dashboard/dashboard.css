@@ -20,7 +20,7 @@
 
     .hamburger {
   position: fixed;   /* siempre visible arriba */
-  top: 5px;
+  top: 20px;
   left: 10px;
   z-index: 1000;     /* encima del sidebar */
   font-size: 28px;
