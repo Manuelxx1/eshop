@@ -506,6 +506,26 @@ para hacer la compra */
   100% { opacity: 0; transform: translate(-50%, -20px); }
 }
 
+  
+  /*para resaltar la section que usa fragment */
+  .highlighted {
+  animation: highlightFade 2s ease-out;
+}
+
+@keyframes highlightFade {
+  0%   { background-color: yellow; }
+  100% { background-color: transparent; }
+}
+
+  .blink-title {
+  animation: blink 1s ease-in-out 3; /* 3 parpadeos */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+  }
+
 
 
 /* RESPONSIVE PARA MÓVIL */
@@ -594,7 +614,7 @@ para hacer la compra */
   from { opacity: 1; }
   to   { opacity: 0; }
 }
-  
+  /*
   .dashboard {
   margin-top: 20px;
   padding: 15px;
@@ -613,14 +633,14 @@ para hacer la compra */
   min-height: 100vh;
 }
 
-
-
+*/
+/*
     .hamburger {
-  position: fixed;   /* siempre visible arriba */
-  top: 5px;
+  position: fixed; */  /* siempre visible arriba */
+  /*top: 5px;
   left: 10px;
-  z-index: 1000;     /* encima del sidebar */
-  font-size: 28px;
+  z-index: 1000;    */ /* encima del sidebar */
+ /* font-size: 28px;
   background: #2c3e50;
   color: white;
   border: none;
@@ -628,7 +648,7 @@ para hacer la compra */
   padding: 8px 12px;
   border-radius: 4px;
 }
-
+*/
 
 .sidebar {
   position: fixed;
@@ -808,7 +828,8 @@ button {
 
 
   /* stepper con indicador numerico para guiar al usuario */
-.stepper {
+/*
+  .stepper {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
@@ -827,6 +848,7 @@ button {
   font-weight: bold;
   color: #007bff;
 }
+  */
 /*para los mensajes de error en los datos personales */
   .error {
   color: red;
