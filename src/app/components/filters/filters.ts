@@ -16,11 +16,11 @@ export class Filters implements OnChanges{
   @Output() filtered = new EventEmitter<Product[]>();
 
   form: FormGroup;
-  subcategories: string[] = [];
+  categories: string[] = [];
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      subcategory: [''],
+      category: [''],
       minPrice: [0],
       maxPrice: [500000],
       sortOption: ['']
@@ -31,17 +31,17 @@ export class Filters implements OnChanges{
 
   ngOnChanges() {
     if (this.products.length > 0) {
-      this.subcategories = [...new Set(this.products.map(p => p.subcategory))];
+      this.categories = [...new Set(this.products.map(p => p.category))];
       this.applyFilters();
     }
   }
 
   applyFilters() {
-    const { subcategory, minPrice, maxPrice, sortOption } = this.form.value;
+    const { category, minPrice, maxPrice, sortOption } = this.form.value;
     let result = [...this.products];
 
-    if (subcategory) {
-      result = result.filter(p => p.subcategory === subcategory);
+    if (category) {
+      result = result.filter(p => p.category === category);
     }
 
     result = result.filter(p => p.price >= minPrice && p.price <= maxPrice);
