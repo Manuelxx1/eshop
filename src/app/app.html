@@ -104,6 +104,21 @@
 
 </div>
 
+        <!--Resultados con los filtros aplicados-->     
+        <ul *ngIf="filteredProducts.length > 0" class="results-list">
+  <li *ngFor="let product of filteredProducts" class="result-item">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" />
+    <div class="product-info">
+      <h4>{{ product.name }}</h4>
+      <p>{{ product.price | currency:'ARS' }}</p>
+      <button class="ver-detalle" (click)="openProductDetail(product)">
+        Ver detalles
+      </button>
+    </div>
+  </li>
+</ul>
+
+
 
         <!--modal para detalles o descripción del producto-->
        
