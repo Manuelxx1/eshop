@@ -22,7 +22,7 @@ export class Filters implements OnChanges{
     this.form = this.fb.group({
       subcategory: [''],
       minPrice: [0],
-      maxPrice: [10000],
+      maxPrice: [500000],
       sortOption: ['']
     });
 
