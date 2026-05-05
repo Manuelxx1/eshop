@@ -104,7 +104,7 @@
 
 </div>
 
-        <!--Resultados con los filtros aplicados-->     
+        <!--Resultados con los filtros aplicados--> 
         <ul *ngIf="filteredProducts.length > 0" class="results-list">
   <li *ngFor="let product of filteredProducts" class="result-item">
     <img [src]="product.imageUrl" alt="{{ product.name }}" />
