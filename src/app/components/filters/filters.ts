@@ -2,7 +2,8 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
-import { Product,Order} from './services/product';
+import { Product,Order} from '../../services/product';
+
 
 @Component({
   selector: 'app-filters',
