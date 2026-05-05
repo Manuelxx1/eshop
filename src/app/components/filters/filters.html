@@ -1,7 +1,7 @@
 <!-- filters.component.html -->
 <div class="filters" [formGroup]="form">
   <label>
-    Subcategoría:
+    categoría:
     <select formControlName="category">
       <option value="">Todas</option>
       <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
