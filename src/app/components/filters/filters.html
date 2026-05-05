@@ -2,9 +2,9 @@
 <div class="filters" [formGroup]="form">
   <label>
     Subcategoría:
-    <select formControlName="subcategory">
+    <select formControlName="category">
       <option value="">Todas</option>
-      <option *ngFor="let sub of subcategories" [value]="sub">{{ sub }}</option>
+      <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
     </select>
   </label>
 
