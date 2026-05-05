@@ -41,6 +41,11 @@ cartCount = 0;
   selectedProduct: any;
   showStepperModal = false;
 highlightedProductId: number | null = null;
+
+
+filteredProducts: Product[] = [];  // resultado de filtros
+
+
   //la property total no está acá porque usamos un async pipe
 // con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
  //importante: public a cartService para usarlo en el template con async pipe
@@ -281,6 +286,11 @@ markSelected(product: any): void {
   this.highlightedProductId = product.id;
   this.selectedProduct = null; // cerrar modal
   }
+
+  
+onFiltered(result: Product[]) {
+  this.filteredProducts = result;
+}
     
 }
 

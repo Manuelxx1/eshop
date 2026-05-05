@@ -85,7 +85,8 @@
   <div *ngIf="loading" class="spinner-container">
     <div class="spinner"></div>
     <p>Cargando tu producto...</p>
-  </div>  <div *ngIf="error" class="error">Ocurrió un error al buscar productos.</div>
+  </div> 
+  <div *ngIf="error" class="error">Ocurrió un error al buscar productos.</div>
 
   <ul *ngIf="products.length > 0" class="results-list">
     <li *ngFor="let product of products" class="result-item" [ngClass]="{'highlighted': highlightedProductId === product.id}">
@@ -96,6 +97,13 @@
 <button class="ver-detalle" (click)="openProductDetail(product)">
   Ver detalles
 </button>
+
+        <!-- shop.component.html -->
+<div class="shop-container">
+  <app-filters [products]="products" (filtered)="onFiltered($event)"></app-filters>
+
+</div>
+
 
         <!--modal para detalles o descripción del producto-->
        
