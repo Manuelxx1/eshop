@@ -1,1 +1,32 @@
-<p>filters works!</p>
+<!-- filters.component.html -->
+<div class="filters" [formGroup]="form">
+  <label>
+    Subcategoría:
+    <select formControlName="subcategory">
+      <option value="">Todas</option>
+      <option *ngFor="let sub of subcategories" [value]="sub">{{ sub }}</option>
+    </select>
+  </label>
+
+  <label>
+    Precio mínimo:
+    <input type="number" formControlName="minPrice" />
+  </label>
+
+  <label>
+    Precio máximo:
+    <input type="number" formControlName="maxPrice" />
+  </label>
+
+  <label>
+    Ordenar por:
+    <select formControlName="sortOption">
+      <option value="">Ninguno</option>
+      <option value="priceAsc">Precio ↑</option>
+      <option value="priceDesc">Precio ↓</option>
+      <option value="stock">Stock</option>
+      <option value="name">Nombre</option>
+    </select>
+  </label>
+</div>
+
