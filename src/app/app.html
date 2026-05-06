@@ -147,10 +147,11 @@
 
   <!-- Botón siguiente -->
   <button (click)="changePage(currentPage + 1)" 
-          [disabled]="currentPage === Math.ceil(filteredProducts.length / itemsPerPage)">
+          [disabled]="currentPage === totalPages">
     Siguiente
   </button>
 </div>
+
 
 
 
