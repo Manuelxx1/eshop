@@ -104,9 +104,10 @@
 
 </div>
 
-        <!--Resultados con los filtros aplicados--> 
-        <ul *ngIf="filteredProducts.length > 0" class="results-list">
-  <li *ngFor="let product of filteredProducts" class="result-item">
+        <!--Resultados con los filtros aplicados y con paginacion de 10 páginas
+  cada pagina tiene 10 productos--> 
+        <ul *ngIf="paginatedProducts.length > 0" class="results-list">
+  <li *ngFor="let product of paginatedProducts" class="result-item">
     <img [src]="product.imageUrl" alt="{{ product.name }}" />
     <div class="product-info">
       <h4>{{ product.name }}</h4>
@@ -131,6 +132,25 @@
       </div>
 
 
+<div class="pagination" *ngIf="filteredProducts.length > itemsPerPage">
+  <!-- Botón anterior -->
+  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+    Anterior
+  </button>
+
+  <!-- Números de página -->
+  <ng-container *ngFor="let page of [].constructor(Math.ceil(filteredProducts.length / itemsPerPage)); let i = index">
+    <button (click)="changePage(i + 1)" [class.active]="currentPage === i + 1">
+      {{ i + 1 }}
+    </button>
+  </ng-container>
+
+  <!-- Botón siguiente -->
+  <button (click)="changePage(currentPage + 1)" 
+          [disabled]="currentPage === Math.ceil(filteredProducts.length / itemsPerPage)">
+    Siguiente
+  </button>
+</div>
 
 
 
