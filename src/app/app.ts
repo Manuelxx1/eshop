@@ -44,7 +44,9 @@ highlightedProductId: number | null = null;
 
 
 filteredProducts: Product[] = [];  // resultado de filtros
-
+//paginacion 
+  currentPage: number = 1;
+itemsPerPage: number = 10; // cantidad de productos por página
 
   //la property total no está acá porque usamos un async pipe
 // con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
@@ -293,6 +295,18 @@ markSelected(product: any): void {
   
 onFiltered(result: Product[]) {
   this.filteredProducts = result;
+}
+
+
+  //para paginacion
+  get paginatedProducts(): Product[] {
+  const start = (this.currentPage - 1) * this.itemsPerPage;
+  const end = start + this.itemsPerPage;
+  return this.filteredProducts.slice(start, end);
+}
+
+changePage(page: number) {
+  this.currentPage = page;
 }
     
 }
