@@ -48,6 +48,13 @@ filteredProducts: Product[] = [];  // resultado de filtros
   currentPage: number = 1;
 itemsPerPage: number = 10; // cantidad de productos por página
 
+
+ // totalPages: calcula cuántas páginas hay.
+//pages: genera un array [1, 2, 3, ..., totalPages].
+  totalPages: number = 0;
+pages: number[] = [];
+
+  
   //la property total no está acá porque usamos un async pipe
 // con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
  //importante: public a cartService para usarlo en el template con async pipe
@@ -292,10 +299,16 @@ markSelected(product: any): void {
   this.selectedProduct = null; // cerrar modal
   }
 
-  
+  /*
 onFiltered(result: Product[]) {
   this.filteredProducts = result;
 }
+*/
+  onFiltered(result: Product[]) {
+  this.filteredProducts = result;
+  this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
+  this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
 
 
   //para paginacion
@@ -308,6 +321,8 @@ onFiltered(result: Product[]) {
 changePage(page: number) {
   this.currentPage = page;
 }
+
+           
     
 }
 
