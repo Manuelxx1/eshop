@@ -46,7 +46,7 @@ highlightedProductId: number | null = null;
 filteredProducts: Product[] = [];  // resultado de filtros
 //paginacion 
   currentPage: number = 1;
-itemsPerPage: number = 10; // cantidad de productos por página
+itemsPerPage: number = 2; // cantidad de productos por página
 
 
  // totalPages: calcula cuántas páginas hay.
@@ -311,7 +311,7 @@ onFiltered(result: Product[]) {
   }
 
 
-  //para paginacion
+  //para Mostrar paginacion
   get paginatedProducts(): Product[] {
   const start = (this.currentPage - 1) * this.itemsPerPage;
   const end = start + this.itemsPerPage;
