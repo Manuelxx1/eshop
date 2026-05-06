@@ -139,11 +139,11 @@
   </button>
 
   <!-- Números de página -->
-  <ng-container *ngFor="let page of [].constructor(Math.ceil(filteredProducts.length / itemsPerPage)); let i = index">
-    <button (click)="changePage(i + 1)" [class.active]="currentPage === i + 1">
-      {{ i + 1 }}
-    </button>
-  </ng-container>
+  <button *ngFor="let page of pages"
+          (click)="changePage(page)"
+          [class.active]="currentPage === page">
+    {{ page }}
+  </button>
 
   <!-- Botón siguiente -->
   <button (click)="changePage(currentPage + 1)" 
