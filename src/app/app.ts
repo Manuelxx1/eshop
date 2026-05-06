@@ -103,13 +103,13 @@ ngOnInit(): void {
   });
 
 
-
+/*
           this.productService.getAllProducts().subscribe(data => {
       this.products = data;
       this.filteredProducts = data; // al inicio mostramos todos
     });
                   
-
+*/
 
     // Nos suscribimos al observable del carrito sin session
     ///usando BehaviorSubject sin el pipe async
