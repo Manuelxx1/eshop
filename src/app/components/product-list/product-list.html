@@ -172,7 +172,7 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
           -->
             <img [src]="product.imageUrl" alt="{{ product.name }}">
             <h3>{{ product.name }}</h3>
-            <p class="old-price">$759.999</p>
+            <p class="old-price">{{product.price - 5000 | currency:'ARS' }} </p>
             <p class="new-price">{{ product.price | currency:'ARS' }}</p>
         
         
