@@ -12,7 +12,7 @@ import {Filters} from '../../components/filters/filters';
 
 @Component({
   selector: 'app-todoslosproductos',
-  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper],
+  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters],
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
