@@ -173,6 +173,7 @@ el getter getfilteredProducts retorna el featuredProducts filtrado según la cat
             <img [src]="product.imageUrl" alt="{{ product.name }}">
             <h3>{{ product.name }}</h3>
             <p class="old-price">{{product.price  | currency:'ARS' }} </p>
+          <!--Para obtener el 20% de descuento (es decir, pagar el 80% del precio original)-->
             <p class="new-price">{{ product.price * 0.8 | currency:'ARS' }}</p>
         
         
