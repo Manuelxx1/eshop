@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 import { Router } from '@angular/router';
 import { Cart} from '../../services/cart';
+import {Filters} from '../../components/filters/filters';
 
 
 @Component({
@@ -26,6 +27,18 @@ selectedProduct: any;
   showStepperModal = false;
   quantityControl = new FormControl<number>(1, { nonNullable: true });
 
+
+  filteredProducts: Product[] = [];  // resultado de filtros
+//paginacion 
+  currentPage: number = 1;
+itemsPerPage: number = 2; // cantidad de productos por página
+
+
+ // totalPages: calcula cuántas páginas hay.
+//pages: genera un array [1, 2, 3, ..., totalPages].
+  totalPages: number = 0;
+pages: number[] = [];
+  
   
   constructor(private productService: Product,private cartService: Cart,private router: Router){}
 
@@ -167,6 +180,25 @@ if (idUsuario) {
   this.cartService.addItem( product, quantity );
     console.log("Agregado al carrito local");
 }
+}
+
+  //aplicar filtros a la lista de resultados de productos
+  onFiltered(result: Product[]) {
+  this.filteredProducts = result;
+  this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
+  this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
+
+  //para Mostrar paginacion
+  get paginatedProducts(): Product[] {
+  const start = (this.currentPage - 1) * this.itemsPerPage;
+  const end = start + this.itemsPerPage;
+  return this.filteredProducts.slice(start, end);
+}
+
+changePage(page: number) {
+  this.currentPage = page;
 }
 
 
