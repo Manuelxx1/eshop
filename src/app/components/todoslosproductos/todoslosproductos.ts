@@ -201,6 +201,10 @@ changePage(page: number) {
   this.currentPage = page;
 }
 
+  openProductDetail(product: any): void {
+  this.selectedProduct = product;
+  }
+
 
 
   
