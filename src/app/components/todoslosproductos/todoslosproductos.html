@@ -28,7 +28,7 @@
       </button>
     </div>
 
-  
+  <button class="agregaralcarrito" (click)="addToCart(product)">Agregar al carrito</button>
   <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
   <button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
   Comprar ahora
