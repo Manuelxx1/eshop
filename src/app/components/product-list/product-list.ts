@@ -53,7 +53,8 @@ export class ProductList  {
 
  products: any[] = [];
   //productos destacados 
-  featuredProducts: any[] = [];
+//  featuredProducts: any[] = [];
+featuredProducts:  Product[] = [];
   destacadoporcategories: FormGroup;
   categories: string[] = [];
   productosenoferta:any[] = [];
