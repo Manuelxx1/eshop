@@ -10,7 +10,7 @@ Angular ya sabe la estructura
 porque está anidada dentro de Order
 
 */
-import { Product,Order,Product} from '../../services/product';
+import { Product,Order} from '../../services/product';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet,RouterLink } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
@@ -54,7 +54,7 @@ export class ProductList  {
  products: any[] = [];
   //productos destacados 
 //  featuredProducts: any[] = [];
-featuredProducts:  Product[] = [];
+featuredProducts:  any[] = [];
   destacadoporcategories: FormGroup;
   categories: string[] = [];
   productosenoferta:any[] = [];
