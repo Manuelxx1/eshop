@@ -55,25 +55,10 @@ installments: number;
 })
 export class Product {
 
- 
-
-  
-  
-
-
-
-  
-
-
-  
-
-  
-//private apiUrl = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/products/search';
-
 private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/products/search';
 
 
-//private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1.onrender.com/api/payments';
+
   
   private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
 
@@ -129,9 +114,6 @@ comprar(productId: number, quantity: number, idUsuario: number | null, formData:
   const body = { 
     quantity, 
     idUsuario, 
-    /*shippingType: shippingOption.id,   //  extraer id del objeto
-    shippingCost: shippingOption.price, // extraer precio del objeto 
- shippingName: shippingOption.name*/
 name: formData.name, 
     dni:formData.dni,
     email: formData.email,
@@ -160,12 +142,7 @@ name: formData.name,
 
 
 
-  //para consultar el estado del pedido orders por id
-  //que se registro en tabla orders
-  //getOrder(id: number): Observable<Order> {
-    //return this.http.get<Order>(`${this.apiUrlOrders}/orders/${id}`);
- // }
-
+  
   
 
 getOrders(): Observable<Order[]> {
@@ -215,17 +192,7 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   });
 }
 
-//metodo section productos destacados de eshop mocking
-/*
-  getFeaturedProducts() {
-    return [
-      { name: 'Notebook Gamer', price: 350000, imageUrl: '/img/n14p4020_7.jpg' },
-      { name: 'Smartphone 5G', price: 220000, imageUrl: '/img/images.jpeg' },
-      { name: 'Auriculares Bluetooth', price: 45000, imageUrl: '/img/AURICULARES_NAU-Y100-BG.png' },
-      { name: 'Smart TV 50"', price: 280000, imageUrl: '/img/8d3e2970952c5d19e40c1df29ec6.jpg' }
-    ];
-  }
-  */
+
   private apiUrlFeaturedProducts= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/destacados';
   
   getFeaturedProducts():Observable<Product[]> {
@@ -233,22 +200,7 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
     
   }
 
-  //productos según categorías usando un mocking
- /* 
-  private products = [
-    { name: 'iPhone 15', price: 1200000, imageUrl: 'img/celulares.jpg', category: 'celulares' },
-    { name: 'Samsung Galaxy S23', price: 950000, imageUrl: 'img/celulares.jpg', category: 'celulares' },
-    { name: 'Notebook Gamer', price: 1500000, imageUrl: 'img/computadoras.jpg', category: 'computadoras' },
-    { name: 'Smart TV 50"', price: 800000, imageUrl: 'img/tv.jpg', category: 'tv' },
-    { name: 'Auriculares Bluetooth', price: 45000, imageUrl: 'img/accesorios.jpg', category: 'accesorios' }
-  ];
-
-
-  getProductsByCategory(category: string) {
-    return this.products.filter(p => p.category === category);
-  }
-
-*/
+  
 
   //productos por categoría 
 
@@ -282,20 +234,7 @@ private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onre
   //categoria donde esta el checkout stepper de categoria
 
 private pendingKey = 'pendingCheckout'; // clave única
-/*
-    // Guardar el ID del producto pendiente
-  setPendingCheckout(productId: number) {
-    alert('Guardando en localStorage:'+ this.pendingKey+ productId);
-    localStorage.setItem(this.pendingKey, productId.toString());
-  }
 
-  // Recuperar el ID pendiente
-  getPendingCheckout(): number | null {
-    const value = localStorage.getItem(this.pendingKey);
-    alert('Leyendo de localStorage:'+ this.pendingKey + value);
-    return value ? Number(value) : null;
-  }
-  */
   setPendingCheckout(type: 'allproducts' | 'allproductsearch' | 'featured' | 'category' | 'offers' , productId: number) {
   const data = { type, productId };
   localStorage.setItem(this.pendingKey, JSON.stringify(data));
