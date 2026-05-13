@@ -226,10 +226,18 @@ this.productService.getFeaturedProducts().subscribe(products => {
    // Revisar si había producto pendiente después del login
         this.productService.getFeaturedProducts().subscribe(data => {
     this.featuredProducts = data;
-    alert('Productos cargados:'+this.featuredProducts);
+    
 
+/*
+Cuando hacés alert(this.featuredProducts) lo que ves es [object Object] 
+porque alert no sabe cómo mostrar un array de objetos.
+Tenés que convertirlo a string antes de mostrarlo.
+*/
+          
+alert("Productos destacados: " + JSON.stringify(this.featuredProducts));
 
-this.productService.getProductsenoferta().subscribe(products => {
+          
+          this.productService.getProductsenoferta().subscribe(products => {
     this.productosenoferta = products; // acá sí es un array
   alert('Productos cargados:'+this.productosenoferta);
   
