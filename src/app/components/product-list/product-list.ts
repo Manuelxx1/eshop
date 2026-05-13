@@ -236,6 +236,13 @@ Tenés que convertirlo a string antes de mostrarlo.
           
 alert("Productos destacados: " + JSON.stringify(this.featuredProducts));
 
+// Mostrar solo nombre y precio en el alert
+  const resumen = this.featuredProducts
+    .map(p => `${p.name} - $${p.price}`)
+    .join('\n');
+
+  alert("Productos destacados:\n" + resumen);
+
           
           this.productService.getProductsenoferta().subscribe(products => {
     this.productosenoferta = products; // acá sí es un array
