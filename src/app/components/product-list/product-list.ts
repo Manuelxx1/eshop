@@ -142,25 +142,6 @@ selectedProduct: any;
 
   }
   
-/*para el carrito  
-startCheckout(product: any) {
-const valorId = localStorage.getItem('idUsuario');
-  const idUsuario = valorId ? Number(valorId) : null; //  conversión a número
-    if(idUsuario){
-  this.selectedProduct = product;
-  this.showStepperModal = true;   // abre el modal
-    }else{
-      this.showToast("Debes iniciar sesión para hacer la compra");
-   // alert("Debes iniciar sesión para hacer la compra");
-      this.showStepperModal = false; // asegurate de cerrarlo
-      // esperar 5 segundos antes de redirigir
-    setTimeout(() => {
-      this.router.navigate(['/login']);
-    }, 5000);
-    }
-    
-}
-*/
 
   // Caso 1: usuario ya logueado
   startCheckout(product: any) {
@@ -246,7 +227,7 @@ alert("Productos destacados: " + JSON.stringify(this.featuredProducts));
           
           this.productService.getProductsenoferta().subscribe(products => {
     this.productosenoferta = products; // acá sí es un array
-  alert('Productos cargados:'+this.productosenoferta);
+  
   
           
     const pendingCheckout = this.productService.getPendingCheckout();
