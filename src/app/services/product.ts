@@ -4,10 +4,16 @@ import { Observable } from 'rxjs';
 
 
 //en la interface definimos el tipado de los datos
+//que refleja  la estructura tal cual viene del backend
 export interface User {
   id: number;
   username: string;
   email: string;
+  name: string;
+}
+
+export interface Section {
+  id: number;
   name: string;
 }
 
@@ -18,7 +24,7 @@ export interface Product {
   price: number;
   stock: number;
   category: string;
-  sectionName: string;
+  section: Section; //  objeto Section completo
   imageUrl: string;
   createdAt: string;
 }
