@@ -132,7 +132,7 @@
       
 
 
-<div class="pagination" *ngIf="filteredProducts.length > itemsPerPage">
+<div class="pagination" *ngIf="filteredProducts.length > itemsPerPage && paginatedProducts.length > 0">
   <!-- Botón anterior -->
   <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
     Anterior
