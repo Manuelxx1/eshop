@@ -45,7 +45,7 @@ highlightedProductId: number | null = null;
 
 filteredProducts: Product[] = [];  // resultado de filtros
 //paginacion 
-  currentPage: number = '';
+  currentPage: number = 0;
 itemsPerPage: number = 2; // cantidad de productos por página
 
 
