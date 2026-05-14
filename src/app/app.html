@@ -129,7 +129,7 @@
 </button>
       </li>
         </ul>
-      </div>
+      
 
 
 <div class="pagination" *ngIf="filteredProducts.length > itemsPerPage">
@@ -151,8 +151,7 @@
     Siguiente
   </button>
 </div>
-
-
+</div>
 
 
         <!--modal para detalles o descripción del producto-->
@@ -167,13 +166,6 @@
     <button class="close-btn-description" (click)="markSelected(selectedProduct)">Cerrar</button>
   </div>
 </div>
-
-
-        
-        
-
-
-
 
 <!-- Spinner mientras se carga -->
   <div *ngIf="loading && !searchActive" class="spinner-container">
