@@ -319,7 +319,7 @@ onFiltered(result: Product[]) {
 
   //para Mostrar paginacion
   get paginatedProducts(): Product[] {
-    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const start = (this.currentPage ) * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     return this.products.slice(start, end);
 }
