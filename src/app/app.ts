@@ -99,7 +99,8 @@ ngOnInit(): void {
           this.currentPage = 1; // inicializa en la primera página
     this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
             this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1); // genera botones
-            
+            alert('Resultados:', this.products.length, 'TotalPages:', this.totalPages);
+  
           this.loading = false;
           
         },
