@@ -96,7 +96,10 @@ ngOnInit(): void {
       this.productService.searchProducts(query).subscribe({
         next: data => {
           this.products = data;
+          this.currentPage = 1; // inicializa en la primera página
+    this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
           this.loading = false;
+          
         },
         error: err => {
           console.error('Error al buscar productos', err);
@@ -320,6 +323,7 @@ onFiltered(result: Product[]) {
 
 
 changePage(page: number) {
+  if (page < 1 || page > this.totalPages) return;
   this.currentPage = page;
 }
 
