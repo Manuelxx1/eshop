@@ -98,8 +98,8 @@ ngOnInit(): void {
           this.products = data;
           this.currentPage = 1; // inicializa en la primera página
     this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
-         this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
-
+            this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1); // genera botones
+            
           this.loading = false;
           
         },
@@ -318,17 +318,15 @@ onFiltered(result: Product[]) {
 
   //para Mostrar paginacion
   get paginatedProducts(): Product[] {
-  const start = (this.currentPage - 1) * this.itemsPerPage;
-  const end = start + this.itemsPerPage;
-  return this.products.slice(start, end); //  usa products
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    return this.products.slice(start, end);
 }
-
 
 changePage(page: number) {
-  if (page < 1 || page > this.totalPages) return;
-  this.currentPage = page;
-}
-
+    if (page < 1 || page > this.totalPages) return;
+    this.currentPage = page;
+        }
            
     
 }
