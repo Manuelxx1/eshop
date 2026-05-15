@@ -205,7 +205,7 @@
 
   <!-- Paginación -->
   <div class="pagination" *ngIf="products.length > 0">
-    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+    <button class="buttonanterior" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
       Anterior
     </button>
 
@@ -215,7 +215,7 @@
       {{ page }}
     </button>
 
-    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
+    <button class="buttonsiguiente" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
       Siguiente
     </button>
   </div>
