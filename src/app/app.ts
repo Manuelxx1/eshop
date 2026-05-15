@@ -311,12 +311,24 @@ onFiltered(result: Product[]) {
   this.filteredProducts = result;
 }
 */
+  /*
   onFiltered(result: Product[]) {
   this.filteredProducts = result;
   this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
   this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
+*/
 
+  //método nuevo refactorizado
+  onFiltered(filteredProducts: Product[]) {
+  this.products = filteredProducts;
+  this.totalPages = Math.ceil(this.products.length / this.pageSize);
+  this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+
+  // Reiniciar a la primera página y recalcular paginados
+  this.currentPage = 1;
+  this.updatePaginatedProducts();
+}
 
   //para Mostrar paginacion
   get paginatedProducts(): Product[] {
@@ -326,9 +338,15 @@ onFiltered(result: Product[]) {
 }
 
 changePage(page: number) {
-  if (page < 1 || page > this.totalPages) return; // evita ir a páginas inválidas
+  if (page < 1 || page > this.totalPages) return;
   this.currentPage = page;
-  //alert(this.currentPage);
+  this.updatePaginatedProducts();
+}
+
+updatePaginatedProducts() {
+  const start = (this.currentPage - 1) * this.pageSize;
+  const end = start + this.pageSize;
+  this.paginatedProducts = this.products.slice(start, end);
 }
 
            
