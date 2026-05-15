@@ -321,8 +321,8 @@ onFiltered(result: Product[]) {
 
   //método nuevo refactorizado
   onFiltered(filteredProducts: Product[]) {
-  this.products = filteredProducts;
-  this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
+  this.filteredProducts = filteredProducts;
+  this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
   this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
   // Reiniciar a la primera página y recalcular paginados
@@ -334,7 +334,7 @@ onFiltered(result: Product[]) {
   get paginatedProducts(): Product[] {
   const start = (this.currentPage - 1) * this.itemsPerPage;
   const end = start + this.itemsPerPage;
-  return this.products.slice(start, end);
+  return this.filteredProducts.slice(start, end);
   }
   
 changePage(page: number) {
