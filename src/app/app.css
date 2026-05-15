@@ -471,14 +471,16 @@
 
 .pagination {
   display: flex;              /* coloca los botones en fila */
-  justify-content: center;    /* centra la paginación */
+  flex-direction: row;        /* asegura que estén uno al lado del otro */
+  justify-content: center;    /* centra la fila */
+  align-items: center;
   gap: 8px;                   /* espacio entre botones */
   margin-top: 20px;
-  flex-wrap: wrap;            /* permite que se acomoden si hay muchos */
+  flex-wrap: wrap;            /* si hay muchos, se bajan a otra línea */
 }
 
 .pagination button {
-  width:50%;
+  min-width: 40px;
   padding: 6px 12px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
@@ -499,6 +501,7 @@
   background-color: #ddd;
   cursor: not-allowed;
 }
+
 
 
 
