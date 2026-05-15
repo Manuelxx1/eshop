@@ -327,27 +327,23 @@ onFiltered(result: Product[]) {
 
   // Reiniciar a la primera página y recalcular paginados
   this.currentPage = 1;
-  this.updatePaginatedProducts();
+  
 }
 
   //para Mostrar paginacion
   get paginatedProducts(): Product[] {
-    const start = (this.currentPage ) * this.itemsPerPage;
-    const end = start + this.itemsPerPage;
-    return this.products.slice(start, end);
-}
-
+  const start = (this.currentPage - 1) * this.itemsPerPage;
+  const end = start + this.itemsPerPage;
+  return this.products.slice(start, end);
+  }
+  
 changePage(page: number) {
   if (page < 1 || page > this.totalPages) return;
   this.currentPage = page;
-  this.updatePaginatedProducts();
+  
 }
 
-updatePaginatedProducts() {
-  const start = (this.currentPage - 1) * this.itemsPerPage;
-  const end = start + this.itemsPerPage;
-  this.filteredProducts= this.products.slice(start, end);
-}
+
 
            
     
