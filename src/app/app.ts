@@ -315,8 +315,9 @@ onFiltered(result: Product[]) {
   get paginatedProducts(): Product[] {
   const start = (this.currentPage - 1) * this.itemsPerPage;
   const end = start + this.itemsPerPage;
-  return this.filteredProducts.slice(start, end);
+  return this.products.slice(start, end); //  usa products
 }
+
 
 changePage(page: number) {
   this.currentPage = page;
