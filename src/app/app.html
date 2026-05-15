@@ -81,12 +81,13 @@
 </header>
 
 <!-- Resultados fuera del header se muestra solo si hay búsqueda activa por el usuario-->
-<div *ngIf="searchActive" class="search-results">
+<!--<div *ngIf="searchActive" class="search-results">
   <div *ngIf="loading" class="spinner-container">
     <div class="spinner"></div>
     <p>Cargando tu producto...</p>
   </div> 
   <div *ngIf="error" class="error">Ocurrió un error al buscar productos.</div>
+-->
 <!--
   <ul *ngIf="products.length > 0" class="results-list">
     <li *ngFor="let product of products" class="result-item" [ngClass]="{'highlighted': highlightedProductId === product.id}">
@@ -99,14 +100,14 @@
 </button>
 -->
         <!-- filters.component.html -->
-<div class="shop-container">
+<!--<div class="shop-container">
   <app-filters [products]="products" (filtered)="onFiltered($event)"></app-filters>
 
 </div>
-
+-->
         <!--Resultados con los filtros aplicados y con paginacion de 10 páginas
   cada pagina tiene 10 productos--> 
-        <ul *ngIf="paginatedProducts.length > 0" class="results-list">
+        <!--<ul *ngIf="paginatedProducts.length > 0" class="results-list">
   <li *ngFor="let product of paginatedProducts" class="result-item">
     <img [src]="product.imageUrl" alt="{{ product.name }}" />
     <div class="product-info">
@@ -118,13 +119,14 @@
     </div>
 
   <button class="agregaralcarrito" (click)="addToCart(product)">Agregar al carrito</button>
+-->
 <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
-<button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
+<!--<button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
   Comprar ahora
 </button>
-
+-->
 <!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
-<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('allproductsearch', product.id )">
+<!--<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('allproductsearch', product.id )">
   Inicia sesión para comprar
 </button>
       </li>
@@ -133,26 +135,92 @@
 
 <div class="pagination" *ngIf="products.length > 0">
 
-
+-->
   <!-- Botón anterior -->
-  <button (click)="changePage(currentPage - 1)" >
+ <!-- <button (click)="changePage(currentPage - 1)" >
     Anterior
   </button>
-
+-->
   <!-- Números de página -->
-  <button *ngFor="let page of pages"
+  <!--<button *ngFor="let page of pages"
           (click)="changePage(page)"
           [class.active]="currentPage === page">
     {{ page }}
   </button>
-
+-->
   <!-- Botón siguiente -->
-  <button (click)="changePage(currentPage + 1)" 
+ <!-- <button (click)="changePage(currentPage + 1)" 
           [disabled]="currentPage === totalPages">
     Siguiente
   </button>
 </div>
 </div>
+-->
+
+<div *ngIf="searchActive" class="search-results">
+
+  <!-- Spinner -->
+  <div *ngIf="loading" class="spinner-container">
+    <div class="spinner"></div>
+    <p>Cargando tu producto...</p>
+  </div> 
+
+  <!-- Error -->
+  <div *ngIf="error" class="error">
+    Ocurrió un error al buscar productos.
+  </div>
+
+  <!-- Filtros -->
+  <div class="shop-container">
+    <app-filters [products]="products" (filtered)="onFiltered($event)"></app-filters>
+  </div>
+
+  <!-- Resultados con paginación -->
+  <ul *ngIf="paginatedProducts.length > 0" class="results-list">
+    <li *ngFor="let product of paginatedProducts" class="result-item">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" />
+      <div class="product-info">
+        <h4>{{ product.name }}</h4>
+        <p>{{ product.price | currency:'ARS' }}</p>
+        <button class="ver-detalle" (click)="openProductDetail(product)">
+          Ver detalles
+        </button>
+      </div>
+
+      <button class="agregaralcarrito" (click)="addToCart(product)">
+        Agregar al carrito
+      </button>
+
+      <!-- Botón compra directa si está logueado -->
+      <button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
+        Comprar ahora
+      </button>
+
+      <!-- Botón login si NO está logueado -->
+      <button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('allproductsearch', product.id)">
+        Inicia sesión para comprar
+      </button>
+    </li>
+  </ul>
+
+  <!-- Paginación -->
+  <div class="pagination" *ngIf="products.length > 0">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+      Anterior
+    </button>
+
+    <button *ngFor="let page of pages"
+            (click)="changePage(page)"
+            [class.active]="currentPage === page">
+      {{ page }}
+    </button>
+
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
+      Siguiente
+    </button>
+  </div>
+
+</div> <!-- cierre de search-results -->
 
 
         <!--modal para detalles o descripción del producto-->
