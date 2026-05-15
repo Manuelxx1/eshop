@@ -326,6 +326,7 @@ onFiltered(result: Product[]) {
 changePage(page: number) {
   if (page < 1 || page > this.totalPages) return; // evita ir a páginas inválidas
   this.currentPage = page;
+  alert(this.currentPage);
 }
 
            
