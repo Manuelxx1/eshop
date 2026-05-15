@@ -322,7 +322,7 @@ onFiltered(result: Product[]) {
   //método nuevo refactorizado
   onFiltered(filteredProducts: Product[]) {
   this.products = filteredProducts;
-  this.totalPages = Math.ceil(this.products.length / this.pageSize);
+  this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
   this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
   // Reiniciar a la primera página y recalcular paginados
@@ -344,7 +344,7 @@ changePage(page: number) {
 }
 
 updatePaginatedProducts() {
-  const start = (this.currentPage - 1) * this.pageSize;
+  const start = (this.currentPage - 1) * this.itemsPerPage;
   const end = start + this.itemsPerPage;
   this.paginatedProducts = this.products.slice(start, end);
 }
