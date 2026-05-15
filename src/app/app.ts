@@ -346,7 +346,7 @@ changePage(page: number) {
 updatePaginatedProducts() {
   const start = (this.currentPage - 1) * this.itemsPerPage;
   const end = start + this.itemsPerPage;
-  this.paginatedProducts= this.products.slice(start, end);
+  this.filteredProducts= this.products.slice(start, end);
 }
 
            
