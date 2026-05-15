@@ -100,7 +100,7 @@ ngOnInit(): void {
     this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
             this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);// genera botones
             alert('Resultados:'+ this.products.length+'TotalPages:'+this.totalPages);
-  //alert('Pages:'+ this.pages);
+  alert('Pages:'+ this.pages);
 
           this.loading = false;
           
@@ -328,7 +328,7 @@ onFiltered(result: Product[]) {
 changePage(page: number) {
   if (page < 1 || page > this.totalPages) return; // evita ir a páginas inválidas
   this.currentPage = page;
-  alert(this.currentPage);
+  //alert(this.currentPage);
 }
 
            
