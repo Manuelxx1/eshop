@@ -192,8 +192,10 @@ const valorId = localStorage.getItem('idUsuario');
     //this.featuredProducts = this.productService.getFeaturedProducts();
 this.productService.getFeaturedProducts().subscribe(products => {
     this.featuredProducts = products; // acá sí es un array
+  alert('Productos recibidos:' + products);
   this.categories = [...new Set(products.map(p => p.category))];
-  });
+ alert('Categorías únicas:', this.categories);
+});
 
 
 
