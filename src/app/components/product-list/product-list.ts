@@ -198,7 +198,7 @@ this.productService.getFeaturedProducts().subscribe(products => {
 
   alert("Productos destacados para categorías:\n" + resumen);
   
-  
+  alert("Productos destacados para categorías en json: " + JSON.stringify(this.featuredProducts));
   this.categories = [...new Set(products.map(p => p.category))];
  alert('Categorías únicas:'+this.categories);
 });
