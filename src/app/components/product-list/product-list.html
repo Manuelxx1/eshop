@@ -107,7 +107,7 @@ para iterar sobre el como en otros casos)
 el getter getfilteredProducts retorna el featuredProducts filtrado según la categoría seleccionada -->
   <div class="product-card" *ngFor="let product of filteredProducts">
     <img [src]="product.imageUrl" alt="{{ product.name }}">
-    <h3>{{ product.name }} - {{ product.category.name }}</h3>
+    <h3>{{ product.name }} - {{ product.category.name}}</h3>
     <p>{{ product.price | currency:'ARS' }}</p>
     <button class="agregaralcarrito" (click)="addToCart(product)">Agregar al carrito</button>
  
