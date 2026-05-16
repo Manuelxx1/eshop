@@ -31,7 +31,8 @@ export class Filters implements OnChanges{
 
   ngOnChanges() {
     if (this.products.length > 0) {
-      this.categories = [...new Set(this.products.map(p => p.category))];
+      this.categories = [...new Set(this.products.map(p => p.category.name))];
+
       this.applyFilters();
     }
   }
