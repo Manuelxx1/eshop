@@ -294,7 +294,7 @@ startCountdown(durationMinutes: number) {
     //para no duplicar la vista con el susbribe 
     //que llama a productosdestacados 
   }
-  return this.featuredProducts.filter(p => p.category === selectedCategory);
+  return this.featuredProducts.filter(p => p.category.name === selectedCategory);
 }
 
     
