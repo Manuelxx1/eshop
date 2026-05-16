@@ -17,13 +17,18 @@ export interface Section {
   name: string;
 }
 
+export interface Categories {
+  id: number;
+  name: string;
+}
+
 export interface Product {
   id: number;
   name: string;
   description: string;
   price: number;
   stock: number;
-  category: string;
+  category: Categories;
   section: Section; //  objeto Section completo
   imageUrl: string;
   createdAt: string;
