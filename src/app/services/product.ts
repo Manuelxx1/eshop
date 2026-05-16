@@ -211,7 +211,10 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
     
   }
 
-  
+  //destacados por categoria
+  getFeaturedProductsByCategory(categoryId: number): Observable<Product[]> {
+  return this.http.get<Product[]>(`/api/products/featured-by-category/${categoryId}`);
+  }
 
   //productos por categoría 
 
