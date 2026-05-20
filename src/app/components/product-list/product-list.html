@@ -89,7 +89,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 
     <h2>Ver Productos destacados Por Categoría</h2>
 <form [formGroup]="destacadoporcategories">
-  <select formControlName="category">
+  <select class="selectdestporcat" formControlName="category">
     <option value="">Todas las categorías</option>
     <option *ngFor="let cat of categories" [value]="cat">
       {{ cat }}
