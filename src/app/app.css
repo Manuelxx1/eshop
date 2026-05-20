@@ -279,8 +279,8 @@
 
   button {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
+  padding: 8px;
+  margin-left: 8px 0;
   font-size: 1rem;
   border: none;
   border-radius: 6px;
