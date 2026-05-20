@@ -44,7 +44,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
 </div>
 
 <section class="featured-products" id="destacados">
-  <h2>Productos destacados</h2>
+  <h2>Productos Destacados</h2>
   <div class="product-grid">
     <div class="product-card" *ngFor="let product of featuredProducts">
       <img [src]="product.imageUrl" alt="{{ product.name }}">
@@ -87,7 +87,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
   </div>
 </div>
 
-    <h2>Ver Productos destacados Por Categoría</h2>
+    <h2>Ver Productos Destacados Por Categoría</h2>
 <form [formGroup]="destacadoporcategories">
   <select class="selectdestporcat" formControlName="category">
     <option value="">Todas las categorías</option>
