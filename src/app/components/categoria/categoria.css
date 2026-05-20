@@ -79,6 +79,15 @@
   cursor: pointer;
 }
 
+button {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
 .comprarahora {
   background-color: #28a745; /* verde fuerte */
