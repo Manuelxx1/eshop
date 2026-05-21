@@ -298,7 +298,7 @@ setPendingCheckoutCategory(type: 'product' | 'featured' | 'category' | 'offers' 
 
   private apiUrlSendPasswordReset = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/auth/forgot-password';
   sendPasswordReset(email: string): Observable<any[]> {
-  return this.http.get<any>(this.apiUrlSendPasswordReset,{ email } );
+  return this.http.get<any>(this.apiUrlSendPasswordReset,email);
 }
 
 
