@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { ProductList } from './components/product-list/product-list';
 import { CartList} from './components/cart/cart';
-import { ForgotPassword } from './components/forgotpassword/forgotpassword';
+import { ForgotPassword } from './components/forgot-password/forgot-password';
 import { EstadoCompra } from './components/estado-compra/estado-compra';
 import { Registrarse } from './components/registrarse/registrarse';
 import { Dashboard } from './components/dashboard/dashboard';
