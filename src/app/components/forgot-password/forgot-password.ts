@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ForgotPassword {
 
-  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
+  constructor(private productService: Product,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
 
 forgotPasswordForm = this.fb.group({
   email: ['', [Validators.required, Validators.email]]
