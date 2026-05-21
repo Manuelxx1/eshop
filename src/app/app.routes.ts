@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { ProductList } from './components/product-list/product-list';
 import { CartList} from './components/cart/cart';
-
+import { ForgotPassword } from './components/forgotpassword/forgotpassword';
 import { EstadoCompra } from './components/estado-compra/estado-compra';
 import { Registrarse } from './components/registrarse/registrarse';
 import { Dashboard } from './components/dashboard/dashboard';
@@ -13,6 +13,7 @@ import { Todoslosproductos } from './components/todoslosproductos/todoslosproduc
 
 export const routes: Routes = [{ path: '', component: ProductList},
   { path: 'cart', component: CartList},
+ { path: 'forgot-password', component: ForgotPassword},
             { path: 'dashboard', component: Dashboard },
 {path: 'login', component: Login },
  { path: 'estado-compra', component: EstadoCompra },
