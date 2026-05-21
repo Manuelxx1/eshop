@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product} from '../../services/product';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet,RouterLink } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ForgotPassword {
 
-  constructor(private loginService: LoginService, private cartService: Cart,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
+  constructor(private productService: Product, private cartService: Cart,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
 
 forgotPasswordForm = this.fb.group({
   email: ['', [Validators.required, Validators.email]]
@@ -21,7 +22,7 @@ forgotPasswordForm = this.fb.group({
   }
 
 onSubmit() {
-  this.loginService.sendPasswordReset(this.forgotPasswordForm.value.email)
+  this.productService.sendPasswordReset(this.forgotPasswordForm.value.email)
     .subscribe(() => alert('Se envió un enlace de recuperación a su correo'));
 }
 
