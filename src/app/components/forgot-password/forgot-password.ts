@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrl: './forgot-password.css',
 })
 export class ForgotPassword {
+  forgotPasswordForm: FormGroup;
 
   constructor(private productService: Product,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
 
