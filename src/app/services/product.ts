@@ -296,5 +296,11 @@ setPendingCheckoutCategory(type: 'product' | 'featured' | 'category' | 'offers' 
     localStorage.removeItem(this.pendingKey);
   }
 
+  private apiUrlSendPasswordReset = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/auth/forgot-password';
+  sendPasswordReset(email: string): Observable<any[]> {
+  return this.http.get<any[]>(this.apiUrlSendPasswordReset,{ email } );
+}
+
+
 
 }
