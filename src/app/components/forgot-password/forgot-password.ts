@@ -17,7 +17,7 @@ export class ForgotPassword {
 
   constructor(private productService: Product,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
 
-forgotPasswordForm = this.fb.group({
+this.forgotPasswordForm = this.fb.group({
   email: ['', [Validators.required, Validators.email]]
 });
   }
