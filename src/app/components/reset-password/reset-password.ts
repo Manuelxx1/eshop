@@ -15,16 +15,19 @@ export class ResetPassword {
   token: string;
 
   constructor(
-    private fb: FormBuilder, private route: ActivatedRoute, private productService: Product) {}
+    private fb: FormBuilder, private route: ActivatedRoute, private productService: Product) 
+  {
+    // Crear el formulario
+    this.resetForm = this.fb.group({
+      newPassword: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
   ngOnInit(): void {
     // Leer el token de la URL
     this.token = this.route.snapshot.queryParamMap.get('token') || '';
 
-    // Crear el formulario
-    this.resetForm = this.fb.group({
-      newPassword: ['', [Validators.required, Validators.minLength(6)]]
-    });
+    
   }
 
   onSubmit(): void {
