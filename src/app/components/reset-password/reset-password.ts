@@ -12,7 +12,7 @@ import { Product } from '../../services/product';
 export class ResetPassword {
 
   resetForm: FormGroup;
-  token: string;
+  token!: string;
 
   constructor(
     private fb: FormBuilder, private route: ActivatedRoute, private productService: Product) 
