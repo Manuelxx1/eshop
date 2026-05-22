@@ -5,7 +5,7 @@ import { Product } from '../../services/product';
 
 @Component({
   selector: 'app-reset-password',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './reset-password.html',
   styleUrl: './reset-password.css',
 })
