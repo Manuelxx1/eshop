@@ -14,11 +14,9 @@ export class ResetPassword {
   resetForm: FormGroup;
   token!: string;
 
-  constructor(
-    private fb: FormBuilder, private route: ActivatedRoute, private productService: Product) 
-  {
-    // Crear el formulario
-    this.resetForm = this.fb.group({
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private productService: Product) 
+  { // Crear el formulario
+  this.resetForm = this.fb.group({
       newPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
