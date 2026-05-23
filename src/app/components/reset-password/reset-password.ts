@@ -33,9 +33,10 @@ export class ResetPassword {
       const newPassword = this.resetForm.value.newPassword;
       this.productService.resetPassword(this.token, newPassword).subscribe({
         next: () => alert('Contraseña actualizada correctamente'),
-        error: (err) => 
+        error: (err) =>{ 
           //alert('Error al actualizar contraseña: ' + err.message),
         this.mensajerror=err.message;
+        }
       });
     }
   }
