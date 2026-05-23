@@ -15,6 +15,7 @@ export class ResetPassword {
   token!: string;
   mensajerror:string='';
   successMessage:string='';
+ 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private productService: Product) 
   { // Crear el formulario
   this.resetForm = this.fb.group({
