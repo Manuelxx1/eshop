@@ -13,7 +13,7 @@ export class ResetPassword {
 
   resetForm: FormGroup;
   token!: string;
-
+  mensajerror:string='';
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private productService: Product) 
   { // Crear el formulario
   this.resetForm = this.fb.group({
@@ -33,7 +33,8 @@ export class ResetPassword {
       const newPassword = this.resetForm.value.newPassword;
       this.productService.resetPassword(this.token, newPassword).subscribe({
         next: () => alert('Contraseña actualizada correctamente'),
-        error: (err) => alert('Error al actualizar contraseña: ' + err.message)
+        error: (err) => alert('Error al actualizar contraseña: ' + err.message),
+        this.mensajerror=err.message;
       });
     }
   }
