@@ -309,5 +309,10 @@ resetPassword(token: string, newPassword: string): Observable<any> {
   );
 }
 
+  private apiUrlSendUsernameReset = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/auth/forgot-username';
+  sendUsernameReset(email: string): Observable<any> {
+    // Usamos POST y enviamos el email en el body
+    return this.http.post<any>(this.apiUrlSendUsernameReset, { email });
+  }
 
 }
