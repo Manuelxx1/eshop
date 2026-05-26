@@ -7,7 +7,7 @@ import { Product } from '../../services/product';
 
 @Component({
   selector: 'app-reset-username',
-  imports: [],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './reset-username.html',
   styleUrl: './reset-username.css',
 })
