@@ -317,7 +317,7 @@ resetPassword(token: string, newPassword: string): Observable<any> {
 
   resetUsername(token: string, newUsername: string): Observable<any> {
   return this.http.post<any>(
-    'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/auth/reset-username,
+    'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/auth/reset-username',
     { token, newUsername }
   );
   }
