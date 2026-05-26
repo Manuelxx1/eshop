@@ -35,7 +35,7 @@ export class ResetUsername {
   onSubmit(): void {
     if (this.resetForm.valid) {
       const newUsername = this.resetForm.value.newUsername;
-      this.productService.resetPassword(this.token,newUsername).subscribe({
+      this.productService.resetUsername(this.token,newUsername).subscribe({
         next: (response) => {
         // response.message viene del backend
         alert(response.message); 
