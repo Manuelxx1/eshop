@@ -21,6 +21,8 @@ this.forgotUsernameForm = this.fb.group({
   email: ['', [Validators.required, Validators.email]]
 });
 
+  }
+
 
     onSubmit() {
   this.productService.sendUsernameReset(this.forgotUsernameForm.value.email)
