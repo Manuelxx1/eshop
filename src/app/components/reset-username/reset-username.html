@@ -1,1 +1,17 @@
-<p>reset-username works!</p>
+<div class="reset-reset-username">
+  <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+    <h2>Restablecer contraseña</h2>
+    <label>
+      Nueva contraseña:
+      <input type="text" formControlName="newUsername" placeholder="Ingrese un nuevo usuario"/>
+    </label>
+    <button type="submit">Cambiar Usuario</button>
+  </form>
+</div>
+<div *ngIf="successMessage" class="alert-success">
+  {{ successMessage }}
+</div>
+
+<div *ngIf="mensajerror" class="alert-error">
+  {{ mensajerror }}
+</div>
