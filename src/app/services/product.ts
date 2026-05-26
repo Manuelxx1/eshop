@@ -298,6 +298,7 @@ setPendingCheckoutCategory(type: 'product' | 'featured' | 'category' | 'offers' 
 
   private apiUrlSendPasswordReset = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/auth/forgot-password';
   sendPasswordReset(email: string): Observable<any> {
+  
     // Usamos POST y enviamos el email en el body
     return this.http.post<any>(this.apiUrlSendPasswordReset, { email });
   }
@@ -311,6 +312,7 @@ resetPassword(token: string, newPassword: string): Observable<any> {
 
   private apiUrlSendUsernameReset = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/auth/forgot-username';
   sendUsernameReset(email: string): Observable<any> {
+   alert("llegó  el mail al username reset service"+email);
     // Usamos POST y enviamos el email en el body
     return this.http.post<any>(this.apiUrlSendUsernameReset, { email });
   }
