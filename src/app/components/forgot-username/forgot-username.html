@@ -1,1 +1,5 @@
-<p>forgot-username works!</p>
+<form [formGroup]="forgotUsernameForm" (ngSubmit)="onSubmit()">
+  <label>Email</label>
+  <input formControlName="email" placeholder="Ingrese su email" />
+  <button type="submit">Enviar enlace de recuperación</button>
+</form>
