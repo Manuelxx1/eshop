@@ -21,7 +21,7 @@ export class ResetUsername {
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private productService: Product) 
   { // Crear el formulario
   this.resetForm = this.fb.group({
-      newUsername['', [Validators.required, Validators.minLength(6)]]
+      newPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -34,8 +34,8 @@ export class ResetUsername {
 
   onSubmit(): void {
     if (this.resetForm.valid) {
-      const newUsername = this.resetForm.value.newUsername;
-      this.productService.resetUsername(this.token, newUsername({
+      const newPassword = this.resetForm.value.newPassword;
+      this.productService.resetPassword(this.token, newPassword).subscribe({
         next: (response) => {
         // response.message viene del backend
         alert(response.message); 
@@ -48,6 +48,5 @@ export class ResetUsername {
         }
       });
     }
-        }
-
+  }
 }
