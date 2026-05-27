@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ForgotUsername {
   forgotUsernameForm: FormGroup;
+  
 
   constructor(private productService: Product,private router: Router,private fb: FormBuilder,private route: ActivatedRoute) {
 
@@ -25,7 +26,17 @@ this.forgotUsernameForm = this.fb.group({
 
 
     onSubmit() {
-  this.productService.sendUsernameReset(this.forgotUsernameForm.value.email).subscribe(() => alert('Se envió un enlace de recuperación a su correo'));
+  this.productService.sendUsernameReset(this.forgotUsernameForm.value.email).subscribe({
+    next: (response) => {
+        // response.message viene del backend
+        alert(response.message); 
+        // También podés guardarlo en una variable para mostrarlo en el template
+        //this.successMessage = response.message;
+      },
+        error: (err) =>{ 
+          alert('Error al actualizar contraseña: ' + err.message);
+        //this.mensajerror=err.message;
+        }
+    });
     }
-
 }
