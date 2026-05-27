@@ -25,8 +25,7 @@ this.forgotUsernameForm = this.fb.group({
 
 
     onSubmit() {
-  this.productService.sendUsernameReset(this.forgotUsernameForm.value.email)
-    .subscribe(() => alert('Se envió un enlace de recuperación a su correo'));
+  this.productService.sendUsernameReset(this.forgotUsernameForm.value.email).subscribe(() => alert('Se envió un enlace de recuperación a su correo'));
     }
 
 }
