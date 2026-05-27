@@ -29,12 +29,12 @@ this.forgotUsernameForm = this.fb.group({
   this.productService.sendUsernameReset(this.forgotUsernameForm.value.email).subscribe({
     next: (response) => {
         // response.message viene del backend
-        alert(response); 
+        alert(response.message); 
         // También podés guardarlo en una variable para mostrarlo en el template
         //this.successMessage = response.message;
       },
         error: (err) =>{ 
-          alert('Error al actualizar contraseña: ' + err);
+          alert('Error al actualizar contraseña: ' + err.message);
         //this.mensajerror=err.message;
         }
     });
