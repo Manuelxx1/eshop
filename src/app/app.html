@@ -228,7 +228,7 @@
         <div class="modal-description" *ngIf="selectedProduct" (click)="closeModal($event)">
   <div class="modal-content-description" (click)="$event.stopPropagation()">
     <h3>{{ selectedProduct.name }}</h3>
-    <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" />
+    <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" width=100px height=100px />
     <p>{{ selectedProduct.price | currency:'ARS' }}</p>
     <p class="product-description">{{ selectedProduct.description }}</p>
 
