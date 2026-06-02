@@ -95,6 +95,17 @@ button {
   
 }
 
+.productname{
+  
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.productprice {
+  
+  font-size: 24px;
+  font-weight: bold;
+}
 
 
 /*productos destacados*/
