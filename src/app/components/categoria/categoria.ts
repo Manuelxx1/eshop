@@ -152,4 +152,22 @@ const valorId = localStorage.getItem('idUsuario');
     this.message = ''; // ← limpia el mensaje
   }
 
+
+  openProductDetail(product: any): void {
+  this.selectedProduct = product;
+}
+
+
+markSelected(product: any): void {
+  
+  this.selectedProduct = null; // cerrar modal
+  }
+
+
+  closeModal(event: MouseEvent): void {
+  // Si el clic fue en el fondo (modal), cerramos
+  this.selectedProduct = null;
+  }
+
+
 }
