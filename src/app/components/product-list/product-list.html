@@ -47,7 +47,7 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
   <h2>Productos Destacados</h2>
   <div class="product-grid">
     <div class="product-card" *ngFor="let product of featuredProducts">
-      <img [src]="product.imageUrl" alt="{{ product.name }}" width=200px height=200px>
+      <img [src]="product.imageUrl" alt="{{ product.name }}" width=300px height=200px>
       <h3>{{ product.name }}</h3>
       <p>{{ product.price | currency:'ARS' }}</p>
       <button class="agregaralcarrito" (click)="addToCart(product)">Agregar al carrito</button>
