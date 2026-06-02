@@ -49,8 +49,8 @@ este selector duplica la vista del componente porque app.html ya lo esta llamand
     <div class="product-card" *ngFor="let product of featuredProducts">
       <img [src]="product.imageUrl" alt="{{ product.name }}">
       
-      <h3>{{ product.name }}</h3>
-      <p>{{ product.price | currency:'ARS' }}</p>
+      <h3 class="productname">{{ product.name }}</h3>
+      <p class="productprice">{{ product.price | currency:'ARS' }}</p>
      <button class="ver-detalle" (click)="openProductDetail(product)">
           Ver detalles
      </button>
@@ -116,8 +116,8 @@ para iterar sobre el como en otros casos)
 el getter getfilteredProducts retorna el featuredProducts filtrado según la categoría seleccionada -->
   <div class="product-card" *ngFor="let product of filteredProducts">
     <img [src]="product.imageUrl" alt="{{ product.name }}">
-    <h3>{{ product.name }} - {{ product.category.name }}</h3>
-    <p>{{ product.price | currency:'ARS' }}</p>
+          <h3 class="productname">{{product.name}} - {{ product.category.name }}</h3>
+          <p class="productprice">{{ product.price | currency:'ARS' }}</p>
    <button class="ver-detalle" (click)="openProductDetail(product)">
           Ver detalles
       </button>
