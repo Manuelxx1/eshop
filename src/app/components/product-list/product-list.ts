@@ -357,7 +357,10 @@ openProductDetail(product: any): void {
 }
 
 
-
+markSelected(product: any): void {
+  
+  this.selectedProduct = null; // cerrar modal
+  }
 
   
   
