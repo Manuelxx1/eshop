@@ -263,14 +263,7 @@ button {
     padding: 12px;
   }
 
-  .product-card h3 {
-    font-size: 1rem;
-  }
-
-  .product-card p {
-    font-size: 0.9rem;
-  }
-
+  
   /* Botones grandes y táctiles */
 button {
   width: 100%;
