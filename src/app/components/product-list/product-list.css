@@ -464,7 +464,7 @@ más naturales para fotos de productos.
   max-width: 100%;
   border-radius: 6px;
   margin-bottom: 12px;
-  object-fit: cover;   /* recorta sin deformar */
+  /*object-fit: cover; */  /* recorta sin deformar */
   aspect-ratio: 4 / 3;   /* formato clásico rectangular */
 }
 .offers-card img:hover {
