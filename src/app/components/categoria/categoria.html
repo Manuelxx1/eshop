@@ -4,8 +4,11 @@
   <div class="product-grid">
     <div class="product-card" *ngFor="let product of productosporcategoria">
       <img [src]="product.imageUrl" alt="{{ product.name }}">
-      <h3>{{ product.name }}</h3>
-      <p>{{ product.price | currency:'ARS' }}</p>
+      <h3 class="productname">{{ product.name }}</h3>
+      <p class="productprice">{{ product.price | currency:'ARS' }}</p>
+     <button class="ver-detalle" (click)="openProductDetail(product)">
+          Ver detalles
+     </button>
             <button class="agregaralcarrito" (click)="addToCart(product)">Agregar al carrito</button>
 <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
 <button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
