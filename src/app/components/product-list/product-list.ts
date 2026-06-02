@@ -352,6 +352,9 @@ startCountdown(durationMinutes: number) {
 
   
   
+openProductDetail(product: any): void {
+  this.selectedProduct = product;
+}
 
 
 
