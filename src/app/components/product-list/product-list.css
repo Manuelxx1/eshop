@@ -983,13 +983,7 @@ button {
     padding: 12px;
   }
 
-  .product-card h3 {
-    font-size: 1rem;
-  }
-
-  .product-card p {
-    font-size: 0.9rem;
-  }
+  
 
   .product-card button {
     width: 100%; /* botón ocupa todo el ancho en móvil */
