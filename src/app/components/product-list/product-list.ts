@@ -53,7 +53,7 @@ export class ProductList  {
 
  products: any[] = [];
   //productos destacados 
-//  featuredProducts: any[] = [];
+
 featuredProducts:  any[] = [];
   destacadoporcategories: FormGroup;
   categories: string[] = [];
@@ -192,15 +192,15 @@ const valorId = localStorage.getItem('idUsuario');
     //this.featuredProducts = this.productService.getFeaturedProducts();
 this.productService.getFeaturedProducts().subscribe(products => {
     this.featuredProducts = products; // acá sí es un array
- const resumen = this.featuredProducts
+/* const resumen = this.featuredProducts
     .map(p => `${p.name} - $${p.price}`)
     .join('\n');
-
-  alert("Productos destacados para categorías:\n" + resumen);
+*/
+//  alert("Productos destacados para categorías:\n" + resumen);
   
-  alert("Productos destacados para categorías en json: " + JSON.stringify(this.featuredProducts));
+//  alert("Productos destacados para categorías en json: " + JSON.stringify(this.featuredProducts));
   this.categories = [...new Set(products.map(p => p.category.name))];
- alert('Categorías únicas:'+this.categories);
+// alert('Categorías únicas:'+this.categories);
 });
 
 
@@ -223,15 +223,15 @@ porque alert no sabe cómo mostrar un array de objetos.
 Tenés que convertirlo a string antes de mostrarlo.
 */
           
-alert("Productos destacados: " + JSON.stringify(this.featuredProducts));
+//alert("Productos destacados: " + JSON.stringify(this.featuredProducts));
 
 // Mostrar solo nombre y precio en el alert
-  const resumen = this.featuredProducts
+  /*const resumen = this.featuredProducts
     .map(p => `${p.name} - $${p.price}`)
     .join('\n');
 
   alert("Productos destacados:\n" + resumen);
-
+*/
           
           this.productService.getProductsenoferta().subscribe(products => {
     this.productosenoferta = products; // acá sí es un array
