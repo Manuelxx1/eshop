@@ -439,12 +439,33 @@ button {
   border: 1px solid #ddd;
   padding: 15px;
   text-align: center;
+  
 }
 
+
+/*
+El aspect ratio (relación de aspecto) es simplemente 
+la proporción entre el ancho y la altura de un elemento,
+en este caso de una imagen.
+Sirve para que todas las imágenes de tu grilla tengan la misma forma visual,
+aunque los archivos originales sean distintos.
+Todas las imágenes de productos se ven uniformes en la grilla.
+
+Evitás que unas sean muy altas y otras muy anchas.
+El aspect ratio cuadrado (1/1) es una forma de lograr que
+todas las imágenes de tu sección de ofertas se vean uniformes,
+sin importar si el archivo original es más ancho o más alto
+Si una imagen es muy vertical u horizontal, se recorta para encajar sin deformarse.
+La grilla se ve más prolija y consistente en mobile y desktop.
+En desktop: se muestran rectangulares (4/3),
+más naturales para fotos de productos.
+*/
 .offers-card img {
   max-width: 100%;
   border-radius: 6px;
   margin-bottom: 12px;
+  object-fit: cover;   /* recorta sin deformar */
+  aspect-ratio: 4 / 3;   /* formato clásico rectangular */
 }
 .offers-card img:hover {
   transform: scale(1.1) rotate(2deg); /* agranda 10% y rota un poquito */
@@ -1005,7 +1026,11 @@ button {
   }
 
   
-  
+  .offers-card img {
+    aspect-ratio: 1 / 1;   /* cuadrado */
+  }
+
+      
 /*footer*/
   .footer {
     padding: 20px 12px;
