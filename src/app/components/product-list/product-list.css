@@ -830,7 +830,7 @@ button {
 .product-card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+ /* gap: 12px;*/
   margin-bottom: 16px;
 }
 
@@ -913,7 +913,7 @@ button {
 
   .product-grid {
     grid-template-columns: 1fr; /* una columna en móvil */
-    gap: 16px;
+    /*gap: 16px;*/
   }
 
   .product-card {
