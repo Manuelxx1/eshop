@@ -1,7 +1,7 @@
 <div  class="todoslosproductos">
 
 Categorías recibidas{{ productscategories }}
-}
+
 <!-- shop.component.html -->
 <div class="shop-container" *ngIf="products.length > 0" >
   <app-filters [products]="products"  [productscategories]="productscategories"   (filtered)="onFiltered($event)"></app-filters>
