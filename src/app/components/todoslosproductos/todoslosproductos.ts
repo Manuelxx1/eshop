@@ -53,7 +53,7 @@ this.productService.getAllProducts().subscribe({
 alert('Productos en padre:'+ JSON.stringify(this.products));
     // calcular categorías aquí directamente 
 this.productscategories = [...new Set(this.products
-      .filter(p => p.category && p.category.name)   // solo los que tienen categoría
+      .filter(p => p.category && p.category.name)  // solo los que tienen categoría
       .map(p => p.category.name)
   )
 ];
