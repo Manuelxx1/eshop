@@ -1,6 +1,7 @@
 <div  class="todoslosproductos">
 
-productos recibidos del subscribe{{ products }}
+productos recibidos del subscribe <pre>{{ products | json }}</pre>
+
 
 <!-- shop.component.html -->
 <div class="shop-container" *ngIf="products.length > 0" >
