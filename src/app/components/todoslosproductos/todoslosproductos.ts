@@ -49,6 +49,10 @@ this.productService.getAllProducts().subscribe({
   next: data => {
     this.products = data;
     this.loading = false;
+    // Inicializar filteredProducts con todos los productos 
+    this.filteredProducts = [...this.products];
+    this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
+    this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
     const pendingCheckout = this.productService.getPendingCheckout();
     console.log('Pending checkout:', pendingCheckout);
