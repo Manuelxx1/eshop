@@ -4,7 +4,7 @@
     categoría:
     <select formControlName="category">
       <option value="">Todas</option>
-      <option *ngFor="let cat of productscategories" [value]="cat.name">{{ cat.name }}</option>
+      <option *ngFor="let cat of productscategories" [value]="cat">{{ cat}}</option>
     </select>
   </label>
 
