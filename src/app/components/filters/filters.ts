@@ -35,7 +35,7 @@ ngOnInit(): void {
 
   if (this.products.length > 0) {
       this.categories = [...new Set(this.products.map(p => p.category.name))];
-
+alert(this.products);
 }
 }
   
