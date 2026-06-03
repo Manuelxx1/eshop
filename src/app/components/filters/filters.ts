@@ -11,7 +11,7 @@ import { Product,Order} from '../../services/product';
   templateUrl: './filters.html',
   styleUrl: './filters.css',
 })
-export class Filters implements OnChanges {
+export class Filters  {
 @Input() products: Product[] = [];
   @Input() productscategories: string[] = [];   // ahora viene del padre
   @Output() filtered = new EventEmitter<Product[]>();
