@@ -13,7 +13,7 @@ import { Product,Order} from '../../services/product';
 })
 export class Filters implements OnChanges {
 @Input() products: Product[] = [];
-  @Input() productscategories: string[] = [];   // ahora viene del padre
+  @Input() productscategories: any[] = [];   // ahora viene del padre
   @Output() filtered = new EventEmitter<Product[]>();
 
   form: FormGroup;
