@@ -35,7 +35,7 @@ ngOnInit() {
 }
 
 
-/*
+
   
   ngOnChanges() {
     if (this.products.length > 0) {
@@ -43,7 +43,7 @@ ngOnInit() {
 
       this.applyFilters();
     }
-  */
+  
 
   applyFilters() {
     const { category, minPrice, maxPrice, sortOption } = this.form.value;
