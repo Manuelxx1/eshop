@@ -2,7 +2,7 @@
 
 
 <!-- shop.component.html -->
-<div class="shop-container">
+<div class="shop-container" *ngIf="products.length > 0" >
   <app-filters [products]="products"    (filtered)="onFiltered($event)"></app-filters>
 
 </div>
