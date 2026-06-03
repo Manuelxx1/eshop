@@ -1,5 +1,5 @@
 <div  class="todoslosproductos">
-<ul *ngIf="products.length > 0" class="results-list">
+<!--<ul *ngIf="products.length > 0" class="results-list">
     <li *ngFor="let product of products" class="result-item">
       <img [src]="product.imageUrl" alt="{{ product.name }}" />
       <div class="product-info">
@@ -9,7 +9,7 @@
       </div>
     </li>
 </ul>
-
+-->
 <!-- shop.component.html -->
 <div class="shop-container">
   <app-filters [products]="products" (filtered)="onFiltered($event)"></app-filters>
@@ -18,7 +18,7 @@
 
         <!--Resultados con los filtros aplicados y con paginacion de 10 páginas
   cada pagina tiene 10 productos--> 
-        <ul *ngIf="paginatedProducts.length > 0" class="results-list">
+        <ul *ngIf="products.length > 0" class="results-list">
   <li *ngFor="let product of paginatedProducts" class="result-item">
     <img [src]="product.imageUrl" alt="{{ product.name }}" />
     <div class="product-info">
