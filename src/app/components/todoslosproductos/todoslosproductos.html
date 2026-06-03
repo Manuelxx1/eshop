@@ -19,7 +19,7 @@
         <!--Resultados con los filtros aplicados y con paginacion de 10 páginas
   cada pagina tiene 10 productos--> 
         <ul *ngIf="products.length > 0" class="results-list">
-  <li *ngFor="let product of products" class="result-item">
+  <li *ngFor="let product of paginatedProducts" class="result-item">
     <img [src]="product.imageUrl" alt="{{ product.name }}" />
     <div class="product-info">
       <h4>{{ product.name }}</h4>
