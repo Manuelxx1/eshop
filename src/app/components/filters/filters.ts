@@ -31,13 +31,13 @@ export class Filters implements OnChanges,OnInit {
 
 
 
-ngOnInit(): void {
-
+ngOnInit() {
   if (this.products.length > 0) {
-      this.categories = [...new Set(this.products.map(p => p.category.name))];
-alert(this.products);
+    this.categories = [...new Set(this.products.map(p => p.category.name))];
+    this.applyFilters();
+  }
 }
-}
+
   
   ngOnChanges() {
     if (this.products.length > 0) {
