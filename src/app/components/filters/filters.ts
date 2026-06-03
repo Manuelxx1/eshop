@@ -32,7 +32,7 @@ export class Filters implements OnChanges {
 
 
 
-
+/*
   
   ngOnChanges() {
     if (this.products.length > 0) {
@@ -40,7 +40,7 @@ export class Filters implements OnChanges {
 
       this.applyFilters();
     }
-  }
+  */
 
   applyFilters() {
     const { category, minPrice, maxPrice, sortOption } = this.form.value;
