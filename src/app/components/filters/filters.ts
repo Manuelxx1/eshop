@@ -43,7 +43,7 @@ ngOnInit() {
 
       this.applyFilters();
     }
-  
+  }
 
   applyFilters() {
     const { category, minPrice, maxPrice, sortOption } = this.form.value;
