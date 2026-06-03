@@ -195,6 +195,31 @@ if (idUsuario) {
 
 
   //para Mostrar paginacion
+
+  /*
+  filteredProducts  arranca vacío.
+El *ngFor de la grilla usa paginatedProducts, que depende de filteredProducts.
+Entonces, hasta que aplicás un filtro, no hay nada que mostrar.
+en paginatedProducts 
+
+Lo que necesitás es que al cargar la página, 
+filteredProducts arranque con todos los productos. 
+Así, se muestran de entrada y luego el filtro los va reduciendo.
+iniciar filteredProducts 
+ngOnInit() {
+  // Supongamos que acá cargás los productos desde un servicio
+  this.productsService.getAll().subscribe(data => {
+    this.products = data;
+    // Inicializar filteredProducts con todos
+    this.filteredProducts = [...this.products];
+    this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
+    this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  });
+}
+luego interviene el filtro para ajustar resultados 
+
+
+  */
   get paginatedProducts(): Product[] {
   const start = (this.currentPage - 1) * this.itemsPerPage;
   const end = start + this.itemsPerPage;
