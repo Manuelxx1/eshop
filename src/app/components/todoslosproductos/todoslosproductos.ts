@@ -52,7 +52,12 @@ this.productService.getAllProducts().subscribe({
     this.products = [...data];
 alert('Productos en padre:'+ JSON.stringify(this.products));
     // calcular categorías aquí directamente 
-      this.productscategories = [...new Set(this.products.map(p => p.category.name))];
+this.productscategories = [...new Set(this.products
+      .filter(p => p.category && p.category.name)   // solo los que tienen categoría
+      .map(p => p.category.name)
+  )
+];
+console.log('Categorías calculadas en padre:', this.productscategories);
   alert('Categorías calculadas en padre:'+this.productscategories);
 
     this.loading = false;
