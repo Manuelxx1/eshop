@@ -50,7 +50,7 @@ ngOnInit() {
     let result = [...this.products];
 
     if (category) {
-      result = result.filter(p => p.category.name === category);
+      result = result.filter(p => p.category?.name === category);
     }
 
     result = result.filter(p => p.price >= minPrice && p.price <= maxPrice);
