@@ -36,14 +36,19 @@ ngOnInit() {
 
 
 
-  
-  ngOnChanges() {
+  /*
+  si no se define las categorías en el padre 
+se define acá en ngOnChanges,entonces las categorías aparecen en el select
+y luego se llama alfiltro 
+applyFilters()
+ngOnChanges() {
     if (this.products.length > 0) {
       this.categories = [...new Set(this.products.map(p => p.category.name))];
 
       this.applyFilters();
     }
   }
+  */
 
   applyFilters() {
     const { category, minPrice, maxPrice, sortOption } = this.form.value;
