@@ -53,7 +53,8 @@ this.productService.getAllProducts().subscribe({
 
     // calcular categorías aquí directamente 
       this.productscategories = [...new Set(this.products.map(p => p.category.name))];
-  
+  alert('Categorías calculadas en padre:'+this.productscategories);
+
     this.loading = false;
     // Inicializar filteredProducts con todos los productos 
     this.filteredProducts = [...this.products];
