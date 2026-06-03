@@ -47,10 +47,12 @@ ngOnInit(): void {
 
 this.productService.getAllProducts().subscribe({
   next: data => {
-    // Forzar nueva referencia del array
-    //para que OnChanges en filters reciba los cambios 
-    //y cargue los datos en la property categories
-    this.products = [...data];
+    
+    this.products = data;
+
+    // calcular categorías aquí directamente 
+      this.productscategories = [...new Set(this.products.map(p => p.category.name))];
+  
     this.loading = false;
     // Inicializar filteredProducts con todos los productos 
     this.filteredProducts = [...this.products];
