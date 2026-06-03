@@ -13,6 +13,7 @@ import { Product,Order} from '../../services/product';
 })
 export class Filters implements OnChanges,OnInit {
 @Input() products: Product[] = [];
+  @Input() productscategories: string[] = [];   // ahora viene del padre
   @Output() filtered = new EventEmitter<Product[]>();
 
   form: FormGroup;
@@ -31,12 +32,6 @@ export class Filters implements OnChanges,OnInit {
 
 
 
-ngOnInit() {
-  if (this.products.length > 0) {
-    this.categories = [...new Set(this.products.map(p => p.category.name))];
-    this.applyFilters();
-  }
-}
 
   
   ngOnChanges() {
