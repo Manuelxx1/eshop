@@ -1,5 +1,5 @@
 
-import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { Product,Order} from '../../services/product';
@@ -11,7 +11,7 @@ import { Product,Order} from '../../services/product';
   templateUrl: './filters.html',
   styleUrl: './filters.css',
 })
-export class Filters implements OnChanges{
+export class Filters implements OnChanges,OnInit {
 @Input() products: Product[] = [];
   @Output() filtered = new EventEmitter<Product[]>();
 
@@ -29,11 +29,14 @@ export class Filters implements OnChanges{
     this.form.valueChanges.subscribe(() => this.applyFilters());
   }
 
+
+
 ngOnInit(): void {
 
   if (this.products.length > 0) {
       this.categories = [...new Set(this.products.map(p => p.category.name))];
 
+}
 }
   
   ngOnChanges() {
