@@ -32,6 +32,7 @@ export class Filters implements OnInit {
 
 ngOnInit() {
   alert('Categorías recibidas en hijo:'+ this.productscategories);
+this.applyFilters()
 }
 
 
