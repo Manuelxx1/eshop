@@ -20,7 +20,7 @@ export class Todoslosproductos implements OnInit {
   
 
   products: any[] = [];
-  productscategories: any[] = [];
+  productscategories: string[] = [];
   loading = true;
   error = false;
   
@@ -49,7 +49,7 @@ ngOnInit(): void {
 this.productService.getAllProducts().subscribe({
   next: data => {
     
-    this.products = data;
+    this.products = [...data];
 
     // calcular categorías aquí directamente 
       this.productscategories = [...new Set(this.products.map(p => p.category.name))];
