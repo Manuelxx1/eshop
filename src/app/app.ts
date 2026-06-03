@@ -102,7 +102,7 @@ ngOnInit(): void {
             this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);// genera botones
             alert('Resultados:'+ this.products.length+'TotalPages:'+this.totalPages);
   alert('Pages:'+ this.pages);
-// calcular categorías aquí directamente 
+//calcular categorías aquí directamente 
 this.productscategories = [...new Set(this.products
       .filter(p => p.category && p.category.name)  // solo los que tienen categoría
       .map(p => p.category.name)
