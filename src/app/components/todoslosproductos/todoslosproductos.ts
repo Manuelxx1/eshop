@@ -50,7 +50,7 @@ this.productService.getAllProducts().subscribe({
   next: data => {
     
     this.products = [...data];
-alert('Productos en padre:'+ this.products);
+alert('Productos en padre:'+ JSON.stringify(this.products));
     // calcular categorías aquí directamente 
       this.productscategories = [...new Set(this.products.map(p => p.category.name))];
   alert('Categorías calculadas en padre:'+this.productscategories);
