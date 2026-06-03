@@ -17,7 +17,7 @@ export class Filters implements OnInit {
   @Output() filtered = new EventEmitter<Product[]>();
 
   form: FormGroup;
-  categories: string[] = [];
+ // categories: string[] = [];
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
