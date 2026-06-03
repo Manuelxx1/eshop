@@ -1,5 +1,5 @@
 
-import { Component, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges,OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { Product,Order} from '../../services/product';
@@ -11,7 +11,7 @@ import { Product,Order} from '../../services/product';
   templateUrl: './filters.html',
   styleUrl: './filters.css',
 })
-export class Filters  {
+export class Filters implements OnInit {
 @Input() products: Product[] = [];
   @Input() productscategories: string[] = [];   // ahora viene del padre
   @Output() filtered = new EventEmitter<Product[]>();
@@ -30,6 +30,9 @@ export class Filters  {
     this.form.valueChanges.subscribe(() => this.applyFilters());
   }
 
+ngOnInit() {
+  alert('Categorías recibidas en hijo:', this.productscategories);
+}
 
 
 /*
