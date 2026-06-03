@@ -97,6 +97,7 @@ ngOnInit(): void {
       this.productService.searchProducts(query).subscribe({
         next: data => {
           this.products = data;
+          this.filteredProducts = [...this.products];
           this.currentPage = 1; // inicializa en la primera página
     this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
             this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);// genera botones
