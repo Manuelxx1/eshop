@@ -20,7 +20,7 @@ export class Todoslosproductos implements OnInit {
   
 
   products: any[] = [];
-  productscategories: string[] = [];
+  productscategories: any[] = [];
   loading = true;
   error = false;
   
