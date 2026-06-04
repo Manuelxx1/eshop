@@ -3,7 +3,8 @@ import { Product,Order} from '../../services/product';
 import { RouterModule } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CdkVirtualScrollViewport, ScrollingModule } from '@angular/cdk/scrolling';
+import { NgFor } from '@angular/common';
 import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 import { Router } from '@angular/router';
 import { Cart} from '../../services/cart';
@@ -19,7 +20,7 @@ interface MockProduct {
 
 @Component({
   selector: 'app-todoslosproductos',
-  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule],
+  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule,CdkVirtualScrollViewport],
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
@@ -76,6 +77,16 @@ console.log('Categorías calculadas en padre:', this.productscategories);
     this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
     this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
+
+  // Generar 1000 productos mock
+  //para scroll infinito  o virtual scroll 
+  this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
+      id: i + 1,
+      name: `Producto ${i + 1}`,
+      price: Math.floor(Math.random() * 1000),
+    
+    }));
+    
     const pendingCheckout = this.productService.getPendingCheckout();
     console.log('Pending checkout:', pendingCheckout);
 
@@ -99,14 +110,7 @@ console.log('Categorías calculadas en padre:', this.productscategories);
 });
 
 
-  // Generar 1000 productos mock
-  //para scroll infinito  o virtual scroll 
-  this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
-      id: i + 1,
-      name: `Producto ${i + 1}`,
-      price: Math.floor(Math.random() * 1000),
-    
-    }));
+
 }
 
   
