@@ -146,17 +146,16 @@
   padding: 20px;
 }
 
+/* El viewport DEBE tener una altura fija y clara */
 .viewport {
-  display: block; /* Asegura que se comporte como un bloque */
- height: 600px;   
-  min-height: 600px; /* Fuerza al navegador a reservarle el espacio */
- width: 100%;
+  height: 600px;
+  width: 100%;
   border: 1px solid #ccc;
-  /* Nota: El CDK maneja su propio overflow, no suele hacer falta 'overflow: auto' aquí */
 }
 
 .item {
-  height: 80px;    /* debe coincidir con itemSize */
+  height: 80px;    
+  box-sizing: border-box; /* Evita que el padding altere los 80px declarados */
   display: flex;
   align-items: center;
   padding: 0 10px;
