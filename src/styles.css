@@ -2,5 +2,5 @@
 /* Agrega esto al principio de tu styles.css global */
 
 /* Forzamos la ruta directa al archivo CSS real */
-@import 'node_modules/@angular/cdk/scrolling/prebuilt-themes/default.css';
+@import '/node_modules/@angular/cdk/scrolling/prebuilt-themes/default.css';
 
