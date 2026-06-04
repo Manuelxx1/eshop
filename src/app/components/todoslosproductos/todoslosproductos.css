@@ -165,6 +165,30 @@
 
 /*
 
+/* Pegá esto tal cual en tu todoslosproductos.css */
+
+cdk-virtual-scroll-viewport {
+  display: block;
+  position: relative;
+  overflow: auto;
+  contain: strict;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cdk-virtual-scroll-content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  contain: content;
+}
+
+.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper {
+  min-width: 100%;
+}
+/*
+
 @media (max-width: 768px) {
 .results-list {
     display: grid;
@@ -278,5 +302,7 @@ button {
 }
 
 */
+
+
   
 
