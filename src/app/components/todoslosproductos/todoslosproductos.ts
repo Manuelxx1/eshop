@@ -14,10 +14,7 @@ interface MockProduct {
   id: number;
   name: string;
   price: number;
-  description:string;
-  stock: number;
-  category: string;
-  section: string;
+  
 }
 
 @Component({
@@ -60,10 +57,7 @@ pages: number[] = [];
       id: i + 1,
       name: `Producto ${i + 1}`,
       price: Math.floor(Math.random() * 1000),
-    description: `Descripción del producto ${i + 1}`,
-  stock: 100,
-  category: 'General',
-  section: 'Demo'
+    
     }));
   
     
