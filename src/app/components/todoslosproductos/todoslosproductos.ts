@@ -1,3 +1,4 @@
+/*
 import { Component,OnInit } from '@angular/core';
 import { Product,Order} from '../../services/product';
 import { RouterModule } from '@angular/router';
@@ -159,7 +160,7 @@ if (product) {
 });
       }
         
-  */
+  
 
   //mostrar el boton compra directa que abre el modal stepper solo si hay session
   isLoggedIn(): boolean {
@@ -234,7 +235,8 @@ estancada en la 3 de la otra categoría,al reiniciar a 1
 se muestra correctamente la nueva categoría seleccionada 
   */
   //aplicar filtros a la lista de resultados de productos
-  onFiltered(result: Product[]) {
+  /*
+onFiltered(result: Product[]) {
   this.filteredProducts = result;
 
     // Reiniciar paginación
@@ -247,7 +249,7 @@ se muestra correctamente la nueva categoría seleccionada
     
   }
 
-  
+  */
 
   //para Mostrar paginacion
 
@@ -275,6 +277,7 @@ luego interviene el filtro para ajustar resultados
 
 
   */
+/*
   get paginatedProducts(): Product[] {
   const start = (this.currentPage - 1) * this.itemsPerPage;
   const end = start + this.itemsPerPage;
@@ -296,5 +299,36 @@ changePage(page: number) {
   trackById(index: number, item: MockProduct): number {
     return item.id;
   }
+  */
+
+import { Component } from '@angular/core';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { NgFor } from '@angular/common';
+
+interface MockProduct {
+  id: number;
+  name: string;
+  price: number;
+}
+
+@Component({
+  selector: 'app-todoslosproductos',
+  standalone: true,
+  imports: [ScrollingModule, NgFor],
+  templateUrl: './todoslosproductos.html',
+  styleUrl: ['./todoslosproductos.css']
+})
+export class TodosLosProductosComponent {
+  mockproducts: MockProduct[] = Array.from({ length: 1000 }, (_, i) => ({
+    id: i + 1,
+    name: `Producto ${i + 1}`,
+    price: Math.floor(Math.random() * 1000)
+  }));
+
+  trackById(index: number, item: MockProduct): number {
+    return item.id;
+  }
+}
+
   
 }
