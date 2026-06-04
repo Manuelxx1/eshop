@@ -63,7 +63,7 @@ pages: number[] = [];
 
 ngOnInit(): void {
     //this.loadProducts();
-
+alert('mock products'+this.mockproducts);
 this.productService.getAllProducts().subscribe({
   next: data => {
     
