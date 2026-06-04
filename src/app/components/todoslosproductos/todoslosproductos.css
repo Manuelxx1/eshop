@@ -140,6 +140,11 @@
 }
 
 /* para el virtual scroll */
+
+.catalogo {
+  padding: 20px;
+}
+
 .viewport {
   height: 600px;   /* altura del contenedor visible */
   width: 100%;
