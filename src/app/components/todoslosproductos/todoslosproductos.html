@@ -93,21 +93,14 @@
 </div>
 -->
 <div class="catalogo">
-  <h2>Lista de productos</h2>
+  <h2>Lista de productos (Scroll Normal)</h2>
 
-  <cdk-virtual-scroll-viewport itemSize="80" style="height: 400px; width: 100%; display: block; border: 2px solid red;">
+  <div style="height: 400px; overflow-y: auto; border: 2px solid blue; width: 100%;">
     
-    <div *cdkVirtualFor="let product of mockproducts" style="height: 80px; display: flex; align-items: center; border-bottom: 1px solid #ccc;">
+    <div *ngFor="let product of mockproducts" style="padding: 10px; border-bottom: 1px solid #ccc;">
       {{ product.name }} - ${{ product.price }}
     </div>
 
-  </cdk-virtual-scroll-viewport>
-
-  <div *ngIf="mockproducts.length === 0" style="color: orange; margin-top: 10px;">
-    ⚠️ El array de productos está vacío.
-  </div>
-  <div *ngIf="mockproducts.length > 0" style="color: green; margin-top: 10px;">
-    ✅ Hay {{ mockproducts.length }} productos cargados en memoria.
   </div>
 </div>
 <!--
