@@ -51,17 +51,7 @@ pages: number[] = [];
   
   
   constructor(private productService: Product,private cartService: Cart,private router: Router){
-// Generar 1000 productos mock
-  //para scroll infinito  o virtual scroll 
-  this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
-      id: i + 1,
-      name: `Producto ${i + 1}`,
-      price: Math.floor(Math.random() * 1000),
-    
-    }));
-  
-    
-  }
+}
 
 ngOnInit(): void {
     //this.loadProducts();
@@ -107,6 +97,16 @@ console.log('Categorías calculadas en padre:', this.productscategories);
     this.error = true;
   }
 });
+
+
+  // Generar 1000 productos mock
+  //para scroll infinito  o virtual scroll 
+  this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
+      id: i + 1,
+      name: `Producto ${i + 1}`,
+      price: Math.floor(Math.random() * 1000),
+    
+    }));
 }
 
   
