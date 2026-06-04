@@ -301,8 +301,8 @@ changePage(page: number) {
   }
   */
 
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // <-- Cambiamos NgFor por CommonModule
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'; // 1. Agregá ViewEncapsulation acá
+import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 interface MockProduct {
@@ -314,19 +314,19 @@ interface MockProduct {
 @Component({
   selector: 'app-todoslosproductos',
   standalone: true,
-  imports: [CommonModule, ScrollingModule], // <-- Asegurate de que estén estos dos
+  imports: [CommonModule, ScrollingModule],
   templateUrl: './todoslosproductos.html',
-  styleUrl: './todoslosproductos.css'
+  styleUrl: './todoslosproductos.css',
+  encapsulation: ViewEncapsulation.None // 2. ¡AGREGÁ ESTA LÍNEA CLAVE!
 })
 export class Todoslosproductos implements OnInit {
   mockproducts: MockProduct[] = [];
 
   ngOnInit() {
-    // Generamos 100 productos para probar el scroll real
     this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
       id: i + 1,
       name: `Producto ${i + 1}`,
       price: Math.floor(Math.random() * 1000)
     }));
   }
-  }
+}
