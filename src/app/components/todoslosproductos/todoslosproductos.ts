@@ -316,7 +316,7 @@ interface MockProduct {
   standalone: true,
   imports: [ScrollingModule, NgFor],
   templateUrl: './todoslosproductos.html',
-  styleUrl: ['./todoslosproductos.css']
+  styleUrl: './todoslosproductos.css'
 })
 export class Todoslosproductos {
   mockproducts: MockProduct[] = Array.from({ length: 1000 }, (_, i) => ({
