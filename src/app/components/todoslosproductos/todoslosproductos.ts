@@ -63,13 +63,13 @@ pages: number[] = [];
 
 ngOnInit(): void {
     //this.loadProducts();
-alert('mock products'+this.mockproducts);
+alert('mock products'+ JSON.stringify(this.mockproducts));
 this.productService.getAllProducts().subscribe({
   next: data => {
     
     this.products = data;
 alert('Productos en padre:'+ JSON.stringify(this.products));
-    // calcular categorías aquí directamente 
+    // calcular categorías aquí  
 this.productscategories = [...new Set(this.products
       .filter(p => p.category && p.category.name)  // solo los que tienen categoría
       .map(p => p.category.name)
