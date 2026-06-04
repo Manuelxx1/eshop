@@ -303,7 +303,7 @@ changePage(page: number) {
 
 import { Component, OnInit } from '@angular/core'; // 1. Importa OnInit
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { NgFor } from '@angular/common';
+//import { NgFor } from '@angular/common';
 
 interface MockProduct {
   id: number;
@@ -314,7 +314,7 @@ interface MockProduct {
 @Component({
   selector: 'app-todoslosproductos',
   standalone: true,
-  imports: [ScrollingModule, NgFor],
+  imports: [ScrollingModule],
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
@@ -330,9 +330,9 @@ export class Todoslosproductos implements OnInit { // 2. Implementa OnInit
       price: Math.floor(Math.random() * 1000)
     }));
   }
-
+/*
   trackById(index: number, item: MockProduct): number {
     return item.id;
-  }
+  */
 }
 
