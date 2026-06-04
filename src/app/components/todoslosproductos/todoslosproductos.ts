@@ -32,7 +32,14 @@ export class Todoslosproductos implements OnInit {
   loading = true;
   error = false;
   
-  mockproducts: MockProduct[] = [];
+  // Generar 1000 productos mock
+  //para scroll infinito  o virtual scroll 
+  mockproducts: MockProduct[] = Array.from({ length: 1000 }, (_, i) => ({
+      id: i + 1,
+      name: `Producto ${i + 1}`,
+      price: Math.floor(Math.random() * 1000),
+    
+    }));
   
 selectedProduct: any;
   showStepperModal = false;
@@ -78,14 +85,7 @@ console.log('Categorías calculadas en padre:', this.productscategories);
     this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
 
-  // Generar 1000 productos mock
-  //para scroll infinito  o virtual scroll 
-  this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
-      id: i + 1,
-      name: `Producto ${i + 1}`,
-      price: Math.floor(Math.random() * 1000),
-    
-    }));
+  
     
     const pendingCheckout = this.productService.getPendingCheckout();
     console.log('Pending checkout:', pendingCheckout);
