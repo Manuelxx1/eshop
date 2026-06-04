@@ -301,7 +301,7 @@ changePage(page: number) {
   }
   */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; // 1. Importa OnInit
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgFor } from '@angular/common';
 
@@ -318,17 +318,21 @@ interface MockProduct {
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
-export class Todoslosproductos {
-  mockproducts: MockProduct[] = Array.from({ length: 1000 }, (_, i) => ({
-    id: i + 1,
-    name: `Producto ${i + 1}`,
-    price: Math.floor(Math.random() * 1000)
-  }));
+export class Todoslosproductos implements OnInit { // 2. Implementa OnInit
+  // Lo declaramos vacío al principio
+  mockproducts: MockProduct[] = [];
+
+  ngOnInit() {
+    // 3. Llenamos el array cuando el componente se inicializa
+    this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
+      id: i + 1,
+      name: `Producto ${i + 1}`,
+      price: Math.floor(Math.random() * 1000)
+    }));
+  }
 
   trackById(index: number, item: MockProduct): number {
     return item.id;
   }
 }
-
-  
 
