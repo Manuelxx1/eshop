@@ -167,7 +167,7 @@
 
 /* Pegá esto tal cual en tu todoslosproductos.css */
 
-.cdk-virtual-scroll-viewport {
+cdk-virtual-scroll-viewport {
   display: block;
   position: relative;
   overflow: auto;
