@@ -18,7 +18,7 @@ interface MockProduct {
   price: number;
   
 }
-
+/*
 @Component({
   selector: 'app-todoslosproductos',
   imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule,NgFor],
@@ -301,9 +301,9 @@ changePage(page: number) {
   }
   */
 
-import { Component, OnInit } from '@angular/core'; // 1. Importa OnInit
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'; // <-- Cambiamos NgFor por CommonModule
 import { ScrollingModule } from '@angular/cdk/scrolling';
-//import { NgFor } from '@angular/common';
 
 interface MockProduct {
   id: number;
@@ -314,25 +314,19 @@ interface MockProduct {
 @Component({
   selector: 'app-todoslosproductos',
   standalone: true,
-  imports: [ScrollingModule],
+  imports: [CommonModule, ScrollingModule], // <-- Asegurate de que estén estos dos
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
-export class Todoslosproductos implements OnInit { // 2. Implementa OnInit
-  // Lo declaramos vacío al principio
+export class Todoslosproductos implements OnInit {
   mockproducts: MockProduct[] = [];
 
   ngOnInit() {
-    // 3. Llenamos el array cuando el componente se inicializa
-    this.mockproducts = Array.from({ length: 5 }, (_, i) => ({
+    // Generamos 100 productos para probar el scroll real
+    this.mockproducts = Array.from({ length: 100 }, (_, i) => ({
       id: i + 1,
       name: `Producto ${i + 1}`,
       price: Math.floor(Math.random() * 1000)
     }));
   }
-/*
-  trackById(index: number, item: MockProduct): number {
-    return item.id;
-  */
-}
-
+  }
