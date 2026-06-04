@@ -43,7 +43,17 @@ itemsPerPage: number = 10; // cantidad de productos por página
 pages: number[] = [];
   
   
-  constructor(private productService: Product,private cartService: Cart,private router: Router){}
+  constructor(private productService: Product,private cartService: Cart,private router: Router){
+// Generar 1000 productos mock
+  //para scroll infinito  o virtual scroll 
+  this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
+      id: i + 1,
+      name: `Producto ${i + 1}`,
+      price: Math.floor(Math.random() * 1000)
+    }));
+  
+    
+  }
 
 ngOnInit(): void {
     //this.loadProducts();
@@ -269,14 +279,7 @@ changePage(page: number) {
   }
 
 
-// Generar 1000 productos mock
-  //para scroll infinito  o virtual scroll 
-  this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
-      id: i + 1,
-      name: `Producto ${i + 1}`,
-      price: Math.floor(Math.random() * 1000)
-    }));
-  
+
 
   trackById(index: number, item: Product): number {
     return item.id;
