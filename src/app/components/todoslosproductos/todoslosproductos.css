@@ -1,18 +1,19 @@
 
 /* Resultados separados del header */
 /* Bloque de resultados con overlay */
+/*
 .todoslosproductos {
   position: relative;
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
   background-color: rgba(0,0,0,0.05); /* fondo gris claro translúcido */
-  border-top: 1px solid #ddd;
+/*  border-top: 1px solid #ddd;
   min-height: 200px;
 }
 
 /* Lista en desktop */
-.results-list {
+/*.results-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -24,7 +25,7 @@
   padding: 12px;
   border-bottom: 1px solid #eee;
   background-color: #fff; /* cada resultado sobre fondo blanco */
-  border-radius: 6px;
+/*  border-radius: 6px;
   margin-bottom: 10px;
 }
 
@@ -38,7 +39,7 @@
 
 .comprarahora {
   background-color: #28a745; /* verde fuerte */
-  color: #fff;
+ /* color: #fff;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -58,12 +59,12 @@
 
 .comprarahora:focus {
   outline: none; /* quitamos el borde azul por defecto */
-  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* halo verde */
-}
+ /* box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* halo verde */
+/*}
 
 .iniciasesionparacomprar{
   background-color: #0000FF; /* azul */
-  color: #fff;
+/*  color: #fff;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -84,11 +85,11 @@
 .iniciasesionparacomprar:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.5); /* halo naranja */
-}
+/*}
 
 .agregaralcarrito {
   background-color: #ff9800; /* naranja */
-  color: #fff;
+/*  color: #fff;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -109,7 +110,7 @@
 .agregaralcarrito:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.5); /* halo naranja */
-}
+/*}
 
 
 .pagination {
@@ -138,7 +139,7 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
-
+*/
 /* para el virtual scroll */
 
 .catalogo {
@@ -147,9 +148,9 @@
 
 .viewport {
   display: block; /* Asegura que se comporte como un bloque */
-  height: 600px;   
+ height: 600px;   
   min-height: 600px; /* Fuerza al navegador a reservarle el espacio */
-  width: 100%;
+ width: 100%;
   border: 1px solid #ccc;
   /* Nota: El CDK maneja su propio overflow, no suele hacer falta 'overflow: auto' aquí */
 }
@@ -162,7 +163,7 @@
   border-bottom: 1px solid #eee;
 }
 
-
+/*
 
 @media (max-width: 768px) {
 .results-list {
@@ -192,6 +193,7 @@
   }
 
 /* Botones grandes y táctiles */
+/*
 button {
   width: 100%;
   padding: 14px;
@@ -275,6 +277,6 @@ button {
   to   { opacity: 0; }
 }
 
-
+*/
   
 }
