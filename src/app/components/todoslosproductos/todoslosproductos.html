@@ -95,9 +95,9 @@
 <div class="catalogo">
   <h2>Lista de productos</h2>
 
-  <cdk-virtual-scroll-viewport itemSize="80" appendOnly class="viewport">
+  <cdk-virtual-scroll-viewport [itemSize]="80" style="height: 400px; width: 100%; display: block; border: 2px solid red;">
     
-    <div *cdkVirtualFor="let product of mockproducts" class="item">
+    <div *cdkVirtualFor="let product of mockproducts" class="item" style="height: 80px; display: flex; align-items: center;">
       {{ product.name }} - ${{ product.price }}
     </div>
 
