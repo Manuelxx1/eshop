@@ -3,7 +3,7 @@ import { Product,Order} from '../../services/product';
 import { RouterModule } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 import { Router } from '@angular/router';
 import { Cart} from '../../services/cart';
@@ -12,7 +12,7 @@ import {Filters} from '../../components/filters/filters';
 
 @Component({
   selector: 'app-todoslosproductos',
-  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters],
+  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule],
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
