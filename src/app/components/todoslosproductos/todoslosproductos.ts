@@ -49,7 +49,7 @@ ngOnInit(): void {
 this.productService.getAllProducts().subscribe({
   next: data => {
     
-    this.products = [...data];
+    this.products = data;
 alert('Productos en padre:'+ JSON.stringify(this.products));
     // calcular categorías aquí directamente 
 this.productscategories = [...new Set(this.products
