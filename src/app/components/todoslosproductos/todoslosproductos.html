@@ -85,6 +85,12 @@
   </div>
 </div>
 
+<cdk-virtual-scroll-viewport itemSize="80" class="viewport">
+  <div *cdkVirtualFor="let product of products; trackBy: trackById" class="item">
+    {{ product.name }} - ${{ product.price }}
+  </div>
+</cdk-virtual-scroll-viewport>
+
     
 <a routerLink="/productosdestacados" fragment="destacados">Destacados</a>
 
