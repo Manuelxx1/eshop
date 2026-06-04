@@ -198,6 +198,17 @@ if (idUsuario) {
 }
 }
 
+
+  /*
+En resumen: si usás el getter paginatedProducts(), no hace falta el método updatePaginatedProducts().
+El bug que tenías se resolvía simplemente reseteando ccurrentPage a 1 cuando cambiaba el filtro.
+para que cuandose cambie de categoría empiece desde la página 1 de esa categoría 
+porque si no se hace el reset queda en el currentPage de una categoría
+que podía tener 3 páginas y si estoy en el 3 queda ahí,al cambiar 
+de categoria si la nueva no tiene 3 páginas no muestra nada porque se quedó
+estancada en la 3 de la otra categoría,al reiniciar a 1
+se muestra correctamente la nueva categoría seleccionada 
+  */
   //aplicar filtros a la lista de resultados de productos
   onFiltered(result: Product[]) {
   this.filteredProducts = result;
@@ -209,15 +220,10 @@ if (idUsuario) {
   this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
  
 
-    this.updatePaginatedProducts();
+    
   }
 
-  updatePaginatedProducts() {
-  const start = (this.currentPage - 1) * this.itemsPerPage;
-  const end = start + this.itemsPerPage;
-  this.paginatedProducts = this.filteredProducts.slice(start, end);
-  }
-
+  
 
   //para Mostrar paginacion
 
@@ -253,7 +259,7 @@ luego interviene el filtro para ajustar resultados
 
 changePage(page: number) {
   this.currentPage = page;
-  this.updatePaginatedProducts();
+  
 }
 
   openProductDetail(product: any): void {
