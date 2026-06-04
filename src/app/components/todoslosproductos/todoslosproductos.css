@@ -146,10 +146,12 @@
 }
 
 .viewport {
-  height: 600px;   /* altura del contenedor visible */
+  display: block; /* Asegura que se comporte como un bloque */
+  height: 600px;   
+  min-height: 600px; /* Fuerza al navegador a reservarle el espacio */
   width: 100%;
   border: 1px solid #ccc;
-  overflow: auto;
+  /* Nota: El CDK maneja su propio overflow, no suele hacer falta 'overflow: auto' aquí */
 }
 
 .item {
