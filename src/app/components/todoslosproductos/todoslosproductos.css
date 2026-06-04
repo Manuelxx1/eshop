@@ -139,6 +139,23 @@
   cursor: not-allowed;
 }
 
+/* para el virtual scroll */
+.viewport {
+  height: 600px;   /* altura del contenedor visible */
+  width: 100%;
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+
+.item {
+  height: 80px;    /* debe coincidir con itemSize */
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
 
 @media (max-width: 768px) {
 .results-list {
