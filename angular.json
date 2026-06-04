@@ -25,6 +25,7 @@
               }
             ],
             "styles": [
+              "@angular/cdk/scrolling",
               "src/styles.css"
             ]
           },
