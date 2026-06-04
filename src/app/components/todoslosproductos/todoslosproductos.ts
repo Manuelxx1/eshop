@@ -10,6 +10,16 @@ import { Cart} from '../../services/cart';
 import {Filters} from '../../components/filters/filters';
 
 
+interface MockProduct {
+  id: number;
+  name: string;
+  price: number;
+  description:string;
+  stock: number;
+  category: string;
+  section: string;
+}
+
 @Component({
   selector: 'app-todoslosproductos',
   imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule],
