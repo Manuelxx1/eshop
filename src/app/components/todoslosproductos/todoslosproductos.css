@@ -148,11 +148,12 @@
 
 /* El viewport DEBE tener una altura fija y clara */
 .viewport {
-  height: 600px;
-  width: 100%;
+  display: block !important;
+  height: 500px !important;
+  min-height: 500px !important;
+  width: 100% !important;
   border: 1px solid #ccc;
 }
-
 .item {
   height: 80px;    
   box-sizing: border-box; /* Evita que el padding altere los 80px declarados */
