@@ -324,7 +324,7 @@ export class Todoslosproductos implements OnInit { // 2. Implementa OnInit
 
   ngOnInit() {
     // 3. Llenamos el array cuando el componente se inicializa
-    this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
+    this.mockproducts = Array.from({ length: 5 }, (_, i) => ({
       id: i + 1,
       name: `Producto ${i + 1}`,
       price: Math.floor(Math.random() * 1000)
