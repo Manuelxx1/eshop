@@ -276,7 +276,7 @@ changePage(page: number) {
       name: `Producto ${i + 1}`,
       price: Math.floor(Math.random() * 1000)
     }));
-  }
+  
 
   trackById(index: number, item: Product): number {
     return item.id;
