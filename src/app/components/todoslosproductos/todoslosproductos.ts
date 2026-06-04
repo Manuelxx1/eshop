@@ -201,8 +201,21 @@ if (idUsuario) {
   //aplicar filtros a la lista de resultados de productos
   onFiltered(result: Product[]) {
   this.filteredProducts = result;
+
+    // Reiniciar paginación
+  this.currentPage = 1;
+    //recalcular
   this.totalPages = Math.ceil(this.filteredProducts.length / this.itemsPerPage);
   this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+ 
+
+    this.updatePaginatedProducts();
+  }
+
+  updatePaginatedProducts() {
+  const start = (this.currentPage - 1) * this.itemsPerPage;
+  const end = start + this.itemsPerPage;
+  this.paginatedProducts = this.filteredProducts.slice(start, end);
   }
 
 
@@ -240,6 +253,7 @@ luego interviene el filtro para ajustar resultados
 
 changePage(page: number) {
   this.currentPage = page;
+  this.updatePaginatedProducts();
 }
 
   openProductDetail(product: any): void {
