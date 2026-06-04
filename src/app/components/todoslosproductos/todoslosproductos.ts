@@ -318,7 +318,7 @@ interface MockProduct {
   templateUrl: './todoslosproductos.html',
   styleUrl: ['./todoslosproductos.css']
 })
-export class TodosLosProductosComponent {
+export class Todoslosproductos {
   mockproducts: MockProduct[] = Array.from({ length: 1000 }, (_, i) => ({
     id: i + 1,
     name: `Producto ${i + 1}`,
