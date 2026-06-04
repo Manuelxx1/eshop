@@ -20,7 +20,7 @@ interface MockProduct {
 
 @Component({
   selector: 'app-todoslosproductos',
-  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule,CdkVirtualScrollViewport],
+  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule,CdkVirtualScrollViewport,NgFor],
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
