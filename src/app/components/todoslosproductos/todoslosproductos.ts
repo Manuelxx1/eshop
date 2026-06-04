@@ -279,7 +279,7 @@ luego interviene el filtro para ajustar resultados
   */
   get paginatedProducts(): Product[] {
   const start = (this.currentPage - 1) * this.itemsPerPage;
-  const end = start + this.this.0rPage;
+  const end = start + this.itemsPerPage;
   return this.filteredProducts.slice(start, end);
 }
 
