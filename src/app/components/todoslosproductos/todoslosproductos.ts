@@ -34,7 +34,7 @@ export class Todoslosproductos implements OnInit {
   loading = true;
   error = false;
   
-  mockproducts: Product[] = [];
+  mockproducts: MockProduct[] = [];
   
 selectedProduct: any;
   showStepperModal = false;
