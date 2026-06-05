@@ -1,19 +1,19 @@
-<!--
+
 <div  class="todoslosproductos">
--->
+
 <!--productos recibidos del subscribe <pre>{{ products | json }}</pre>-->
 
 
 <!-- shop.component.html -->
-<!--<div class="shop-container" *ngIf="products.length > 0" >
+<div class="shop-container" *ngIf="products.length > 0" >
   <app-filters [products]="products"  [productscategories]="productscategories"   (filtered)="onFiltered($event)"></app-filters>
 
 </div>
--->
+
         <!--Resultados con los filtros aplicados y con paginacion de 10 páginas
   cada pagina tiene 10 productos--> 
        
-<!--
+
 <ul *ngIf="products.length > 0" class="results-list">
   <li *ngFor="let product of paginatedProducts" class="result-item">
     <img [src]="product.imageUrl" alt="{{ product.name }}" />
@@ -27,14 +27,14 @@
 
 
   <button class="agregaralcarrito" (click)="addToCart(product)">Agregar al carrito</button>
--->
+
 <!-- Si está logueado se muestra el boton compra directa que abre el modal stepper-->
-<!--  <button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
+ <button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
   Comprar ahora
 </button>
--->
+
 <!-- Si NO está logueado, muestra botón que guarda el producto y va al login -->
-<!--<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('allproducts', product.id )">
+<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('allproducts', product.id )">
   Inicia sesión para comprar
 </button>
     
@@ -45,53 +45,54 @@
 
 
 <div class="pagination" *ngIf="filteredProducts.length > itemsPerPage">
- -->
+ 
 <!-- Botón anterior -->
-<!--  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+ <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
     Anterior
   </button>
--->
+
   <!-- Números de página -->
- <!-- <button *ngFor="let page of pages"
+ <button *ngFor="let page of pages"
           (click)="changePage(page)"
           [class.active]="currentPage === page">
     {{ page }}
   </button>
--->
+
   <!-- Botón siguiente -->
- <!-- <button (click)="changePage(currentPage + 1)" 
+ <button (click)="changePage(currentPage + 1)" 
           [disabled]="currentPage === totalPages">
     Siguiente
   </button>
 </div>
 
--->
+
 
 <!-- Modal -->
-<!--<div class="modal-overlay" *ngIf="showStepperModal">
+<div class="modal-overlay" *ngIf="showStepperModal">
   <div class="modal-content">
--->
+
     <!-- Header -->
-    <!--<div class="modal-header">
+    <div class="modal-header">
       <h3>Checkout</h3>
       <button class="close-btn" (click)="closeStepper()">✖</button>
     </div>
--->
+
+    
     <!-- Body -->
-   <!-- <div class="modal-body">
+    <div class="modal-body">
       <app-checkout-stepper *ngIf="selectedProduct"
         [selectedProduct]="selectedProduct"
         (close)="closeStepper()">
       </app-checkout-stepper>
     </div>
--->
+
     <!-- Footer -->
-    <!--<div class="modal-footer">
+  <div class="modal-footer">
       <button class="cancel-btn" (click)="closeStepper()">Cancelar</button>
     </div>
   </div>
 </div>
--->
+
 <!--scroll normal
 <div class="catalogo">
   <h2>Lista de productos (Scroll Normal)</h2>
@@ -113,6 +114,7 @@
 </cdk-virtual-scroll-viewport>
 <!--
     <pre>datos del mockproducts {{ mockproducts | json }}</pre>
+-->
 <a routerLink="/productosdestacados" fragment="destacados">Destacados</a>
 
--->
+
