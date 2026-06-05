@@ -1,0 +1,11 @@
+.viewport-contenedor {
+  height: 400px; /* Altura visible del contenedor */
+  width: 100%;
+}
+
+.elemento-lista {
+  height: 50px; /* Debe coincidir con itemSize en el HTML */
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
