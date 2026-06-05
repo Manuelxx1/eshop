@@ -301,7 +301,7 @@ changePage(page: number) {
   }
   */
 
-import { Component, OnInit, ViewEncapsulation } from '@angular/core'; // 1. Agregá ViewEncapsulation acá
+import { Component, OnInit } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
@@ -317,7 +317,7 @@ interface MockProduct {
   imports: [CommonModule, ScrollingModule],
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css',
-  encapsulation: ViewEncapsulation.None // 2. ¡AGREGÁ ESTA LÍNEA CLAVE!
+  
 })
 export class Todoslosproductos implements OnInit {
   mockproducts: MockProduct[] = [];
