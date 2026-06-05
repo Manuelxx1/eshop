@@ -106,7 +106,7 @@
   </div>
 </div>
 -->
-<cdk-virtual-scroll-viewport itemSize="100" class="viewport-contenedor">
+<cdk-virtual-scroll-viewport itemSize="200" class="viewport-contenedor">
   <div *cdkVirtualFor="let item of products" class="elemento-lista">
     <img [src]="item.imageUrl" alt="{{ item.name }}" />
     <div class="product-info">
