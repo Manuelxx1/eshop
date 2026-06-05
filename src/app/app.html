@@ -1,26 +1,26 @@
 
 <app-virtual-scroll></app-virtual-scroll>
 <app-todoslosproductos></app-todoslosproductos>
-<!--<nav>
+<nav>
   <a routerLink="/">Productos</a>
   <a routerLink="/cart">Carrito</a>
 </nav>
-<!--<h1>{{ title() }}</h1>-->
+<h1>{{ title() }}</h1>
 
 
 <!-- Aquí se renderiza tu componente de prueba -->
 <!--<app-ws-test-component></app-ws-test-component>
 -->
 
-<!--
+
 <header class="header">
   <div class="logo">eShop</div>
 
   <!-- Botón hamburguesa -->
-  <!--<button class="menu-toggle" (click)="toggleMenu()">☰</button>
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
 
   <!-- Menú -->
- <!-- <nav class="nav-menu" [ngClass]="{ 'open': menuOpen }">
+ <nav class="nav-menu" [ngClass]="{ 'open': menuOpen }">
     <a href="#" (click)="closeMenu()">Inicio</a>
     <a routerLink="/productos" (click)="closeMenu()">Productos</a> 
     
@@ -32,14 +32,14 @@
     <a routerLink="/dashboard" *ngIf= isLoggedIn() (click)="closeMenu()">Dashboard</a> 
     
     <!-- Login/Register dentro del menú en móvil -->
-   <!-- <div class="auth-links-mobile" *ngIf= !isLoggedIn()>
+   <div class="auth-links-mobile" *ngIf= !isLoggedIn()>
       <p>Iniciar sesion</p>
       <a routerLink="/login"  (click)="closeMenu()" >Login</a>  <p>No tienes una cuenta?</p><a routerLink="/register" (click)="closeMenu()">Register</a>
     </div>
   </nav>
 
   <!-- Buscador -->
- <!-- <div class="search-container">
+  <div class="search-container">
     <input
       type="text"
       [formControl]="searchControl"
@@ -53,14 +53,14 @@
 
 
   <!-- Carrito + Login/Register desktop -->
- <!-- <div class="header-actions">
+  <div class="header-actions">
 <div class="cart-icon" [class.bump]="animate" [class.shake]="animate" [class.remove]="animateRemove" (click)="toggleDropdown()">
 <span class="emojicart">🛒</span>
  <span class="cart-count-badge">{{ cartCount }}</span>
   </div>
 
   <!-- Dropdown del carrito -->
-<!--  <div class="cart-dropdown" *ngIf="dropdownOpen">
+ <div class="cart-dropdown" *ngIf="dropdownOpen">
     <div *ngIf="items.length === 0">Tu carrito está vacío</div>
     <div *ngFor="let item of items; let i = index" class="cart-ite<m">
       {{ item.product.name }} - Cantidad: {{ item.quantity }}
@@ -68,7 +68,7 @@
     </div>
           <button (click)="clearCartSinSession()">Vaciar Carrito</button>
 <!-- Subtotal -->
-    <!--<div class="cart-total">
+    <div class="cart-total">
       <!--usamos el pipe async para mostra los datos al instante 
       sin tener que actualizar la página
       esto nos permite suscribirnos directamente al
@@ -76,7 +76,7 @@
       por la variable especial total$, esto evita tener que suscribirnos
       desde el component en ngOnInit 
   -->
-      <!--Total: {{ cartService.total$ | async | currency:'ARS':'symbol':'1.0-0' }}
+      Total: {{ cartService.total$ | async | currency:'ARS':'symbol':'1.0-0' }}
     </div>
     <button routerLink="/cart">Ver carrito</button>
   </div>
@@ -84,13 +84,13 @@
 </header>
 
 <!-- Resultados fuera del header se muestra solo si hay búsqueda activa por el usuario-->
-<!--<div *ngIf="searchActive" class="search-results">
+<!-- <div *ngIf="searchActive" class="search-results">
   <div *ngIf="loading" class="spinner-container">
     <div class="spinner"></div>
     <p>Cargando tu producto...</p>
   </div> 
   <div *ngIf="error" class="error">Ocurrió un error al buscar productos.</div>
--->
+
 <!--
   <ul *ngIf="products.length > 0" class="results-list">
     <li *ngFor="let product of products" class="result-item" [ngClass]="{'highlighted': highlightedProductId === product.id}">
@@ -160,26 +160,26 @@
 </div>
 -->
 
-<!--<div *ngIf="searchActive" class="search-results">
+<div *ngIf="searchActive" class="search-results">
 
   <!-- Spinner -->
- <!-- <div *ngIf="loading" class="spinner-container">
+ <div *ngIf="loading" class="spinner-container">
     <div class="spinner"></div>
     <p>Cargando tu producto...</p>
   </div> 
 
   <!-- Error -->
-<!--  <div *ngIf="error" class="error">
+  <div *ngIf="error" class="error">
     Ocurrió un error al buscar productos.
   </div>
 
   <!-- Filtros -->
-  <!--<div class="shop-container">
+  <div class="shop-container">
     <app-filters [products]="products" [productscategories]="productscategories" (filtered)="onFiltered($event)"></app-filters>
   </div>
 
   <!-- Resultados con paginación -->
-<!--  <ul *ngIf="paginatedProducts.length > 0" class="results-list">
+  <ul *ngIf="paginatedProducts.length > 0" class="results-list">
     <li *ngFor="let product of paginatedProducts" class="result-item">
       <img [src]="product.imageUrl" alt="{{ product.name }}" />
       <div class="product-info">
@@ -195,19 +195,19 @@
       </button>
 
       <!-- Botón compra directa si está logueado -->
-      <!--<button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
+      <button class="comprarahora" *ngIf="isLoggedIn()" (click)="startCheckout(product)">
         Comprar ahora
       </button>
 
       <!-- Botón login si NO está logueado -->
-      <!--<button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('allproductsearch', product.id)">
+      <button class="iniciasesionparacomprar" *ngIf="!isLoggedIn()" (click)="goToLogin('allproductsearch', product.id)">
         Inicia sesión para comprar
       </button>
     </li>
   </ul>
 
   <!-- Paginación -->
- <!-- <div class="pagination" *ngIf="products.length > 0">
+  <div class="pagination" *ngIf="products.length > 0">
     <button class="btn-anterior" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
       Anterior
     </button>
@@ -228,7 +228,7 @@
 
         <!--modal para detalles o descripción del producto-->
        
-       <!-- <div class="modal-description" *ngIf="selectedProduct" (click)="closeModal($event)">
+       <div class="modal-description" *ngIf="selectedProduct" (click)="closeModal($event)">
   <div class="modal-content-description" (click)="$event.stopPropagation()">
     <h3>{{ selectedProduct.name }}</h3>
     <img [src]="selectedProduct.imageUrl" alt="{{ selectedProduct.name }}" width=100px height=100px />
@@ -240,7 +240,7 @@
 </div>
 
 <!-- Spinner mientras se carga -->
-<!--  <div *ngIf="loading && !searchActive" class="spinner-container">
+  <div *ngIf="loading && !searchActive" class="spinner-container">
     <div class="spinner"></div>
     <p>Cargando tu producto...</p>
   </div>
@@ -248,23 +248,23 @@
 <!-- Estado de error por si falla la conexión de la red
   o el backend devuelve error, el modal no queda vacío: muestra un mensaje claro 
 y hasta le das al usuario la opción de reintentar.  -->
-<!--  <div *ngIf="error" class="error-container">
+  <div *ngIf="error" class="error-container">
     <p>No se pudo cargar el producto. Intenta nuevamente más tarde.</p>
     <button (click)="retryPendingCheckout()">Reintentar</button>
   </div>
 
 <!-- Modal -->
-<!--<div *ngIf="!loading && !error">
+<div *ngIf="!loading && !error">
 <div class="modal-overlay" *ngIf="showStepperModal">
   <div class="modal-content">
     <!-- Header -->
-   <!-- <div class="modal-header">
+    <div class="modal-header">
       <h3>Checkout</h3>
       <button class="close-btn" (click)="closeStepper()">✖</button>
     </div>
 
     <!-- Body -->
-   <!-- <div class="modal-body">
+   <div class="modal-body">
       <app-checkout-stepper *ngIf="selectedProduct"
         [selectedProduct]="selectedProduct"
         (close)="closeStepper()">
@@ -272,11 +272,11 @@ y hasta le das al usuario la opción de reintentar.  -->
     </div>
 
     <!-- Footer -->
-   <!-- <div class="modal-footer">
+    <div class="modal-footer">
       <button class="cancel-btn" (click)="closeStepper()">Cancelar</button>
     </div>
   </div>
 </div>
 </div>
-*/
-<!--<router-outlet></router-outlet>-->
+*
+<router-outlet></router-outlet>
