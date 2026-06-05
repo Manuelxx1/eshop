@@ -107,7 +107,7 @@
 </div>
 -->
 <cdk-virtual-scroll-viewport itemSize="50" class="viewport-contenedor">
-  <div *cdkVirtualFor="let item of mockproducts" class="elemento-lista">
+  <div *cdkVirtualFor="let item of paginatedProducts" class="elemento-lista">
     {{ item.name }}
     {{item.price}}
   </div>
