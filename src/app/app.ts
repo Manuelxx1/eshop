@@ -8,14 +8,14 @@ import { Product,Order} from './services/product';
 import { Cart} from './services/cart';
 import { CheckoutStepper} from './components/checkout-stepper/checkout-stepper';
 import {Filters} from './components/filters/filters';
-import {Todoslosproductos} from './components/todoslosproductos/todoslosproductos';
+import {VirtualScroll} from './components/virtual-scroll/virtual-scroll';
 //se importa la interfaz CartItem que representa al modelo
 import { CartItem } from './services/cart'; // ajustá el path si hace falta
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule,RouterLink,CheckoutStepper,Filters,Todoslosproductos],
+  imports: [RouterOutlet,RouterModule, CommonModule, WsTestComponent,ReactiveFormsModule,RouterLink,CheckoutStepper,Filters,VirtualScroll],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
