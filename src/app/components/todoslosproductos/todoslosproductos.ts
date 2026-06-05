@@ -296,6 +296,16 @@ changePage(page: number) {
   this.selectedProduct = product;
   }
 
+markSelected(product: any): void {
+  
+  this.selectedProduct = null; // cerrar modal
+  }
+
+
+  closeModal(event: MouseEvent): void {
+  // Si el clic fue en el fondo (modal), cerramos
+  this.selectedProduct = null;
+  }
 
 
 
