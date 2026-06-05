@@ -1,6 +1,7 @@
 <cdk-virtual-scroll-viewport itemSize="50" class="viewport-contenedor">
   <div *cdkVirtualFor="let item of mockproducts" class="elemento-lista">
-    {{ item }}
+    {{ item.name }}
+    {{item.price}}
   </div>
 </cdk-virtual-scroll-viewport>
 
