@@ -1,11 +1,11 @@
-/*
+
 import { Component,OnInit } from '@angular/core';
 import { Product,Order} from '../../services/product';
 import { RouterModule } from '@angular/router';
 import { FormControl,ReactiveFormsModule, FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CdkVirtualScrollViewport, ScrollingModule } from '@angular/cdk/scrolling';
-import { NgFor } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 import { CheckoutStepper} from '../../components/checkout-stepper/checkout-stepper';
 import { Router } from '@angular/router';
 import { Cart} from '../../services/cart';
@@ -18,10 +18,10 @@ interface MockProduct {
   price: number;
   
 }
-/*
+
 @Component({
   selector: 'app-todoslosproductos',
-  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule,NgFor],
+  imports: [RouterModule, CommonModule,ReactiveFormsModule,CheckoutStepper,Filters,ScrollingModule],
   templateUrl: './todoslosproductos.html',
   styleUrl: './todoslosproductos.css'
 })
@@ -30,17 +30,11 @@ export class Todoslosproductos implements OnInit {
 
   products: any[] = [];
   productscategories: string[] = [];
+  mockproducts: MockProduct[] = [];
   loading = true;
   error = false;
   
-  // Generar 1000 productos mock
-  //para scroll infinito  o virtual scroll 
-  mockproducts: MockProduct[] = Array.from({ length: 1000 }, (_, i) => ({
-      id: i + 1,
-      name: `Producto ${i + 1}`,
-      price: Math.floor(Math.random() * 1000),
-    
-    }));
+  
   
 selectedProduct: any;
   showStepperModal = false;
@@ -86,7 +80,14 @@ console.log('Categorías calculadas en padre:', this.productscategories);
     this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
 
-  
+  // Generar 1000 productos mock
+  //para scroll infinito  o virtual scroll 
+  this.mockproducts = Array.from({ length: 1000 }, (_, i) => ({
+      id: i + 1,
+      name: `Producto ${i + 1}`,
+      price: Math.floor(Math.random() * 1000),
+    
+    }));
     
     const pendingCheckout = this.productService.getPendingCheckout();
     console.log('Pending checkout:', pendingCheckout);
@@ -161,7 +162,9 @@ if (product) {
       }
         
   
+*/
 
+  
   //mostrar el boton compra directa que abre el modal stepper solo si hay session
   isLoggedIn(): boolean {
   const valorId = localStorage.getItem('idUsuario');
@@ -235,7 +238,7 @@ estancada en la 3 de la otra categoría,al reiniciar a 1
 se muestra correctamente la nueva categoría seleccionada 
   */
   //aplicar filtros a la lista de resultados de productos
-  /*
+
 onFiltered(result: Product[]) {
   this.filteredProducts = result;
 
@@ -249,7 +252,7 @@ onFiltered(result: Product[]) {
     
   }
 
-  */
+  
 
   //para Mostrar paginacion
 
@@ -277,7 +280,7 @@ luego interviene el filtro para ajustar resultados
 
 
   */
-/*
+
   get paginatedProducts(): Product[] {
   const start = (this.currentPage - 1) * this.itemsPerPage;
   const end = start + this.itemsPerPage;
@@ -296,11 +299,9 @@ changePage(page: number) {
 
 
 
-  trackById(index: number, item: MockProduct): number {
-    return item.id;
-  }
-  */
-
+  
+  
+/*
 import { Component, OnInit } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -329,4 +330,5 @@ export class Todoslosproductos implements OnInit {
       price: Math.floor(Math.random() * 1000)
     }));
   }
+  */
 }
