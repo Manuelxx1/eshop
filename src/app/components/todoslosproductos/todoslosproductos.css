@@ -151,7 +151,7 @@
 }
 
 .elemento-lista {
-  height: 100px; /* Debe coincidir con itemSize en el HTML */
+  height: 200px; /* Debe coincidir con itemSize en el HTML */
   
   display: flex;
   align-items: center;
