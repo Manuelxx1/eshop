@@ -15,7 +15,7 @@ export class BackofficeCrudProducts {
   form: FormGroup;
 
 
-  constructor(private productService: ProductService, private fb: FormBuilder) {
+  constructor(private productService: Product, private fb: FormBuilder) {
     this.form = this.fb.group({
       name: [''],
       price: [0],
