@@ -6,7 +6,7 @@ import { Product } from '../../services/product';
 
 @Component({
   selector: 'app-backoffice-crud-products',
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './backoffice-crud-products.html',
   styleUrl: './backoffice-crud-products.css',
 })
