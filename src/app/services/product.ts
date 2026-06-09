@@ -342,7 +342,8 @@ resetPassword(token: string, newPassword: string): Observable<any> {
   }
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrlBackOffice}/api/backoffice/delete-product/${id}`);
+    alert("id recibido en el método delete en el service"+id);
+      return this.http.delete<void>(`${this.apiUrlBackOffice}/api/backoffice/delete-product/${id}`);
   }
 
 }
