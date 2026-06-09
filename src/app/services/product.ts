@@ -324,4 +324,24 @@ resetPassword(token: string, newPassword: string): Observable<any> {
   );
   }
 
+
+  //para gestión de proyectos backoffice 
+
+  private apiUrlBackOffice= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/backoffice';
+  getAll(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrlBackOffice);
+  }
+
+  create(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrlBackOffice, product);
+  }
+
+  update(id: number, product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.apiUrlBackOffice}/${id}`, product);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrlBackOffice}/${id}`);
+  }
+
 }
