@@ -334,15 +334,15 @@ resetPassword(token: string, newPassword: string): Observable<any> {
   }
 
   create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.apiUrlBackOffice, product);
+    return this.http.post<Product>(`${this.apiUrlBackOffice}/api/backoffice/create-product`, product);
   }
 
   update(id: number, product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrlBackOffice}/${id}`, product);
+    return this.http.put<Product>(`${this.apiUrlBackOffice}/api/backoffice/update-product/${id}`, product);
   }
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrlBackOffice}/${id}`);
+    return this.http.delete<void>(`${this.apiUrlBackOffice}/api/backoffice/delete-product/${id}`);
   }
 
 }
