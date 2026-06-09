@@ -10,6 +10,7 @@
 <ul>
   <li *ngFor="let p of products">
     {{ p.name }} - ${{ p.price }} (Stock: {{ p.stock }})
+   {{p.id}}
     <button (click)="deleteProduct(p.id)">Eliminar</button>
   
   </li>
