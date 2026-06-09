@@ -10,7 +10,7 @@ import { Product } from '../../services/product';
   templateUrl: './backoffice-crud-products.html',
   styleUrl: './backoffice-crud-products.css',
 })
-export class BackofficeCrudProducts {
+export class BackofficeCrudProducts implements OnInit {
   products: Product[] = [];
   form: FormGroup;
 
