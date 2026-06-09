@@ -327,9 +327,10 @@ resetPassword(token: string, newPassword: string): Observable<any> {
 
   //para gestión de proyectos backoffice 
 
-  private apiUrlBackOffice= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/backoffice';
+  private apiUrlBackOffice= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrlBackOffice);
+    return this.http.get<Product[]>(`${this.apiUrlBackOffice}/api/backoffice/get-all-products`);
+
   }
 
   create(product: Product): Observable<Product> {
