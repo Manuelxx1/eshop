@@ -16,15 +16,32 @@ export class BackofficeCrudProducts implements OnInit {
 
 
   constructor(private productService: Product, private fb: FormBuilder) {
+   /*
+no conviene definir section:[{id:''}] directamente en el FormGroup.
+Angular Reactive Forms espera valores simples (string, number, boolean) en los controles.
+Si ponés un objeto ahí, el form.value va a terminar con algo como:
+
+json
+{
+  "section": { "id": "" },
+  "category": { "id": "" }
+}
+El problema es que cuando el usuario escribe un número en el input,
+Angular lo pisa y queda "section": 2 en vez de { "id": 2 }. 
+Por eso no se inserta bien en la base.
+por eso hay que convertirlo a un objeto en el método 
+addProduct() antes de enviar al backend
+   */
+    
     this.form = this.fb.group({
       name: [''],
-      price: [0],
-      stock: [0],
+      price: [],
+      stock: [],
       description:[''],
       imageUrl:[''],
       createdAt:[''],
-      section:[{ id: '' }],
-     category:[{ id: '' }]              
+      section:[null],//número null hasta que llegue el dato del form
+     category:[null]  //número null  hasta que llegue el dato del form         
                               
                               
     });
@@ -39,7 +56,27 @@ export class BackofficeCrudProducts implements OnInit {
   }
 
   addProduct() {
-    this.productService.create(this.form.value).subscribe(() => {
+//se obtienen los datosdel form
+    const formValue = this.form.value;
+//convertimos nuestros datos del reactive forms
+   //como un objeto json para que hibernate en el backend 
+    //los pueda mapear correctamente para insertar en la base
+     
+    //asignamos valores a las property 
+    //y a lo que son objetos anidados como section y category 
+    //se les asigna sus campos correspondientes 
+    //con los valores obtenidos del formvalue     
+    const product = {
+    name: formValue.name,
+    price: formValue.price,
+    stock: formValue.stock,
+    description: formValue.description,
+    imageUrl: formValue.imageUrl,
+    section: formValue.section ? { id: formValue.section } : null,
+    category: formValue.category ? { id: formValue.category } : null
+  };
+    
+    this.productService.create(product).subscribe(() => {
       this.loadProducts();
       this.form.reset();
     });
