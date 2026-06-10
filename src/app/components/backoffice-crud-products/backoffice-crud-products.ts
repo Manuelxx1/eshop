@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { Product,BackofficeProduct,ProductSection,ProductCategory } from '../../services/product';
+import { Validators } from '@angular/forms';
 
 
 
