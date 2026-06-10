@@ -334,6 +334,7 @@ resetPassword(token: string, newPassword: string): Observable<any> {
   }
 
   create(product: Product): Observable<Product> {
+    alert("datos del formulario Gestión "+product);
     return this.http.post<Product>(`${this.apiUrlBackOffice}/api/backoffice/create-product`, product);
   }
 
