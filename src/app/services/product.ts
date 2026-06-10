@@ -22,7 +22,7 @@ export interface Categories {
   name: string;
 }
 
-export interface Product {
+export interface Products {
   id?: number;   // opcional, lo genera la base
   name: string;
   description: string;
@@ -206,36 +206,36 @@ private apiUrlEmail = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
 
   private apiUrlFeaturedProducts= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/destacados';
   
-  getFeaturedProducts():Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrlFeaturedProducts);
+  getFeaturedProducts():Observable<Products[]> {
+    return this.http.get<Products[]>(this.apiUrlFeaturedProducts);
     
   }
 
   //destacados por categoria
-  getFeaturedProductsByCategory(categoryId: number): Observable<Product[]> {
-  return this.http.get<Product[]>(`/api/products/featured-by-category/${categoryId}`);
+  getFeaturedProductsByCategory(categoryId: number): Observable<Products[]> {
+  return this.http.get<Products[]>(`/api/products/featured-by-category/${categoryId}`);
   }
 
   //productos por categoría 
 
 private apiUrlProductsByCategory = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/category';
   
-  getProductsByCategory(category: string): Observable<Product[]> {
-  return this.http.get<Product[]>(`${this.apiUrlProductsByCategory}/${category}`);
+  getProductsByCategory(category: string): Observable<Products[]> {
+  return this.http.get<Products[]>(`${this.apiUrlProductsByCategory}/${category}`);
 }
 
   //para Mostrar la section ofertas 
   
     private apiUrlProductsEnOferta= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/productsenoferta';
   
-  getProductsenoferta():Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrlProductsEnOferta);
+  getProductsenoferta():Observable<Products[]> {
+    return this.http.get<Products[]>(this.apiUrlProductsEnOferta);
     
   }
   private apiUrlTodosLosProductos = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/todoslosproductos';
   // Trae todos los productos para el menú productos 
-  getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrlTodosLosProductos);
+  getAllProducts(): Observable<Products[]> {
+    return this.http.get<Products[]>(this.apiUrlTodosLosProductos);
   }
 
 
@@ -328,18 +328,18 @@ resetPassword(token: string, newPassword: string): Observable<any> {
   //para gestión de proyectos backoffice 
 
   private apiUrlBackOffice= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
-  getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrlBackOffice}/api/backoffice/get-all-products`);
+  getAll(): Observable<Products[]> {
+    return this.http.get<Products[]>(`${this.apiUrlBackOffice}/api/backoffice/get-all-products`);
 
   }
 
-  create(product: Product): Observable<Product> {
+  create(product: Products): Observable<Products> {
     alert("datos del formulario Gestión "+JSON.stringify(product));
-    return this.http.post<Product>(`${this.apiUrlBackOffice}/api/backoffice/create-product`, product);
+    return this.http.post<Products>(`${this.apiUrlBackOffice}/api/backoffice/create-product`, product);
   }
 
-  update(id: number, product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrlBackOffice}/api/backoffice/update-product/${id}`, product);
+  update(id: number, product: Products): Observable<Products> {
+    return this.http.put<Products>(`${this.apiUrlBackOffice}/api/backoffice/update-product/${id}`, product);
   }
 
   delete(id: number): Observable<void> {
