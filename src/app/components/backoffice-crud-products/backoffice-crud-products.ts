@@ -22,6 +22,7 @@ export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
 sections: ProductSection[] = [];
+  
 
   constructor(private productService: Product, private fb: FormBuilder) {
    /*
@@ -63,6 +64,9 @@ addProduct() antes de enviar al backend
 
   loadProducts() {
     this.productService.getAll().subscribe(data => this.products = data);
+   this.sections = [...new Set(data.map(p => p.category.name))];
+    
+    //this.categories = [...new Set(products.map(p => p.category.name))];
   }
 
   addProduct() {
