@@ -61,6 +61,12 @@ addProduct() antes de enviar al backend
   }
 
   addProduct() {
+
+    if (this.form.invalid) {
+    // Marca todos los controles como tocados para mostrar errores
+    this.form.markAllAsTouched();
+    return;
+    }
 //se obtienen los datosdel form
     const formValue = this.form.value;
 //convertimos nuestros datos del reactive forms
