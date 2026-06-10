@@ -23,8 +23,8 @@ export class BackofficeCrudProducts implements OnInit {
       description:[''],
       imageUrl:[''],
       createdAt:[''],
-      section:[''],
-     category:['']              
+      section:[{ id: '' }],
+     category:[{ id: '' }]              
                               
                               
     });
