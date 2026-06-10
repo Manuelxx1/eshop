@@ -3,6 +3,30 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from '../../services/product';
 
+export interface Section {
+  id: number;
+  name: string;
+}
+
+export interface Categories {
+  id: number;
+  name: string;
+}
+
+export interface Product {
+  id?: number;   // opcional, lo genera la base
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  category: Categories;
+  section: Section; //  objeto Section completo
+  imageUrl: string;
+  createdAt?: Date;   //string o Date
+}
+
+
+
 
 @Component({
   selector: 'app-backoffice-crud-products',
