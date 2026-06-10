@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
-import { Product } from '../../services/product';
+import { Product,BackofficeProduct} from '../../services/product';
 
 
 
@@ -19,7 +19,7 @@ import { Product } from '../../services/product';
   styleUrl: './backoffice-crud-products.css',
 })
 export class BackofficeCrudProducts implements OnInit {
-  products: Products[] = [];
+  products: BackofficeProduct[] = [];
   form: FormGroup;
 
 
