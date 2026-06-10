@@ -41,17 +41,15 @@ por eso hay que convertirlo a un objeto en el método
 addProduct() antes de enviar al backend
    */
     
-    this.form = this.fb.group({
-      name: [''],
-      price: [],
-      stock: [],
-      description:[''],
-      imageUrl:[''],
-      section:[null],//número null hasta que llegue el dato del form
-     category:[null]  //número null  hasta que llegue el dato del form         
-                              
-                              
-    });
+      this.form = this.fb.group({
+  name: ['', Validators.required],
+  price: [ , [Validators.required, Validators.min(1)]],
+  stock: [ , [Validators.required, Validators.min(0)]],
+  description: ['', Validators.required],
+  imageUrl: ['', Validators.required],
+  section: [null, Validators.required],  //número null hasta que llegue el dato del form
+  category: [null, Validators.required]  //número null hasta que llegue el dato del form
+});
   }
 
   ngOnInit(): void {
