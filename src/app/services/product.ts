@@ -378,4 +378,11 @@ resetPassword(token: string, newPassword: string): Observable<any> {
       return this.http.delete<void>(`${this.apiUrlBackOffice}/api/backoffice/delete-product/${id}`);
   }
 
+
+//section desde backoffice 
+  private apiUrlSections = '/api/sections';
+  getSections(): Observable<ProductSection[]> {
+    return this.http.get<ProductSection[]>(this.apiUrlSections);
+  }
+
 }
