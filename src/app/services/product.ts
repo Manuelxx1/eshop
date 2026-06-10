@@ -23,7 +23,7 @@ export interface Categories {
 }
 
 export interface Product {
-  id: number;   // opcional, lo genera la base
+  id?: number;   // opcional, lo genera la base
   name: string;
   description: string;
   price: number;
