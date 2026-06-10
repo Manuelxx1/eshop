@@ -39,7 +39,7 @@ addProduct() antes de enviar al backend
       stock: [],
       description:[''],
       imageUrl:[''],
-      createdAt:[''],
+    //  createdAt:[''],
       section:[null],//número null hasta que llegue el dato del form
      category:[null]  //número null  hasta que llegue el dato del form         
                               
