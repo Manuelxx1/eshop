@@ -1,15 +1,74 @@
 <h2>Gestión de productos</h2>
 
-<form [formGroup]="form" (ngSubmit)="addProduct()">
-  <input formControlName="name" placeholder="Nombre" />
-  <input formControlName="price" type="number" placeholder="Precio" />
-  <input formControlName="stock" type="number" placeholder="Stock" />
-  <input formControlName="description" placeholder="Description" />
-  <input formControlName="imageUrl" placeholder="imageUrl" />
- 
-  <input formControlName="section" type="number" placeholder="section" />
-  <input formControlName="category" type="number" placeholder="category" />
-  <button type="submit">Agregar</button>
+  <!-- Nombre -->
+  <div>
+    <label for="name">Nombre</label>
+    <input id="name" formControlName="name" placeholder="Nombre" />
+    <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+      El nombre es obligatorio
+    </div>
+  </div>
+
+  <!-- Precio -->
+  <div>
+    <label for="price">Precio</label>
+    <input id="price" type="number" formControlName="price" placeholder="Precio"  />
+    <div *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
+      El precio debe ser mayor a 0
+    </div>
+  </div>
+
+  <!-- Stock -->
+  <div>
+    <label for="stock">Stock</label>
+    <input id="stock" type="number" formControlName="stock" placeholder="Stock"  />
+    <div *ngIf="form.get('stock')?.invalid && form.get('stock')?.touched">
+      El stock no puede ser negativo
+    </div>
+  </div>
+
+  <!-- Descripción -->
+  <div>
+    <label for="description">Descripción</label>
+    <textarea id="description" formControlName="description" placeholder="Description" ></textarea>
+    <div *ngIf="form.get('description')?.invalid && form.get('description')?.touched">
+      La descripción es obligatoria
+    </div>
+  </div>
+
+  <!-- Imagen -->
+  <div>
+    <label for="imageUrl">Imagen</label>
+    <input id="imageUrl" formControlName="imageUrl" placeholder="imageUrl"  />
+    <div *ngIf="form.get('imageUrl')?.invalid && form.get('imageUrl')?.touched">
+      La URL de la imagen es obligatoria
+    </div>
+  </div>
+
+  <!-- Sección -->
+  <div>
+    <label for="section">Sección</label>
+    <select id="section" formControlName="section" placeholder="section" >
+      <option *ngFor="let sec of sections" [value]="sec.id">{{ sec.name }}</option>
+    </select>
+    <div *ngIf="form.get('section')?.invalid && form.get('section')?.touched">
+      Debes seleccionar una sección
+    </div>
+  </div>
+
+  <!-- Categoría -->
+  <div>
+    <label for="category">Categoría</label>
+    <select id="category" formControlName="category" placeholder="category">
+      <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+    </select>
+    <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched">
+      Debes seleccionar una categoría
+    </div>
+  </div>
+
+  <!-- Botón -->
+  <button type="submit" [disabled]="form.invalid">Guardar producto</button>
 </form>
 
 <ul>
