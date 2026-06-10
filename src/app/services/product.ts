@@ -61,6 +61,37 @@ installments: number;
   items: OrderItem[];
 }
 
+
+//para backoffice 
+//en un proyecto real conviene separar 
+//las tres interfaces 
+//en un archivo a parte del servicio
+//src/app/models/backoffice.model.ts
+//para tener mejor ordenado la app
+export interface ProductSection {
+  id: number;
+  name: string;
+}
+
+export interface ProductCategory {
+  id: number;
+  name: string;
+}
+
+export interface BackofficeProduct {
+  id?: number;
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  imageUrl: string;
+  createdAt?: Date;
+  section?: ProductSection;
+  category?: ProductCategory;
+}
+
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -328,18 +359,18 @@ resetPassword(token: string, newPassword: string): Observable<any> {
   //para gestión de proyectos backoffice 
 
   private apiUrlBackOffice= 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com';
-  getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrlBackOffice}/api/backoffice/get-all-products`);
+  getAll(): Observable<BackofficeProduct[]> {
+    return this.http.get<BackofficeProduct[]>(`${this.apiUrlBackOffice}/api/backoffice/get-all-products`);
 
   }
 
-  create(product: Product): Observable<Product> {
+  create(product: BackofficeProduct): Observable<BackofficeProduct> {
     alert("datos del formulario Gestión "+JSON.stringify(product));
-    return this.http.post<Product>(`${this.apiUrlBackOffice}/api/backoffice/create-product`, product);
+    return this.http.post<BackofficeProduct>(`${this.apiUrlBackOffice}/api/backoffice/create-product`, product);
   }
 
-  update(id: number, product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrlBackOffice}/api/backoffice/update-product/${id}`, product);
+  update(id: number, product: BackofficeProduct): Observable<BackofficeProduct> {
+    return this.http.put<BackofficeProduct>(`${this.apiUrlBackOffice}/api/backoffice/update-product/${id}`, product);
   }
 
   delete(id: number): Observable<void> {
