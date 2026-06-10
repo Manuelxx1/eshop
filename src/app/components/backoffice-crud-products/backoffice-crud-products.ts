@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
-import { Product } from '../../services/product';
+import { Product,Products } from '../../services/product';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Product } from '../../services/product';
   styleUrl: './backoffice-crud-products.css',
 })
 export class BackofficeCrudProducts implements OnInit {
-  products: Product[] = [];
+  products: Products[] = [];
   form: FormGroup;
 
 
@@ -75,7 +75,7 @@ addProduct() antes de enviar al backend
     category: formValue.category ? { id: formValue.category } : null
   };
     
-    this.productService.create(productobject).subscribe(() => {
+    this.productService.create(product).subscribe(() => {
       this.loadProducts();
       this.form.reset();
     });
