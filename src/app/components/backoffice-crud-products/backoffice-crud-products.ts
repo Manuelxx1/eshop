@@ -65,7 +65,7 @@ addProduct() antes de enviar al backend
     //y a lo que son objetos anidados como section y category 
     //se les asigna sus campos correspondientes 
     //con los valores obtenidos del formvalue     
-    const productobject = {
+    const product = {
     name: formValue.name,
     price: formValue.price,
     stock: formValue.stock,
