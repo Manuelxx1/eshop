@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
-import { Product,BackofficeProduct} from '../../services/product';
+import { Product,BackofficeProduct,ProductSection } from '../../services/product';
 
 
 
@@ -21,7 +21,7 @@ import { Product,BackofficeProduct} from '../../services/product';
 export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
-
+sections: ProductSection[] = [];
 
   constructor(private productService: Product, private fb: FormBuilder) {
    /*
@@ -54,6 +54,11 @@ addProduct() antes de enviar al backend
 
   ngOnInit(): void {
     this.loadProducts();
+
+  this.productService.getSections().subscribe(data => {
+    this.sections = data;
+  })
+
   }
 
   loadProducts() {
