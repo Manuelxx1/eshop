@@ -56,10 +56,11 @@ addProduct() antes de enviar al backend
 
   ngOnInit(): void {
     this.loadProducts();
-
+/*
   this.productService.getSections().subscribe(data => {
     this.sections = data;
   })
+  */
 
   }
 
