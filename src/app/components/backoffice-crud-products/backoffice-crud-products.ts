@@ -19,7 +19,14 @@ export class BackofficeCrudProducts implements OnInit {
     this.form = this.fb.group({
       name: [''],
       price: [0],
-      stock: [0]
+      stock: [0],
+      description:[''],
+      imageUrl:[''],
+      createdAt:[''],
+      section:[''],
+     category:['']              
+                              
+                              
     });
   }
 
