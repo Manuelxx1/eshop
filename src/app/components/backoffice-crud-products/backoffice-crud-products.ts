@@ -65,7 +65,7 @@ addProduct() antes de enviar al backend
     //y a lo que son objetos anidados como section y category 
     //se les asigna sus campos correspondientes 
     //con los valores obtenidos del formvalue     
-    const product = {
+    const productobject = {
     name: formValue.name,
     price: formValue.price,
     stock: formValue.stock,
@@ -75,7 +75,7 @@ addProduct() antes de enviar al backend
     category: formValue.category ? { id: formValue.category } : null
   };
     
-    this.productService.create(product).subscribe(() => {
+    this.productService.create(productobject).subscribe(() => {
       this.loadProducts();
       this.form.reset();
     });
