@@ -75,7 +75,7 @@ export interface ProductSection {
 
 export interface ProductCategory {
   id: number;
-  name: string;
+  name?: string;
 }
 
 export interface BackofficeProduct {
