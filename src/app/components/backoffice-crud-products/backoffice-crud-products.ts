@@ -13,7 +13,7 @@ export interface Categories {
   name: string;
 }
 
-export interface Product {
+export interface Products {
   id?: number;   // opcional, lo genera la base
   name: string;
   description: string;
@@ -35,7 +35,7 @@ export interface Product {
   styleUrl: './backoffice-crud-products.css',
 })
 export class BackofficeCrudProducts implements OnInit {
-  products: Product[] = [];
+  products: Products[] = [];
   form: FormGroup;
 
 
