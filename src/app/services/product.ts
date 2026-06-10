@@ -23,7 +23,7 @@ export interface Categories {
 }
 
 export interface Product {
-  id?: number;   // opcional, lo genera la base
+  id: number;   // opcional, lo genera la base
   name: string;
   description: string;
   price: number;
@@ -31,7 +31,7 @@ export interface Product {
   category: Categories;
   section: Section; //  objeto Section completo
   imageUrl: string;
-  createdAt?: Date;   //string o Date
+  createdAt: Date;   //string o Date
 }
 
 export interface OrderItem {
