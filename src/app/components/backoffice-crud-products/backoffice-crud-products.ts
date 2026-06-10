@@ -79,8 +79,8 @@ addProduct() antes de enviar al backend
     stock: formValue.stock,
     description: formValue.description,
     imageUrl: formValue.imageUrl,
-    section: formValue.section ? { id: formValue.section },
-    category: formValue.category ? { id: formValue.category }
+    section: { id: formValue.section },
+  category: { id: formValue.category }
   };
     
     this.productService.create(product).subscribe(() => {
