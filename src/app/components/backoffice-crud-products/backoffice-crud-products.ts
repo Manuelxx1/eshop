@@ -23,7 +23,7 @@ export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
 //sections: ProductSection[] = [];
-  categories:ProductCategory[] = [];
+  categories:string[] = [];
 
   constructor(private productService: Product, private fb: FormBuilder) {
    /*
