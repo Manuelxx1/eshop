@@ -56,11 +56,7 @@ addProduct() antes de enviar al backend
 
   ngOnInit(): void {
     this.loadProducts();
-/*
-  this.productService.getSections().subscribe(data => {
-    this.sections = data;
-  })
-  */
+
 
   }
 
@@ -72,15 +68,12 @@ addProduct() antes de enviar al backend
 this.categories = Array.from(new Set(data
       .filter(p => p.category && p.category.name) // filtrás nulos
       .map(p => p.category!.name)
-  )
-);
- alert('Categorías únicas:'+this.categories);
-   
-      this.sections = Array.from(new Set(data
+  ));
+ 
+  this.sections = Array.from(new Set(data
       .filter(p => p.section && p.section.name) // filtrás nulos
       .map(p => p.section!.name)
-  )
-);
+  ));
     
     });
   }
