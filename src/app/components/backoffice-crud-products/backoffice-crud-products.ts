@@ -71,8 +71,8 @@ this.categories = Array.from(new Set(data
   ));
  
   this.sections = Array.from(new Set(data
-      .filter(p => p.section && p.section.name) // filtrás nulos
-      .map(p => p.section!.name)
+      .filter(p => p.section && p.section.id) // filtrás nulos
+      .map(p => p.section!.id)
   )) as string[];
     
     });
