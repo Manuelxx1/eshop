@@ -70,7 +70,7 @@ installments: number;
 //para tener mejor ordenado la app
 export interface ProductSection {
   id: number;
-  name: string;
+  name?: string;
 }
 
 export interface ProductCategory {
