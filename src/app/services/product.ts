@@ -79,7 +79,7 @@ export interface ProductCategory {
 }
 
 export interface BackofficeProduct {
- id: number;
+ id?: number;
   name: string;
   description: string;
   price: number;
