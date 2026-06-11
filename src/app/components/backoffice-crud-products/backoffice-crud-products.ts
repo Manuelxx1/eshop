@@ -69,7 +69,7 @@ addProduct() antes de enviar al backend
       this.products = data
   // this.sections = [...new Set(data.map(p => p.category.name))];
     
-    this.categories = [...new Set(data.map(p => p.category!.name))];
+    this.categories = [...new Set(data.map(p => p.category.name))];
   });
   }
 
