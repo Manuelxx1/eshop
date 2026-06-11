@@ -61,9 +61,12 @@
   <div>
     <label for="category">Categoría</label>
     <select id="category" formControlName="category" placeholder="category">
-      <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
-    </select>
-    <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched">
+    <option value="">Todas las categorías</option>
+    <option *ngFor="let cat of categories" [value]="cat">
+      {{ cat }}
+    </option>
+      </select>
+       <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched">
       Debes seleccionar una categoría
     </div>
   </div>
