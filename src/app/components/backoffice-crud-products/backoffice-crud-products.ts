@@ -23,7 +23,7 @@ export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
 sections: number[] = [];
-  categories:string[] = [];
+  categories:number[] = [];
 
   constructor(private productService: Product, private fb: FormBuilder) {
    /*
@@ -50,7 +50,7 @@ addProduct() antes de enviar al backend
   description: ['', Validators.required],
   imageUrl: ['', Validators.required],
   section: [null, Validators.required],  //número null hasta que llegue el dato del form
-  category: ['', Validators.required]  //número null hasta que llegue el dato del form
+  category: [null, Validators.required]  //número null hasta que llegue el dato del form
 });
   }
 
@@ -66,8 +66,8 @@ addProduct() antes de enviar al backend
   // this.sections = [...new Set(data.map(p => p.category.name))];
     
 this.categories = Array.from(new Set(data
-      .filter(p => p.category && p.category.name) // filtrás nulos
-      .map(p => p.category!.name)
+      .filter(p => p.category && p.category.id) // filtrás nulos
+      .map(p => p.category!.id)
   ));
  
   this.sections = Array.from(new Set(data
