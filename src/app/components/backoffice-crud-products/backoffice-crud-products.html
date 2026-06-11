@@ -50,7 +50,7 @@
     <label for="section">Sección</label>
     <select id="section" formControlName="section" placeholder="section" >
     <option value="">Todas las secciones </option>
-      <option *ngFor="let sec of sections" [value]="sec">{{ sec }}</option>
+      <option *ngFor="let sec of sections" [value]="sec.id">{{ sec.name }}</option>
    
     </select>
     <div *ngIf="form.get('section')?.invalid && form.get('section')?.touched">
@@ -63,8 +63,8 @@
     <label for="category">Categoría</label>
     <select id="category" formControlName="category" placeholder="category">
     <option value="">Todas las categorías</option>
-    <option *ngFor="let cat of categories" [value]="cat">
-      {{ cat }}
+    <option *ngFor="let cat of categories" [value]="cat.id">
+      {{ cat.name }}
     </option>
       </select>
        <div *ngIf="form.get('category')?.invalid && form.get('category')?.touched">
