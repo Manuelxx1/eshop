@@ -50,7 +50,7 @@ addProduct() antes de enviar al backend
   description: ['', Validators.required],
   imageUrl: ['', Validators.required],
   section: [null, Validators.required],  //número null hasta que llegue el dato del form
-  category: [null, Validators.required]  //número null hasta que llegue el dato del form
+  category: [null,'', Validators.required]  //número null hasta que llegue el dato del form
 });
   }
 
