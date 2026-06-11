@@ -84,6 +84,12 @@ en el caso de querer solo los números de las sections
   )) as number[];
     */
 
+//si quiero todos los valores definir un objeto 
+      this.categories = Array.from(new Map(data
+      .filter(p => p.category && p.category.id && p.category.name)
+      .map(p => [p.category!.id, p.category!]) // clave = id, valor = objeto
+  ).values()
+);
 
       
     });
