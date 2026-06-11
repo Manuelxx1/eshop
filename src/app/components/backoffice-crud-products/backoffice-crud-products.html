@@ -76,7 +76,21 @@
   <li *ngFor="let p of products">
     {{ p.name }} - ${{ p.price }} (Stock: {{ p.stock }})
    {{p.id}}
-    <button (click)="deleteProduct(p.id)">Eliminar</button>
+    <!--El ! le dice a TypeScript: “confío en que acá nunca será undefined”.
+    ya que el metodo deleteProduct espera un number no un undefined 
+    entonces el compilador acepta el acuerdo y deja que usemos el metodo
+Úsalo solo si sabés que todos los productos que llegan del backend tienen id.
+    esto se hace porque en lainterfaz BackofficeProduct que esra usando la property 
+    products que usamos en el for
+    se definió id?: number; porque no necesito enviar el id
+    pata crear el producto en el FormGroup pero si necesito para
+    otras cosas como usar el id para borrar como se hace aqui
+    entonces con ! podemos acceder á al método  deleteProduct aunque espere
+    solo un número obligatorio como parámetro 
+    aunque el valor que enviamos puede ser undefined por interfaz
+    pero  sabemos que nuca lo será porque el id que enviamos 
+    lo obtenemos de la base-->
+    <button (click)="deleteProduct(p.id!)">Eliminar</button>
   
   </li>
 </ul>
