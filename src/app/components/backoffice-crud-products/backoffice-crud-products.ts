@@ -22,8 +22,13 @@ import { Validators } from '@angular/forms';
 export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
-sections: number[] = [];
-  categories:any[] = [];
+//solo números 
+  sections: number[] = [];
+  categories:number[] = [];
+//solo nombres
+  sections: string[] = [];
+  categories:string[] = [];
+ //si quiero los dos definimos un objeto 
 
   constructor(private productService: Product, private fb: FormBuilder) {
    /*
@@ -64,17 +69,23 @@ addProduct() antes de enviar al backend
     this.productService.getAll().subscribe(data =>{
       this.products = data
   // this.sections = [...new Set(data.map(p => p.category.name))];
-    
+  /*
+  en el caso de solo querer los nombres de las categorías 
 this.categories = Array.from(new Set(data
-      .filter(p => p.category && p.category.id && p.category.name)  // filtrás nulos
-      .map(p => p.category!.id &&  p.category!.name )
-  ))as any[];
+      .filter(p => p.category && p.category.name )  // filtrás nulos
+      .map(p => p.category!.name  )
+  ))as string[];
+
+en el caso de querer solo los números de las sections
  
   this.sections = Array.from(new Set(data
       .filter(p => p.section && p.section.id) // filtrás nulos
       .map(p => p.section!.id)
   )) as number[];
-    
+    */
+
+
+      
     });
   }
 
