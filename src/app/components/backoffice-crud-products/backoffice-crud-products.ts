@@ -102,7 +102,7 @@ this.categories = Array.from(new Set(data
     description: formValue.description,
     imageUrl: formValue.imageUrl,
     section: { id: formValue.section },
-  category: { name: formValue.category  }
+  category: { id: formValue.category  }
   };
     
     this.productService.create(product).subscribe(() => {
