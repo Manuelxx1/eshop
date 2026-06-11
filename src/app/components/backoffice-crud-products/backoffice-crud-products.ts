@@ -23,12 +23,14 @@ export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
 //solo números 
-  sections: number[] = [];
-  categories:number[] = [];
+  //sections: number[] = [];
+ // categories:number[] = [];
 //solo nombres
-  sections: string[] = [];
-  categories:string[] = [];
+  //sections: string[] = [];
+// categories:string[] = [];
  //si quiero los dos definimos un objeto 
+  sections: ProductSection[] = [];
+  categories:ProductCategory[] = [];
 
   constructor(private productService: Product, private fb: FormBuilder) {
    /*
@@ -85,6 +87,14 @@ en el caso de querer solo los números de las sections
     */
 
 //si quiero todos los valores definir un objeto 
+      this.sections = Array.from(new Map(data
+      .filter(p => p.section && p.section.id && p.section.name)
+      .map(p => [p.section!.id, p.section!]) // clave = id, valor = objeto
+  ).values()
+);
+
+      
+      
       this.categories = Array.from(new Map(data
       .filter(p => p.category && p.category.id && p.category.name)
       .map(p => [p.category!.id, p.category!]) // clave = id, valor = objeto
