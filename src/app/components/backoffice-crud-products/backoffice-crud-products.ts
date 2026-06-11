@@ -23,7 +23,7 @@ export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
 sections: number[] = [];
-  categories:number[] = [];
+  categories:any[] = [];
 
   constructor(private productService: Product, private fb: FormBuilder) {
    /*
@@ -66,9 +66,9 @@ addProduct() antes de enviar al backend
   // this.sections = [...new Set(data.map(p => p.category.name))];
     
 this.categories = Array.from(new Set(data
-      .filter(p => p.category && p.category.id) // filtrás nulos
-      .map(p => p.category!.id)
-  ))as number[];
+      .filter(p => p.category && p.category.id && p.category.name)  // filtrás nulos
+      .map(p => p.category!.id &&  p.category!.name )
+  ))as any[];
  
   this.sections = Array.from(new Set(data
       .filter(p => p.section && p.section.id) // filtrás nulos
