@@ -74,7 +74,7 @@ export interface ProductSection {
 }
 
 export interface ProductCategory {
-  id: number;
+  id?: number;
   name: string;
 }
 
