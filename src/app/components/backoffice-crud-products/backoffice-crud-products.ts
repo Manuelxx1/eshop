@@ -73,7 +73,7 @@ this.categories = Array.from(new Set(data
   this.sections = Array.from(new Set(data
       .filter(p => p.section && p.section.id) // filtrás nulos
       .map(p => p.section!.id)
-  )) as string[];
+  )) as number[];
     
     });
   }
