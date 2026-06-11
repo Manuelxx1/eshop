@@ -70,7 +70,8 @@ addProduct() antes de enviar al backend
   // this.sections = [...new Set(data.map(p => p.category.name))];
     
     this.categories = [...new Set(data.map(p => p.category!.name))];
-  });
+ alert('Categorías únicas:'+this.categories);
+    });
   }
 
   addProduct() {
