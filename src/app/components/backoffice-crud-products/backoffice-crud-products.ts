@@ -68,7 +68,7 @@ addProduct() antes de enviar al backend
 this.categories = Array.from(new Set(data
       .filter(p => p.category && p.category.id) // filtrás nulos
       .map(p => p.category!.id)
-  ));
+  ))as number[];
  
   this.sections = Array.from(new Set(data
       .filter(p => p.section && p.section.id) // filtrás nulos
