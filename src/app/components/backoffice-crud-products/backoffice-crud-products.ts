@@ -22,7 +22,7 @@ import { Validators } from '@angular/forms';
 export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
-sections: string[] = [];
+sections: number[] = [];
   categories:string[] = [];
 
   constructor(private productService: Product, private fb: FormBuilder) {
