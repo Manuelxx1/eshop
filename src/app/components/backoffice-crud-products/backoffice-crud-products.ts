@@ -22,7 +22,7 @@ import { Validators } from '@angular/forms';
 export class BackofficeCrudProducts implements OnInit {
   products: BackofficeProduct[] = [];
   form: FormGroup;
-//sections: ProductSection[] = [];
+sections: string[] = [];
   categories:string[] = [];
 
   constructor(private productService: Product, private fb: FormBuilder) {
@@ -75,6 +75,13 @@ this.categories = Array.from(new Set(data
   )
 );
  alert('Categorías únicas:'+this.categories);
+   
+      this.sections = Array.from(new Set(data
+      .filter(p => p.section && p.section.name) // filtrás nulos
+      .map(p => p.section!.name)
+  )
+);
+    
     });
   }
 
