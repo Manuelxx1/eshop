@@ -187,7 +187,7 @@
         <h4>{{ product.name }}</h4>
         <p>{{ product.price | currency:'ARS' }}</p>
         
-    <a routerLink="/product.enlace">ruta path {{product.enlace}}</a> 
+     
 
         <button class="ver-detalle" (click)="openProductDetail(product)">
           Ver detalles
@@ -227,6 +227,16 @@
     </button>
   </div>
 
+<ul>
+  <li *ngFor="let product of products" class="result-item">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" />
+      <div class="product-info">
+        <h4>{{ product.name }}</h4>
+        <p>{{ product.price | currency:'ARS' }}</p>
+        
+    <a routerLink="/product.enlace">ruta path {{product.enlace}}</a> 
+  </li>
+</ul>
 </div> <!-- cierre de search-results -->
 
 
