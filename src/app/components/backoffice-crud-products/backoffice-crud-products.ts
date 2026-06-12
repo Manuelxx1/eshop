@@ -166,7 +166,7 @@ updateProduct() {
   category: { id: formValue.category  }
   };
     
-    this.productService.update(product).subscribe(() => {
+    this.productService.update(88,product).subscribe(() => {
       this.loadProducts();
       this.form.reset();
     });
