@@ -32,6 +32,7 @@ export interface Product {
   section: Section; //  objeto Section completo
   imageUrl: string;
   createdAt: Date;   //string o Date
+  enlace:string;
 }
 
 export interface OrderItem {
