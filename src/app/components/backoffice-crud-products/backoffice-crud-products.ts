@@ -138,6 +138,41 @@ en el caso de querer solo los números de las sections
     });
   }
 
+
+updateProduct() {
+
+    if (this.form.invalid) {
+    // Marca todos los controles como tocados para mostrar errores
+    this.form.markAllAsTouched();
+    return;
+    }
+//se obtienen los datosdel form
+    const formValue = this.form.value;
+//convertimos nuestros datos del reactive forms
+   //como un objeto json para que hibernate en el backend 
+    //los pueda mapear correctamente para insertar en la base
+     
+    //asignamos valores a las property 
+    //y a lo que son objetos anidados como section y category 
+    //se les asigna sus campos correspondientes 
+    //con los valores obtenidos del formvalue     
+    const product = {
+    name: formValue.name,
+    price: formValue.price,
+    stock: formValue.stock,
+    description: formValue.description,
+    imageUrl: formValue.imageUrl,
+    section: { id: formValue.section },
+  category: { id: formValue.category  }
+  };
+    
+    this.productService.update(product).subscribe(() => {
+      this.loadProducts();
+      this.form.reset();
+    });
+}
+
+  
   deleteProduct(id: number) {
     this.productService.delete(id).subscribe(() => this.loadProducts());
   }
