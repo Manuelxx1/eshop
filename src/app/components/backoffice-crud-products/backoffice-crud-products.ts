@@ -51,6 +51,7 @@ addProduct() antes de enviar al backend
    */
     
       this.form = this.fb.group({
+  id:[null],
   name: ['', Validators.required],
   price: [ , [Validators.required, Validators.min(1)]],
   stock: [ , [Validators.required, Validators.min(0)]],
@@ -166,9 +167,9 @@ updateProduct() {
   category: { id: formValue.category  }
   };
 
-
+const productId=formValue.id;
   
-    this.productService.update(this.products.id,product).subscribe(() => {
+    this.productService.update(productId,product).subscribe(() => {
       this.loadProducts();
       this.form.reset();
     });
