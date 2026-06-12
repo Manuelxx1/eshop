@@ -83,6 +83,15 @@
 
 <form [formGroup]="form" (ngSubmit)="updateProduct()">
  <h3>Actualizar un producto </h3>
+  <!-- id -->
+  <div>
+    <label for="Id">Id</label>
+    <input id="Id" type="number" formControlName="Id" placeholder="Id"  />
+    <div *ngIf="form.get('Id')?.invalid && form.get('Id')?.touched">
+      Debe insertar Un Id de producto 
+    </div>
+  </div>
+  
   <!-- Nombre -->
   <div>
     <label for="name">Nombre</label>
