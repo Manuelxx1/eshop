@@ -86,9 +86,13 @@
   <!-- id -->
   <div>
     <label for="id">Id</label>
-    <input id="id" type="number" formControlName="id" placeholder="id"  />
-    <div *ngIf="form.get('id')?.invalid && form.get('id')?.touched">
-      Debe insertar Un Id de producto 
+    <!--<input id="id" type="number" formControlName="id" placeholder="id"  />-->
+    <select id="id" formControlName="id" placeholder="id" >
+    <option value="">Seleccione un id </option>
+      <option *ngFor="let producto of products" [value]="producto.id">
+        {{ producto.id }} --> {{ producto.name }}</option>
+   
+    </select>
     </div>
   </div>
   
