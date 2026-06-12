@@ -370,6 +370,7 @@ resetPassword(token: string, newPassword: string): Observable<any> {
   }
 
   update(id: number, product: BackofficeProduct): Observable<BackofficeProduct> {
+   alert("datos del formulario Gestión "+JSON.stringify(product));
     return this.http.put<BackofficeProduct>(`${this.apiUrlBackOffice}/api/backoffice/update-product/${id}`, product);
   }
 
