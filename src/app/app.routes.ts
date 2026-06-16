@@ -33,5 +33,5 @@ export const routes: Routes = [{ path: '', component: ProductList},
 {path: 'productosdestacados', component: ProductList },
       {path: 'backoffice-crud-products', component: BackofficeCrudProducts },   
                                {path: 'articulo-noticias-tecnologia-inteligencia-artificial1', component: InteligenciaArtificial1 },
-                                {path: 'CiberSeguridad1', component: CiberSeguridad1 }
+                                {path: 'articulo-noticias/tecnologia/ciberseguridad/ciberseguridad1', component: CiberSeguridad1 }
 ];
