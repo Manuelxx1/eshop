@@ -8,6 +8,7 @@ import { ResetUsername } from './components/reset-username/reset-username';
 import { EstadoCompra } from './components/estado-compra/estado-compra';
 import { Registrarse } from './components/registrarse/registrarse';
 import { Dashboard } from './components/dashboard/dashboard';
+import { ArticuloNoticias } from './components/articulo-noticias/articulo-noticias';
 import { Categoria } from './components/categoria/categoria';
 import { Login } from './components/login/login';
 import { BackofficeCrudProducts } from './components/backoffice-crud-products/backoffice-crud-products';
@@ -29,5 +30,6 @@ export const routes: Routes = [{ path: '', component: ProductList},
 { path: 'categoria/:nombre', component: Categoria },
 {path: 'productos', component: Todoslosproductos },
 {path: 'productosdestacados', component: ProductList },
-      {path: 'backoffice-crud-products', component: BackofficeCrudProducts }                         
+      {path: 'backoffice-crud-products', component: BackofficeCrudProducts }    
+                               {path: 'articulo-noticias', component: ArticuloNoticias },
 ];
