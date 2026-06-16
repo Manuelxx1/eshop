@@ -1,5 +1,5 @@
 
-/*
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,7 +12,8 @@ export class CiberSeguridad2
 {
 
 }
-*/
+
+/*
 import { Component } from '@angular/core';
 
 @Component({
@@ -27,3 +28,4 @@ export class CiberSeguridad2 {
     console.log("Componente CiberSeguridad2 cargado con éxito");
   }
 }
+*/
