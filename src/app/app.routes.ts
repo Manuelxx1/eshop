@@ -30,6 +30,6 @@ export const routes: Routes = [{ path: '', component: ProductList},
 { path: 'categoria/:nombre', component: Categoria },
 {path: 'productos', component: Todoslosproductos },
 {path: 'productosdestacados', component: ProductList },
-      {path: 'backoffice-crud-products', component: BackofficeCrudProducts }    
-                               {path: 'articulo-noticias', component: ArticuloNoticias },
+      {path: 'backoffice-crud-products', component: BackofficeCrudProducts },   
+                               {path: 'articulo-noticias', component: ArticuloNoticias }
 ];
