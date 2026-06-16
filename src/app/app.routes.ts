@@ -10,6 +10,7 @@ import { Registrarse } from './components/registrarse/registrarse';
 import { Dashboard } from './components/dashboard/dashboard';
 import { InteligenciaArtificial1 } from './components/articulo-noticias/tecnologia/inteligencia-artificial/inteligencia-artificial1';
 import { CiberSeguridad1 } from './components/articulo-noticias/tecnologia/ciberseguridad/ciberseguridad1';
+import { CiberSeguridad2 } from './components/articulo-noticias/tecnologia/ciberseguridad/ciberseguridad2';
 import { Categoria } from './components/categoria/categoria';
 import { Login } from './components/login/login';
 import { BackofficeCrudProducts } from './components/backoffice-crud-products/backoffice-crud-products';
@@ -33,5 +34,6 @@ export const routes: Routes = [{ path: '', component: ProductList},
 {path: 'productosdestacados', component: ProductList },
       {path: 'backoffice-crud-products', component: BackofficeCrudProducts },   
                                {path: 'articulo-noticias-tecnologia-inteligencia-artificial1', component: InteligenciaArtificial1 },
-                                {path: 'articulo-noticias/tecnologia/ciberseguridad/ciberseguridad1', component: CiberSeguridad1 }
+                                {path: 'articulo-noticias/tecnologia/ciberseguridad/ciberseguridad1', component: CiberSeguridad1 },
+                               {path: 'articulo-noticias/tecnologia/ciberseguridad/ciberseguridad2', component: CiberSeguridad2 }
 ];
