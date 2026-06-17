@@ -57,6 +57,8 @@ itemsPerPage: number = 2; // cantidad de productos por página
   totalPages: number = 0;
 pages: number[] = [];
 
+  resultadosDeBusqueda:any[] = [];
+
   
   //la property total no está acá porque usamos un async pipe
 // con BehaviorSubject en el service para mostrar el Subtotal en la vista sin suscribirse 
@@ -98,7 +100,8 @@ ngOnInit(): void {
 
       this.productService.searchProducts(query).subscribe({
         next: data => {
-          this.products = data;
+         // this.products = data;
+          this.resultadosDeBusqueda=data;
           this.filteredProducts = [...this.products];
           this.currentPage = 1; // inicializa en la primera página
     this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
