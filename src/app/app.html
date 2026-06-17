@@ -183,18 +183,14 @@
   
   <ul *ngIf="paginatedProducts.length > 0" class="results-list">
     <li *ngFor="let product of paginatedProducts" class="result-item">
-     <!-- <img [src]="product.imageUrl" alt="{{ product.name }}" />
+      <img [src]="product.imageUrl" alt="{{ product.name }}" />
       <div class="product-info">
         <h4>{{ product.name }}</h4>
         <p>{{ product.price | currency:'ARS' }}</p>
         
-     -->
-      <img [src]="product.imageUrl" alt="{{ product.title}}" />
-      <div class="product-info">
-        <h4>{{ product.title }}</h4>
-        <p>{{ product.leadText  }}</p>
-        <p>{{ product.category  }}</p>
-        <p>{{ product.angularRoute  }}</p>
+     
+      
+        
 
         <button class="ver-detalle" (click)="openProductDetail(product)">
           Ver detalles
@@ -234,7 +230,8 @@
     </button>
   </div>
 
-<ul>
+  <!--antes del buscador hecho por gemini-->
+<!--<ul>
   <li *ngFor="let product of products" class="result-item">
       <img [src]="product.imageUrl" alt="{{ product.name }}" />
       <div class="product-info">
@@ -245,7 +242,24 @@
       </div>
   </li>
 </ul>
-</div> <!-- cierre de search-results -->
+  -->
+<h3>Resultados de la búsqueda </h3>
+<ul>
+  <li *ngFor="let product of products" class="result-item">
+      <img [src]="product.imageUrl" alt="{{ product.title }}" />
+      <div class="product-info">
+        <h4>{{ product.title }}</h4>
+        <p>{{ product.leadText  }}</p>
+        <p>{{ product.category  }}</p>
+        
+        
+    <a routerLink="/{{product.angularRoute}}">ruta path {{product.enlace}}</a> 
+      </div>
+  </li>
+</ul>
+
+  
+</div><!-- cierre de search-results -->
 
 
         <!--modal para detalles o descripción del producto-->
