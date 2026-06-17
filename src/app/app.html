@@ -252,8 +252,9 @@
         <p>{{ product.leadText }}</p>
         <p>{{ product.category }}</p>
         
-        
-    <a routerLink="/{{product.angularRoute}}">ruta path {{product.enlace}}</a> 
+        <!--no se coloca la barra al inicio de routerLink 
+        porque en la base ya se le agrego junto a la ruta-->
+    <a routerLink="{{product.angularRoute}}">ruta path {{product.angularRoute}}</a> 
       </div>
   </li>
 </ul>
