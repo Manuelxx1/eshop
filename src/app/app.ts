@@ -103,8 +103,8 @@ ngOnInit(): void {
           this.currentPage = 1; // inicializa en la primera página
     this.totalPages = Math.ceil(this.products.length / this.itemsPerPage);
             this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);// genera botones
-            alert('Resultados:'+ this.products.length+'TotalPages:'+this.totalPages);
-  alert('Pages:'+ this.pages);
+           // alert('Resultados:'+ this.products.length+'TotalPages:'+this.totalPages);
+ // alert('Pages:'+ this.pages);
 //calcular categorías aquí directamente 
 this.productscategories = [...new Set(this.products
       .filter(p => p.category && p.category.name)  // solo los que tienen categoría
@@ -116,6 +116,7 @@ this.productscategories = [...new Set(this.products
         },
         error: err => {
           console.error('Error al buscar productos', err);
+         alert('Error al buscar productos'+ err);
           this.products = [];
           this.loading = false;
           this.error = true;
