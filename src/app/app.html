@@ -245,7 +245,7 @@
   -->
 <h3>Resultados de la búsqueda </h3>
 <ul>
-  <li *ngFor="let product of products" class="result-item">
+  <li *ngFor="let product of resultadosDeBusqueda" class="result-item">
       <img [src]="product.imageUrl" alt="{{ product.title }}" />
       <div class="product-info">
         <h4>{{ product.title }}</h4>
