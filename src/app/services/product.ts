@@ -98,9 +98,9 @@ export interface BackofficeProduct {
 })
 export class Product {
 
-private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/products/search';
+//private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/products/search';
 
-
+private apiUrlBuscador = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/noticias/buscar';
 
   
   private apiUrlOrders = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/payments';
@@ -113,7 +113,8 @@ private apiUrl = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/api/produ
   
   // Método para buscar productos por término en el buscador principal 
   searchProducts(term: string | number): Observable<any[]> {
-  return this.http.get<any[]>(`${this.apiUrl}?name=${term}`);
+ // return this.http.get<any[]>(`${this.apiUrl}?name=${term}`);
+    return this.http.get<any[]>(`${apiUrlBuscador}?name=${term}`);
 }
 
   //formulario login método
