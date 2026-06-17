@@ -114,7 +114,8 @@ private apiUrlBuscador = 'https://portfoliowebbackendkoyeb-1-ulka.onrender.com/a
   // Método para buscar productos por término en el buscador principal 
   searchProducts(term: string | number): Observable<any[]> {
  // return this.http.get<any[]>(`${this.apiUrl}?name=${term}`);
-    return this.http.get<any[]>(`${this.apiUrlBuscador}?name=${term}`);
+    alert('query term em servicio'+term);
+      return this.http.get<any[]>(`${this.apiUrlBuscador}?name=${term}`);
 }
 
   //formulario login método
