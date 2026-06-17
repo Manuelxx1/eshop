@@ -109,11 +109,12 @@ ngOnInit(): void {
            // alert('Resultados:'+ this.products.length+'TotalPages:'+this.totalPages);
  // alert('Pages:'+ this.pages);
 //calcular categorías aquí directamente 
-this.productscategories = [...new Set(this.products
+/*this.productscategories = [...new Set(this.products
       .filter(p => p.category && p.category.name)  // solo los que tienen categoría
       .map(p => p.category.name)
   )
 ];
+     */
           this.loading = false;
           
         },
